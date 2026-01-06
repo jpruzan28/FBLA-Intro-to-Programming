@@ -1,4 +1,4 @@
-package VirtualPet;
+package properties;
 
 public class Food {
 	//fields
