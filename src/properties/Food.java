@@ -9,9 +9,9 @@ public class Food {
 	
 	//Food name defers from food type cuz food type is for different animals
 	private String foodName;
-	private String foodType;
+	private String[] foodType;
 	
-	private int health;
+	private int defHealth;
 	
 
 	//constructor
@@ -19,19 +19,16 @@ public class Food {
 		cost = 0;
 		enjoymentFactor = "";
 		foodName = "";
-		foodType = "";
-		health = 0;
+		foodType = new String[3];
+		defHealth = 10;
 		
 	}
 	
 	
 	
 	//Methods below
-	public void setHealth(int h) {
-		this.health = h;
-	}
 	public int getHealth() {
-		return health;
+		return defHealth;
 	}
 	
 	
@@ -47,19 +44,19 @@ public class Food {
 	
 	
 	
-	public void setFoodType(String f) {
-		this.foodType = f;
-	}
-	public String getFoodType() {
+	public String[] getFoodType() {
 		return foodType;
 	}
 	
 	
+	/**
+	 * Might be unnecessary for this method cuz
+	 * 
+	 */
+//	public void setCostFood(double c) {
+//		this.cost = c;
+//	}
 	
-	
-	public void setCostFood(double c) {
-		this.cost = c;
-	}
 	
 	public double getCostFood() {
 		return cost;	
