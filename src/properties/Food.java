@@ -50,7 +50,7 @@ public class Food {
 	
 	
 	/**
-	 * Might be unnecessary for this method cuz
+	 * Uncomment out if I'm wrong about commenting out this method
 	 * 
 	 */
 //	public void setCostFood(double c) {
