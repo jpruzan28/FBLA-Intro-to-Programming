@@ -9,7 +9,7 @@ public class Food {
 	
 	//Food name defers from food type cuz food type is for different animals
 	private String foodName;
-	private String[] foodType;
+	private String foodType;
 	
 	private int defHealth;
 	
@@ -19,7 +19,7 @@ public class Food {
 		cost = 0;
 		enjoymentFactor = "";
 		foodName = "";
-		foodType = new String[3];
+		foodType = "";
 		defHealth = 10;
 		
 	}
@@ -42,9 +42,12 @@ public class Food {
 	}
 	
 	
+	public void setFoodType() {
+		
+		
+	}
 	
-	
-	public String[] getFoodType() {
+	public String getFoodType() {
 		return foodType;
 	}
 	
