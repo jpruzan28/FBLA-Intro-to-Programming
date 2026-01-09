@@ -4,6 +4,7 @@ public class Pet {
 	//Fields from UML
 	private String name;
 	private int age;
+	private String petType;
 	
 	private int health;
 	private int hunger;
@@ -112,6 +113,7 @@ public class Pet {
 			
 			return toysStr;
 		}
+		
 	
 	
 }
