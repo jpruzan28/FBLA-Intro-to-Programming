@@ -4,7 +4,7 @@ public class Pet {
 	//Fields from UML
 	private String name;
 	private int age;
-	private String petType;
+	private String type;
 	
 	private int health;
 	private int hunger;
@@ -16,8 +16,9 @@ public class Pet {
 	
 	
 	//Constructor maybe???
-	public Pet() {
-		name = "";
+	public Pet(String name, String type) {
+		this.name = name;
+		this.type = type;
 		age = 0;
 		health = 10;
 		hunger = 10;
@@ -40,20 +41,41 @@ public class Pet {
 		age = newAge;
 	}
 	
+	// Keeps fields inbounds of 10
 	public void setHealth(int newHealth) {
-		health = newHealth;
+		if(newHealth > 10) {
+			health = 10;
+		}
+		else {
+			health = newHealth;
+		}
 	}
 	
 	public void setHunger(int newHunger) {
-		hunger = newHunger;
+		if(newHunger > 10) {
+			hunger = 10;
+		}
+		else {
+			hunger = newHunger;
+		}
 	}
 	
 	public void setEmotion(int newEmotion) {
-		emotion = newEmotion;
+		if(newEmotion > 10) {
+			emotion = 10;
+		}
+		else {
+			emotion = newEmotion;
+		}
 	}
 	
 	public void setRest(int newRest) {
-		rest = newRest;
+		if(newRest > 10) {
+			rest = 10;
+		}
+		else {
+			rest = newRest;
+		}
 	}
 	
 	public void setMoney(double newMoney) {
@@ -72,6 +94,10 @@ public class Pet {
 	// Getters
 		public String getName() {
 			return name;
+		}
+		
+		public String getType() {
+			return type;
 		}
 		
 		public int getAge() {
