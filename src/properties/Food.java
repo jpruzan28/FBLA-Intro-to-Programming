@@ -36,6 +36,7 @@ public class Food {
 	}
 
 	// Increases pet hunger field based on which food they chose
+	// Affect emotion
 	public void feedPet(Pet p) {
 		int currentHunger = p.getHunger();
 		

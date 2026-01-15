@@ -27,6 +27,8 @@ public class Health {
 	 * the certain amount of nutrients the user chooses from the food class to a totalHunger integer (it's just called 
 	 * hunger in the Pet class). Then, we take that totalHunger integer and put it in this method, which will add
 	 * to totalHealth!*/
+	
+	// Affect emotion when health goes down
 	public void addHungerToHealth(int totalHunger) { 
 		if (totalHunger<=4) {
 			totalHealth+=1;
