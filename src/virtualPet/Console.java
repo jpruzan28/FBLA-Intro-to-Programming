@@ -6,7 +6,9 @@ import java.util.Scanner;
 public class Console {
 	Pet userPet;
 	Scanner scan;
-	
+	//ELLIE: we should probably have a loop for console that's always asking what action
+	// the user wants to make and then does the change, so it's like pressing a button
+	// but you're writing the action you want to do
 	public Console () {
 		scan = new Scanner(System.in);
 		

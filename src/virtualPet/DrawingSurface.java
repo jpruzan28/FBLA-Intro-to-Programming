@@ -18,6 +18,7 @@ public class DrawingSurface {
  * - Rest (Activities):
  * - Clean (Activities):
  * - Health Check (Health/Money) - Vet visits:
+ * Ellie: we should print the reminder to go the the vet in the console/main class probably
  * Reactions - Based on emotion and health level:
  * Total expenses (Money) - vet visits, food cost, toy cost:
  * Making money - tasks, bonus after x amount of time:
