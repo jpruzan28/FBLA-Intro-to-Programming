@@ -10,6 +10,13 @@ public class Money {
 	private String[] availableFoods;     
 	private double[] foodPrices;         
 	
+	
+	// Temp fields
+	private String[] catFood;
+	private String[] dogFood;
+	private String[] fishFood;
+	
+	
 	public Money() {
 		availableToys = new String[]{"Used ball", "A Rubber Chew Bone", "Guardian Plus Bear", "Enchanted Chew Wand", "Ecstatic Frizzby", "Golden Bone", 
 				"Drift Ball", "Shell Hideout", "Bioluminescent Bubble Machine", "Robotic Friend", "Ancient Calming Bell", "Platinum Speaker For Music",
@@ -24,6 +31,13 @@ public class Money {
 				"Flake Feast", "Algae Crisps", "Shrimp Pellets", "Spirulina Flakes", "Caviar Pearls", "Deep Abyss Infusion",
 				"Mixed Kibble Mix", "Veggie Medley", "Turkey & Cranberry Treats", "Expensive Milk","Crunchy Bluefin Tuna Sushi", "One of a kind Lamb Delight" };
 		foodPrices = new double[] {10.00};
+		
+		
+		
+		catFood = new String[]{"cFood1", "cFood2", "cFood3"};
+		dogFood = new String[]{"dFood1", "dFood2", "dFood3"};
+		fishFood = new String[]{"fFood1", "fFood2", "fFood3"};
+
 		
 		
 		// Vet visits
@@ -47,6 +61,35 @@ public class Money {
 		double m = p.getMoney();
 		
 		
+	}
+	
+	
+	// FAKE GETTERS
+	public String getCFood() {
+		String food = "";
+		for(int i = 0; i < catFood.length; i++) {
+			food += catFood[i];
+		}
+		
+		return food;
+	}
+	
+	public String getDFood() {
+		String food = "";
+		for(int i = 0; i < dogFood.length; i++) {
+			food += dogFood[i];
+		}
+		
+		return food;
+	}
+	
+	public String getFFood() {
+		String food = "";
+		for(int i = 0; i < fishFood.length; i++) {
+			food += fishFood[i];
+		}
+		
+		return food;
 	}
 	
 	

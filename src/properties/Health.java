@@ -90,3 +90,7 @@ public class Health {
 		return totalHealth;
 	}
 }
+
+// Add reminders to go to the vet
+// Vet visit action is in Money class and will call a method in this class.
+

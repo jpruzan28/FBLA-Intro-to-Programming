@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 
 import java.util.Scanner;
 
@@ -6,7 +6,7 @@ public class main {
 
 	public static void main(String[] args) {
 		
-		
+		Console cons = new Console();
 		
 	}
 }
