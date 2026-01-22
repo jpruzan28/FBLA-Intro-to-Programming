@@ -52,10 +52,11 @@ public class Health {
 	public void addPlayToHealth(int totalPlay) {
 		if (totalHealth <= 2) {
 		} else {
-		if (totalPlay <= 4) {
-			totalHealth += 1;
-		} else {
-			totalHealth += 2;
+			if (totalPlay <= 4) {
+				totalHealth += 1;
+			} else {
+				totalHealth += 2;
+			}
 		}
 	}
 
