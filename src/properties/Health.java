@@ -34,18 +34,24 @@ public class Health {
 
 	// Affect emotion when health goes down
 	public void addHungerToHealth(int totalHunger) {
-		if (totalHunger <= 4) {
-			totalHealth += 1;
+		if (totalHealth <= 2) {
 		} else {
-			totalHealth += 2;
+			if (totalHunger <= 4) {
+				totalHealth += 1;
+			} else {
+				totalHealth += 2;
+			}
 		}
 	}
 
 	public void addRestToHealth(int totalRest) {
-		if (totalRest <= 4) {
-			totalHealth += 1;
+		if (totalHealth <= 2) {
 		} else {
-			totalHealth += 2;
+			if (totalRest <= 4) {
+				totalHealth += 1;
+			} else {
+				totalHealth += 2;
+			}
 		}
 	}
 
@@ -68,6 +74,12 @@ public class Health {
 			} else {
 				totalHealth += 2;
 			}
+		}
+	}
+	
+	public void remindVetVisit() {
+		if (totalHealth <= 2) {
+			System.out.println("URGENT: You need to bring your pet to the vet!");
 		}
 	}
 
