@@ -51,8 +51,10 @@ public class Money {
 		// Vet visits
 	}
 	
-	// Put in drawing surface
+	// Put in drawing surface/console
 	public boolean checkIfSelec() {
+		
+		
 		return false;
 		
 	}
