@@ -55,7 +55,7 @@ public class Activities {
 	}
 	
 	public void clean() {
-		pet.setHygeine(10);
+		pet.setHygiene(10);
 	}
 	
 	
