@@ -8,12 +8,15 @@ public class Console {
 	Pet userPet;
 	Scanner scan;
 	Money money;
+	
+	Activities activity;
 	//ELLIE: we should probably have a loop for console that's always asking what action
 	// the user wants to make and then does the change, so it's like pressing a button
 	// but you're writing the action you want to do
 	public Console () {
 		money = new Money();
 		scan = new Scanner(System.in);
+		
 		
 		System.out.print("What type of pet would you like? Type cat, dog, or fish: ");
 		String type = scan.nextLine();
@@ -22,6 +25,8 @@ public class Console {
 		String name = scan.nextLine();
 		
 		userPet = new Pet(name,type);
+		activity = new Activities(userPet);
+
 		
 		// Repeats in a loop in order for action options to continue popping up
 		System.out.println("Age: 0 \nHealth: 10 \nHunger: 10 \nEmotion: 10 \nRest: 10 \n");
@@ -72,13 +77,16 @@ public class Console {
 			act.sleep(sleepAmount);
 		}
 		else if(action == 3) {
-			// Activities add play();
+			System.out.print("What toy would you like to play with? " + userPet.getToys() + ": ");
+			String toy = scan.nextLine();
+			
+			activity.play(toy);
 		}
 		else if(action == 4) {
 			// Money add vetVisit();
 		}		
 		else if(action == 5) {
-			// Activities add clean();
+			activity.clean();
 		}
 		else if(action == 6) {
 			// Money add buyToy();

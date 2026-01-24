@@ -10,6 +10,7 @@ public class Pet {
 	private int hunger;
 	private int emotion;
 	private int rest;
+	private int hygiene;
 	
 	private String[] toys;
 	private double money;
@@ -24,6 +25,7 @@ public class Pet {
 		hunger = 10;
 		emotion = 10;
 		rest = 10; 
+		hygiene = 10;
 		
 		toys = new String[5];
 		money = 100.00;
@@ -82,6 +84,10 @@ public class Pet {
 		money = newMoney;
 	}
 	
+	public void setHygiene(int newHygeine) {
+		hygiene = newHygeine;
+	}
+	
 	// Puts toy into next available spot in toys array
 	public void setToys(String newToy) {
 		for(int i = 0; i < toys.length; i++) {
@@ -112,7 +118,7 @@ public class Pet {
 			return hunger;
 		}
 		
-		public int setEmotion() {
+		public int getEmotion() {
 			return emotion;
 		}
 		
@@ -124,8 +130,12 @@ public class Pet {
 			return money;
 		}
 		
+		public int getHygiene() {
+			return hygiene;
+		}
+		
 		// Returns the toys array in a string
-		public String getToys(String newToy) {
+		public String getToys() {
 			
 			String toysStr = "";
 			for(int i = 0; i < toys.length; i++) {

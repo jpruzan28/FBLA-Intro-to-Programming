@@ -17,21 +17,47 @@ public class Activities {
 		else if(amount == 2) {
 			pet.setRest(currentRest + 5);
 		}
-		if(amount == 5) {
+		else if(amount == 5) {
 			pet.setRest(currentRest + 8);
 		}
 	}
 	
-	public void play() {
+	public void play(String toy) {
+		String[] lowEnergy = null;
+		String[] midEnergy = null;
+		String[] highEnergy = null;
 		
+		int energy = 0;
+		
+		for(String t: lowEnergy) {
+			if(toy.equals(t)) {
+				energy = 3;
+			}
+		}
+		
+		if(energy != 3) {
+			for(String t: midEnergy) {
+				if(toy.equals(t)) {
+					energy = 5;
+				}
+			}
+		}
+		else if(energy != 3 && energy != 5) {
+			for(String t: highEnergy) {
+				if(toy.equals(t)) {
+					energy = 8;
+				}
+			}
+		}
+		
+		pet.setEmotion(pet.getEmotion()+energy);
+		pet.setRest(pet.getRest()-energy);
 	}
 	
 	public void clean() {
-		
+		pet.setHygeine(10);
 	}
 	
 	
 	
-	// Clean or dirty or smth
-
 }
