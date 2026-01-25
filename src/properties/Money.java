@@ -5,11 +5,39 @@ import java.util.HashMap;
 import pets.Pet;
 
 
+// Health Gain Factor is 1-4
+// 1 --> 0 - 10 dollars
+// 2 --> 11 - 35 dollars
+// 3 --> 36 - 70 dollars
+// 4 --> 70 plus dollars
+
+//Enjoyment Factor is 1-4
+//1 --> 0 - 8 dollars
+//2 --> 9 - 8 dollars
+//3 --> 9 - 70 dollars
+//4 --> 70 plus dollars
+
+
+
+
+// I understand you can get the same health benefit/enjoyment with a low price for some foods and toys, but I think it teaches financial responsibility to the user,
+// Can be fixed later tho
+
 public class Money {
 	
 	private String[] availableToysD;  
 	private String[] availableToysF;
 	private String[] availableToysC;
+	
+	private Food[] d;  
+	private Food[] fi;
+	private Food[] ca;
+	
+	
+	private Toys[] dog;
+	private Toys[] fish;
+	private Toys[] cat;
+	
 	
 	
 	private double[][] toyPrices;   
@@ -17,31 +45,27 @@ public class Money {
 
 
 	public Money() {
-		availableToysD = new String[]{"Used ball", "A Rubber Chew Bone", "Guardian Plus Bear", "Enchanted Chew Wand", "Ecstatic Frizzby", "Golden Bone"};
-		availableToysF = new String[]{"Drift Ball", "Shell Hideout", "Bioluminescent Bubble Machine", "Robotic Friend", "Ancient Calming Bell", "Platinum Speaker For Music"};
-		availableToysC = new String[]{"Plain Sock", "Jingle Mouse", "Corner Scratch Post", "Laser Pointer", "Quarter Zip", "Legendary Airpods"};
-		toyPrices = new double[][] {{3.00, 4.55, 10.00, 18.00, 40.00, 70.00},
-				{2.55, 11.00, 15.00, 35.50, 75.00, 100.00}, 
-				{3.00, 6.00, 15.00, 30.00, 50.00, 120.00}};
 		
-		/*HashMap<String, Integer> foods = new Hashmap<>();
-		foods.put("Used ball", 3.00);*/
+		d = new Food[] {new Food("Kibble Crunch", "Dog", 10.00, 1), new Food("Beef & Veggie Mix", "Dog", 20.00, 2), new Food("Chicken Feast", "Dog", 30.00, 2), 
+				new Food("Salmon Delight", "Dog", 50.00, 3), new Food("Lamb and Rice Bowl", "Dog", 70.00, 3), new Food("Golden Chicken Nuggets", "Dog", 100.00, 4)};
 		
-		// Find a way to differentiate food for different animals
-		// Split up into seperate arrays for animals
-		dogFood = new String[] {"Kibble Crunch", "Beef & Veggie Mix", "Chicken Feast", "Salmon Delight", "Lamb & Rice Bowl", "Golden Chicken Nuggets"};
-		fishFood = new	String[] {"Flake Feast", "Algae Crisps", "Shrimp Pellets", "Spirulina Flakes", "Caviar Pearls", "Deep Abyss Infusion"};
-		catFood = new String [] {"Mixed Kibble Mix", "Veggie Medley", "Turkey & Cranberry Treats", "Expensive Milk","Crunchy Bluefin Tuna Sushi", "One of a kind Lamb Delight" };
+		fi = new Food[] {new Food("Flakes", "Fish", 10.00, 1), new Food("Algae Crisps", "Fish", 20.00, 2), new Food("Shrimp Pellets", "Fish", 30.00, 2), 
+				new Food("Spirulina Flakes", "Fish", 50.00, 3), new Food("Caviar Pearls", "Fish", 70.00, 3), new Food("Deep Abyss Infusion", "Fish", 100.00, 4)};
 		
-		// !!!!!!!!!
-		foodPrices = new double[] {10.00};
-		
-		
-		//dogFood = new Food[] {new Food("Kibble Crunch", "Dog", 10.00, 1), new Food("Beff...", "Dog", 10, 2), new Food..}
+		ca = new Food[] {new Food("5 Fish Kibble", "Cat", 10.00, 1), new Food("Veggie Medley", "Cat", 20.00, 2), new Food("Expensive Melk", "Cat", 30.00, 2), 
+				new Food("Turkey & Crannberry Treats", "Cat", 50.00, 3), new Food("Bluefin Tuna Steak", "Cat", 70.00, 3), new Food("A Golden Rat", "Cat", 100.00, 4)};
 		
 		
 		
-		// Vet visits
+		dog = new Toys[] {new Toys("Used Ball", "Dog", 4.00, 1), new Toys("A Rubber Chew Bone", "Dog", 8.00, 1), new Toys("Enchanted Chew Wand", "Dog", 25.00, 2), new Toys("Guardian Plus bear", "Dog", 50.00, 2), 
+				new Toys("Dog God Worship Altar", "Dog", 70.00, 3), new Toys("The Goldenest Bone", "Dog", 90.00, 4)};
+		
+		fish = new Toys[] {new Toys("Drift Ball", "Fish", 4.00, 1), new Toys("Shell Hideout", "Fish", 8.00, 1), new Toys("Biolume Bubble Machine", "Fish", 25.00, 2), new Toys("Robotic Friend", "Fish", 50.00, 2), 
+				new Toys("Ancient Calming Bell", "Fish", 70.00, 3), new Toys("Platinum Speaker For Music", "Fish", 90.00, 4)};
+		
+		cat = new Toys[] {new Toys("Plain Kitty Sock", "Cat", 4.00, 1), new Toys("Jingle Mouse", "Cat", 8.00, 1), new Toys("Corner Scratch Post", "Cat", 25.00, 2), new Toys("Laser Pointer", "Cat", 50.00, 2), 
+				new Toys("Quarter Zip", "Cat", 70.00, 3), new Toys("Legendary Airpods", "Cat", 90.00, 4)};
+
 	}
 	
 	// Put in drawing surface/console
@@ -52,16 +76,20 @@ public class Money {
 		
 	}*/
 	
-	public void buyFood(Food f, Pet p, String type) {
+	public void buyFood(Food f, Pet p) {
 		double m = p.getMoney();
+		
+		
 				
-		p.setMoney(m-f.getCost());
+		p.setMoney(m - f.getPrice());
 		
 		
 	}
 	
-	public void buyToys(Pet p) {
+	public void buyToys(Toys t, Pet p) {
 		double m = p.getMoney();
+		
+		p.setMoney(m - t.getPrice());
 		
 		
 	}

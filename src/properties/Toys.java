@@ -4,10 +4,10 @@ public class Toys {
 	
 	private String name;
 	private String type;
-	private int price;
+	private double price;
 	private int version;
 	
-	public Toys(String name, String type, int price, int version) {
+	public Toys(String name, String type, double price, int version) {
 		this.name = name;
 		this.type = type;
 		this.price = price;
@@ -22,7 +22,7 @@ public class Toys {
 		return type;
 	}
 	
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	
