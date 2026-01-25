@@ -95,34 +95,6 @@ public class Money {
 	}
 	
 	
-	// FAKE GETTERS
-	public String getCFood() {
-		String food = "";
-		for(int i = 0; i < catFood.length; i++) {
-			food += catFood[i];
-		}
-		
-		return food;
-	}
-	
-	public String getDFood() {
-		String food = "";
-		for(int i = 0; i < dogFood.length; i++) {
-			food += dogFood[i];
-		}
-		
-		return food;
-	}
-	
-	public String getFFood() {
-		String food = "";
-		for(int i = 0; i < fishFood.length; i++) {
-			food += fishFood[i];
-		}
-		
-		return food;
-	}
-	
 	
 	// VET VISIT METHOD
 	// $20
