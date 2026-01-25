@@ -23,6 +23,12 @@ public class Activities {
 	}
 	
 	public void play(String toy) {
+		// Low energy = $0-19
+		// Mid energy = $20-35
+		// High energy = $36-120
+		
+		// Add type distinction
+		
 		String[] lowEnergy = null;
 		String[] midEnergy = null;
 		String[] highEnergy = null;

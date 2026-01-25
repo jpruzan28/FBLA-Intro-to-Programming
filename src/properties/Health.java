@@ -3,10 +3,12 @@
 *         3. emotion affects final look/reaction (the pet's facial expressions) 
 **/
 package properties;
+import pets.Pet;
 
 public class Health {
 	// Fields
 	private int totalHealth;
+	private Pet pet;
 	/* I don't think we need these? */
 
 //	private int totalHunger; 
@@ -15,11 +17,12 @@ public class Health {
 //	private int totalClean;
 
 	// Constructors
-	public Health() {
+	public Health(Pet pet) {
+		this.pet = pet;
 		// Out of 10 because 5 factors, each one adds 1 health if 1-4 and adds 2 health
 		// if 5-10.
 		// Maybe I can use an array to do this?
-		totalHealth = 10;
+		totalHealth = pet.getHealth();
 
 	}
 
