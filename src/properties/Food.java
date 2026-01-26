@@ -44,26 +44,32 @@ public class Food {
 		int currentHunger = p.getHunger();
 		
 		if(checkType(p)) {
-			if(version == 1) {
+			if(version == 4) {
 				p.setHunger(currentHunger+8);
 			}
-			else if(version == 2) {
+			else if(version == 3) {
 				p.setHunger(currentHunger+6);
 			}
-			else {
+			else if(version == 2){
 				p.setHunger(currentHunger+4);
+			}
+			else {
+				p.setHunger(currentHunger+2);
 			}
 		}
 		// Increases half if wrong type
 		else if(!checkType(p)) {
-			if(version == 1) {
+			if(version == 4) {
 				p.setHunger(currentHunger+4);
 			}
-			else if(version == 2) {
+			else if(version == 3) {
 				p.setHunger(currentHunger+3);
 			}
-			else {
+			else if(version == 2){
 				p.setHunger(currentHunger+2);
+			}
+			else {
+				p.setHunger(currentHunger+1);
 			}
 		}
 	}

@@ -22,42 +22,64 @@ public class Activities {
 		}
 	}
 	
-	public void play(String toy) {
-		// Low energy = $0-19
-		// Mid energy = $20-35
-		// High energy = $36-120
+	public void play(Toys toy, Pet p) {
 		
-		// Add type distinction
+		int version = toy.getVersion();
+		int currentEmotion = p.getEmotion();
+		int currentHunger = p.getHunger();
+		int currentRest = p.getRest();
+		int currentHygiene = p.getHygiene();
 		
-		String[] lowEnergy = null;
-		String[] midEnergy = null;
-		String[] highEnergy = null;
+		// Hunger and rest --
+		int hrFactor;
+		// Emotion and hygiene ++
+		int ehFactor;
 		
-		int energy = 0;
-		
-		for(String t: lowEnergy) {
-			if(toy.equals(t)) {
-				energy = 3;
+		if(p.getType().equals(toy.getType())) {
+			
+			if(version == 1) {
+				hrFactor = 3;
+				ehFactor = 2;
+			}
+			else if(version == 2) {
+				hrFactor = 5;
+				ehFactor = 4;
+			}
+			else if(version == 3){
+				hrFactor = 7;
+				ehFactor = 6;
+			}
+			else {
+				hrFactor = 8;
+				ehFactor = 8;
 			}
 		}
 		
-		if(energy != 3) {
-			for(String t: midEnergy) {
-				if(toy.equals(t)) {
-					energy = 5;
-				}
+		else {
+			if(version == 1) {
+				hrFactor = 2;
+				ehFactor = 1;
 			}
-		}
-		else if(energy != 3 && energy != 5) {
-			for(String t: highEnergy) {
-				if(toy.equals(t)) {
-					energy = 8;
-				}
+			else if(version == 2) {
+				hrFactor = 3;
+				ehFactor = 2;
+			}
+			else if(version == 3){
+				hrFactor = 4;
+				ehFactor = 3;
+			}
+			else {
+				hrFactor = 4;
+				ehFactor = 4;
 			}
 		}
 		
-		pet.setEmotion(pet.getEmotion()+energy);
-		pet.setRest(pet.getRest()-energy);
+		p.setEmotion(currentEmotion + ehFactor);
+		p.setHunger(currentHunger - hrFactor);
+		p.setRest(currentRest - hrFactor);
+		p.setHygiene(currentHygiene + ehFactor);
+		
+		
 	}
 	
 	public void clean() {
