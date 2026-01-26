@@ -9,19 +9,12 @@ public class Health {
 	// Fields
 	private int totalHealth;
 	private Pet pet;
-	/* I don't think we need these? */
-
-//	private int totalHunger; 
-//	private int totalRest;
-//	private int totalPlay;
-//	private int totalClean;
 
 	// Constructors
 	public Health(Pet pet) {
 		this.pet = pet;
 		// Out of 10 because 5 factors, each one adds 1 health if 1-4 and adds 2 health
 		// if 5-10.
-		// Maybe I can use an array to do this?
 		totalHealth = pet.getHealth();
 
 	}
@@ -69,25 +62,27 @@ public class Health {
 		}
 	}
 
-	public void addCleanToHealth(int totalClean) { //can someone tell me why the helly this error exists
+	public void addCleanToHealth(int totalHygiene) { 
 		if (totalHealth <= 2) { //if that's true, the user can only improve health by going to vet
 		} else {
-			if (totalClean <= 4) {
+			if (totalHygiene <= 4) {
 				totalHealth += 1;
 			} else {
 				totalHealth += 2;
 			}
 		}
 	}
+
 	
-	public void remindVetVisit() {
+	public void remindVetVisit() { //maybe put this in future time class, checks every time health is changed
 		if (totalHealth <= 2) {
 			System.out.println("URGENT: You need to bring your pet to the vet!");
 		}
 	}
+	
 
-	/*
-	 * I was thinking for required vet visits we should 1) have them whenever the health bar
+	/* vet visits reminder when: 
+	 * 1) have them whenever the health bar
 	 * is really low, like at 1 or 2, and then the user NEEDS to bring it to the vet
 	 * or else nothing the user does can make its health go up, which is like when a
 	 * pet is under a bad condition over time it gets irreversible damage and needs 
@@ -99,13 +94,12 @@ public class Health {
 	 * smth
 	 */
 
-
-	// getter
-	public int getTotalHealth() {
-		return totalHealth;
+	public void updateHealth(Pet p) {
+		p.setHealth(totalHealth);
 	}
+	
 }
 
-// Add reminders to go to the vet
+
 // Vet visit action is in Money class and will call a method in this class.
 

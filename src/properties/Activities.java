@@ -86,6 +86,5 @@ public class Activities {
 		pet.setHygiene(10);
 	}
 	
-	
-	
+
 }

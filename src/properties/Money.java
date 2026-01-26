@@ -93,8 +93,12 @@ public class Money {
 		
 		
 	}
-	
-	
+
+	public void vetVisit(Pet p) {
+		double m = p.getMoney();
+		p.setHealth(10);
+		p.setMoney(m -= 20);
+	}
 	
 	// VET VISIT METHOD
 	// $20
