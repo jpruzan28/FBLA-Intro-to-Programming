@@ -1,4 +1,4 @@
-
+package VirtualPet;
 
 import java.util.Scanner;
 

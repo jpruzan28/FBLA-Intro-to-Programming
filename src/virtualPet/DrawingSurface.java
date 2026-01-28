@@ -1,5 +1,8 @@
-package virtualPet;
+package VirtualPet;
+
 import pets.Pet;
+import javax.swing.*;
+
 
 public class DrawingSurface {
 	Pet userPet;
