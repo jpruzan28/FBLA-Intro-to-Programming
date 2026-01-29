@@ -42,6 +42,7 @@ public class Food {
 	// Affect emotion
 	public void feedPet(Pet p) {
 		int currentHunger = p.getHunger();
+		int currentHealth = p.getHealth();
 		
 		if(checkType(p)) {
 			if(version == 4) {
@@ -61,15 +62,19 @@ public class Food {
 		else if(!checkType(p)) {
 			if(version == 4) {
 				p.setHunger(currentHunger+4);
+				p.setHealth(currentHunger-4);
 			}
 			else if(version == 3) {
 				p.setHunger(currentHunger+3);
+				p.setHealth(currentHunger-3);
 			}
 			else if(version == 2){
 				p.setHunger(currentHunger+2);
+				p.setHealth(currentHunger-2);
 			}
 			else {
 				p.setHunger(currentHunger+1);
+				p.setHealth(currentHunger-1);
 			}
 		}
 	}
@@ -90,6 +95,5 @@ public class Food {
 	public int getVersion() {
 		return version;
 	}
-	// Add method to decrease health if wrong food type
 }
 

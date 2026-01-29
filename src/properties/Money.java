@@ -79,10 +79,9 @@ public class Money {
 	public void buyFood(Food f, Pet p) {
 		double m = p.getMoney();
 		
-		
-				
 		p.setMoney(m - f.getPrice());
 		
+		f.feedPet(p);
 		
 	}
 	
@@ -90,8 +89,6 @@ public class Money {
 		double m = p.getMoney();
 		
 		p.setMoney(m - t.getPrice());
-		
-		
 	}
 
 	public void vetVisit(Pet p) {

@@ -69,12 +69,12 @@ public class Console {
 
 		}
 		else if(action == 2) {
-			Activities act = new Activities(userPet);
+			//Activities act = new Activities(userPet);
 			
 			System.out.println("How much would you like your pet to sleep? 1, 2, or 5 hours: ");
 			int sleepAmount = scan.nextInt(); 
 			
-			act.sleep(sleepAmount);
+			activity.sleep(sleepAmount);
 		}
 		else if(action == 3) {
 			System.out.print("What toy would you like to play with? " + userPet.getToys() + ": ");
