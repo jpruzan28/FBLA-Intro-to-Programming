@@ -10,7 +10,7 @@ import java.awt.event.*;
 
 public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 	Pet userPet;
-	public JButton feed, rest, clean, vet, play, store;
+	public JButton[] buttons;//feed, rest, clean, vet, play, store;
 
 	
 	public DrawingSurface() {
@@ -20,8 +20,25 @@ public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 		frame.setBackground(Color.WHITE);
 		
 		Bar bars = new Bar();
-		Button buttons = new Button();
-		//buttons();
+		//Button buttons = new Button();
+		buttons = createButtons();
+		
+		for(int i = 0; i < buttons.length; i++) {
+			add(buttons[i]);
+		}
+	}
+	
+	public JButton[] createButtons() {
+		JButton feed = new JButton("Feed");
+		JButton rest = new JButton("Rest");
+		JButton clean = new JButton("Clean");
+		JButton vet = new JButton("Vet");
+		JButton play = new JButton("Play");
+		JButton store = new JButton("Store");
+		
+		JButton[] buttons = new JButton[] {feed,rest,clean,vet,play,store};
+
+		return buttons;
 	}
 	/*
 	public void buttons() {
