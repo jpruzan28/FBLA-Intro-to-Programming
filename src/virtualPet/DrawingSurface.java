@@ -1,13 +1,17 @@
-package VirtualPet;
+package virtualPet;
 
 import pets.Pet;
 import DrawingSurface.*;
 import java.awt.Color;
 import javax.swing.*;
+import java.awt.event.*;
 
 
-public class DrawingSurface extends JFrame{
+
+public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 	Pet userPet;
+	public JButton feed, rest, clean, vet, play, store;
+
 	
 	public DrawingSurface() {
 		JFrame frame = new JFrame("Cost Of Care"); //idk what the difference between container and jframe is
@@ -17,16 +21,68 @@ public class DrawingSurface extends JFrame{
 		
 		Bar bars = new Bar();
 		Button buttons = new Button();
+		//buttons();
 	}
-	
-	
-	public static void main(String[] args) {
-	    DrawingSurface w = new DrawingSurface();
-	    w.setBounds(300, 300, 400, 400);
-	    w.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	    w.setVisible(true);
+	/*
+	public void buttons() {
+
+		feed = new JButton("Feed"); 
+		rest = new JButton("Rest");
+		clean = new JButton("Clean");
+		vet = new JButton("Vet");
+		play = new JButton("Play");
+		store = new JButton("Store");
+
+		
+		feed.addActionListener(this);
+		rest.addActionListener(this);
+		clean.addActionListener(this);
+		vet.addActionListener(this);
+		play.addActionListener(this);
+		store.addActionListener(this);
+
+	  //panel.add(feed); add panel later(?) panel.add(feed);
+	  
+	  
+		add(feed);
+		add(rest);
+		add(clean);
+		add(vet);
+		add(play);
+		add(store);
+
 		
 	}
+	
+	public void actionPerformed(ActionEvent e) {
+		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
+    
+		if(button == feed) {
+			System.out.println("Feeding");
+		}
+		else if(button == rest) {
+			System.out.println("Resting");
+
+		}
+		else if(button == clean) {
+			System.out.println("Cleaning");
+	
+		}
+		else if(button == vet) {
+			System.out.println("Veting");
+
+		}
+		else if(button == play) {
+			System.out.println("Playing");
+
+		}
+		else if(button == store) {
+			System.out.println("Buying");
+
+		}
+	}*/
+
+	
 }
 // 2 Drawing Surfaces, 1 with user interaction(buttons/ store), 1 without user interaction(bars, pet)
 
