@@ -1,4 +1,4 @@
-package virtualPet;
+package VirtualPet;
 
 import DrawingSurface.*;
 
