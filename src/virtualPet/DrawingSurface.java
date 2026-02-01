@@ -5,6 +5,9 @@ import DrawingSurface.*;
 import java.awt.Color;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Insets;
 
 
 
@@ -18,15 +21,20 @@ public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 		frame.setSize(1000, 500); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBackground(Color.WHITE);
+		frame.setLayout(new FlowLayout());
 		
 		Bar bars = new Bar();
 		//Button buttons = new Button();
 		buttons = createButtons();
 		
 		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setMargin(new Insets(10,10,10,10));
+			
 			add(buttons[i]);
+			
 		}
 	}
+	
 	
 	public JButton[] createButtons() {
 		JButton feed = new JButton("Feed");
@@ -36,7 +44,10 @@ public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 		JButton play = new JButton("Play");
 		JButton store = new JButton("Store");
 		
+		
 		JButton[] buttons = new JButton[] {feed,rest,clean,vet,play,store};
+
+		store.setPreferredSize(new Dimension(10,50));
 
 		return buttons;
 	}

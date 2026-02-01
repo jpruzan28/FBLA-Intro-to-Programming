@@ -3,6 +3,7 @@ import properties.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+/*
 public class Button extends JPanel implements ActionListener {
 	public JButton feed, rest, clean, vet, play, store;
 	
@@ -76,3 +77,4 @@ public class Button extends JPanel implements ActionListener {
 		}
 	}
 }
+*/
