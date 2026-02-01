@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 
 
@@ -14,6 +15,10 @@ public class Button extends JPanel implements ActionListener {
 	public Button() {
 		// Creates the buttons
 		
+	    JPanel panel = new JPanel(); //This is the Panel that sections off things. 
+	    panel.setLayout(new GridLayout(6, 1, 10, 10)); //This affects how things look INSIDE the panel; buttons, etc.
+	    panel.setPreferredSize(new Dimension(200, 455)); //when set length to 500, it doesn't fit in frame for some reason :c
+	    panel.setBackground(Color.BLUE);
 		
 		feed = new JButton("Feed"); 
 		rest = new JButton("Rest");
@@ -22,12 +27,12 @@ public class Button extends JPanel implements ActionListener {
 		play = new JButton("Play");
 		store = new JButton("Store");
 		
-		feed.setPreferredSize(new Dimension(100,50));
-		rest.setPreferredSize(new Dimension(100,50));
-		clean.setPreferredSize(new Dimension(100,50));
-		vet.setPreferredSize(new Dimension(100,50));
-		play.setPreferredSize(new Dimension(100,50));
-		store.setPreferredSize(new Dimension(100,50));
+//		feed.setPreferredSize(new Dimension(100,50));
+//		rest.setPreferredSize(new Dimension(100,50));
+//		clean.setPreferredSize(new Dimension(100,50));
+//		vet.setPreferredSize(new Dimension(100,50));
+//		play.setPreferredSize(new Dimension(100,50));
+//		store.setPreferredSize(new Dimension(100,50));
 		
 		feed.addActionListener(this);
 		rest.addActionListener(this);
