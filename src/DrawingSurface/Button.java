@@ -1,9 +1,13 @@
 package DrawingSurface;
 import properties.*;
+import java.awt.Color;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Insets;
 
-/*
+
 public class Button extends JPanel implements ActionListener {
 	public JButton feed, rest, clean, vet, play, store;
 	
@@ -18,6 +22,12 @@ public class Button extends JPanel implements ActionListener {
 		play = new JButton("Play");
 		store = new JButton("Store");
 		
+		feed.setPreferredSize(new Dimension(100,50));
+		rest.setPreferredSize(new Dimension(100,50));
+		clean.setPreferredSize(new Dimension(100,50));
+		vet.setPreferredSize(new Dimension(100,50));
+		play.setPreferredSize(new Dimension(100,50));
+		store.setPreferredSize(new Dimension(100,50));
 		
 		feed.addActionListener(this);
 		rest.addActionListener(this);
@@ -77,4 +87,3 @@ public class Button extends JPanel implements ActionListener {
 		}
 	}
 }
-*/

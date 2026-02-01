@@ -17,26 +17,29 @@ public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 
 	
 	public DrawingSurface() {
-		JFrame frame = new JFrame("Cost Of Care"); //idk what the difference between container and jframe is
-		frame.setSize(1000, 500); 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBackground(Color.WHITE);
-		frame.setLayout(new FlowLayout());
+//		JFrame frame = new JFrame("Cost Of Care"); //idk what the difference between container and jframe is
+//		frame.setSize(2000, 2000); 
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setBackground(Color.WHITE);
+//		frame.setLayout(new FlowLayout());
 		
 		Bar bars = new Bar();
-		//Button buttons = new Button();
-		buttons = createButtons();
 		
-		for(int i = 0; i < buttons.length; i++) {
-			buttons[i].setMargin(new Insets(10,10,10,10));
-			
-			add(buttons[i]);
-			
-		}
+//		Button buttons = new Button();
+//		buttons = createButtons();
+		
+//		for(int i = 0; i < buttons.length; i++) {
+//			buttons[i].setMargin(new Insets(10,10,10,10));
+//			
+//			add(buttons[i]);			
+		
+//		}
+		
+		
 	}
 	
 	
-	public JButton[] createButtons() {
+	public void createButtons() {
 		JButton feed = new JButton("Feed");
 		JButton rest = new JButton("Rest");
 		JButton clean = new JButton("Clean");
@@ -45,11 +48,19 @@ public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 		JButton store = new JButton("Store");
 		
 		
-		JButton[] buttons = new JButton[] {feed,rest,clean,vet,play,store};
-
+		feed.setPreferredSize(new Dimension(10,50));
+		rest.setPreferredSize(new Dimension(10,50));
+		clean.setPreferredSize(new Dimension(10,50));
+		vet.setPreferredSize(new Dimension(10,50));
+		play.setPreferredSize(new Dimension(10,50));
 		store.setPreferredSize(new Dimension(10,50));
 
-		return buttons;
+//		add(feed);
+//		add(rest);
+//		add(clean);
+//		add(vet);
+//		add(play);
+//		add(store);
 	}
 	/*
 	public void buttons() {
