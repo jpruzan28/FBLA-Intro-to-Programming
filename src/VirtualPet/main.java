@@ -14,10 +14,29 @@ public class main extends JFrame{
 	
 	public main() {
 	    Container c = getContentPane();
-	    c.setBackground(Color.WHITE);
-	    Button buttons = new Button();
-
-	    c.add(buttons, BorderLayout.CENTER);
+	    // Creating cardLayout and container panel
+	    CardLayout cardLayout = new CardLayout();
+        JPanel cardPanel = new JPanel(cardLayout);
+        
+        
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBackground(Color.WHITE);
+        Button buttons = new Button(cardLayout, cardPanel);
+        mainPanel.add(buttons, BorderLayout.CENTER);
+        
+        
+        //Store panel stuff
+        StorePanel storePanel = new StorePanel(cardLayout, cardPanel);
+        
+        // adding both panels to CardLayout 
+        cardPanel.add(mainPanel, "Game");
+        cardPanel.add(storePanel, "Store");
+        
+        // add the cardPanel to the frame
+        c.add(cardPanel);
+        
+        // Show main panel first
+        cardLayout.show(cardPanel, "Game");
 	    
 	}
 	

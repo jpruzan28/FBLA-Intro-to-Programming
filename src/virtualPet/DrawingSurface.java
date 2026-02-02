@@ -2,12 +2,12 @@ package VirtualPet;
 
 import pets.Pet;
 import DrawingSurface.*;
-import java.awt.Color;
+
 import javax.swing.*;
-import java.awt.event.*;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
+
 import java.awt.Graphics;
 import java.awt.Insets;
 

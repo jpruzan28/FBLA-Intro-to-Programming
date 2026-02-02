@@ -7,12 +7,19 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.CardLayout;
 
 
 public class Button extends JPanel implements ActionListener {
 	public JButton feed, rest, clean, vet, play, store;
 	
-	public Button() {
+	 private CardLayout cardLayout;
+	 private JPanel cardPanel;
+	
+	public Button(CardLayout cardLayout, JPanel cardPanel) {
+		this.cardLayout = cardLayout;
+        this.cardPanel = cardPanel;
+        
 		// Creates the buttons
 		
 	    JPanel panel = new JPanel(); //This is the Panel that sections off things. 
@@ -88,6 +95,8 @@ public class Button extends JPanel implements ActionListener {
 		}
 		else if(button == store) {
 			System.out.println("Buying");
+			
+			cardLayout.show(cardPanel, "Store");
 
 		}
 	}
