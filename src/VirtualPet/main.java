@@ -1,6 +1,7 @@
-package VirtualPet;
+package virtualPet;
 import DrawingSurface.*;
 import DrawingSurface.Button;
+import pets.Pet;
 
 import java.awt.BorderLayout;
 import java.awt.*;
@@ -12,6 +13,9 @@ import javax.swing.*;
 
 public class main extends JFrame{
 	
+	private static Pet pet;
+	private static String petType, petName; 
+	
 	public main() {
 	    Container c = getContentPane();
 	    // Creating cardLayout and container panel
@@ -21,7 +25,7 @@ public class main extends JFrame{
         
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(Color.WHITE);
-        Button buttons = new Button(cardLayout, cardPanel);
+        Button buttons = new Button(cardLayout, cardPanel, pet);
         mainPanel.add(buttons, BorderLayout.CENTER);
         
         
@@ -42,19 +46,22 @@ public class main extends JFrame{
 	
 
 	public static void main(String[] args) {
+	    //User input
+	    String playerName = JOptionPane.showInputDialog("Welcome player! What's your name?");
+	    JOptionPane.showMessageDialog(null, "Nice to meet you " + playerName);
+	    
+	     petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
+	    JOptionPane.showMessageDialog(null, "Nice choice, choosing a " + petType);
+		
+	     petName = JOptionPane.showInputDialog("What would you like to name your " + petType + "?");
+	    
+	    // Creating the pet
+	    pet = new Pet(petName, petType);
+	    
 	    main w = new main();
 	    w.setBounds(300, 300, 400, 400);
 	    w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    w.setVisible(true);
-	    
-	    
-	    //User input
-	    String name = JOptionPane.showInputDialog("Welcome player! What's your name?");
-	    JOptionPane.showMessageDialog(null, "Nice to meet you " + name);
-	    
-	    String pet = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
-	    JOptionPane.showMessageDialog(null, "Nice choice, choosing a " + pet);
-		
 	}
 	
 }

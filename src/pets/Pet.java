@@ -18,6 +18,7 @@ public class Pet {
 	
 	//Constructor maybe???
 	public Pet(String name, String type) {
+		System.out.println("I get called");
 		this.name = name;
 		this.type = type;
 		age = 0;

@@ -9,33 +9,38 @@ public class Activities {
 		this.pet = pet;
 	}
 	
-	public void sleep(int amount) {
+	public void sleep(String amount) {
 		int currentRest = pet.getRest();
-		if(amount == 1) {
+		if(amount.equals("1")) {
 			pet.setRest(currentRest + 3);
+			System.out.println("Slept for 3");
 		}
-		else if(amount == 2) {
+		else if(amount.equals("2")) {
 			pet.setRest(currentRest + 5);
+
+			System.out.println("Slept for 5");
 		}
-		else if(amount == 5) {
+		else if(amount.equals("5")) {
 			pet.setRest(currentRest + 8);
+
+			System.out.println("Slept for 8");
 		}
 	}
 	
-	public void play(Toys toy, Pet p) {
+	public void play(Toys toy) {
 		
 		int version = toy.getVersion();
-		int currentEmotion = p.getEmotion();
-		int currentHunger = p.getHunger();
-		int currentRest = p.getRest();
-		int currentHygiene = p.getHygiene();
+		int currentEmotion = pet.getEmotion();
+		int currentHunger = pet.getHunger();
+		int currentRest = pet.getRest();
+		int currentHygiene = pet.getHygiene();
 		
 		// Hunger and rest --
 		int hrFactor;
 		// Emotion and hygiene ++
 		int ehFactor;
 		
-		if(p.getType().equals(toy.getType())) {
+		if(pet.getType().equals(toy.getType())) {
 			
 			if(version == 1) {
 				hrFactor = 3;
@@ -74,16 +79,18 @@ public class Activities {
 			}
 		}
 		
-		p.setEmotion(currentEmotion + ehFactor);
-		p.setHunger(currentHunger - hrFactor);
-		p.setRest(currentRest - hrFactor);
-		p.setHygiene(currentHygiene + ehFactor);
+		pet.setEmotion(currentEmotion + ehFactor);
+		pet.setHunger(currentHunger - hrFactor);
+		pet.setRest(currentRest - hrFactor);
+		pet.setHygiene(currentHygiene + ehFactor);
 		
 		
 	}
 	
 	public void clean() {
 		pet.setHygiene(10);
+
+		System.out.println("Squeaky clean :)");
 	}
 	
 

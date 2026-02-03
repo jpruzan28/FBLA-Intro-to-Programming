@@ -1,5 +1,6 @@
 package DrawingSurface;
 import properties.*;
+import pets.Pet;
 import java.awt.Color;
 import javax.swing.*;
 import java.awt.event.*;
@@ -11,14 +12,24 @@ import java.awt.CardLayout;
 
 
 public class Button extends JPanel implements ActionListener {
-	public JButton feed, rest, clean, vet, play, store;
+	private JButton feed, rest, clean, vet, play, store;
 	
-	 private CardLayout cardLayout;
-	 private JPanel cardPanel;
+	private CardLayout cardLayout;
+	private JPanel cardPanel;
 	
-	public Button(CardLayout cardLayout, JPanel cardPanel) {
+	private Activities activity;
+	private Pet pet;
+	
+	public Button(CardLayout cardLayout, JPanel cardPanel, Pet pet) {
 		this.cardLayout = cardLayout;
         this.cardPanel = cardPanel;
+        
+        this.pet = pet;
+        if (this.pet == null) {
+        	System.out.println("Pet is null");
+        }
+        
+        this.activity = new Activities(pet);
         
 		// Creates the buttons
 		
@@ -34,12 +45,6 @@ public class Button extends JPanel implements ActionListener {
 		play = new JButton("Play");
 		store = new JButton("Store");
 		
-//		feed.setPreferredSize(new Dimension(100,50));
-//		rest.setPreferredSize(new Dimension(100,50));
-//		clean.setPreferredSize(new Dimension(100,50));
-//		vet.setPreferredSize(new Dimension(100,50));
-//		play.setPreferredSize(new Dimension(100,50));
-//		store.setPreferredSize(new Dimension(100,50));
 		
 		feed.addActionListener(this);
 		rest.addActionListener(this);
@@ -47,8 +52,6 @@ public class Button extends JPanel implements ActionListener {
 		vet.addActionListener(this);
 		play.addActionListener(this);
 		store.addActionListener(this);
-
-	  //panel.add(feed); add panel later(?) panel.add(feed);
 	  
 	  
 		add(feed);
@@ -58,35 +61,32 @@ public class Button extends JPanel implements ActionListener {
 		add(play);
 		add(store);
 
-	//  button2.addActionListener(this);
-	  
-	//button2.addActionListener(this);
-	  
-	//button2.addActionListener(this);
-	  
-	//button2.addActionListener(this);
-	  
-	//button2.addActionListener(this);
-	  
 
 	}
 		
 	public void actionPerformed(ActionEvent e) {
 		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
     
+		Money stores = new Money();
 		if(button == feed) {
 			System.out.println("Feeding");
 		}
 		else if(button == rest) {
 			System.out.println("Resting");
+		    String sleepAmount = JOptionPane.showInputDialog("How many hours would you like your pet to sleep? 1, 2, or 5? ");
+
+		    activity.sleep(sleepAmount);
 
 		}
 		else if(button == clean) {
 			System.out.println("Cleaning");
+			activity.clean();
 	
 		}
 		else if(button == vet) {
 			System.out.println("Veting");
+			
+			stores.vetVisit(pet);
 
 		}
 		else if(button == play) {
