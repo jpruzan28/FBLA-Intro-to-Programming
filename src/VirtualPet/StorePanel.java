@@ -1,4 +1,4 @@
-package virtualPet;
+package VirtualPet;
 
 
 import javax.swing.*;
@@ -20,6 +20,8 @@ public class StorePanel extends JPanel {
         JPanel itemsPanel = new JPanel();
         itemsPanel.setLayout(new GridLayout(3, 2, 10, 10));
         itemsPanel.setBackground(Color.WHITE);
+        
+        //Jbutton dog1 =  idk how to finish this gng
         
         
     }
