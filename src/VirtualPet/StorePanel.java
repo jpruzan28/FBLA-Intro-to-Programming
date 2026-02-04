@@ -1,4 +1,4 @@
-package virtualPet;
+package VirtualPet;
 
 
 import javax.swing.*;
@@ -24,9 +24,10 @@ public class StorePanel extends JPanel {
         // Add store items panel
         JPanel dogToysPanel = new JPanel();
         dogToysPanel.setLayout(new GridLayout(3, 2, 10, 10));
-        dogToysPanel.setBackground(Color.WHITE);
-        dogToysPanel.setBounds(30, 30, 50, 100);
+        dogToysPanel.setBackground(Color.GREEN);
+//        dogToysPanel.setBounds(30, 30, 50, 100);
 	//    dogToysPanel.setPreferredSize(new Dimension(200, 455)); 
+        add(dogToysPanel, BorderLayout.WEST);
         
         usedBall = new JButton("Used Ball"); 
         rubberChewBone = new JButton("Rubber Chew Bone"); 
@@ -35,22 +36,25 @@ public class StorePanel extends JPanel {
         dogGodWorshipAltar = new JButton("Dog God Worship Altar"); 
         goldenestBone = new JButton("Goldenest Bone"); 
         
-        add(usedBall);
-        add(rubberChewBone);
-        add(enchantedChewWand);
-        add(guardianPlusBear);
-        add(dogGodWorshipAltar);
-        add(goldenestBone);
+        dogToysPanel.add(usedBall);
+        dogToysPanel.add(rubberChewBone);
+        dogToysPanel.add(enchantedChewWand);
+        dogToysPanel.add(guardianPlusBear);
+        dogToysPanel.add(dogGodWorshipAltar);
+        dogToysPanel.add(goldenestBone);
 
 
         
         JPanel fishToysPanel = new JPanel();
         fishToysPanel.setLayout(new GridLayout(3, 2, 10, 10));
-        fishToysPanel.setBackground(Color.WHITE);
+        fishToysPanel.setBackground(Color.RED);
+        add(fishToysPanel, BorderLayout.CENTER);
+        
         
         JPanel catToysPanel = new JPanel();
         catToysPanel.setLayout(new GridLayout(3, 2, 10, 10));
-        catToysPanel.setBackground(Color.WHITE);
+        catToysPanel.setBackground(Color.BLUE);
+        add(catToysPanel, BorderLayout.EAST);
         
         
         
