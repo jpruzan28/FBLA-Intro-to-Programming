@@ -3,7 +3,7 @@ package DrawingSurface;
 import pets.Pet;
 import java.util.TimerTask;
 
-public class ReductionTimer {
+public class ReductionTimer extends TimerTask{
 	
 	Pet pet;
 	int ogHunger;
@@ -22,6 +22,7 @@ public class ReductionTimer {
 		
 		pet.setHunger(ogHunger--);
 		
+	} public void reduceHunger() {
 		
 	}
 }
