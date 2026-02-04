@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 import DrawingSurface.*;
 import DrawingSurface.Button;
 import pets.Pet;
