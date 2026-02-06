@@ -29,7 +29,7 @@ public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 	}	
 
 
-	
+	}	
 }
 // 2 Drawing Surfaces, 1 with user interaction(buttons/ store), 1 without user interaction(bars, pet)
 

@@ -3,11 +3,13 @@ import DrawingSurface.*;
 import DrawingSurface.Button;
 import pets.Pet;
 
+import java.util.TimerTask;
+import java.util.Timer;
 import java.awt.BorderLayout;
 import java.awt.*;
 import java.awt.Color;
 import java.awt.Container;
-import java.util.Scanner;
+//import java.util.Scanner;
 import javax.swing.*;
 
 
@@ -60,6 +62,20 @@ public class main extends JFrame{
 	    
 	    // Creating the pet
 	    pet = new Pet(petName, petType);
+	    
+	    
+	    //Reduction Timer
+	    //1. instatiate outer class, needed bc the inner classes rely on the pet
+	    ReductionTimer reductionTimers = new ReductionTimer(pet);
+	    
+	    Timer timer = new Timer();
+	    
+	    timer.schedule(reductionTimers.new reduceHunger(), 0 , 120000); //decreases in milliseconds
+	    timer.schedule(reductionTimers.new reduceHealth(), 0 , 120000);
+	    timer.schedule(reductionTimers.new reduceHygiene(), 0 , 120000);
+	    timer.schedule(reductionTimers.new reduceRest(), 0 , 300000);
+	    timer.schedule(reductionTimers.new reduceEmotion(), 0 , 120000);
+	    
 	    
 	    main w = new main();
 	    w.setBounds(300, 300, 400, 400);
