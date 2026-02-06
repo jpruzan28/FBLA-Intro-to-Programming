@@ -3,7 +3,10 @@ package DrawingSurface;
 import pets.*;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridLayout;
+
 import javax.swing.*;
 
 
@@ -18,6 +21,10 @@ public class Bar extends JPanel {
 
 	public void paintComponent(Graphics g) { 
 		//drawing bar based on pet's stats
+		JPanel bar = new JPanel();
+		bar.setLayout(new GridLayout(1, 1, 1, 1));
+		bar.setPreferredSize(new Dimension(200, 455));
+		
 		
 		double width = getWidth()/16;
 		double x = width;

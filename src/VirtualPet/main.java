@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Container;
 //import java.util.Scanner;
 import javax.swing.*;
+import DrawingSurface.Bar;
 
 
 public class main extends JFrame{
@@ -18,7 +19,7 @@ public class main extends JFrame{
 	private static Pet pet;
 	private static String petType, petName; 
 	
-	public main() {
+	public main(Pet pet) {
 	    Container c = getContentPane();
 	    // Creating cardLayout and container panel
 	    CardLayout cardLayout = new CardLayout();
@@ -40,6 +41,11 @@ public class main extends JFrame{
         cardPanel.add(mainPanel, "Game");
         cardPanel.add(storePanel, "Store");
         cardPanel.add(storePanelFood, "FStore");
+        
+        Bar bars = new Bar(pet);  // 
+        bars.setBackground(Color.GREEN); 
+        bars.setPreferredSize(new Dimension(200, 455)); 
+        mainPanel.add(bars, BorderLayout.EAST); 
         
         // add the cardPanel to the frame
         c.add(cardPanel);
@@ -77,10 +83,11 @@ public class main extends JFrame{
 	    timer.schedule(reductionTimers.new reduceEmotion(), 0 , 120000);
 	    
 	    
-	    main w = new main();
+	    main w = new main(pet);
 	    w.setBounds(300, 300, 400, 400);
 	    w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    w.setVisible(true);
+	    
 	}
 	
 }

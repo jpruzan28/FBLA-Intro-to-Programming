@@ -25,11 +25,11 @@ public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 //		frame.setBackground(Color.WHITE);
 //		frame.setLayout(new FlowLayout());
 		
-		Bar bars = new Bar();
+//		Bar bars = new Bar();
 	}	
 
 
-	}	
+		
 }
 // 2 Drawing Surfaces, 1 with user interaction(buttons/ store), 1 without user interaction(bars, pet)
 
