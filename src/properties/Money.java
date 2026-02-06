@@ -89,6 +89,8 @@ public class Money {
 		double m = p.getMoney();
 		
 		p.setMoney(m - t.getPrice());
+		
+		p.setToys(t);
 	}
 
 	public void vetVisit(Pet p) {
@@ -100,8 +102,29 @@ public class Money {
 		System.out.println("Went to the vet");
 	}
 	
-	// VET VISIT METHOD
-	// $20
+	public Toys[] getDogToys() {
+		return dog;
+	}
+	
+	public Toys[] getFishToys() {
+		return fish;
+	}
+	
+	public Toys[] getCatToys() {
+		return cat;
+	}
+	
+	public Food[] getDogFood() {
+		return d;
+	}
+	
+	public Food[] getCatFood() {
+		return ca;
+	}
+	
+	public Food[] getFishFood() {
+		return fi;
+	}
 	
 	
 

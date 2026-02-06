@@ -1,20 +1,30 @@
-package VirtualPet;
+package virtualPet;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class StorePanelFood extends JPanel{
+import properties.*;
+import properties.Toys;
+import pets.Pet;
+
+public class StorePanelFood extends JPanel implements ActionListener {
 	
 	JButton kibbleCrunch, beefAndVeggieMix, chickenFeast, salmonDelight, lambAndRiceBowl, goldenChickenNuggets;
 	JButton flakes, algaeCrisps, shrimpPellets, spirulinaFlakes, caviarPearls, deepAbyssInfusion;
 	JButton fiveFishKibble, veggieMedley, expensiveMelk, turkeyAndCranberryTreats, bluefinTunaSteak, aGoldenRat;
 	
-	public StorePanelFood(CardLayout cardLayout, JPanel cardPanel) {
+	Pet p;
+	
+	public StorePanelFood(CardLayout cardLayout, JPanel cardPanel, Pet pet) {
+		 p = pet;
+		
 		 setLayout(new BorderLayout());
 	     setBackground(Color.magenta);
 	     
@@ -46,6 +56,13 @@ public class StorePanelFood extends JPanel{
 	     dogFoodPanel.add(lambAndRiceBowl);
 	     dogFoodPanel.add(goldenChickenNuggets);
 	     
+	     kibbleCrunch.addActionListener(this);
+	     beefAndVeggieMix.addActionListener(this);
+	     chickenFeast.addActionListener(this);
+	     salmonDelight.addActionListener(this);
+	     lambAndRiceBowl.addActionListener(this);
+	     goldenChickenNuggets.addActionListener(this);
+	     
 	     
 	     JPanel catFoodPanel = new JPanel();
 	     catFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
@@ -64,6 +81,13 @@ public class StorePanelFood extends JPanel{
 	     catFoodPanel.add(turkeyAndCranberryTreats);
 	     catFoodPanel.add(bluefinTunaSteak);
 	     catFoodPanel.add(aGoldenRat);
+	     
+	     fiveFishKibble.addActionListener(this);
+	     veggieMedley.addActionListener(this);
+	     expensiveMelk.addActionListener(this);
+	     turkeyAndCranberryTreats.addActionListener(this);
+	     bluefinTunaSteak.addActionListener(this);
+	     aGoldenRat.addActionListener(this);
 	     
 	     
 	     JPanel fishFoodPanel = new JPanel();
@@ -103,7 +127,65 @@ public class StorePanelFood extends JPanel{
 	     
 	     
 	     
-	}     
+	}    
+	
+	 public void actionPerformed(ActionEvent e) {
+			JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
+			
+			Money store = new Money();
+	        JButton[] dogFood = new JButton[] {kibbleCrunch, beefAndVeggieMix, chickenFeast, salmonDelight, lambAndRiceBowl, goldenChickenNuggets};
+
+	        // Goes through JButton array
+	        for(JButton f: dogFood) {
+	        	// Checks if the button clicked is the same as the JButton
+	        	if (button.equals(f)) {
+	        		// Goes through Toys array from Money class
+	        		for(Food y: store.getDogFood()) {
+	        			// Checks if the name of the toy matches the JButton name
+	        			if(f.getName().equals(y.getName())) {
+	        				store.buyFood(y, p);
+	        			}
+	        		}
+	        	}
+	        }
+	        
+	        
+	        JButton[] fishFood = new JButton[] {flakes, algaeCrisps, shrimpPellets, spirulinaFlakes, caviarPearls, deepAbyssInfusion};
+
+	        // Goes through JButton array
+	        for(JButton f: fishFood) {
+	        	// Checks if the button clicked is the same as the JButton
+	        	if (button.equals(f)) {
+	        		// Goes through Toys array from Money class
+	        		for(Food y: store.getFishFood()) {
+	        			// Checks if the name of the toy matches the JButton name
+	        			if(f.getName().equals(y.getName())) {
+	        				store.buyFood(y, p);
+	        			}
+	        		}
+	        	}
+	        }
+	        
+	        
+	        JButton[] catFood = new JButton[] {fiveFishKibble, veggieMedley, expensiveMelk, turkeyAndCranberryTreats, bluefinTunaSteak, aGoldenRat};
+
+	        
+	        // Goes through JButton array
+	        for(JButton f: catFood) {
+	        	// Checks if the button clicked is the same as the JButton
+	        	if (button.equals(f)) {
+	        		// Goes through Toys array from Money class
+	        		for(Food y: store.getCatFood()) {
+	        			// Checks if the name of the toy matches the JButton name
+	        			if(f.getName().equals(y.getName())) {
+	        				store.buyFood(y, p);
+	        			}
+	        		}
+	        	}
+	        }
+
+	    
+	    }
 	     
 		
 		

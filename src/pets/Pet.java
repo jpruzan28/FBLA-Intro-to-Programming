@@ -1,5 +1,7 @@
 package pets;
 
+import properties.Toys;
+
 public class Pet {
 	//Fields from UML
 	private String name;
@@ -12,7 +14,7 @@ public class Pet {
 	private int rest;
 	private int hygiene;
 	
-	private String[] toys;
+	private Toys[] toys;
 	private double money;
 	
 	
@@ -28,7 +30,7 @@ public class Pet {
 		rest = 10; 
 		hygiene = 10;
 		
-		toys = new String[5];
+		toys = new Toys[5];
 		money = 100.00;
 	}
 	
@@ -90,7 +92,7 @@ public class Pet {
 	}
 	
 	// Puts toy into next available spot in toys array
-	public void setToys(String newToy) {
+	public void setToys(Toys newToy) {
 		for(int i = 0; i < toys.length; i++) {
 			if(toys[i].equals("")) {
 				toys[i] = newToy;

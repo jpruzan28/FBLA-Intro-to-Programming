@@ -1,23 +1,26 @@
-package VirtualPet;
+package virtualPet;
 
 
 import javax.swing.*;
 
-import properties.Toys;
+import properties.*;
+import pets.Pet;
 
 import java.awt.*;
 import java.awt.event.*;
 
-public class StorePanel extends JPanel {
+public class StorePanel extends JPanel implements ActionListener{
 	
 	JButton usedBall, rubberChewBone, enchantedChewWand, guardianPlusBear, dogGodWorshipAltar, goldenestBone;
     JButton driftBall, shellHideout, biolumeBubbleMachine, roboticFriend, ancientCalmingBell, platinumSpeaker;
 	JButton plainKittySock, jingleMouse, cornerScratchPost, laserPointer, quarterZip, legendaryAirpods;
 
+	Pet p;
 	
-	
-    public StorePanel(CardLayout cardLayout, JPanel cardPanel) {
-        setLayout(new BorderLayout());
+    public StorePanel(CardLayout cardLayout, JPanel cardPanel, Pet pet) {
+        p = pet;
+    	
+    	setLayout(new BorderLayout());
         setBackground(Color.gray);
         
         // Add store title
@@ -50,7 +53,20 @@ public class StorePanel extends JPanel {
         dogToysPanel.add(guardianPlusBear);
         dogToysPanel.add(dogGodWorshipAltar);
         dogToysPanel.add(goldenestBone);
+        
+        usedBall.addActionListener(this);
+        rubberChewBone.addActionListener(this);
+        enchantedChewWand.addActionListener(this);
+        guardianPlusBear.addActionListener(this);
+        dogGodWorshipAltar.addActionListener(this);
+        goldenestBone.addActionListener(this);
 
+        
+        JButton[] dogToys = new JButton[] {usedBall, rubberChewBone, enchantedChewWand, guardianPlusBear, dogGodWorshipAltar, goldenestBone};
+
+        for(JButton t: dogToys) {
+        	
+        }
 
         
         JPanel fishToysPanel = new JPanel();
@@ -71,6 +87,14 @@ public class StorePanel extends JPanel {
         fishToysPanel.add(roboticFriend);
         fishToysPanel.add(ancientCalmingBell);
         fishToysPanel.add(platinumSpeaker);
+        
+        driftBall.addActionListener(this);
+        shellHideout.addActionListener(this);
+        biolumeBubbleMachine.addActionListener(this);
+        roboticFriend.addActionListener(this);
+        ancientCalmingBell.addActionListener(this);
+        platinumSpeaker.addActionListener(this);
+
 
 
         //	JButton plainKittySock, jingleMouse, cornerScratchPost, laserPointer, quarterZip, legendaryAirpods;
@@ -94,6 +118,14 @@ public class StorePanel extends JPanel {
         catToysPanel.add(laserPointer);
         catToysPanel.add(quarterZip);
         catToysPanel.add(legendaryAirpods);
+        
+        plainKittySock.addActionListener(this);
+        jingleMouse.addActionListener(this);
+        cornerScratchPost.addActionListener(this);
+        laserPointer.addActionListener(this);
+        quarterZip.addActionListener(this);
+        legendaryAirpods.addActionListener(this);
+
 
 
         JButton backButton = new JButton("Return to home");
@@ -113,6 +145,64 @@ public class StorePanel extends JPanel {
         //Jbutton dog1 =  idk how to finish this gng
         
         
+    }
+    
+    public void actionPerformed(ActionEvent e) {
+		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
+		
+		Money store = new Money();
+        JButton[] dogToys = new JButton[] {usedBall, rubberChewBone, enchantedChewWand, guardianPlusBear, dogGodWorshipAltar, goldenestBone};
+
+        // Goes through JButton array
+        for(JButton t: dogToys) {
+        	// Checks if the button clicked is the same as the JButton
+        	if (button.equals(t)) {
+        		// Goes through Toys array from Money class
+        		for(Toys y: store.getDogToys()) {
+        			// Checks if the name of the toy matches the JButton name
+        			if(t.getName().equals(y.getName())) {
+        				store.buyToys(y, p);
+        			}
+        		}
+        	}
+        }
+        
+        
+        JButton[] fishToys = new JButton[] {driftBall, shellHideout, biolumeBubbleMachine, roboticFriend, ancientCalmingBell, platinumSpeaker};
+
+        // Goes through JButton array
+        for(JButton t: fishToys) {
+        	// Checks if the button clicked is the same as the JButton
+        	if (button.equals(t)) {
+        		// Goes through Toys array from Money class
+        		for(Toys y: store.getFishToys()) {
+        			// Checks if the name of the toy matches the JButton name
+        			if(t.getName().equals(y.getName())) {
+        				store.buyToys(y, p);
+        			}
+        		}
+        	}
+        }
+        
+        
+        JButton[] catToys = new JButton[] {plainKittySock, jingleMouse, cornerScratchPost, laserPointer, quarterZip, legendaryAirpods};
+
+        
+        // Goes through JButton array
+        for(JButton t: catToys) {
+        	// Checks if the button clicked is the same as the JButton
+        	if (button.equals(t)) {
+        		// Goes through Toys array from Money class
+        		for(Toys y: store.getCatToys()) {
+        			// Checks if the name of the toy matches the JButton name
+        			if(t.getName().equals(y.getName())) {
+        				store.buyToys(y, p);
+        			}
+        		}
+        	}
+        }
+
+    
     }
     
     
