@@ -12,7 +12,7 @@ import java.awt.CardLayout;
 
 
 public class Button extends JPanel implements ActionListener {
-	private JButton feed, rest, clean, vet, play, store;
+	private JButton food, rest, clean, vet, play, store;
 	
 	private CardLayout cardLayout;
 	private JPanel cardPanel;
@@ -38,7 +38,7 @@ public class Button extends JPanel implements ActionListener {
 	    panel.setPreferredSize(new Dimension(200, 455)); //when set length to 500, it doesn't fit in frame for some reason :c
 	    panel.setBackground(Color.BLUE);
 		
-		feed = new JButton("Feed"); 
+		food = new JButton("Food"); 
 		rest = new JButton("Rest");
 		clean = new JButton("Clean");
 		vet = new JButton("Vet");
@@ -46,7 +46,7 @@ public class Button extends JPanel implements ActionListener {
 		store = new JButton("Store");
 		
 		
-		feed.addActionListener(this);
+		food.addActionListener(this);
 		rest.addActionListener(this);
 		clean.addActionListener(this);
 		vet.addActionListener(this);
@@ -54,7 +54,7 @@ public class Button extends JPanel implements ActionListener {
 		store.addActionListener(this);
 	  
 	  
-		add(feed);
+		add(food);
 		add(rest);
 		add(clean);
 		add(vet);
@@ -68,8 +68,10 @@ public class Button extends JPanel implements ActionListener {
 		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
     
 		Money stores = new Money();
-		if(button == feed) {
+		if(button == food) {
 			System.out.println("Feeding");
+			
+			cardLayout.show(cardPanel, "FStore");
 		}
 		else if(button == rest) {
 			System.out.println("Resting");

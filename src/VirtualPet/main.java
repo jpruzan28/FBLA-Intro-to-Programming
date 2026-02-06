@@ -31,11 +31,13 @@ public class main extends JFrame{
         
         //Store panel stuff
         StorePanel storePanel = new StorePanel(cardLayout, cardPanel);
+        StorePanelFood storePanelFood = new StorePanelFood(cardLayout, cardPanel);
         
         
         // adding both panels to CardLayout 
         cardPanel.add(mainPanel, "Game");
         cardPanel.add(storePanel, "Store");
+        cardPanel.add(storePanelFood, "FStore");
         
         // add the cardPanel to the frame
         c.add(cardPanel);

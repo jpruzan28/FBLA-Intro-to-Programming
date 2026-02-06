@@ -21,20 +21,21 @@ public class StorePanel extends JPanel {
         setBackground(Color.gray);
         
         // Add store title
-        JLabel titleLabel = new JLabel("Welcome to the Pet Store!", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("Welcome to the Toy Store! Green is dog toys, Blue is cat toys, and Red is fish", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         add(titleLabel, BorderLayout.NORTH);
         
+        //A panel where all the toys are on here so they don't get stacked
+        //Kinda like 3 panels inside 1
+        JPanel allToysPanel = new JPanel();
+        allToysPanel.setLayout(new GridLayout(1, 3, 10, 10));
         
-        toyStore(cardLayout, cardPanel);
         
         // Add store items panel
         JPanel dogToysPanel = new JPanel();
-        dogToysPanel.setLayout(new GridLayout(3, 2, 10, 10));
+        dogToysPanel.setLayout(new GridLayout(3, 2, 8, 8));
         dogToysPanel.setBackground(Color.GREEN);
-//        dogToysPanel.setBounds(30, 30, 50, 100);
-	//    dogToysPanel.setPreferredSize(new Dimension(200, 455)); 
-        add(dogToysPanel, BorderLayout.WEST);
+        
         
         usedBall = new JButton("Used Ball"); 
         rubberChewBone = new JButton("Rubber Chew Bone"); 
@@ -53,9 +54,9 @@ public class StorePanel extends JPanel {
 
         
         JPanel fishToysPanel = new JPanel();
-        fishToysPanel.setLayout(new GridLayout(3, 2, 10, 10));
+        fishToysPanel.setLayout(new GridLayout(3, 2, 8, 8));
         fishToysPanel.setBackground(Color.RED);
-        add(fishToysPanel, BorderLayout.CENTER);
+       
         
         driftBall = new JButton("Drift Ball"); 
         shellHideout = new JButton("Shell Hideout"); 
@@ -76,9 +77,9 @@ public class StorePanel extends JPanel {
 
         
         JPanel catToysPanel = new JPanel();
-        catToysPanel.setLayout(new GridLayout(3, 2, 10, 10));
+        catToysPanel.setLayout(new GridLayout(3, 2, 8, 8));
         catToysPanel.setBackground(Color.BLUE);
-        add(catToysPanel, BorderLayout.EAST);
+       
         
         plainKittySock = new JButton("Plain Kitty Sock");
         jingleMouse = new JButton("Jingle Mouse");
@@ -95,17 +96,24 @@ public class StorePanel extends JPanel {
         catToysPanel.add(legendaryAirpods);
 
 
+        JButton backButton = new JButton("Return to home");
+        backButton.addActionListener(e -> {
+            cardLayout.show(cardPanel, "Game");
+        });
+        add(backButton, BorderLayout.SOUTH); 
         
         
+        //We add the dog, fish, and cat panels the all toys panel
+        //the all toys panel is a panel with 3 different panels
+        allToysPanel.add(dogToysPanel);
+        allToysPanel.add(fishToysPanel);
+        allToysPanel.add(catToysPanel);
+        
+        add(allToysPanel, BorderLayout.CENTER);
         //Jbutton dog1 =  idk how to finish this gng
         
         
     }
     
-    public void toyStore(CardLayout cardLayout, JPanel cardPanel) {
-	    JPanel itemsPanel = new JPanel();
-	    itemsPanel.setLayout(new GridLayout(3, 2, 10, 10));
-	    itemsPanel.setBackground(Color.WHITE);
-    }
     
 }    

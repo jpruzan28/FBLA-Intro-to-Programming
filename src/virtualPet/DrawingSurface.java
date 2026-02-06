@@ -1,4 +1,4 @@
-package virtualPet;
+package VirtualPet;
 
 import pets.Pet;
 import DrawingSurface.*;
@@ -26,7 +26,7 @@ public class DrawingSurface extends JFrame {//JPanel implements ActionListener {
 //		frame.setLayout(new FlowLayout());
 		
 		Bar bars = new Bar();
-		
+	}	
 
 
 	
