@@ -21,9 +21,9 @@ public class Bar extends JPanel {
 
 	public void paintComponent(Graphics g) { 
 		//drawing bar based on pet's stats
-		JPanel bar = new JPanel();
-		bar.setLayout(new GridLayout(1, 1, 1, 1));
-		bar.setPreferredSize(new Dimension(200, 455));
+//		JPanel bar = new JPanel();
+//		bar.setLayout(new GridLayout(1, 1, 1, 1));
+//		bar.setPreferredSize(new Dimension(200, 455));
 		
 		
 		double width = getWidth()/16;

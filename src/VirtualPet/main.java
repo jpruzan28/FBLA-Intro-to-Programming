@@ -20,8 +20,7 @@ public class main extends JFrame{
 	private static String petType, petName; 
 	
 	public main(Pet pet) {
-	    Container c = getContentPane();
-	    // Creating cardLayout and container panel
+	    Container c = getContentPane();	    // Creating cardLayout and container panel
 	    CardLayout cardLayout = new CardLayout();
         JPanel cardPanel = new JPanel(cardLayout);
         
@@ -30,6 +29,9 @@ public class main extends JFrame{
         mainPanel.setBackground(Color.WHITE);
         Button buttons = new Button(cardLayout, cardPanel, pet);
         mainPanel.add(buttons, BorderLayout.WEST);
+        
+        Sprite sprites = new Sprite();
+        mainPanel.add(sprites);
         
         
         //Store panel stuff
