@@ -25,7 +25,7 @@ public class Pet {
 		this.type = type;
 		age = 0;
 		health = 10;
-		hunger = 0;
+		hunger = 10;
 		emotion = 10;
 		rest = 10; 
 		hygiene = 10;
