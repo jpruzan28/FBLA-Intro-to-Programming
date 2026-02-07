@@ -82,6 +82,9 @@ public class main extends JFrame{
 	    timer.schedule(reductionTimers.new reduceRest(), 0 , 300000);
 	    timer.schedule(reductionTimers.new reduceEmotion(), 0 , 120000);
 	    
+	    timer.schedule(reductionTimers.new salary(), 0, 120000);
+	    timer.schedule(reductionTimers.new bonus(), 0, 120000);
+	    
 	    
 	    main w = new main(pet);
 	    w.setBounds(300, 300, 400, 400);

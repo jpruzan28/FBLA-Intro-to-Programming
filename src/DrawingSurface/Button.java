@@ -73,30 +73,33 @@ public class Button extends JPanel implements ActionListener {
     
 		Money stores = new Money();
 		if(button == food) {
-			System.out.println("Feeding");
+			pet.setMoney(pet.getMoney()+10);
+
 			
 			cardLayout.show(cardPanel, "FStore");
 		}
 		else if(button == rest) {
-			System.out.println("Resting");
 		    String sleepAmount = JOptionPane.showInputDialog("How many hours would you like your pet to sleep? 1, 2, or 5? ");
 
 		    activity.sleep(sleepAmount);
+			pet.setMoney(pet.getMoney()+10);
 
 		}
 		else if(button == clean) {
-			System.out.println("Cleaning");
 			activity.clean();
-	
+			pet.setMoney(pet.getMoney()+10);
+
 		}
 		else if(button == vet) {
 			System.out.println("Veting");
 			
 			stores.vetVisit(pet);
+			pet.setMoney(pet.getMoney()+10);
 
 		}
 		else if(button == play) {
 			System.out.println("Playing");
+			pet.setMoney(pet.getMoney()+10);
 
 		}
 		else if(button == store) {
