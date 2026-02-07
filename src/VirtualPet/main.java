@@ -1,4 +1,4 @@
-package virtualPet;
+package VirtualPet;
 import DrawingSurface.*;
 import DrawingSurface.Button;
 import pets.Pet;
@@ -29,7 +29,7 @@ public class main extends JFrame{
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(Color.WHITE);
         Button buttons = new Button(cardLayout, cardPanel, pet);
-        mainPanel.add(buttons, BorderLayout.CENTER);
+        mainPanel.add(buttons, BorderLayout.WEST);
         
         
         //Store panel stuff
