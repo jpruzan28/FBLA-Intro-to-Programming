@@ -3,6 +3,7 @@ package properties;
 import java.util.HashMap;
 
 import pets.Pet;
+import virtualPet.main;
 
 
 // Health Gain Factor is 1-4
@@ -68,35 +69,44 @@ public class Money {
 
 	}
 	
-	// Put in drawing surface/console
-	/*public boolean checkIfSelec() {
-		
-		
-		return false;
-		
-	}*/
 	
 	public void buyFood(Food f, Pet p) {
 		double m = p.getMoney();
 		
-		p.setMoney(m - f.getPrice());
+		if(m < f.getPrice()) {
+			main.errorMessage("Too expensive");
+		}
 		
-		f.feedPet(p);
-		
+		else {
+			p.setMoney(m - f.getPrice());
+			f.feedPet(p);
+		}
 	}
 	
 	public void buyToys(Toys t, Pet p) {
 		double m = p.getMoney();
 		
-		p.setMoney(m - t.getPrice());
+		if(m < t.getPrice()) {
+			main.errorMessage("Too expensive");
+		}
 		
-		p.setToys(t);
+		else {
+			p.setMoney(m - t.getPrice());	
+			p.setToys(t);
+		}
 	}
 
 	public void vetVisit(Pet p) {
 		double m = p.getMoney();
-		p.setHealth(10);
-		p.setMoney(m -= 20);
+		
+		if(m < 20) {
+			main.errorMessage("Too expensive");
+		}
+		
+		else {
+			p.setHealth(10);
+			p.setMoney(m -= 20);
+		}
 		
 
 		System.out.println("Went to the vet");

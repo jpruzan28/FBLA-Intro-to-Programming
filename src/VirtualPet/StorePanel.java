@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 
 
 import javax.swing.*;

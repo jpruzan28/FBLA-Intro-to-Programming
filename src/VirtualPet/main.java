@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 import DrawingSurface.*;
 import DrawingSurface.Button;
 import pets.Pet;
@@ -55,6 +55,14 @@ public class main extends JFrame{
 	    
 	}
 	
+	public static void errorMessage(String problem) {
+		if(problem.equals("Too expensive")) {
+		    JOptionPane.showMessageDialog(null, "Sorry, this item is too expensive.");
+		}
+		else if(problem.equals("Toy overflow")) {
+		    JOptionPane.showMessageDialog(null, "Sorry, you have reached the maximum number of toys. You cannot buy anymore.");
+		}
+	}
 
 	public static void main(String[] args) {
 	    //User input
