@@ -24,7 +24,7 @@ public class StorePanel extends JPanel implements ActionListener{
         setBackground(Color.gray);
         
         // Add store title
-        JLabel titleLabel = new JLabel("Welcome to the Toy Store! Green is dog toys, Blue is cat toys, and Red is fish", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("Welcome to the Toy Store! Green is dog toys, Blue is cat toys, and Red is fish toys.", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         add(titleLabel, BorderLayout.NORTH);
         
@@ -34,19 +34,28 @@ public class StorePanel extends JPanel implements ActionListener{
         allToysPanel.setLayout(new GridLayout(1, 3, 10, 10));
         
         
-        // Add store items panel
+        // Create panel
         JPanel dogToysPanel = new JPanel();
         dogToysPanel.setLayout(new GridLayout(3, 2, 8, 8));
         dogToysPanel.setBackground(Color.GREEN);
         
+        // Create jbuttons
+        usedBall = new JButton("Used Ball: $4.00"); 
+        rubberChewBone = new JButton("Rubber Chew Bone: $8.00"); 
+        enchantedChewWand = new JButton("Enchanted Chew Wand: $25.00"); 
+        guardianPlusBear = new JButton("Guardian Plus Bear: $50.00"); 
+        dogGodWorshipAltar = new JButton("Dog God Worship Altar: $70.00"); 
+        goldenestBone = new JButton("Goldenest Bone: $90.00"); 
         
-        usedBall = new JButton("Used Ball"); 
-        rubberChewBone = new JButton("Rubber Chew Bone"); 
-        enchantedChewWand = new JButton("Enchanted Chew Wand"); 
-        guardianPlusBear = new JButton("Guardian Plus Bear"); 
-        dogGodWorshipAltar = new JButton("Dog God Worship Altar"); 
-        goldenestBone = new JButton("Goldenest Bone"); 
+        // Names buttons
+        usedBall.setName("Used Ball"); 
+        rubberChewBone.setName("Rubber Chew Bone"); 
+        enchantedChewWand.setName("Enchanted Chew Wand"); 
+        guardianPlusBear.setName("Guardian Plus Bear"); 
+        dogGodWorshipAltar.setName("Dog God Worship Altar"); 
+        goldenestBone.setName("Goldenest Bone"); 
         
+        // Adds buttons to screen
         dogToysPanel.add(usedBall);
         dogToysPanel.add(rubberChewBone);
         dogToysPanel.add(enchantedChewWand);
@@ -54,6 +63,7 @@ public class StorePanel extends JPanel implements ActionListener{
         dogToysPanel.add(dogGodWorshipAltar);
         dogToysPanel.add(goldenestBone);
         
+        // Track when buttons are clicked
         usedBall.addActionListener(this);
         rubberChewBone.addActionListener(this);
         enchantedChewWand.addActionListener(this);
@@ -64,23 +74,28 @@ public class StorePanel extends JPanel implements ActionListener{
         
         JButton[] dogToys = new JButton[] {usedBall, rubberChewBone, enchantedChewWand, guardianPlusBear, dogGodWorshipAltar, goldenestBone};
 
-        for(JButton t: dogToys) {
-        	
-        }
-
-        
+        // Creates panel
         JPanel fishToysPanel = new JPanel();
         fishToysPanel.setLayout(new GridLayout(3, 2, 8, 8));
         fishToysPanel.setBackground(Color.RED);
        
+        // Create jbuttons
+        driftBall = new JButton("Drift Ball: $4.00"); 
+        shellHideout = new JButton("Shell Hideout: $8.00"); 
+        biolumeBubbleMachine = new JButton("Biolume Bubble Machine: $25.00"); 
+        roboticFriend = new JButton("Robotic Friend: $50.00"); 
+        ancientCalmingBell = new JButton("Ancient Calming Bell: $70.00"); 
+        platinumSpeaker = new JButton("Platinum Speaker: $90.00"); 
         
-        driftBall = new JButton("Drift Ball"); 
-        shellHideout = new JButton("Shell Hideout"); 
-        biolumeBubbleMachine = new JButton("Biolume Bubble Machine"); 
-        roboticFriend = new JButton("Robotic Friend"); 
-        ancientCalmingBell = new JButton("Ancient Calming Bell"); 
-        platinumSpeaker = new JButton("Platinum Speaker"); 
+        // Naming buttons
+        driftBall.setName("Drift Ball"); 
+        shellHideout.setName("Shell Hideout"); 
+        biolumeBubbleMachine.setName("Biolume Bubble Machine"); 
+        roboticFriend.setName("Robotic Friend"); 
+        ancientCalmingBell.setName("Ancient Calming Bell"); 
+        platinumSpeaker.setName("Platinum Speaker"); 
 
+        // Adding buttons to screen
         fishToysPanel.add(driftBall);
         fishToysPanel.add(shellHideout);
         fishToysPanel.add(biolumeBubbleMachine);
@@ -96,22 +111,28 @@ public class StorePanel extends JPanel implements ActionListener{
         platinumSpeaker.addActionListener(this);
 
 
-
-        //	JButton plainKittySock, jingleMouse, cornerScratchPost, laserPointer, quarterZip, legendaryAirpods;
-
-        
+        // Create jpanel
         JPanel catToysPanel = new JPanel();
         catToysPanel.setLayout(new GridLayout(3, 2, 8, 8));
         catToysPanel.setBackground(Color.BLUE);
        
+        // Naming buttons
+        plainKittySock = new JButton("Plain Kitty Sock: $4.00");
+        jingleMouse = new JButton("Jingle Mouse: $8.00");
+        cornerScratchPost = new JButton("Corner Scratch Post: $25.00");
+        laserPointer = new JButton("Laser Pointer: $50.00");
+        quarterZip = new JButton("Quarter Zip: $70.00");
+        legendaryAirpods = new JButton("Legendary Airpods: $90.00");
         
-        plainKittySock = new JButton("Plain Kitty Sock");
-        jingleMouse = new JButton("Jingle Mouse");
-        cornerScratchPost = new JButton("Corner Scratch Post");
-        laserPointer = new JButton("Laser Pointer");
-        quarterZip = new JButton("Quarter Zip");
-        legendaryAirpods = new JButton("Legendary Airpods");
+        // Create jbuttons
+        plainKittySock.setName("Plain Kitty Sock");
+        jingleMouse.setName("Jingle Mouse");
+        cornerScratchPost.setName("Corner Scratch Post");
+        laserPointer.setName("Laser Pointer");
+        quarterZip.setName("Quarter Zip");
+        legendaryAirpods.setName("Legendary Airpods");
         
+        // Add buttons to screen
         catToysPanel.add(plainKittySock);
         catToysPanel.add(jingleMouse);
         catToysPanel.add(cornerScratchPost);
@@ -159,8 +180,8 @@ public class StorePanel extends JPanel implements ActionListener{
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
         		for(Toys y: store.getDogToys()) {
-        			// Checks if the name of the toy matches the JButton name
-        			if(t.getName().equals(y.getName())) {
+        			// Checks if the name of the toy matches the JButton text on the button
+        			if(t.getText().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}
@@ -176,8 +197,8 @@ public class StorePanel extends JPanel implements ActionListener{
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
         		for(Toys y: store.getFishToys()) {
-        			// Checks if the name of the toy matches the JButton name
-        			if(t.getName().equals(y.getName())) {
+        			// Checks if the name of the toy matches the JButton text
+        			if(t.getText().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}
@@ -194,8 +215,8 @@ public class StorePanel extends JPanel implements ActionListener{
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
         		for(Toys y: store.getCatToys()) {
-        			// Checks if the name of the toy matches the JButton name
-        			if(t.getName().equals(y.getName())) {
+        			// Checks if the name of the toy matches the JButton text
+        			if(t.getText().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}

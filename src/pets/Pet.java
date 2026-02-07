@@ -25,7 +25,7 @@ public class Pet {
 		this.type = type;
 		age = 0;
 		health = 10;
-		hunger = 10;
+		hunger = 0;
 		emotion = 10;
 		rest = 10; 
 		hygiene = 10;
@@ -94,7 +94,7 @@ public class Pet {
 	// Puts toy into next available spot in toys array
 	public void setToys(Toys newToy) {
 		for(int i = 0; i < toys.length; i++) {
-			if(toys[i].equals("")) {
+			if(toys[i] == null) {
 				toys[i] = newToy;
 			}
 		}

@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 import DrawingSurface.*;
 import DrawingSurface.Button;
 import pets.Pet;
@@ -33,8 +33,8 @@ public class main extends JFrame{
         
         
         //Store panel stuff
-        StorePanel storePanel = new StorePanel(cardLayout, cardPanel);
-        StorePanelFood storePanelFood = new StorePanelFood(cardLayout, cardPanel);
+        StorePanel storePanel = new StorePanel(cardLayout, cardPanel, pet);
+        StorePanelFood storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
         
         
         // adding both panels to CardLayout 

@@ -107,7 +107,7 @@ public class Money {
 	}
 	
 	public Toys[] getFishToys() {
-		return fish;
+		return fish; 
 	}
 	
 	public Toys[] getCatToys() {

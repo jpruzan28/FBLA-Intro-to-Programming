@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import properties.*;
-import properties.Toys;
 import pets.Pet;
 
 public class StorePanelFood extends JPanel implements ActionListener {
@@ -29,7 +28,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     setBackground(Color.magenta);
 	     
 	     //Add title
-	     JLabel titleLabel = new JLabel("Welcome to the Food Store! Green is dog toys, Blue is cat toys, and Red is fish", SwingConstants.CENTER);
+	     JLabel titleLabel = new JLabel("Welcome to the Food Store! Green is dog food, Blue is cat food, and Red is fish food.", SwingConstants.CENTER);
 	     titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
 	     add(titleLabel, BorderLayout.NORTH);
 	     
@@ -37,18 +36,28 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     allFPanel.setLayout(new GridLayout(1, 3, 10, 10));
 	     
 	     
-	     // Add store items panel
+	     // Create panel
 	     JPanel dogFoodPanel = new JPanel();
 	     dogFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
 	     dogFoodPanel.setBackground(Color.GREEN);
 	     
-	     kibbleCrunch = new JButton("Kibble Crunch");
-	     beefAndVeggieMix = new JButton("Beef and Veggie Mix");
-	     chickenFeast = new JButton("Chicken Feast");
-	     salmonDelight = new JButton("Salmon Delight");
-	     lambAndRiceBowl = new JButton("Lamb and Rice Bowl");
-	     goldenChickenNuggets = new JButton("Golden Chicken Nuggets");
+	     // Create buttons
+	     kibbleCrunch = new JButton("Kibble Crunch: $10.00");
+	     beefAndVeggieMix = new JButton("Beef and Veggie Mix: $20.00");
+	     chickenFeast = new JButton("Chicken Feast: $30.00");
+	     salmonDelight = new JButton("Salmon Delight: $50.00");
+	     lambAndRiceBowl = new JButton("Lamb and Rice Bowl: $70.00");
+	     goldenChickenNuggets = new JButton("Golden Chicken Nuggets: $100.00");
 	     
+	     // Setting the names of the buttons
+	     kibbleCrunch.setName("Kibble Crunch");
+	     beefAndVeggieMix.setName("Beef and Veggie Mix");
+	     chickenFeast.setName("Chicken Feast");
+	     salmonDelight.setName("Salmon Delight");
+	     lambAndRiceBowl.setName("Lamb and Rice Bowl");
+	     goldenChickenNuggets.setName("Golden Chicken Nuggets");
+	     
+	     // Add buttons to screen
 	     dogFoodPanel.add(kibbleCrunch);
 	     dogFoodPanel.add(beefAndVeggieMix);
 	     dogFoodPanel.add(chickenFeast);
@@ -56,6 +65,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     dogFoodPanel.add(lambAndRiceBowl);
 	     dogFoodPanel.add(goldenChickenNuggets);
 	     
+	     // Track when the buttons are clicked
 	     kibbleCrunch.addActionListener(this);
 	     beefAndVeggieMix.addActionListener(this);
 	     chickenFeast.addActionListener(this);
@@ -63,18 +73,28 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     lambAndRiceBowl.addActionListener(this);
 	     goldenChickenNuggets.addActionListener(this);
 	     
-	     
+	     // Creating new panel
 	     JPanel catFoodPanel = new JPanel();
 	     catFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
 	     catFoodPanel.setBackground(Color.BLUE);
 	     
-	     fiveFishKibble = new JButton("Five Fish Kibble");
-	     veggieMedley = new JButton("Veggie Medley");
-	     expensiveMelk = new JButton("Expensive Melk");
-	     turkeyAndCranberryTreats = new JButton("Turkey And Cranberry Treays");
-	     bluefinTunaSteak = new JButton("Bluefin Tuna Steak");
-	     aGoldenRat = new JButton("A Golden Rat");
+	     // Creating buttons
+	     fiveFishKibble = new JButton("Five Fish Kibble: $10.00");
+	     veggieMedley = new JButton("Veggie Medley: $20.00");
+	     expensiveMelk = new JButton("Expensive Melk: $30.00");
+	     turkeyAndCranberryTreats = new JButton("Turkey And Cranberry Treats: $50.00");
+	     bluefinTunaSteak = new JButton("Bluefin Tuna Steak: $70.00");
+	     aGoldenRat = new JButton("A Golden Rat: $100.00");
 	     
+	     // Naming buttons
+	     fiveFishKibble.setName("Five Fish Kibble");
+	     veggieMedley.setName("Veggie Medley");
+	     expensiveMelk.setName("Expensive Melk");
+	     turkeyAndCranberryTreats.setName("Turkey And Cranberry Treats");
+	     bluefinTunaSteak.setName("Bluefin Tuna Steak");
+	     aGoldenRat.setName("A Golden Rat");
+	     
+	     // Adding buttons to window
 	     catFoodPanel.add(fiveFishKibble);
 	     catFoodPanel.add(veggieMedley);
 	     catFoodPanel.add(expensiveMelk);
@@ -90,18 +110,28 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     aGoldenRat.addActionListener(this);
 	     
 	     
+	     // Creates new panel
 	     JPanel fishFoodPanel = new JPanel();
 	     fishFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
 	     fishFoodPanel.setBackground(Color.RED);
 	       
-	        
-	     flakes = new JButton("Flakes"); 
-	     algaeCrisps = new JButton("Algae Crisps"); 
-	     shrimpPellets = new JButton("Shrimp Pellets"); 
-	     spirulinaFlakes = new JButton("Spirulina Flakes"); 
-	     caviarPearls = new JButton("Caviar Pearls"); 
-	     deepAbyssInfusion = new JButton("Deep Abyss Infusion"); 
+	     // Creates Jbuttons
+	     flakes = new JButton("Flakes: $10.00"); 
+	     algaeCrisps = new JButton("Algae Crisps: $20.00"); 
+	     shrimpPellets = new JButton("Shrimp Pellets: $30.00"); 
+	     spirulinaFlakes = new JButton("Spirulina Flakes: $50.00"); 
+	     caviarPearls = new JButton("Caviar Pearls: $70.00"); 
+	     deepAbyssInfusion = new JButton("Deep Abyss Infusion: $100.00"); 
+	     
+	     // Names Jbuttons
+	     flakes.setName("Flakes"); 
+	     algaeCrisps.setName("Algae Crisps"); 
+	     shrimpPellets.setName("Shrimp Pellets"); 
+	     spirulinaFlakes.setName("Spirulina Flakes"); 
+	     caviarPearls.setName("Caviar Pearls"); 
+	     deepAbyssInfusion.setName("Deep Abyss Infusion"); 
 
+	     // Adds buttons to window
 	     fishFoodPanel.add(flakes);
 	     fishFoodPanel.add(algaeCrisps);
 	     fishFoodPanel.add(shrimpPellets);
@@ -128,6 +158,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     
 	     
 	}    
+	
 	
 	 public void actionPerformed(ActionEvent e) {
 			JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
@@ -176,7 +207,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	        	if (button.equals(f)) {
 	        		// Goes through Toys array from Money class
 	        		for(Food y: store.getCatFood()) {
-	        			// Checks if the name of the toy matches the JButton name
+	        			// Checks if the name of the toy matches the JButton name 
 	        			if(f.getName().equals(y.getName())) {
 	        				store.buyFood(y, p);
 	        			}
@@ -186,12 +217,5 @@ public class StorePanelFood extends JPanel implements ActionListener {
 
 	    
 	    }
-	     
-		
-		
-	
-	
-
-	
 
 }
