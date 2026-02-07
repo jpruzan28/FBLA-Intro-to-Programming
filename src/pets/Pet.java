@@ -1,6 +1,7 @@
 package pets;
 
 import properties.Toys;
+import virtualPet.main;
 
 public class Pet {
 	//Fields from UML
@@ -20,7 +21,6 @@ public class Pet {
 	
 	//Constructor maybe???
 	public Pet(String name, String type) {
-		System.out.println("I get called");
 		this.name = name;
 		this.type = type;
 		age = 0;
@@ -93,10 +93,19 @@ public class Pet {
 	
 	// Puts toy into next available spot in toys array
 	public void setToys(Toys newToy) {
+		System.out.println("Added to toys");
+		int numToys = 0;
 		for(int i = 0; i < toys.length; i++) {
 			if(toys[i] == null) {
 				toys[i] = newToy;
 			}
+			else {
+				numToys++;
+			}
+		}
+		
+		if(numToys == 5) {
+			main.errorMessage("Toy overflow");
 		}
 	}
 	

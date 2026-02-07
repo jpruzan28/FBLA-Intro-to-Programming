@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
