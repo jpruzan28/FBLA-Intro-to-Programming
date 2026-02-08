@@ -47,7 +47,7 @@ public class Money {
 
 	public Money() {
 		
-		d = new Food[] {new Food("Kibble Crunch", "Dog", 10.00, 1), new Food("Beef & Veggie Mix", "Dog", 20.00, 2), new Food("Chicken Feast", "Dog", 30.00, 2), 
+		d = new Food[] {new Food("Kibble Crunch", "Dog", 10.00, 1), new Food("Beef and Veggie Mix", "Dog", 20.00, 2), new Food("Chicken Feast", "Dog", 30.00, 2), 
 				new Food("Salmon Delight", "Dog", 50.00, 3), new Food("Lamb and Rice Bowl", "Dog", 70.00, 3), new Food("Golden Chicken Nuggets", "Dog", 100.00, 4)};
 		
 		fi = new Food[] {new Food("Flakes", "Fish", 10.00, 1), new Food("Algae Crisps", "Fish", 20.00, 2), new Food("Shrimp Pellets", "Fish", 30.00, 2), 
@@ -135,6 +135,7 @@ public class Money {
 	public Food[] getFishFood() {
 		return fi;
 	}
+	
 	
 	
 

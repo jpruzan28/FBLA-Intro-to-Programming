@@ -33,7 +33,7 @@ public class Health {
 		if (totalHealth <= 2) {
 		} else {
 			if (totalHunger <= 4) {
-				totalHealth += 1;
+				totalHealth -= 1;
 			} else {
 				totalHealth += 2;
 			}
@@ -44,7 +44,7 @@ public class Health {
 		if (totalHealth <= 2) {
 		} else {
 			if (totalRest <= 4) {
-				totalHealth += 1;
+				totalHealth -= 1;
 			} else {
 				totalHealth += 2;
 			}
@@ -55,7 +55,7 @@ public class Health {
 		if (totalHealth <= 2) {
 		} else {
 			if (totalPlay <= 4) {
-				totalHealth += 1;
+				totalHealth -= 1;
 			} else {
 				totalHealth += 2;
 			}
@@ -66,7 +66,7 @@ public class Health {
 		if (totalHealth <= 2) { //if that's true, the user can only improve health by going to vet
 		} else {
 			if (totalHygiene <= 4) {
-				totalHealth += 1;
+				totalHealth -= 1;
 			} else {
 				totalHealth += 2;
 			}
