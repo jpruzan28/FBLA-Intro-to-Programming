@@ -83,6 +83,8 @@ public class main extends JFrame{
 	    cardLayout.show(cardPanel, "Game");
 	}
 	
+	
+	
 	public void updateMoneyDisplay() {
         moneyLabel.setText("Total Currency: $" + String.format("%.2f", pet.getMoney()));
     }
@@ -111,7 +113,7 @@ public class main extends JFrame{
 
 	     // CREATE THE WINDOW FIRST
 	     main w = new main(pet);
-	     w.setBounds(300, 300, 400, 400);
+	     w.setBounds(100, 100, 900, 900);
 	     w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	     w.setVisible(true);
 
