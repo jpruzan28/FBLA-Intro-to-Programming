@@ -16,50 +16,76 @@ public class main extends JFrame{
 	
 	private static Pet pet;
 	private static String petType, petName; 
+	private JLabel moneyLabel;
 	
 	public main(Pet pet) {
-	    Container c = getContentPane();	    // Creating cardLayout and container panel
-	    CardLayout cardLayout = new CardLayout();
-        JPanel cardPanel = new JPanel(cardLayout);
-        
-        JLabel titleLabel = new JLabel("Total Curency: $" + pet.getMoney(), SwingConstants.CENTER);
-        titleLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
-        add(titleLabel, BorderLayout.NORTH);
-        
-        
-        
-        
-        JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(Color.WHITE);
-        Button buttons = new Button(cardLayout, cardPanel, pet);
-        mainPanel.add(buttons, BorderLayout.WEST);
-        
-        Sprite sprites = new Sprite();
-        mainPanel.add(sprites);
-        
-        
-        //Store panel stuff
-        StorePanel storePanel = new StorePanel(cardLayout, cardPanel, pet);
-        StorePanelFood storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
-        
-        
-        // adding both panels to CardLayout 
-        cardPanel.add(mainPanel, "Game");
-        cardPanel.add(storePanel, "Store");
-        cardPanel.add(storePanelFood, "FStore");
-        
-        Bar bars = new Bar(pet);  // 
-        bars.setBackground(Color.GREEN); 
-        bars.setPreferredSize(new Dimension(200, 200)); 
-        mainPanel.add(bars, BorderLayout.NORTH); 
-        
-        // add the cardPanel to the frame
-        c.add(cardPanel);
-        
-        // Show main panel first
-        cardLayout.show(cardPanel, "Game");
+	    Container c = getContentPane();
 	    
+	    // Creating cardLayout and container panel
+	    CardLayout cardLayout = new CardLayout();
+	    JPanel cardPanel = new JPanel(cardLayout);
+
+	    JPanel mainPanel = new JPanel(new BorderLayout());
+	    mainPanel.setBackground(Color.WHITE);
+
+	    // Buttons on the left
+	    Button buttons = new Button(cardLayout, cardPanel, pet);
+	    mainPanel.add(buttons, BorderLayout.WEST);
+
+	    // Create a left panel with the GridBagLayout for positioning
+	    JPanel rightPanel = new JPanel(new GridBagLayout());
+	    GridBagConstraints gbc = new GridBagConstraints();
+	    gbc.gridx = 0;
+	    gbc.weightx = 1.0;
+	    gbc.fill = GridBagConstraints.BOTH;
+	    
+	    // Below contains the layout for where components on GUI is going to be
+	    
+	    // Row 1: // Row 0: bar at the top 
+	    Bar bars = new Bar(pet);
+	    bars.setBackground(Color.GREEN);
+	    bars.setPreferredSize(new Dimension(200, 200));
+	    gbc.gridy = 0;
+	    gbc.weighty = 0.3;
+	    rightPanel.add(bars, gbc);
+	    
+	    // Row 2: money label below bars 
+	    moneyLabel = new JLabel("Total Currency: $" + pet.getMoney(), SwingConstants.CENTER);
+	    moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
+	    gbc.gridy = 1;
+	    gbc.weighty = 0.1;
+	    gbc.fill = GridBagConstraints.HORIZONTAL;
+	    gbc.anchor = GridBagConstraints.CENTER;
+	    rightPanel.add(moneyLabel, gbc);
+	    
+	    // Row 3: SPRITE takes the remaining space 
+	    Sprite sprites = new Sprite();
+	    gbc.gridy = 2;
+	    gbc.weighty = 0.6;
+	    gbc.fill = GridBagConstraints.BOTH;
+	    rightPanel.add(sprites, gbc);
+	    
+	    mainPanel.add(rightPanel, BorderLayout.CENTER);
+
+	    // Store panel stuff
+	    StorePanel storePanel = new StorePanel(cardLayout, cardPanel, pet);
+	    StorePanelFood storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
+
+	    // Adding all panels to CardLayout
+	    cardPanel.add(mainPanel, "Game");
+	    cardPanel.add(storePanel, "Store");
+	    cardPanel.add(storePanelFood, "FStore");
+
+	    // Add the cardPanel to the frame
+	    c.add(cardPanel);
+
+	    // Show main panel first
+	    cardLayout.show(cardPanel, "Game");
 	}
+	
+	public void updateMoneyDisplay() {
+        moneyLabel.setText("Total Currency: $" + String.format("%.2f", pet.getMoney()));
+    }
 	
 	public static void errorMessage(String problem) {
 		if(problem.equals("Too expensive")) {
@@ -81,29 +107,25 @@ public class main extends JFrame{
 	     petName = JOptionPane.showInputDialog("What would you like to name your " + petType + "?");
 	    
 	    // Creating the pet
-	    pet = new Pet(petName, petType);
-	    
-	    
-	    //Reduction Timer
-	    //1. instatiate outer class, needed bc the inner classes rely on the pet
-	    ReductionTimer reductionTimers = new ReductionTimer(pet);
-	    
-	    Timer timer = new Timer();
-	    
-	    timer.schedule(reductionTimers.new reduceHunger(), 0 , 35000); //decreases in milliseconds
-	    timer.schedule(reductionTimers.new reduceHealth(), 0 , 35000);
-	    timer.schedule(reductionTimers.new reduceHygiene(), 0 , 35000);
-	    timer.schedule(reductionTimers.new reduceRest(), 0 , 35000);
-	    timer.schedule(reductionTimers.new reduceEmotion(), 0 , 35000);
-	    
-	    timer.schedule(reductionTimers.new salary(), 0, 35000);
-	    timer.schedule(reductionTimers.new bonus(), 0, 35000);
-	    
-	    
-	    main w = new main(pet);
-	    w.setBounds(300, 300, 400, 400);
-	    w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    w.setVisible(true);
+	     pet = new Pet(petName, petType);
+
+	     // CREATE THE WINDOW FIRST
+	     main w = new main(pet);
+	     w.setBounds(300, 300, 400, 400);
+	     w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	     w.setVisible(true);
+
+	     // THEN create ReductionTimer with reference to w
+	     ReductionTimer reductionTimers = new ReductionTimer(pet, w);
+	     
+	     Timer timer = new Timer();
+	     timer.schedule(reductionTimers.new reduceHunger(), 0, 35000);
+	     timer.schedule(reductionTimers.new reduceHealth(), 0, 35000);
+	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 35000);
+	     timer.schedule(reductionTimers.new reduceRest(), 0, 35000);
+	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 35000);
+	     timer.schedule(reductionTimers.new salary(), 0, 35000);
+	     timer.schedule(reductionTimers.new bonus(), 0, 35000);
 	    
 	}
 	
