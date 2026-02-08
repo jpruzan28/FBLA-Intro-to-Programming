@@ -13,17 +13,22 @@ import DrawingSurface.Bar;
 
 
 public class main extends JFrame{
-	
 	private static Pet pet;
 	private static String petType, petName; 
+	
 	private JLabel moneyLabel;
+	
+	private CardLayout cardLayout;
+	private JPanel cardPanel;
+	
+	
 	
 	public main(Pet pet) {
 	    Container c = getContentPane();
 	    
 	    // Creating cardLayout and container panel
-	    CardLayout cardLayout = new CardLayout();
-	    JPanel cardPanel = new JPanel(cardLayout);
+	    cardLayout = new CardLayout();
+	    cardPanel = new JPanel(cardLayout);
 
 	    JPanel mainPanel = new JPanel(new BorderLayout());
 	    mainPanel.setBackground(Color.WHITE);
