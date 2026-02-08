@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 import DrawingSurface.*;
 import DrawingSurface.Button;
 import pets.Pet;
@@ -126,7 +126,7 @@ public class main extends JFrame{
 	     w.setVisible(true);
 
 	     // THEN create ReductionTimer with reference to w
-	    /* ReductionTimer reductionTimers = new ReductionTimer(pet, w);
+	     ReductionTimer reductionTimers = new ReductionTimer(pet, w);
 	     
 	     Timer timer = new Timer();
 	     timer.schedule(reductionTimers.new reduceHunger(), 0, 35000);
@@ -135,7 +135,7 @@ public class main extends JFrame{
 	     timer.schedule(reductionTimers.new reduceRest(), 0, 35000);
 	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 35000);
 	     timer.schedule(reductionTimers.new salary(), 0, 35000);
-	     timer.schedule(reductionTimers.new bonus(), 0, 35000);*/
+	     timer.schedule(reductionTimers.new bonus(), 0, 35000);
 	    
 	}
 	

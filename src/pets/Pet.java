@@ -1,7 +1,7 @@
 package pets;
 
 import properties.Toys;
-import VirtualPet.main;
+import virtualPet.main;
 
 public class Pet {
 	//Fields from UML
@@ -50,9 +50,11 @@ public class Pet {
 	public void setHealth(int newHealth) {
 		if(newHealth > 10) {
 			health = 10;
+			System.out.println("Health is at maximum");
 		}
 		else {
 			health = newHealth;
+			System.out.println("Adding " + newHealth + " to health");
 		}
 //		Health.addHungerToHealth(health);
 	}
@@ -99,7 +101,7 @@ public class Pet {
 		for(int i = 0; i < toys.length; i++) {
 			if(toys[i] == null) {
 				toys[i] = newToy;
-				break;
+				i = toys.length;
 			}
 			else {
 				numToys++;

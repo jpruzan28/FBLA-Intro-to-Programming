@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -35,7 +35,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     JPanel allFPanel = new JPanel();
 	     allFPanel.setLayout(new GridLayout(1, 3, 10, 10));
 	     
-	     
+	     // DOG
 	     // Create panel
 	     JPanel dogFoodPanel = new JPanel();
 	     dogFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
@@ -73,6 +73,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     lambAndRiceBowl.addActionListener(this);
 	     goldenChickenNuggets.addActionListener(this);
 	     
+	     // CAT
 	     // Creating new panel
 	     JPanel catFoodPanel = new JPanel();
 	     catFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
@@ -109,7 +110,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     bluefinTunaSteak.addActionListener(this);
 	     aGoldenRat.addActionListener(this);
 	     
-	     
+	     // FISH
 	     // Creates new panel
 	     JPanel fishFoodPanel = new JPanel();
 	     fishFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
@@ -138,6 +139,14 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     fishFoodPanel.add(spirulinaFlakes);
 	     fishFoodPanel.add(caviarPearls);
 	     fishFoodPanel.add(deepAbyssInfusion);
+	     
+	     flakes.addActionListener(this); 
+	     algaeCrisps.addActionListener(this); 
+	     shrimpPellets.addActionListener(this); 
+	     spirulinaFlakes.addActionListener(this); 
+	     caviarPearls.addActionListener(this); 
+	     deepAbyssInfusion.addActionListener(this); 
+
 	     
 	     JButton bButton = new JButton("Return to home");
 	     bButton.addActionListener(e -> {

@@ -1,5 +1,5 @@
 package DrawingSurface;
-import VirtualPet.main;
+import virtualPet.main;
 
 import pets.Pet;
 import java.util.TimerTask;
