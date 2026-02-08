@@ -1,5 +1,5 @@
 package DrawingSurface;
-import virtualPet.main;
+import VirtualPet.main;
 
 import pets.Pet;
 import java.util.TimerTask;
@@ -11,7 +11,7 @@ public class ReductionTimer{
 	private int ogHunger;
 	private int ogHealth;
 	private int ogEmotion;
-	private int ogRest;
+
 	int ogHygiene;
 	
 	public ReductionTimer(Pet pet, main mainWindow) {
@@ -20,7 +20,6 @@ public class ReductionTimer{
 		ogHunger = pet.getHunger();
 		ogHealth = pet.getHealth();
 		ogEmotion = pet.getEmotion();
-		ogRest = pet.getRest();
 		ogHygiene = pet.getHygiene();
 	}
 		
