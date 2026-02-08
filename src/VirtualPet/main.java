@@ -97,7 +97,12 @@ public class main extends JFrame{
 	}
 	
 	
+	public void gameOver() {
+		cardLayout.show(cardPanel, "GameOver");
+	}
 	
+	
+	//Gets money and updates is by using the format method to update the number
 	public void updateMoneyDisplay() {
         moneyLabel.setText("Total Currency: $" + String.format("%.2f", pet.getMoney()));
     }
