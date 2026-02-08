@@ -22,7 +22,7 @@ public class main extends JFrame{
 	    CardLayout cardLayout = new CardLayout();
         JPanel cardPanel = new JPanel(cardLayout);
         
-        JLabel titleLabel = new JLabel("Total Curency:" + pet.getMoney(), SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("Total Curency: $" + pet.getMoney(), SwingConstants.CENTER);
         titleLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
         add(titleLabel, BorderLayout.NORTH);
         
