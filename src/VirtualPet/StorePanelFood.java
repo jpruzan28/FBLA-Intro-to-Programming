@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -43,7 +43,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     
 	     // Create buttons
 	     kibbleCrunch = new JButton("Kibble Crunch: $10.00");
-	     beefAndVeggieMix = new JButton("Beef and Veggie Mix: $20.00");
+	     beefAndVeggieMix = new JButton("Beef & Veggie Mix: $20.00");
 	     chickenFeast = new JButton("Chicken Feast: $30.00");
 	     salmonDelight = new JButton("Salmon Delight: $50.00");
 	     lambAndRiceBowl = new JButton("Lamb and Rice Bowl: $70.00");

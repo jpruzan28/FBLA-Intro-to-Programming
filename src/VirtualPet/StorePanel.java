@@ -1,4 +1,4 @@
-package VirtualPet;
+package virtualPet;
 
 
 import javax.swing.*;
@@ -72,8 +72,6 @@ public class StorePanel extends JPanel implements ActionListener{
         goldenestBone.addActionListener(this);
 
         
-        JButton[] dogToys = new JButton[] {usedBall, rubberChewBone, enchantedChewWand, guardianPlusBear, dogGodWorshipAltar, goldenestBone};
-
         // Creates panel
         JPanel fishToysPanel = new JPanel();
         fishToysPanel.setLayout(new GridLayout(3, 2, 8, 8));
@@ -180,8 +178,8 @@ public class StorePanel extends JPanel implements ActionListener{
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
         		for(Toys y: store.getDogToys()) {
-        			// Checks if the name of the toy matches the JButton text on the button
-        			if(t.getText().equals(y.getName())) {
+        			// Checks if the name of the toy matches the JButton name of the button
+        			if(t.getName().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}
@@ -197,8 +195,8 @@ public class StorePanel extends JPanel implements ActionListener{
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
         		for(Toys y: store.getFishToys()) {
-        			// Checks if the name of the toy matches the JButton text
-        			if(t.getText().equals(y.getName())) {
+        			// Checks if the name of the toy matches the JButton name
+        			if(t.getName().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}
@@ -215,8 +213,8 @@ public class StorePanel extends JPanel implements ActionListener{
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
         		for(Toys y: store.getCatToys()) {
-        			// Checks if the name of the toy matches the JButton text
-        			if(t.getText().equals(y.getName())) {
+        			// Checks if the name of the toy matches the JButton name
+        			if(t.getName().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}

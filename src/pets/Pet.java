@@ -2,7 +2,7 @@ package pets;
 
 import properties.Toys;
 import properties.Health;
-import VirtualPet.main;
+import virtualPet.main;
 
 public class Pet {
 	//Fields from UML
@@ -149,19 +149,23 @@ public class Pet {
 		}
 		
 		// Returns the toys array in a string
-		public String getToys() {
+		public String getToysStr() {
 			
 			String toysStr = "";
 			for(int i = 0; i < toys.length; i++) {
-				if(toys[i].equals("")) {
+				if(toys[i] == null) {
 					//skips
 				}
 				else {
-					toysStr += (toys[i] + " ");
+					toysStr += (toys[i].getName() + ", ");
 				}
 			}
 			
 			return toysStr;
+		}
+		
+		public Toys[] getToysArr() {
+			return toys;
 		}
 		
 	

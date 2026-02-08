@@ -82,7 +82,7 @@ public class Activities {
 		pet.setEmotion(currentEmotion + ehFactor);
 		pet.setHunger(currentHunger - hrFactor);
 		pet.setRest(currentRest - hrFactor);
-		pet.setHygiene(currentHygiene + ehFactor);
+		pet.setHygiene(currentHygiene - ehFactor);
 		
 		
 	}

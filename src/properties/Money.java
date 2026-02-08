@@ -3,7 +3,7 @@ package properties;
 import java.util.HashMap;
 
 import pets.Pet;
-import VirtualPet.main;
+import virtualPet.main;
 
 
 // Health Gain Factor is 1-4
@@ -53,16 +53,16 @@ public class Money {
 		fi = new Food[] {new Food("Flakes", "Fish", 10.00, 1), new Food("Algae Crisps", "Fish", 20.00, 2), new Food("Shrimp Pellets", "Fish", 30.00, 2), 
 				new Food("Spirulina Flakes", "Fish", 50.00, 3), new Food("Caviar Pearls", "Fish", 70.00, 3), new Food("Deep Abyss Infusion", "Fish", 100.00, 4)};
 		
-		ca = new Food[] {new Food("5 Fish Kibble", "Cat", 10.00, 1), new Food("Veggie Medley", "Cat", 20.00, 2), new Food("Expensive Melk", "Cat", 30.00, 2), 
+		ca = new Food[] {new Food("Five Fish Kibble", "Cat", 10.00, 1), new Food("Veggie Medley", "Cat", 20.00, 2), new Food("Expensive Melk", "Cat", 30.00, 2), 
 				new Food("Turkey & Crannberry Treats", "Cat", 50.00, 3), new Food("Bluefin Tuna Steak", "Cat", 70.00, 3), new Food("A Golden Rat", "Cat", 100.00, 4)};
 		
 		
 		
-		dog = new Toys[] {new Toys("Used Ball", "Dog", 4.00, 1), new Toys("A Rubber Chew Bone", "Dog", 8.00, 1), new Toys("Enchanted Chew Wand", "Dog", 25.00, 2), new Toys("Guardian Plus bear", "Dog", 50.00, 2), 
-				new Toys("Dog God Worship Altar", "Dog", 70.00, 3), new Toys("The Goldenest Bone", "Dog", 90.00, 4)};
+		dog = new Toys[] {new Toys("Used Ball", "Dog", 4.00, 1), new Toys("Rubber Chew Bone", "Dog", 8.00, 1), new Toys("Enchanted Chew Wand", "Dog", 25.00, 2), new Toys("Guardian Plus bear", "Dog", 50.00, 2), 
+				new Toys("Dog God Worship Altar", "Dog", 70.00, 3), new Toys("Goldenest Bone", "Dog", 90.00, 4)};
 		
 		fish = new Toys[] {new Toys("Drift Ball", "Fish", 4.00, 1), new Toys("Shell Hideout", "Fish", 8.00, 1), new Toys("Biolume Bubble Machine", "Fish", 25.00, 2), new Toys("Robotic Friend", "Fish", 50.00, 2), 
-				new Toys("Ancient Calming Bell", "Fish", 70.00, 3), new Toys("Platinum Speaker For Music", "Fish", 90.00, 4)};
+				new Toys("Ancient Calming Bell", "Fish", 70.00, 3), new Toys("Platinum Speaker", "Fish", 90.00, 4)};
 		
 		cat = new Toys[] {new Toys("Plain Kitty Sock", "Cat", 4.00, 1), new Toys("Jingle Mouse", "Cat", 8.00, 1), new Toys("Corner Scratch Post", "Cat", 25.00, 2), new Toys("Laser Pointer", "Cat", 50.00, 2), 
 				new Toys("Quarter Zip", "Cat", 70.00, 3), new Toys("Legendary Airpods", "Cat", 90.00, 4)};
