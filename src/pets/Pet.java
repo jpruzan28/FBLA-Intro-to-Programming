@@ -1,8 +1,7 @@
 package pets;
 
 import properties.Toys;
-import properties.Health;
-import virtualPet.main;
+import VirtualPet.main;
 
 public class Pet {
 	//Fields from UML

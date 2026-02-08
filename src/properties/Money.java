@@ -3,7 +3,7 @@ package properties;
 import java.util.HashMap;
 
 import pets.Pet;
-import virtualPet.main;
+import VirtualPet.main;
 
 
 // Health Gain Factor is 1-4

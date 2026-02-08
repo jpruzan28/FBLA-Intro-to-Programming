@@ -73,7 +73,7 @@ public class Button extends JPanel implements ActionListener {
     
 		Money stores = new Money();
 		if(button == food) {
-			pet.setMoney(pet.getMoney()+10);
+			pet.setMoney(pet.getMoney()-10);
 
 			
 			cardLayout.show(cardPanel, "FStore");
