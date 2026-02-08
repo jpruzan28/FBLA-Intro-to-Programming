@@ -36,7 +36,7 @@ public class Button extends JPanel implements ActionListener {
 		
 	    JPanel panel = new JPanel(); //This is the Panel that sections off things. 
 	    panel.setLayout(new GridLayout(6, 1)); //This affects how things look INSIDE the panel; buttons, etc.
-	    panel.setPreferredSize(new Dimension(200, 455)); //when set length to 500, it doesn't fit in frame for some reason :c
+	    panel.setPreferredSize(new Dimension(600, 600)); //when set length to 500, it doesn't fit in frame for some reason :c
 	    panel.setBackground(Color.BLUE);
 	    
 		food = new JButton("Food"); 

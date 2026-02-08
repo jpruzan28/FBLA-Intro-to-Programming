@@ -1,4 +1,4 @@
-package virtualPet;
+package VirtualPet;
 import DrawingSurface.*;
 import DrawingSurface.Button;
 import pets.Pet;
@@ -46,8 +46,8 @@ public class main extends JFrame{
         
         Bar bars = new Bar(pet);  // 
         bars.setBackground(Color.GREEN); 
-        bars.setPreferredSize(new Dimension(200, 455)); 
-        mainPanel.add(bars, BorderLayout.EAST); 
+        bars.setPreferredSize(new Dimension(200, 200)); 
+        mainPanel.add(bars, BorderLayout.NORTH); 
         
         // add the cardPanel to the frame
         c.add(cardPanel);
