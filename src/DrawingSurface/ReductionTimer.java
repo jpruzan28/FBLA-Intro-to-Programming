@@ -16,6 +16,7 @@ public class ReductionTimer{
 	
 	public ReductionTimer(Pet pet, main mainWindow) {
 		this.pet = pet;
+		this.mainWindow = mainWindow;
 		ogHunger = pet.getHunger();
 		ogHealth = pet.getHealth();
 		ogEmotion = pet.getEmotion();
