@@ -1,4 +1,4 @@
-package virtualPet;
+package VirtualPet;
 import DrawingSurface.*;
 import DrawingSurface.Button;
 import pets.Pet;
@@ -57,6 +57,14 @@ public class main extends JFrame{
 	    gbc.fill = GridBagConstraints.HORIZONTAL;
 	    gbc.anchor = GridBagConstraints.CENTER;
 	    rightPanel.add(moneyLabel, gbc);
+	    
+	    //For the timer to work
+	    javax.swing.Timer displayTimer = new javax.swing.Timer(1000, e -> {
+	        moneyLabel.setText("Total Currency: $" + String.format("%.2f", pet.getMoney()));
+	    });
+	    displayTimer.start();
+
+	    
 	    
 	    // Row 3: SPRITE takes the remaining space 
 	    Sprite sprites = new Sprite();
