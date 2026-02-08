@@ -5,10 +5,8 @@ import pets.Pet;
 
 import java.util.TimerTask;
 import java.util.Timer;
-import java.awt.BorderLayout;
 import java.awt.*;
-import java.awt.Color;
-import java.awt.Container;
+
 //import java.util.Scanner;
 import javax.swing.*;
 import DrawingSurface.Bar;
@@ -23,6 +21,12 @@ public class main extends JFrame{
 	    Container c = getContentPane();	    // Creating cardLayout and container panel
 	    CardLayout cardLayout = new CardLayout();
         JPanel cardPanel = new JPanel(cardLayout);
+        
+        JLabel titleLabel = new JLabel("Total Curency:" + pet.getMoney(), SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
+        add(titleLabel, BorderLayout.NORTH);
+        
+        
         
         
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -86,14 +90,14 @@ public class main extends JFrame{
 	    
 	    Timer timer = new Timer();
 	    
-	    timer.schedule(reductionTimers.new reduceHunger(), 0 , 120000); //decreases in milliseconds
-	    timer.schedule(reductionTimers.new reduceHealth(), 0 , 120000);
-	    timer.schedule(reductionTimers.new reduceHygiene(), 0 , 120000);
-	    timer.schedule(reductionTimers.new reduceRest(), 0 , 300000);
-	    timer.schedule(reductionTimers.new reduceEmotion(), 0 , 120000);
+	    timer.schedule(reductionTimers.new reduceHunger(), 0 , 35000); //decreases in milliseconds
+	    timer.schedule(reductionTimers.new reduceHealth(), 0 , 35000);
+	    timer.schedule(reductionTimers.new reduceHygiene(), 0 , 35000);
+	    timer.schedule(reductionTimers.new reduceRest(), 0 , 35000);
+	    timer.schedule(reductionTimers.new reduceEmotion(), 0 , 35000);
 	    
-	    timer.schedule(reductionTimers.new salary(), 0, 120000);
-	    timer.schedule(reductionTimers.new bonus(), 0, 120000);
+	    timer.schedule(reductionTimers.new salary(), 0, 35000);
+	    timer.schedule(reductionTimers.new bonus(), 0, 35000);
 	    
 	    
 	    main w = new main(pet);
