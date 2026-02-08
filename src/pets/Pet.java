@@ -99,6 +99,7 @@ public class Pet {
 		for(int i = 0; i < toys.length; i++) {
 			if(toys[i] == null) {
 				toys[i] = newToy;
+				break;
 			}
 			else {
 				numToys++;
