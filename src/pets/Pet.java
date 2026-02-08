@@ -1,6 +1,7 @@
 package pets;
 
 import properties.Toys;
+import properties.Health;
 import VirtualPet.main;
 
 public class Pet {
@@ -54,6 +55,7 @@ public class Pet {
 		else {
 			health = newHealth;
 		}
+//		Health.addHungerToHealth(health);
 	}
 	
 	public void setHunger(int newHunger) {
