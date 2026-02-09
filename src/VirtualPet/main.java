@@ -57,7 +57,7 @@ public class main extends JFrame{
 	    // Row 2: money label below bars 
 	    moneyLabel = new JLabel("Total Currency: $" + pet.getMoney(), SwingConstants.CENTER);
 	    moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
-	    gbc.gridy = 1;
+	    gbc.gridy = 0;
 	    gbc.weighty = 0.1;
 	    gbc.fill = GridBagConstraints.HORIZONTAL;
 	    gbc.anchor = GridBagConstraints.CENTER;
