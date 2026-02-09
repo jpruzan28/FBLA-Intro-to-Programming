@@ -1,7 +1,7 @@
 package pets;
 
+import VirtualPet.main;
 import properties.*;
-import virtualPet.main;
 
 public class Pet {
 	//Fields from UML
