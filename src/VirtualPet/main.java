@@ -72,7 +72,8 @@ public class main extends JFrame{
 	    
 	    
 	    // Row 3: SPRITE takes the remaining space 
-	    Sprite sprites = new Sprite();
+	    Sprite sprites = new Sprite(pet);
+	    
 	    gbc.gridy = 2;
 	    gbc.weighty = 0.6;
 	    gbc.fill = GridBagConstraints.BOTH;
