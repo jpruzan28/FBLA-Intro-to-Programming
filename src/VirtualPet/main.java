@@ -139,13 +139,19 @@ public class main extends JFrame{
 	     ReductionTimer reductionTimers = new ReductionTimer(pet, w);
 	     
 	     Timer timer = new Timer();
+	     // Reduce fields overtime
 	     timer.schedule(reductionTimers.new reduceHunger(), 0, 35000);
 	     timer.schedule(reductionTimers.new reduceHealth(), 0, 35000);
 	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 35000);
 	     timer.schedule(reductionTimers.new reduceRest(), 0, 35000);
 	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 35000);
+	     
+	     // Giving the user money
 	     timer.schedule(reductionTimers.new salary(), 0, 35000);
 	     timer.schedule(reductionTimers.new bonus(), 0, 35000);
+	     
+	     // Updating pet health
+	     timer.schedule(reductionTimers.new updateHealth(), 0, 120000);
 	    
 	}
 	

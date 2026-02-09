@@ -7,7 +7,6 @@ import pets.Pet;
 
 public class Health {
 	// Fields
-	private int totalHealth;
 	private Pet pet;
 
 	// Constructors
@@ -15,7 +14,6 @@ public class Health {
 		this.pet = pet;
 		// Out of 10 because 5 factors, each one adds 1 health if 1-4 and adds 2 health
 		// if 5-10.
-		totalHealth = pet.getHealth();
 
 	}
 
@@ -30,51 +28,79 @@ public class Health {
 
 	// Affect emotion when health goes down
 	public void addHungerToHealth(int totalHunger) {
+		int totalHealth = pet.getHealth();
+
+		int newHealth;
 		if (totalHealth <= 2) {
-		} else {
-			if (totalHunger <= 4) {
-				totalHealth -= 1;
-			} else {
-				totalHealth += 2;
+			newHealth = totalHealth;
+        } 
+		else {
+			if(totalHunger == 0) {
+				newHealth = totalHealth - 5;
 			}
+			else if (totalHunger <= 2) {
+				newHealth = totalHealth - 3;
+			}
+			else if (totalHunger <= 4) {
+				newHealth = totalHealth - 2;
+			} 
+			else {
+				newHealth = totalHealth + 2;
+			}
+			
 		}
+		
+		pet.setHealth(newHealth);
 	}
 
 	public void addRestToHealth(int totalRest) {
+		int totalHealth = pet.getHealth();
+		int newHealth;
+
 		if (totalHealth <= 2) {
+			newHealth = totalHealth;
 		} else {
-			if (totalRest <= 4) {
-				totalHealth -= 1;
-			} else {
-				totalHealth += 2;
+			if(totalRest == 0) {
+				newHealth = totalHealth - 5;
+			}
+			else if (totalRest <= 4) {
+				newHealth = totalHealth - 1;
+			} 
+			else if(totalRest <= 7) {
+				newHealth = totalHealth + 2;
+			}
+			else {
+				newHealth = totalHealth + 3;
 			}
 		}
+		
+		pet.setHealth(newHealth);
+
 	}
 
-	public void addPlayToHealth(int totalPlay) {
-		if (totalHealth <= 2) {
-		} else {
-			if (totalPlay <= 4) {
-				totalHealth -= 1;
-			} else {
-				totalHealth += 2;
-			}
-		}
-	}
 
-	public void addCleanToHealth(int totalHygiene) { 
+	public void addHygieneToHealth(int totalHygiene) { 
+		int totalHealth = pet.getHealth();
+		int newHealth;
+
 		if (totalHealth <= 2) { //if that's true, the user can only improve health by going to vet
+			newHealth = totalHealth;
 		} else {
-			if (totalHygiene <= 4) {
-				totalHealth -= 1;
+			if(totalHygiene == 0) {
+				newHealth = totalHealth - 5;
+			}
+			else if (totalHygiene <= 4) {
+				newHealth = totalHealth - 1;
 			} else {
-				totalHealth += 2;
+				newHealth = totalHealth + 2;
 			}
 		}
 	}
 
 	
 	public void remindVetVisit() { //maybe put this in future time class, checks every time health is changed
+		int totalHealth = pet.getHealth();
+
 		if (totalHealth <= 2) {
 			System.out.println("URGENT: You need to bring your pet to the vet!");
 		}
@@ -93,10 +119,6 @@ public class Health {
 	 * CHOOSE if their pet goes to the vet, if they choose not to, the pet dies or
 	 * smth
 	 */
-
-	public void updateHealth(Pet p) {
-		p.setHealth(totalHealth);
-	}
 	
 }
 

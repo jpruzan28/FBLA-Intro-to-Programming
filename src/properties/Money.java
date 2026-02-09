@@ -102,6 +102,7 @@ public class Money {
 		
 
 		System.out.println("Went to the vet");
+		System.out.println("The health is " + p.getHealth());
 	}
 	
 	public Toys[] getDogToys() {

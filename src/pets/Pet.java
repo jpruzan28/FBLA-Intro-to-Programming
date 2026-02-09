@@ -3,6 +3,7 @@ package pets;
 import properties.Toys;
 import VirtualPet.main;
 
+
 public class Pet {
 	//Fields from UML
 	private String name;
@@ -18,6 +19,8 @@ public class Pet {
 	private Toys[] toys;
 	private double money;
 	
+	private Health healthChanges;
+	
 	
 	//Constructor maybe???
 	public Pet(String name, String type) {
@@ -32,6 +35,8 @@ public class Pet {
 		
 		toys = new Toys[5];
 		money = 100.00;
+		
+		healthChanges = new Health(this);
 	}
 	
 	
@@ -66,6 +71,8 @@ public class Pet {
 		else {
 			hunger = newHunger;
 		}
+		
+		healthChanges.addHungerToHealth(hunger);
 	}
 	
 	public void setEmotion(int newEmotion) {
@@ -84,14 +91,23 @@ public class Pet {
 		else {
 			rest = newRest;
 		}
+		
+		healthChanges.addRestToHealth(rest);
 	}
 	
 	public void setMoney(double newMoney) {
 		money = newMoney;
 	}
 	
-	public void setHygiene(int newHygeine) {
-		hygiene = newHygeine;
+	public void setHygiene(int newHygiene) {
+		if(newHygiene > 10) {
+			hygiene = 10;
+		}
+		else {
+			hygiene = newHygiene;
+		}
+		
+		healthChanges.addHygieneToHealth(hygiene);
 	}
 	
 	// Puts toy into next available spot in toys array

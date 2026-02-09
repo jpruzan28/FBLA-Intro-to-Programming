@@ -2,6 +2,7 @@ package DrawingSurface;
 import VirtualPet.main;
 
 import pets.Pet;
+import properties.Health;
 import java.util.TimerTask;
 
 public class ReductionTimer{
@@ -91,6 +92,19 @@ public class ReductionTimer{
 					pet.setMoney(pet.getMoney()+5);
 				}
 				mainWindow.updateMoneyDisplay();
+			}
+		}
+		
+		public class updateHealth extends TimerTask {
+			@Override
+			public void run() {
+				Health petHealth = new Health(pet);
+				
+				petHealth.addHungerToHealth(pet.getHunger());
+				petHealth.addRestToHealth(pet.getRest());
+				petHealth.addHygieneToHealth(pet.getHygiene());
+				
+				petHealth.remindVetVisit();
 			}
 		}
 	}
