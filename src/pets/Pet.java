@@ -1,6 +1,5 @@
 package pets;
 
-
 import properties.*;
 import virtualPet.main;
 
