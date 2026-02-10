@@ -53,12 +53,15 @@ public class ReductionTimer{
 		 @Override
 		public void run() {
 			if(ogHygiene>=0) {
-			pet.setHygiene(ogHygiene--);
-			if(pet.getHygiene() <= 0) {
+				pet.setHygiene(ogHygiene--);
+				if(pet.getHygiene() <= 0) {
 				mainWindow.gameOver();
+				}
 			}
-		}
-	}
+		 }
+		 
+	 }
+	 
 	 public class reduceEmotion extends TimerTask { 
 		 @Override
 		public void run() {
@@ -111,5 +114,5 @@ public class ReductionTimer{
 				petHealth.remindVetVisit();
 			}
 		}
-	 }
 }
+

@@ -29,6 +29,7 @@ public class main extends JFrame{
 	    // Creating cardLayout and container panel
 	    cardLayout = new CardLayout();
 	    cardPanel = new JPanel(cardLayout);
+	    GameOverPanel gameOver = new GameOverPanel(cardLayout, cardPanel);
 
 	    JPanel mainPanel = new JPanel(new BorderLayout());
 	    mainPanel.setBackground(Color.WHITE);
@@ -57,7 +58,7 @@ public class main extends JFrame{
 	    // Row 2: money label below bars 
 	    moneyLabel = new JLabel("Total Currency: $" + pet.getMoney(), SwingConstants.CENTER);
 	    moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
-	    gbc.gridy = 0;
+	    gbc.gridy = 1;
 	    gbc.weighty = 0.1;
 	    gbc.fill = GridBagConstraints.HORIZONTAL;
 	    gbc.anchor = GridBagConstraints.CENTER;
@@ -89,6 +90,7 @@ public class main extends JFrame{
 	    cardPanel.add(mainPanel, "Game");
 	    cardPanel.add(storePanel, "Store");
 	    cardPanel.add(storePanelFood, "FStore");
+	    cardPanel.add(gameOver, "GameOver");	    
 
 	    // Add the cardPanel to the frame
 	    c.add(cardPanel);
