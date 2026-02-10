@@ -20,6 +20,9 @@ public class Bar extends JPanel {
 	}
 
 	public void paintComponent(Graphics g) { 
+		super.paintComponent(g);
+		
+
 		//drawing bar based on pet's stats
 //		JPanel bar = new JPanel();
 //		bar.setLayout(new GridLayout(1, 1, 1, 1));
@@ -69,7 +72,7 @@ public class Bar extends JPanel {
 		g.drawString("Emotion", (int)(width*13), y);
 
 
-		
+
 		
 	}
 }

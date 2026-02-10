@@ -29,12 +29,12 @@ public class Sprite extends JPanel{
 		cat3 = (new ImageIcon("cat.unhappy.jpg")).getImage();
 		cat2 = (new ImageIcon("cat.happy.jpg")).getImage();
 		cat1 = (new ImageIcon("cat.neutral.jpg")).getImage();
-		dog1 = (new ImageIcon("dog.unhappy.jpg")).getImage();
+		dog3 = (new ImageIcon("dog.unhappy.jpg")).getImage();
 		dog2 = (new ImageIcon("dog.happy.jpg")).getImage();
-		dog3 = (new ImageIcon("dog.neutral.jpg")).getImage();
-		fish1 = (new ImageIcon("fish.unhappy.jpg")).getImage();
+		dog1 = (new ImageIcon("dog.neutral.jpg")).getImage();
+		fish3 = (new ImageIcon("fish.unhappy.jpg")).getImage();
 		fish2 = (new ImageIcon("dog.happy.jpg")).getImage();
-		fish3 = (new ImageIcon("dog.neutral.jpg")).getImage();
+		fish1 = (new ImageIcon("dog.neutral.jpg")).getImage();
 		
 		neutralCat = cat1.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 		happyCat = cat2.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
@@ -50,6 +50,7 @@ public class Sprite extends JPanel{
 	
 	 public void paintComponent(Graphics g)
 	  {
+
 //	    super.paintComponent(g); good for something idk
 //if statements here
 		 if (petType.equalsIgnoreCase("cat")) {

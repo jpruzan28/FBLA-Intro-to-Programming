@@ -48,7 +48,7 @@ public class main extends JFrame{
 	    
 	    // Row 1: // Row 0: bar at the top 
 	    Bar bars = new Bar(pet);
-	    bars.setBackground(Color.GREEN);
+	    bars.setBackground(Color.WHITE);
 	    bars.setPreferredSize(new Dimension(200, 200));
 	    gbc.gridy = 0;
 	    gbc.weighty = 0.3;
@@ -141,11 +141,11 @@ public class main extends JFrame{
 	     
 	     Timer timer = new Timer();
 	     // Reduce fields overtime
-	     timer.schedule(reductionTimers.new reduceHunger(), 0, 35000);
-	     timer.schedule(reductionTimers.new reduceHealth(), 0, 35000);
-	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 35000);
-	     timer.schedule(reductionTimers.new reduceRest(), 0, 35000);
-	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 35000);
+	     timer.schedule(reductionTimers.new reduceHunger(), 0, 20000);
+//	     timer.schedule(reductionTimers.new reduceHealth(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceRest(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 20000);
 	     
 	     // Giving the user money
 	     timer.schedule(reductionTimers.new salary(), 0, 35000);
@@ -154,6 +154,9 @@ public class main extends JFrame{
 	     // Updating pet health
 	     timer.schedule(reductionTimers.new updateHealth(), 0, 120000);
 	    
+	     while(true) {
+	    	 w.repaint();
+	     }
 	}
 	
 }
