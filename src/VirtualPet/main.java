@@ -152,7 +152,8 @@ public class main extends JFrame{
 	     timer.schedule(reductionTimers.new bonus(), 0, 35000);
 	     
 	     // Updating pet health
-	     timer.schedule(reductionTimers.new updateHealth(), 0, 120000);
+	     // Was originally 120000 I'm pretty sure
+	     timer.schedule(reductionTimers.new updateHealth(), 0, 35000);
 	    
 	     while(true) {
 	    	 w.repaint();

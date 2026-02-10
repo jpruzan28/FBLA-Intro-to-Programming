@@ -35,7 +35,7 @@ public class ReductionTimer{
 			System.out.println(ogHunger);
 			 }
 		}
-		}
+	}
 	 
 //	 public class reduceHealth extends TimerTask { 
 //		 @Override
@@ -52,9 +52,11 @@ public class ReductionTimer{
 	 public class reduceHygiene extends TimerTask { 
 		 @Override
 		public void run() {
-			 if (ogHygiene>=0) {
+			if(ogHygiene>=0) {
 			pet.setHygiene(ogHygiene--);
-			 }
+			if(pet.getHygiene() <= 0) {
+				mainWindow.gameOver();
+			}
 		}
 	}
 	 public class reduceEmotion extends TimerTask { 
@@ -64,7 +66,7 @@ public class ReductionTimer{
 			pet.setEmotion(ogEmotion--);
 			 }
 		}
-	}	
+	 }	
 
 		public class reduceRest extends TimerTask {
 			@Override
@@ -109,5 +111,5 @@ public class ReductionTimer{
 				petHealth.remindVetVisit();
 			}
 		}
-	}
-
+	 }
+}
