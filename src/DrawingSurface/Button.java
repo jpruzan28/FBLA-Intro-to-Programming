@@ -114,7 +114,7 @@ public class Button extends JPanel implements ActionListener {
 					if(pet.getToysArr()[i] == null) {
 						System.out.println("The toy is null");
 					}
-					if(chosenToyName.equals((pet.getToysArr()[i]).getName())) {
+					else if (chosenToyName.equals((pet.getToysArr()[i]).getName())) {
 						chosenToy = pet.getToysArr()[i];
 					}
 				}

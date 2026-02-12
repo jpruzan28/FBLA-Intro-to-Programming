@@ -48,7 +48,7 @@ public class Bar extends JPanel {
 		g.setColor(Color.GREEN);
 		// Health
 		g.fillRect((int)width, y, (int)(p.getHealth()*rectSects), 30);
-		System.out.println("Updating the health bar");
+		//System.out.println("Updating the health bar");
 		//Hunger
 		g.fillRect((int)(width + width*3), y, (int)(p.getHunger()*rectSects), 30);
 

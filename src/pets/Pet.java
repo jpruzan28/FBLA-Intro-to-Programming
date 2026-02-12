@@ -29,7 +29,7 @@ public class Pet {
 		health = 10;
 		hunger = 10;
 		emotion = 10;
-		rest = 10; 
+		rest = 10;
 		hygiene = 10;
 		
 		toys = new Toys[5];
@@ -182,6 +182,9 @@ public class Pet {
 		}
 		
 		public Toys[] getToysArr() {
+			if(toys==null) {
+				System.out.println("TOYS ARE NULLLLLL");
+			}
 			return toys;
 		}
 		

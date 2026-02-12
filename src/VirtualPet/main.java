@@ -143,11 +143,11 @@ public class main extends JFrame{
 	     
 	     Timer timer = new Timer();
 	     // Reduce fields overtime
-	     timer.schedule(reductionTimers.new reduceHunger(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceHunger(), 0, 30000);
 //	     timer.schedule(reductionTimers.new reduceHealth(), 0, 20000);
-	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 20000);
-	     timer.schedule(reductionTimers.new reduceRest(), 0, 20000);
-	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 30000);
+	     timer.schedule(reductionTimers.new reduceRest(), 0, 30000);
+	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 30000);
 	     
 	     // Giving the user money
 	     timer.schedule(reductionTimers.new salary(), 0, 35000);
@@ -156,6 +156,8 @@ public class main extends JFrame{
 	     // Updating pet health
 	     // Was originally 120000 I'm pretty sure
 	     timer.schedule(reductionTimers.new updateHealth(), 0, 35000);
+	     
+
 	    
 	     while(true) {
 	    	 w.repaint();

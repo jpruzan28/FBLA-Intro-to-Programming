@@ -36,53 +36,72 @@ public class Activities {
 		int currentHygiene = pet.getHygiene();
 		
 		// Hunger and rest --
-		int hrFactor;
+		int hungerFactor;
+		int emotionFactor;
 		// Emotion and hygiene ++
-		int ehFactor;
+		int hygieneFactor;
+		int restFactor;
 		
 		if(pet.getType().equals(toy.getType())) {
 			
 			if(version == 1) {
-				hrFactor = 3;
-				ehFactor = 2;
+				hungerFactor = 3;
+				restFactor = 3;
+				emotionFactor = 4;
+				hygieneFactor = 2;
 			}
 			else if(version == 2) {
-				hrFactor = 5;
-				ehFactor = 4;
+				hungerFactor = 5;
+				restFactor = 5;
+				emotionFactor = 6;
+				hygieneFactor = 4;
 			}
 			else if(version == 3){
-				hrFactor = 7;
-				ehFactor = 6;
+				hungerFactor = 7;
+				restFactor = 7;
+				emotionFactor = 8;
+				hygieneFactor = 6;
 			}
 			else {
-				hrFactor = 8;
-				ehFactor = 8;
+				hungerFactor = 8;
+				restFactor = 9;
+				emotionFactor = 8;
+				hygieneFactor = 8;
 			}
 		}
 		
 		else {
 			if(version == 1) {
-				hrFactor = 2;
-				ehFactor = 1;
+				hungerFactor = 2;
+				restFactor = 2;
+				emotionFactor = 3;
+				hygieneFactor = 1;
 			}
 			else if(version == 2) {
-				hrFactor = 3;
-				ehFactor = 2;
+				hungerFactor = 3;
+				restFactor = 3;
+				emotionFactor = 4;
+				hygieneFactor = 2;
+
 			}
 			else if(version == 3){
-				hrFactor = 4;
-				ehFactor = 3;
+				hungerFactor = 4;
+				restFactor = 4;
+				emotionFactor = 5;
+				hygieneFactor = 3;
 			}
 			else {
-				hrFactor = 4;
-				ehFactor = 4;
+				hungerFactor = 4;
+				restFactor = 4;
+				emotionFactor = 5;
+				hygieneFactor = 4;
 			}
 		}
 		
-		pet.setEmotion(currentEmotion + ehFactor);
-		pet.setHunger(currentHunger - hrFactor);
-		pet.setRest(currentRest - hrFactor);
-		pet.setHygiene(currentHygiene - ehFactor);
+		pet.setEmotion(currentEmotion + emotionFactor);
+		pet.setHunger(currentHunger - hungerFactor);
+		pet.setRest(currentRest - restFactor);
+		pet.setHygiene(currentHygiene - hygieneFactor);
 		
 		
 	}
