@@ -13,10 +13,10 @@ import javax.swing.ImageIcon;
 
 public class Sprite extends JPanel{
 	
-	private Pet pet;
-	private String petType;
+	Pet pet;
+	String petType;
 	
-	private int emotion;
+	int emotion;
 	
 	private Image cat1, cat2, cat3, dog1, dog2, dog3, fish1, fish2, fish3;
 	private Image happyCat, unhappyCat, neutralCat;
@@ -55,23 +55,27 @@ public class Sprite extends JPanel{
 	 public void paintComponent(Graphics g)
 	  {
 
-//	    super.paintComponent(g); good for something idk
+			super.paintComponent(g);
 		 
 //if statements here
 		 if (petType.equalsIgnoreCase("cat")) {
 			 if(emotion >= 7) {
-				 g.drawImage(happyCat, 0, 0, null);
+//				 g.drawImage(happyCat, 0, 0, null);
+				 System.out.println(emotion);
 			 }
 			 else if(emotion <= 3) {
-				 g.drawImage(unhappyCat, 0, 0, null);
+//				 g.drawImage(unhappyCat, 0, 0, null);
+				 System.out.println(emotion);
 			 }
 			 else {
-				 g.drawImage(neutralCat, 0, 0, null);
+//				 g.drawImage(neutralCat, 0, 0, null);
+				 System.out.println(emotion);
 			 }
 		 }
 		 else if (petType.equalsIgnoreCase("dog")) {
 			 if(emotion >= 7) {
-				 g.drawImage(happyDog, 0, 0, null);
+//				 g.drawImage(happyDog, 0, 0, null);
+				 System.out.println(emotion);
 			 }
 			 else if(emotion <= 3) {
 				 g.drawImage(unhappyDog, 0, 0, null);

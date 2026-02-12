@@ -22,6 +22,8 @@ public class Emotion {
 		}
 		else if((health >= 7) && (hunger >= 7) && (rest >= 7) && (hygiene >= 7)) {
 			pet.setEmotion(currentEmotion + 7);
+			
+			
 		}
 	}
 }
