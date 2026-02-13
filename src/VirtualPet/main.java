@@ -37,11 +37,12 @@ public class main extends JFrame{
 	    // Buttons on the left
 	    Button buttons = new Button(cardLayout, cardPanel, pet);
 	    mainPanel.add(buttons, BorderLayout.WEST);
+	    
 
-	    // Create a left panel with the GridBagLayout for positioning
+	    // Creates a left panel with the GridBagLayout for positioning
 	    JPanel rightPanel = new JPanel(new GridBagLayout());
 	    GridBagConstraints gbc = new GridBagConstraints();
-	    gbc.gridx = 0;
+	    gbc.gridx = 1;
 	    gbc.weightx = 1.0;
 	    gbc.fill = GridBagConstraints.BOTH;
 	    
@@ -49,7 +50,7 @@ public class main extends JFrame{
 	    
 	    // Row 1: // Row 0: bar at the top 
 	    Bar bars = new Bar(pet);
-	    bars.setBackground(Color.WHITE);
+	    bars.setBackground(Color.GRAY);
 	    bars.setPreferredSize(new Dimension(200, 200));
 	    gbc.gridy = 0;
 	    gbc.weighty = 0.3;
@@ -75,12 +76,13 @@ public class main extends JFrame{
 	    // Row 3: SPRITE takes the remaining space 
 	    Sprite sprites = new Sprite(pet);
 	    
-	    gbc.gridy = 2;
-	    gbc.weighty = 0.6;
+	    gbc.gridy = 3;
+	    gbc.weighty = 3;
 	    gbc.fill = GridBagConstraints.BOTH;
 	    rightPanel.add(sprites, gbc);
 	    
 	    mainPanel.add(rightPanel, BorderLayout.CENTER);
+	    
 
 	    // Store panel stuff
 	    StorePanel storePanel = new StorePanel(cardLayout, cardPanel, pet);
