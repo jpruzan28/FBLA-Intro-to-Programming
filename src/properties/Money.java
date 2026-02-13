@@ -71,6 +71,7 @@ public class Money {
 		
 		else {
 			p.setMoney(m - f.getPrice());
+			p.addExpenses(f.getPrice());
 			f.feedPet(p);
 		}
 	}
@@ -84,6 +85,7 @@ public class Money {
 		
 		else {
 			p.setMoney(m - t.getPrice());	
+			p.addExpenses(t.getPrice()); 
 			p.setToys(t);
 		}
 	}
@@ -98,11 +100,9 @@ public class Money {
 		else {
 			p.setHealth(10);
 			p.setMoney(m -= 20);
-		}
-		
+			p.addExpenses(20);
 
-		System.out.println("Went to the vet");
-		System.out.println("The health is " + p.getHealth());
+		}
 	}
 	
 	public Toys[] getDogToys() {
@@ -128,8 +128,4 @@ public class Money {
 	public Food[] getFishFood() {
 		return fishFood;
 	}
-	
-	
-	
-
 }

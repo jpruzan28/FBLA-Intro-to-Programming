@@ -3,6 +3,8 @@
 *         3. emotion affects final look/reaction (the pet's facial expressions) 
 **/
 package properties;
+import javax.swing.JOptionPane;
+
 import pets.Pet;
 
 public class Health {
@@ -102,7 +104,7 @@ public class Health {
 		int totalHealth = pet.getHealth();
 
 		if (totalHealth <= 2) {
-			System.out.println("URGENT: You need to bring your pet to the vet!");
+		    JOptionPane.showMessageDialog(null, "URGENT! You need to take your pet to the vet immediatley");
 		}
 	}
 	

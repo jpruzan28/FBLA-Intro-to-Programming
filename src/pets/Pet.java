@@ -17,6 +17,7 @@ public class Pet {
 	
 	private Toys[] toys;
 	private double money;
+	private double expenses;
 	
 	private Health healthChanges;
 	
@@ -34,6 +35,7 @@ public class Pet {
 		
 		toys = new Toys[5];
 		money = 100.00;
+		expenses = 0; 
 		
 		healthChanges = new Health(this);
 	}
@@ -128,6 +130,10 @@ public class Pet {
 		}
 	}
 	
+	public void addExpenses(double expense) {
+		expenses += expense;
+	}
+	
 	// Getters
 		public String getName() {
 			return name;
@@ -161,6 +167,10 @@ public class Pet {
 			return money;
 		}
 		
+		public double getExpenses() {
+			return expenses; 
+		}
+		
 		public int getHygiene() {
 			return hygiene;
 		}
@@ -183,7 +193,6 @@ public class Pet {
 		
 		public Toys[] getToysArr() {
 			if(toys==null) {
-				System.out.println("TOYS ARE NULLLLLL");
 			}
 			return toys;
 		}

@@ -157,8 +157,8 @@ public class main extends JFrame{
 	     // Was originally 120000 I'm pretty sure
 	     timer.schedule(reductionTimers.new updateHealth(), 0, 35000);
 	     
+	    // sprites.paintComponent(w);
 
-	    
 	     while(true) {
 	    	 w.repaint();
 	     }

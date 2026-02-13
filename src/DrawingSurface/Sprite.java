@@ -60,21 +60,21 @@ public class Sprite extends JPanel{
 //if statements here
 		 if (petType.equalsIgnoreCase("cat")) {
 			 if(emotion >= 7) {
-//				 g.drawImage(happyCat, 0, 0, null);
+				 g.drawImage(happyCat, 0, 0, null);
 				 System.out.println(emotion);
 			 }
 			 else if(emotion <= 3) {
-//				 g.drawImage(unhappyCat, 0, 0, null);
+				 g.drawImage(unhappyCat, 0, 0, null);
 				 System.out.println(emotion);
 			 }
 			 else {
-//				 g.drawImage(neutralCat, 0, 0, null);
+				 g.drawImage(neutralCat, 0, 0, null);
 				 System.out.println(emotion);
 			 }
 		 }
 		 else if (petType.equalsIgnoreCase("dog")) {
 			 if(emotion >= 7) {
-//				 g.drawImage(happyDog, 0, 0, null);
+				 g.drawImage(happyDog, 0, 0, null);
 				 System.out.println(emotion);
 			 }
 			 else if(emotion <= 3) {
@@ -84,8 +84,8 @@ public class Sprite extends JPanel{
 				 g.drawImage(neutralDog, 0, 0, null);
 			 }		
 		 }
-		 else //if (petType.equalsIgnoreCase("fish")) {
-		 {
+		 else if (petType.equalsIgnoreCase("fish")) {
+		 
 			 if(emotion >= 7) {
 				 g.drawImage(happyFish, 0, 0, null);
 			 }
