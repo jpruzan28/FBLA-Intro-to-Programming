@@ -41,18 +41,7 @@ public class ReductionTimer{
 		}
 	}
 	 
-//	 public class reduceHealth extends TimerTask { 
-//		 @Override
-//		public void run() {
-//			 if (ogHealth>=0) {
-//			pet.setHealth(ogHealth--);
-//				if(pet.getHealth() <= 0) {
-//					mainWindow.gameOver();
-//				}
-//				
-//			 }
-//		}
-//	}
+
 	 public class reduceHygiene extends TimerTask { 
 		 @Override
 		public void run() {

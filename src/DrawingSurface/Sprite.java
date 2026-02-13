@@ -71,14 +71,6 @@ public class Sprite extends JPanel{
 				 g.drawImage(neutralCat, 0, 0, null);
 				 System.out.println(emotion);
 			 }
-			 else if(emotion <= 3) {
-				 g.drawImage(unhappyCat, 0, 0, null);
-				 System.out.println(emotion);
-			 }
-			 else {
-				 g.drawImage(neutralCat, 0, 0, null);
-				 System.out.println(emotion);
-			 }
 		 }
 		 else if (petType.equalsIgnoreCase("dog")) {
 			 if(emotion >= 7) {

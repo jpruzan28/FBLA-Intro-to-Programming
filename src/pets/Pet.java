@@ -27,11 +27,11 @@ public class Pet {
 		this.name = name;
 		this.type = type;
 		age = 0;
-		health = 10;
-		hunger = 10;
-		emotion = 10;
-		rest = 10;
-		hygiene = 10;
+		health = 1;
+		hunger = 1;
+		emotion = 1;
+		rest = 1;
+		hygiene = 1;
 		
 		toys = new Toys[5];
 		money = 100.00;
