@@ -26,9 +26,6 @@ public class Sprite extends JPanel{
 	public Sprite(Pet pet) {
 		
 		this.pet = pet;
-		petType = pet.getType();
-		
-		emotion = pet.getEmotion();
 		
 		cat3 = (new ImageIcon("cat.unhappy.jpg")).getImage();
 		cat2 = (new ImageIcon("cat.happy.jpg")).getImage();
@@ -56,6 +53,10 @@ public class Sprite extends JPanel{
 	  {
 
 			super.paintComponent(g);
+			
+			petType = pet.getType();
+			
+			emotion = pet.getEmotion();
 		 
 //if statements here
 		 if (petType.equalsIgnoreCase("cat")) {
