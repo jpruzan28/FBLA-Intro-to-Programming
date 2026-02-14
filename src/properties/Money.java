@@ -90,11 +90,12 @@ public class Money {
 		}
 	}
 
-	public void vetVisit(Pet p) {
+	public boolean vetVisit(Pet p) {
 		double m = p.getMoney();
 		
 		if(m < 20) {
 			main.errorMessage("Too expensive");
+			return false;
 		}
 		
 		else {
@@ -102,6 +103,7 @@ public class Money {
 			p.setMoney(m -= 20);
 			p.addExpenses(20);
 
+			return true;
 		}
 	}
 	

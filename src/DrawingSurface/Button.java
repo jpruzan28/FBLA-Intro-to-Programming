@@ -78,8 +78,16 @@ public class Button extends JPanel implements ActionListener {
 			cardLayout.show(cardPanel, "FStore");
 		}
 		else if(button == rest) {
-		    String sleepAmount = JOptionPane.showInputDialog("How many hours would you like your pet to sleep? 1, 2, or 5? ");
+			String sleepAmount = "";
+			
+			while(!(sleepAmount.equals("1")) && !(sleepAmount.equals("2")) && !(sleepAmount.equals("5"))) {
+				sleepAmount = JOptionPane.showInputDialog("How many hours would you like your pet to sleep? 1, 2, or 5? ");
 
+				if(!(sleepAmount.equals("1")) && !(sleepAmount.equals("2")) && !(sleepAmount.equals("5"))) {
+				    JOptionPane.showMessageDialog(null, "Sorry that is not a valid option. Make sure to enter a number, not word.");
+
+				}
+			}
 		    activity.sleep(sleepAmount);
 			pet.setMoney(pet.getMoney()+10);
 		    JOptionPane.showMessageDialog(null, pet.getName() + " is sleeping deeply. ZZZ");
@@ -93,13 +101,12 @@ public class Button extends JPanel implements ActionListener {
 
 		}
 		else if(button == vet) {
-			System.out.println("Veting");
-			
-			stores.vetVisit(pet);
-			pet.setMoney(pet.getMoney()+10);
-
-		    JOptionPane.showMessageDialog(null, pet.getName() + " feels much healthier!");
-
+		
+			if(stores.vetVisit(pet)) {
+				pet.setMoney(pet.getMoney()+10);
+	
+			    JOptionPane.showMessageDialog(null, pet.getName() + " feels much healthier!");
+			}
 		}
 		else if(button == play) {
 			String ownedToys = pet.getToysStr();
@@ -122,17 +129,11 @@ public class Button extends JPanel implements ActionListener {
 				activity.play(chosenToy);
 				
 				JOptionPane.showMessageDialog(null, pet.getName() + " is happy playing with " + chosenToy.getName() + "!");
-
 			}
-			
-
-			
-			System.out.println("Playing");
 			pet.setMoney(pet.getMoney()+10);
 			
 		}
 		else if(button == store) {
-			System.out.println("Buying");
 			
 			cardLayout.show(cardPanel, "Store");
 
