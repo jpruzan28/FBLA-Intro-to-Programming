@@ -60,7 +60,7 @@ public class Pet {
 		}
 		else {
 			health = newHealth;
-			System.out.println("Adding " + newHealth + " to health");
+			//System.out.println("Adding " + newHealth + " to health");
 		}
 //		Health.addHungerToHealth(health);
 	}

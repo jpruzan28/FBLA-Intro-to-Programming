@@ -17,6 +17,7 @@ public class main extends JFrame{
 	private static String petType, petName; 
 	
 	private JLabel moneyLabel;
+	private JLabel totExpenseLabel;
 	
 	private CardLayout cardLayout;
 	private JPanel cardPanel;
@@ -48,9 +49,12 @@ public class main extends JFrame{
 	    
 	    // Below contains the layout for where components on GUI is going to be
 	    
+	    // Bellow the buttons is this
+	    
+	    
 	    // Row 1: // Row 0: bar at the top 
 	    Bar bars = new Bar(pet);
-	    bars.setBackground(Color.GRAY);
+	    bars.setBackground(Color.LIGHT_GRAY);
 	    bars.setPreferredSize(new Dimension(200, 200));
 	    gbc.gridy = 0;
 	    gbc.weighty = 0.3;
