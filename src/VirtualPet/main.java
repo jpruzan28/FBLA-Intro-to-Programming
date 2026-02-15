@@ -130,9 +130,19 @@ public class main extends JFrame{
 	    String playerName = JOptionPane.showInputDialog("Welcome player! What's your name?");
 	    JOptionPane.showMessageDialog(null, "Nice to meet you " + playerName);
 	    
-	     petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
-	    JOptionPane.showMessageDialog(null, "Nice choice, choosing a " + petType);
+	    // Ensures the user only enters a valid pet option
+	    petType = "";
+	    while(!(petType.equals("cat")) && !(petType.equals("dog")) && !(petType.equals("fish"))) {
+		     petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
 		
+		    if(!(petType.equals("cat")) && !(petType.equals("dog")) && !(petType.equals("fish"))) {
+			    JOptionPane.showMessageDialog(null, "Sorry that pet is not an option, please enter an available option");
+
+		    }
+	    }
+	    
+	    JOptionPane.showMessageDialog(null, "Nice choice, choosing a " + petType);
+
 	     petName = JOptionPane.showInputDialog("What would you like to name your " + petType + "?");
 	    
 	    // Creating the pet
