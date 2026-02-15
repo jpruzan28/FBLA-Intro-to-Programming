@@ -5,16 +5,15 @@ import java.awt.Color;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
+import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
 
 public class Button extends JPanel implements ActionListener {
 	private JButton food, rest, clean, vet, play, store;
-	
+	private JLabel expensesLabel; 
 	private CardLayout cardLayout;
 	private JPanel cardPanel;
 	
@@ -35,7 +34,7 @@ public class Button extends JPanel implements ActionListener {
 		// Creates the buttons
 		
 	    JPanel panel = new JPanel(); //This is the Panel that sections off things. 
-	    panel.setLayout(new GridLayout(6, 1)); //This affects how things look INSIDE the panel; buttons, etc.
+	    panel.setLayout(new GridLayout(7, 1)); //This affects how things look INSIDE the panel; buttons, etc.
 	    panel.setPreferredSize(new Dimension(600, 600)); //when set length to 500, it doesn't fit in frame for some reason :c
 	    panel.setBackground(Color.BLUE);
 	    
@@ -62,11 +61,24 @@ public class Button extends JPanel implements ActionListener {
 		panel.add(play);
 		panel.add(store);
 		
+		
+		expensesLabel = new JLabel("Expenses: $0.00", SwingConstants.CENTER);
+		expensesLabel.setFont(new Font("Arial", Font.BOLD, 14));
+	    panel.add(expensesLabel);
+		
 		add(panel, BorderLayout.WEST);
 
 		
 
 	}
+	
+	
+	//Since we want the expenses below the buttons, we'll have this method in the Button class
+	public void updateExpenses() {
+	    expensesLabel.setText("Expenses: $" + pet.getExpenses());
+	}
+	
+	
 		
 	public void actionPerformed(ActionEvent e) {
 		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
@@ -137,5 +149,8 @@ public class Button extends JPanel implements ActionListener {
 			cardLayout.show(cardPanel, "Store");
 
 		}
+		
+		updateExpenses();
+		
 	}
 }
