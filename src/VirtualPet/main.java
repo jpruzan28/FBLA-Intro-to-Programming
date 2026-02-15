@@ -54,7 +54,7 @@ public class main extends JFrame{
 	    
 	    // Row 1: // Row 0: bar at the top 
 	    Bar bars = new Bar(pet);
-	    bars.setBackground(Color.LIGHT_GRAY);
+	    bars.setBackground(Color.white);
 	    bars.setPreferredSize(new Dimension(200, 200));
 	    gbc.gridy = 0;
 	    gbc.weighty = 0.3;

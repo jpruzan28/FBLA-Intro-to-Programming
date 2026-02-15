@@ -36,7 +36,7 @@ public class Button extends JPanel implements ActionListener {
 	    JPanel panel = new JPanel(); //This is the Panel that sections off things. 
 	    panel.setLayout(new GridLayout(7, 1)); //This affects how things look INSIDE the panel; buttons, etc.
 	    panel.setPreferredSize(new Dimension(600, 600)); //when set length to 500, it doesn't fit in frame for some reason :c
-	    panel.setBackground(Color.BLUE);
+	    panel.setBackground(Color.white);
 	    
 		food = new JButton("Food"); 
 		rest = new JButton("Rest");
@@ -74,9 +74,9 @@ public class Button extends JPanel implements ActionListener {
 	
 	
 	//Since we want the expenses below the buttons, we'll have this method in the Button class
-	public void updateExpenses() {
-	    expensesLabel.setText("Expenses: $" + pet.getExpenses());
-	}
+//	public void updateExpenses() {
+//	    expensesLabel.setText("Expenses: $" + pet.getExpenses());
+//	}
 	
 	
 		
@@ -151,7 +151,7 @@ public class Button extends JPanel implements ActionListener {
 
 		}
 		
-		updateExpenses();
+		expensesLabel.setText("Expenses: $" + pet.getExpenses());
 		
 	}
 }
