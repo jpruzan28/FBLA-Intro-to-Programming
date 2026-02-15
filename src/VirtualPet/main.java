@@ -33,7 +33,7 @@ public class main extends JFrame{
 	    GameOverPanel gameOver = new GameOverPanel(cardLayout, cardPanel);
 
 	    JPanel mainPanel = new JPanel(new BorderLayout());
-	    mainPanel.setBackground(Color.WHITE);
+	    //mainPanel.setBackground(Color.WHITE);
 
 	    // Buttons on the left
 	    Button buttons = new Button(cardLayout, cardPanel, pet);
@@ -54,7 +54,7 @@ public class main extends JFrame{
 	    
 	    // Row 1: // Row 0: bar at the top 
 	    Bar bars = new Bar(pet);
-	    bars.setBackground(Color.white);
+	    //bars.setBackground(Color.white);
 	    bars.setPreferredSize(new Dimension(200, 200));
 	    gbc.gridy = 0;
 	    gbc.weighty = 0.3;
