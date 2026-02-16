@@ -24,10 +24,7 @@ public class Bar extends JPanel {
 		
 
 		//drawing bar based on pet's stats
-//		JPanel bar = new JPanel();
-//		bar.setLayout(new GridLayout(1, 1, 1, 1));
-//		bar.setPreferredSize(new Dimension(200, 455));
-		
+
 		
 		double width = getWidth()/16;
 		double x = width;
