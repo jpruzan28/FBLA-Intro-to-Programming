@@ -88,7 +88,7 @@ public class ReductionTimer{
 		public class salary extends TimerTask {
 			@Override
 			public void run() {
-				pet.setMoney(pet.getMoney()+20);
+				pet.setMoney(pet.getMoney()+10);
 				mainWindow.updateMoneyDisplay();
 			}
 		}
