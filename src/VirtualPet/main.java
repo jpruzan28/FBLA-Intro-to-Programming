@@ -145,7 +145,7 @@ public class main extends JFrame{
 
 	     // CREATE THE WINDOW FIRST
 	     main w = new main(pet);
-	     w.setBounds(100, 100, 900, 900);
+	     w.setBounds(0, 0, 1920, 1080);
 	     w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	     w.setVisible(true);
 
