@@ -29,7 +29,6 @@ public class StorePanel extends JPanel implements ActionListener{
         add(titleLabel, BorderLayout.NORTH);
         
         //A panel where all the toys are on here so they don't get stacked
-        //Kinda like 3 panels inside 1
         JPanel allToysPanel = new JPanel();
         allToysPanel.setLayout(new GridLayout(1, 3, 10, 10));
         
@@ -161,7 +160,6 @@ public class StorePanel extends JPanel implements ActionListener{
         allToysPanel.add(catToysPanel);
         
         add(allToysPanel, BorderLayout.CENTER);
-        //Jbutton dog1 =  idk how to finish this gng
         
         
     }

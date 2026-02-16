@@ -6,7 +6,6 @@ import pets.Pet;
 import java.util.Timer;
 import java.awt.*;
 
-//import java.util.Scanner;
 import javax.swing.*;
 import DrawingSurface.Bar;
 
@@ -31,7 +30,6 @@ public class main extends JFrame{
 	    GameOverPanel gameOver = new GameOverPanel(cardLayout, cardPanel);
 
 	    JPanel mainPanel = new JPanel(new BorderLayout());
-	    //mainPanel.setBackground(Color.WHITE);
 
 	    // Buttons on the left
 	    Button buttons = new Button(cardLayout, cardPanel, pet);
@@ -47,12 +45,11 @@ public class main extends JFrame{
 	    
 	    // Below contains the layout for where components on GUI is going to be
 	    
-	    // Bellow the buttons is this
+	    // Below the buttons is this
 	    
 	    
 	    // Row 1: // Row 0: bar at the top 
 	    Bar bars = new Bar(pet);
-	    //bars.setBackground(Color.white);
 	    bars.setPreferredSize(new Dimension(200, 200));
 	    gbc.gridy = 0;
 	    gbc.weighty = 0.3;
@@ -158,7 +155,6 @@ public class main extends JFrame{
 	     Timer timer = new Timer();
 	     // Reduce fields overtime
 	     timer.schedule(reductionTimers.new reduceHunger(), 0, 10000);
-//	     timer.schedule(reductionTimers.new reduceHealth(), 0, 20000);
 	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 10000);
 	     timer.schedule(reductionTimers.new reduceRest(), 0, 10000);
 	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 10000);
@@ -168,10 +164,8 @@ public class main extends JFrame{
 	     timer.schedule(reductionTimers.new bonus(), 0, 35000);
 	     
 	     // Updating pet health
-	     // Was originally 120000 I'm pretty sure
 	     timer.schedule(reductionTimers.new updateHealth(), 0, 10000);
 	     
-	    // sprites.paintComponent(w);
 
 	     while(true) {
 	    	 w.repaint();

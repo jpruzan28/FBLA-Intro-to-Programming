@@ -20,6 +20,7 @@ public class Store {
 
 	public Store() {
 		
+		// Food Arrays
 		dogFood = new Food[] {new Food("Kibble Crunch", "Dog", 10.00, 1), new Food("Beef and Veggie Mix", "Dog", 20.00, 2), new Food("Chicken Feast", "Dog", 30.00, 2), 
 				new Food("Salmon Delight", "Dog", 50.00, 3), new Food("Lamb and Rice Bowl", "Dog", 70.00, 3), new Food("Golden Chicken Nuggets", "Dog", 100.00, 4)};
 		
@@ -30,7 +31,7 @@ public class Store {
 				new Food("Turkey and Cranberry Treats", "Cat", 50.00, 3), new Food("Bluefin Tuna Steak", "Cat", 70.00, 3), new Food("A Golden Rat", "Cat", 100.00, 4)};
 		
 		
-		
+		// Toy Arrays
 		dogToys = new Toys[] {new Toys("Used Ball", "Dog", 4.00, 1), new Toys("Rubber Chew Bone", "Dog", 8.00, 1), new Toys("Enchanted Chew Wand", "Dog", 25.00, 2), new Toys("Guardian Plus bear", "Dog", 50.00, 2), 
 				new Toys("Dog God Worship Altar", "Dog", 70.00, 3), new Toys("Goldenest Bone", "Dog", 90.00, 4)};
 		
@@ -88,6 +89,8 @@ public class Store {
 		}
 	}
 	
+	
+	// Getters
 	public Toys[] getDogToys() {
 		return dogToys;
 	}

@@ -34,7 +34,6 @@ public class Food {
 	// Increases pet hunger field based on which food they chose
 	public void feedPet(Pet p) {
 		int currentHunger = p.getHunger();
-		int currentHealth = p.getHealth();
 		
 		if(checkType(p)) {
 			if(version == 4) {
@@ -72,6 +71,7 @@ public class Food {
 	}
 	
 	
+	// Getters
 	public String getName() {
 		return foodName;
 	}

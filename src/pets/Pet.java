@@ -6,7 +6,6 @@ import properties.*;
 public class Pet {
 	//Fields from UML
 	private String name;
-	private int age;
 	private String type;
 	
 	private int health;
@@ -26,7 +25,6 @@ public class Pet {
 	public Pet(String name, String type) {
 		this.name = name;
 		this.type = type;
-		age = 0;
 		health = 10;
 		hunger = 10;
 		emotion = 10;
@@ -48,9 +46,6 @@ public class Pet {
 		name = newName;
 	}
 	
-	public void setAge(int newAge) {
-		age = newAge;
-	}
 	
 	// Keeps fields inbounds of 10
 	public void setHealth(int newHealth) {
@@ -138,10 +133,6 @@ public class Pet {
 		
 		public String getType() {
 			return type;
-		}
-		
-		public int getAge() {
-			return age;
 		}
 		
 		public int getHealth() {
