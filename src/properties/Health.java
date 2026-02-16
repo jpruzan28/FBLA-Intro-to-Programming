@@ -86,6 +86,7 @@ public class Health {
 			}
 		}
 	}
+	
 
 	
 	public void remindVetVisit() { //maybe put this in future time class, checks every time health is changed

@@ -103,9 +103,6 @@ public class ReductionTimer{
 				if(pet.getEmotion() == 10) {
 					pet.setMoney(pet.getMoney()+5);
 				}
-				if(pet.getHealth()<=0) {
-					mainWindow.gameOver();
-				}
 				mainWindow.updateMoneyDisplay();
 			}
 		}
@@ -120,6 +117,10 @@ public class ReductionTimer{
 				petHealth.addHygieneToHealth(pet.getHygiene());
 				
 				petHealth.remindVetVisit();
+				
+				if(pet.getHealth()<=0) {
+					mainWindow.gameOver();
+				}
 			}
 		}
 }
