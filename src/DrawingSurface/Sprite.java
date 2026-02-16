@@ -1,10 +1,7 @@
 package DrawingSurface;
 
 import java.awt.Graphics;
-import java.awt.Color;
 import java.awt.Image;
-import java.awt.Container;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import pets.Pet;
