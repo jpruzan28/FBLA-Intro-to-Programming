@@ -37,6 +37,7 @@ public class ReductionTimer{
 			 if (ogHunger>=0) {
 			pet.setHunger(ogHunger--);
 			System.out.println(ogHunger);
+			
 			 }
 		}
 	}
@@ -47,10 +48,12 @@ public class ReductionTimer{
 		public void run() {
 			if(ogHygiene>=0) {
 				pet.setHygiene(ogHygiene--);
-				if(pet.getHygiene() <= 0) {
+			
+			}
+			if(pet.getHygiene()<=0) {
 				mainWindow.gameOver();
 				}
-			}
+			
 		 }
 		 
 	 }
@@ -62,6 +65,10 @@ public class ReductionTimer{
 				 pet.setEmotion(ogEmotion--);
 			 }
 			 
+			 if(pet.getEmotion()<=0) {
+				 mainWindow.gameOver();
+			 }
+			 
 			 emotionC.calculatingEmotion();
 		}
 	 }	
@@ -71,6 +78,9 @@ public class ReductionTimer{
 			public void run() {
 				if (ogRest >= 0) {
 					pet.setRest(ogRest--);
+				}
+				if(pet.getRest() <= 0) {
+					mainWindow.gameOver();
 				}
 			}
 		}
@@ -92,6 +102,9 @@ public class ReductionTimer{
 				
 				if(pet.getEmotion() == 10) {
 					pet.setMoney(pet.getMoney()+5);
+				}
+				if(pet.getHealth()<=0) {
+					mainWindow.gameOver();
 				}
 				mainWindow.updateMoneyDisplay();
 			}
