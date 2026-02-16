@@ -172,7 +172,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	 public void actionPerformed(ActionEvent e) {
 			JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
 			
-			Money store = new Money();
+			Store store = new Store();
 	        JButton[] dogFood = new JButton[] {kibbleCrunch, beefAndVeggieMix, chickenFeast, salmonDelight, lambAndRiceBowl, goldenChickenNuggets};
 
 	        // Goes through JButton array

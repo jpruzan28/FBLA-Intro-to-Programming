@@ -1,12 +1,11 @@
 package properties;
 
-import java.util.HashMap;
 
 import pets.Pet;
 import VirtualPet.main;
 
 
-public class Money {
+public class Store {
 
 	private Food[] dogFood;  
 	private Food[] fishFood;
@@ -19,7 +18,7 @@ public class Money {
 	
 	
 
-	public Money() {
+	public Store() {
 		
 		dogFood = new Food[] {new Food("Kibble Crunch", "Dog", 10.00, 1), new Food("Beef and Veggie Mix", "Dog", 20.00, 2), new Food("Chicken Feast", "Dog", 30.00, 2), 
 				new Food("Salmon Delight", "Dog", 50.00, 3), new Food("Lamb and Rice Bowl", "Dog", 70.00, 3), new Food("Golden Chicken Nuggets", "Dog", 100.00, 4)};

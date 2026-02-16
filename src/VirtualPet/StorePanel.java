@@ -169,7 +169,7 @@ public class StorePanel extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
 		
-		Money store = new Money();
+		Store store = new Store();
         JButton[] dogToys = new JButton[] {usedBall, rubberChewBone, enchantedChewWand, guardianPlusBear, dogGodWorshipAltar, goldenestBone};
 
         // Goes through JButton array

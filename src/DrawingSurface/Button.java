@@ -82,7 +82,7 @@ public class Button extends JPanel implements ActionListener {
 		expensesLabel.setText("Expenses: $" + pet.getExpenses() + "0");
 
 		
-		Money stores = new Money();
+		Store stores = new Store();
 		if(button == food) {
 
 			cardLayout.show(cardPanel, "FStore");
