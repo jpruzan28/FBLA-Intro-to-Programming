@@ -36,7 +36,6 @@ public class ReductionTimer{
 		public void run() {
 			 if (ogHunger>=0) {
 			pet.setHunger(ogHunger--);
-			System.out.println(ogHunger);
 			
 			 }
 		}
