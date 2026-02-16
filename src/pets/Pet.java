@@ -22,7 +22,7 @@ public class Pet {
 	private Health healthChanges;
 	
 	
-	//Constructor maybe???
+	//Constructor 
 	public Pet(String name, String type) {
 		this.name = name;
 		this.type = type;
@@ -56,13 +56,10 @@ public class Pet {
 	public void setHealth(int newHealth) {
 		if(newHealth > 10) {
 			health = 10;
-			System.out.println("Health is at maximum");
 		}
 		else {
 			health = newHealth;
-			//System.out.println("Adding " + newHealth + " to health");
 		}
-//		Health.addHungerToHealth(health);
 	}
 	
 	public void setHunger(int newHunger) {

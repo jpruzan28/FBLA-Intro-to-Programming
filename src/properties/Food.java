@@ -1,10 +1,3 @@
-/*
- * Change hunger field
- * 	- Increase when correct food choice
- *  - Decrease when incorrect food choice
- *  
- *  Lower health when wrong food choice
- */
 
 package properties;
 
@@ -20,7 +13,7 @@ public class Food {
 	private double price;
 	
 	
-	public Food(String name, String type, double price, int version) {// change order
+	public Food(String name, String type, double price, int version) {
 		foodName = name;
 		foodType = type;
 		this.price = price;
@@ -39,7 +32,6 @@ public class Food {
 	}
 
 	// Increases pet hunger field based on which food they chose
-	// Affect emotion
 	public void feedPet(Pet p) {
 		int currentHunger = p.getHunger();
 		int currentHealth = p.getHealth();

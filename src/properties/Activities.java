@@ -13,17 +13,14 @@ public class Activities {
 		int currentRest = pet.getRest();
 		if(amount.equals("1")) {
 			pet.setRest(currentRest + 3);
-			System.out.println("Slept for 3");
 		}
 		else if(amount.equals("2")) {
 			pet.setRest(currentRest + 5);
 
-			System.out.println("Slept for 5");
 		}
 		else if(amount.equals("5")) {
 			pet.setRest(currentRest + 8);
 
-			System.out.println("Slept for 8");
 		}
 	}
 	
@@ -109,7 +106,6 @@ public class Activities {
 	public void clean() {
 		pet.setHygiene(10);
 
-		System.out.println("Squeaky clean :)");
 	}
 	
 

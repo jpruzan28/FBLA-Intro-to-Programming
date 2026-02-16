@@ -6,24 +6,6 @@ import pets.Pet;
 import VirtualPet.main;
 
 
-// Health Gain Factor is 1-4
-// 1 --> 0 - 10 dollars
-// 2 --> 11 - 35 dollars
-// 3 --> 36 - 70 dollars
-// 4 --> 70 plus dollars
-
-//Enjoyment Factor is 1-4
-//1 --> 0 - 8 dollars
-//2 --> 9 - 8 dollars
-//3 --> 9 - 70 dollars
-//4 --> 70 plus dollars
-
-
-
-
-// I understand you can get the same health benefit/enjoyment with a low price for some foods and toys, but I think it teaches financial responsibility to the user,
-// Can be fixed later tho
-
 public class Money {
 
 	private Food[] dogFood;  

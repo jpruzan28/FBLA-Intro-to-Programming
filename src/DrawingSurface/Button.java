@@ -73,21 +73,20 @@ public class Button extends JPanel implements ActionListener {
 	}
 	
 	
-	//Since we want the expenses below the buttons, we'll have this method in the Button class
-//	public void updateExpenses() {
-//	    expensesLabel.setText("Expenses: $" + pet.getExpenses());
-//	}
-	
 	
 		
 	public void actionPerformed(ActionEvent e) {
 		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
     
+		
+		expensesLabel.setText("Expenses: $" + pet.getExpenses() + "0");
+
+		
 		Money stores = new Money();
 		if(button == food) {
-			//pet.setMoney(pet.getMoney()+10);
 
 			cardLayout.show(cardPanel, "FStore");
+
 		}
 		else if(button == rest) {
 			String sleepAmount = "";
@@ -118,6 +117,7 @@ public class Button extends JPanel implements ActionListener {
 				pet.setMoney(pet.getMoney()+10);
 	
 			    JOptionPane.showMessageDialog(null, pet.getName() + " feels much healthier!");
+
 			}
 		}
 		else if(button == play) {
@@ -149,9 +149,9 @@ public class Button extends JPanel implements ActionListener {
 			
 			cardLayout.show(cardPanel, "Store");
 
+
 		}
 		
-		expensesLabel.setText("Expenses: $" + pet.getExpenses());
 		
 	}
 }
