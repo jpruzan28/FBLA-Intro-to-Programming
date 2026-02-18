@@ -145,7 +145,7 @@ public class main extends JFrame{
 
 	     // CREATE THE WINDOW FIRST
 	     main w = new main(pet);
-	     w.setBounds(0, 0, 1920, 1080);
+	     w.setBounds(0, 0, 1910, 1070);
 	     w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	     w.setVisible(true);
 
@@ -154,17 +154,17 @@ public class main extends JFrame{
 	     
 	     Timer timer = new Timer();
 	     // Reduce fields overtime
-	     timer.schedule(reductionTimers.new reduceHunger(), 0, 10000);
-	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 10000);
-	     timer.schedule(reductionTimers.new reduceRest(), 0, 10000);
-	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 10000);
+	     timer.schedule(reductionTimers.new reduceHunger(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceRest(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 20000);
 	     
 	     // Giving the user money
 	     timer.schedule(reductionTimers.new salary(), 0, 35000);
 	     timer.schedule(reductionTimers.new bonus(), 0, 35000);
 	     
 	     // Updating pet health
-	     timer.schedule(reductionTimers.new updateHealth(), 0, 10000);
+	     timer.schedule(reductionTimers.new updateHealth(), 0, 20000);
 	     
 
 	     while(true) {
