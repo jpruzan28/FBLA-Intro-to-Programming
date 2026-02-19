@@ -105,7 +105,6 @@ public class Pet {
 	
 	// Puts toy into next available spot in toys array
 	public void setToys(Toys newToy) {
-		System.out.println("Added to toys");
 		int numToys = 0;
 		for(int i = 0; i < toys.length; i++) {
 			if(toys[i] == null) {

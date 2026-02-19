@@ -131,7 +131,6 @@ public class Button extends JPanel implements ActionListener {
 				String chosenToyName = JOptionPane.showInputDialog("Which toy would you like to play with: " + ownedToys + "?");
 				for(int i = 0; i < pet.getToysArr().length; i++) {
 					if(pet.getToysArr()[i] == null) {
-						System.out.println("The toy is null");
 					}
 					else if (chosenToyName.equals((pet.getToysArr()[i]).getName())) {
 						chosenToy = pet.getToysArr()[i];
