@@ -154,10 +154,10 @@ public class main extends JFrame{
 	     
 	     Timer timer = new Timer();
 	     // Reduce fields overtime
-	     timer.schedule(reductionTimers.new reduceHunger(), 0, 20000);
-	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 20000);
-	     timer.schedule(reductionTimers.new reduceRest(), 0, 20000);
-	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 20000);
+	     timer.schedule(reductionTimers.new reduceHunger(), 0, 25000);
+	     timer.schedule(reductionTimers.new reduceHygiene(), 0, 25000);
+	     timer.schedule(reductionTimers.new reduceRest(), 0, 25000);
+	     timer.schedule(reductionTimers.new reduceEmotion(), 0, 25000);
 	     
 	     // Giving the user money
 	     timer.schedule(reductionTimers.new salary(), 0, 35000);
