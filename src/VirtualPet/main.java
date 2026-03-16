@@ -32,8 +32,8 @@ public class main extends JFrame{
 	    JPanel mainPanel = new JPanel(new BorderLayout());
 
 	    // Buttons on the left
-	    Button buttons = new Button(cardLayout, cardPanel, pet);
-	    mainPanel.add(buttons, BorderLayout.WEST);
+	    //Button buttons = new Button(pet, );
+	    //mainPanel.add(buttons, BorderLayout.WEST);
 	    
 
 	    // Creates a left panel with the GridBagLayout for positioning

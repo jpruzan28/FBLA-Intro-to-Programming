@@ -11,63 +11,70 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
 
-public class Button extends JPanel implements ActionListener {
+public class Button{
 	private JButton food, rest, clean, vet, play, store;
 	private JLabel expensesLabel; 
-	private CardLayout cardLayout;
-	private JPanel cardPanel;
+//	private CardLayout cardLayout;
+//	private JPanel cardPanel;
+	private String buttonPressed;
 	
 	private Activities activity;
 	private Pet pet;
 	
-	public Button(CardLayout cardLayout, JPanel cardPanel, Pet pet) {
-		this.cardLayout = cardLayout;
-        this.cardPanel = cardPanel;
-        
+	public Button(Pet pet, String buttonPressed) {
+//		this.cardLayout = cardLayout;
+//        this.cardPanel = cardPanel;
+//       
+		this.buttonPressed = buttonPressed;
         this.pet = pet;
         if (this.pet == null) {
         	System.out.println("Pet is null");
         }
-        
+//        
         this.activity = new Activities(pet);
         
 		// Creates the buttons
 		
-	    JPanel panel = new JPanel(); //This is the Panel that sections off things. 
-	    panel.setLayout(new GridLayout(7, 1)); //This affects how things look INSIDE the panel; buttons, etc.
-	    panel.setPreferredSize(new Dimension(600, 600)); //when set length to 500, it doesn't fit in frame for some reason :c
-	    Color color = new Color(224, 224, 224);
-	    panel.setBackground(color);
-	    
-		food = new JButton("Food"); 
-		rest = new JButton("Rest");
-		clean = new JButton("Clean");
-		vet = new JButton("Vet");
-		play = new JButton("Play");
-		store = new JButton("Store");
+//	    JPanel panel = new JPanel(); //This is the Panel that sections off things. 
+//	    panel.setLayout(new GridLayout(7, 1)); //This affects how things look INSIDE the panel; buttons, etc.
+//	    panel.setPreferredSize(new Dimension(600, 600)); //when set length to 500, it doesn't fit in frame for some reason :c
+//	    Color color = new Color(224, 224, 224);
+	    //panel.setBackground(color);
+//	    
+//		food = new JButton("Food"); 
+//		rest = new JButton("Rest");
+//		clean = new JButton("Clean");
+//		vet = new JButton("Vet");
+//		play = new JButton("Play");
+//		store = new JButton("Store");
+//		
+//		
+//		food.addActionListener(this);
+//		rest.addActionListener(this);
+//		clean.addActionListener(this);
+//		vet.addActionListener(this);
+//		play.addActionListener(this);
+//		store.addActionListener(this);
+//	  
+//	  
+//		panel.add(food);
+//		panel.add(rest);
+//		panel.add(clean);
+//		panel.add(vet);
+//		panel.add(play);
+//		panel.add(store);
+        
+        
+/**
+ * 
+ * Put the expenses label stuff somewhere else		
+ */
 		
-		
-		food.addActionListener(this);
-		rest.addActionListener(this);
-		clean.addActionListener(this);
-		vet.addActionListener(this);
-		play.addActionListener(this);
-		store.addActionListener(this);
-	  
-	  
-		panel.add(food);
-		panel.add(rest);
-		panel.add(clean);
-		panel.add(vet);
-		panel.add(play);
-		panel.add(store);
-		
-		
-		expensesLabel = new JLabel("Expenses: $0.00", SwingConstants.CENTER);
-		expensesLabel.setFont(new Font("Arial", Font.BOLD, 25));
-	    panel.add(expensesLabel);
-		
-		add(panel, BorderLayout.WEST);
+//		expensesLabel = new JLabel("Expenses: $0.00", SwingConstants.CENTER);
+//		expensesLabel.setFont(new Font("Arial", Font.BOLD, 25));
+//	    panel.add(expensesLabel);
+//		
+//		add(panel, BorderLayout.WEST);
 
 		
 
@@ -76,20 +83,18 @@ public class Button extends JPanel implements ActionListener {
 	
 	
 		
-	public void actionPerformed(ActionEvent e) {
-		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
-    
+	public void actionPerformed() {	
 		
 		expensesLabel.setText("Expenses: $" + pet.getExpenses() + "0");
 
 		
 		Store stores = new Store();
-		if(button == food) {
-
-			cardLayout.show(cardPanel, "FStore");
-
-		}
-		else if(button == rest) {
+//		if(button == food) {
+//
+//			cardLayout.show(cardPanel, "FStore");
+//
+//		}
+		if(buttonPressed.equals("Rest")) {
 			String sleepAmount = "";
 			
 			while(!(sleepAmount.equals("1")) && !(sleepAmount.equals("2")) && !(sleepAmount.equals("5"))) {
@@ -106,13 +111,13 @@ public class Button extends JPanel implements ActionListener {
 
 
 		}
-		else if(button == clean) {
+		else if(buttonPressed.equals("Clean")) {
 			activity.clean();
 			pet.setMoney(pet.getMoney()+10);
 		    JOptionPane.showMessageDialog(null, pet.getName() + " is squeaky clean!");
 
 		}
-		else if(button == vet) {
+		else if(buttonPressed.equals("Vet")) {
 		
 			if(stores.vetVisit(pet)) {
 				pet.setMoney(pet.getMoney()+10);
@@ -121,7 +126,7 @@ public class Button extends JPanel implements ActionListener {
 
 			}
 		}
-		else if(button == play) {
+		else if(buttonPressed.equals("Play")) {
 			String ownedToys = pet.getToysStr();
 			Toys chosenToy = null;
 			
@@ -145,13 +150,13 @@ public class Button extends JPanel implements ActionListener {
 			pet.setMoney(pet.getMoney()+10);
 			
 		}
-		else if(button == store) {
-			
-			cardLayout.show(cardPanel, "Store");
-
-
-		}
-		
+//		else if(button == store) {
+//			
+//			cardLayout.show(cardPanel, "Store");
+//
+//
+//		}
+//		
 		
 	}
 }
