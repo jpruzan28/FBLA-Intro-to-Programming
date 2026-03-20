@@ -3,6 +3,10 @@ package pets;
 import VirtualPet.main;
 import properties.*;
 
+/**
+ * @author Jasmine Pruzan, Ishaan Bhalerao, Ellie Lo
+ * @version 3/18/26
+ */
 public class Pet {
 	//Fields from UML
 	private String name;
@@ -21,7 +25,11 @@ public class Pet {
 	private Health healthChanges;
 	
 	
-	//Constructor 
+	/**
+	 * 
+	 * @param name name of pet
+	 * @param type animal type of pet
+	 */
 	public Pet(String name, String type) {
 		this.name = name;
 		this.type = type;
@@ -42,13 +50,22 @@ public class Pet {
 	//Methods
 	
 	// Setters
+	/**
+	 * Renames the pet
+	 * @param newName name that will replace the previous name. 
+	 */
 	public void setName(String newName) {
 		name = newName;
 	}
 	
 	
-	// Keeps fields inbounds of 10
+	/**
+	 * Updates health
+	 * @param newHealth updated health amount
+	 * @post health will always be <= 10
+	 */
 	public void setHealth(int newHealth) {
+		// Keeps fields inbounds of 10
 		if(newHealth > 10) {
 			health = 10;
 		}
@@ -57,6 +74,11 @@ public class Pet {
 		}
 	}
 	
+	/**
+	 * Updates hunger
+	 * @param newHunger updated hunger amount
+	 * @post hunger will always be <= 10
+	 */
 	public void setHunger(int newHunger) {
 		if(newHunger > 10) {
 			hunger = 10;
@@ -68,6 +90,11 @@ public class Pet {
 		healthChanges.addHungerToHealth(hunger);
 	}
 	
+	/**
+	 * Updates emotion
+	 * @param newEmotion updated emotion amount
+	 * @post emotion will always be <= 10
+	 */
 	public void setEmotion(int newEmotion) {
 		if(newEmotion > 10) {
 			emotion = 10;
@@ -77,6 +104,11 @@ public class Pet {
 		}
 	}
 	
+	/**
+	 * Updates rest
+	 * @param newRest updated rest amount
+	 * @post rest will always be <= 10
+	 */
 	public void setRest(int newRest) {
 		if(newRest > 10) {
 			rest = 10;
@@ -88,10 +120,11 @@ public class Pet {
 		healthChanges.addRestToHealth(rest);
 	}
 	
-	public void setMoney(double newMoney) {
-		money = newMoney;
-	}
-	
+	/**
+	 * Updates hygiene
+	 * @param newHygiene updated hygiene amount
+	 * @post hygiene will always be <= 10
+	 */
 	public void setHygiene(int newHygiene) {
 		if(newHygiene > 10) {
 			hygiene = 10;
@@ -103,9 +136,23 @@ public class Pet {
 		healthChanges.addHygieneToHealth(hygiene);
 	}
 	
-	// Puts toy into next available spot in toys array
+	/**
+	 * Updates money
+	 * @param newMoney updated money amount
+	 */
+	public void setMoney(double newMoney) {
+		money = newMoney;
+	}
+	
+	/**
+	 * Adds a toy to the toy list
+	 * Maximum of 5 toys in the list at once
+	 * @param newToy toy being added
+	 */
 	public void setToys(Toys newToy) {
 		int numToys = 0;
+		
+		// Puts toy into next available spot in toys array
 		for(int i = 0; i < toys.length; i++) {
 			if(toys[i] == null) {
 				toys[i] = newToy;
@@ -121,69 +168,115 @@ public class Pet {
 		}
 	}
 	
+	/**
+	 * Increments expenses to keep track of them
+	 * @param expense amount added to current expenses
+	 */
 	public void addExpenses(double expense) {
 		expenses += expense;
 	}
 	
 	// Getters
-		public String getName() {
-			return name;
-		}
-		
-		public String getType() {
-			return type;
-		}
-		
-		public int getHealth() {
-			return health;
-		}
-		
-		public int getHunger() {
-			return hunger;
-		}
-		
-		public int getEmotion() {
-			return emotion;
-		}
-		
-		public int getRest() {
-			return rest;
-		}
-		
-		public double getMoney() {
-			return money;
-		}
-		
-		public double getExpenses() {
-			return expenses; 
-		}
-		
-		public int getHygiene() {
-			return hygiene;
-		}
-		
-		// Returns the toys array in a string
-		public String getToysStr() {
-			
-			String toysStr = "";
-			for(int i = 0; i < toys.length; i++) {
-				if(toys[i] == null) {
-					//skips
-				}
-				else {
-					toysStr += (toys[i].getName() + ", ");
-				}
-			}
-			
-			return toysStr;
-		}
-		
-		public Toys[] getToysArr() {
-			if(toys==null) {
-			}
-			return toys;
-		}
-		
 	
+	/**
+	 * Returns pet name
+	 * @return pet name
+	 */
+	public String getName() {
+		return name;
+	}
+	
+	/**
+	 * Returns pet type
+	 * @return pet type
+	 */
+	public String getType() {
+		return type;
+	}
+	
+	/**
+	 * Returns pet health
+	 * @return health amount
+	 */
+	public int getHealth() {
+		return health;
+	}
+	
+	/**
+	 * Returns pet hunger
+	 * @return hunger amount
+	 */
+	public int getHunger() {
+		return hunger;
+	}
+	
+	/**
+	 * Returns pet emotion
+	 * @return emotion amount
+	 */
+	public int getEmotion() {
+		return emotion;
+	}
+		
+	/**
+	 * Returns pet rest
+	 * @return rest amount
+	 */
+	public int getRest() {
+		return rest;
+	}
+	
+	/**
+	 * Returns pet hygiene
+	 * @return hygiene amount
+	 */
+	public int getHygiene() {
+		return hygiene;
+	}
+		
+	/**
+	 * Returns amount of money
+	 * @return money amount
+	 */
+	public double getMoney() {
+		return money;
+	}
+		
+	/**
+	 * Returns pet expenses
+	 * @return expenses amount
+	 */
+	public double getExpenses() {
+		return expenses; 
+	}
+		
+	/**
+	 * Returns pet toys as a string
+	 * @return string of toys bought
+	 */
+	public String getToysStr() {
+			
+		String toysStr = "";
+		for(int i = 0; i < toys.length; i++) {
+			if(toys[i] == null) {
+				//skips
+			}
+			else {
+				toysStr += (toys[i].getName() + ", ");
+			}
+		}
+			
+		return toysStr;
+	}
+		
+	/**
+	 * Returns pet toys as an array
+	 * @return array of Toys bought
+	 */
+	public Toys[] getToysArr() {
+		if(toys==null) {
+		}
+		return toys;
+	}
 	
 }
