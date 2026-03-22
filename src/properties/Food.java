@@ -93,18 +93,34 @@ public class Food {
 	
 	
 	// Getters
+	/**
+	 * Returns name of food
+	 * @return name of food
+	 */
 	public String getName() {
 		return foodName;
 	}
 	
+	/**
+	 * Returns type of pet cooresponding with the food
+	 * @return type of food
+	 */
 	public String getType() {
 		return foodType;
 	}
 	
+	/**
+	 * Returns price of food
+	 * @return price of food
+	 */
 	public double getPrice() {
 		return price;
 	}
 	
+	/**
+	 * Returns version of food
+	 * @return version of food
+	 */
 	public int getVersion() {
 		return version;
 	}

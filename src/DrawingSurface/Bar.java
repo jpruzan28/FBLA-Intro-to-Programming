@@ -8,8 +8,8 @@ import java.awt.Graphics;
 import javax.swing.*;
 
 
-public class Bar extends JPanel {
-	
+public class Bar {
+/*	
 	Pet p;
 	
 	public Bar(Pet pet) {
@@ -69,5 +69,84 @@ public class Bar extends JPanel {
 
 
 		
+	}*/
+	
+	Pet pet; 
+	String name; 
+	
+	int amount;
+	double x;
+	double y; 
+	double width;
+	double height; 
+	
+	public Bar(Pet pet, String name, double x, double y, double width, double height) {
+		this.pet = pet;
+		this.name = name; 
+		
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height; 
+		
+		if (name.equals("Hunger")) {
+			amount = pet.getHunger();
+		}
+		else if (name.equals("Health")) {
+			amount = pet.getHealth();
+
+		}
+		else if (name.equals("Hygiene")) {
+			amount = pet.getHygiene();
+
+		}
+		else if (name.equals("Rest")) {
+			amount = pet.getRest();
+
+		}
+		else if (name.equals("Emotion")) {
+			amount = pet.getEmotion();
+
+		}
+		else {
+			amount = -1; 
+		}
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getAmount() {
+		return amount;
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
+	public double getWidth() {
+		return width;
+	}
+	
+	public double getHeight() {
+		return height;
+	}
+	
+	
+	public Color getColor() {
+		if (amount <= 3) {
+			return Color.RED;
+		}
+		else if (amount >= 8) {
+			return Color.GREEN;
+		}
+		else {
+			return Color.YELLOW;
+		}
 	}
 }
