@@ -3,6 +3,12 @@ package properties;
 
 import pets.Pet;
 
+/**
+ * Creates a food object with a name, version, price, and type
+ * 
+ * @author Jasmine Pruzan, Ishaan Bhalerao, Ellie Lo
+ * @version 3/20/2026
+ */
 public class Food {
 	// Fields
 	// Which version of food was chosen
@@ -12,7 +18,14 @@ public class Food {
 	private String foodType;
 	private double price;
 	
-	
+	/**
+	 * Constructor that initializes food name, type, price, and version
+	 * 
+	 * @param name name of the food
+	 * @param type type of animal the food is meant for
+	 * @param price cost of the food
+	 * @param version version determining impact of consumption on the pet
+	 */
 	public Food(String name, String type, double price, int version) {
 		foodName = name;
 		foodType = type;
@@ -20,7 +33,12 @@ public class Food {
 		this.version = version;
 	}
 	
-	// Checks if the correct food was chosen for the pet 
+	/**
+	 * Checks if the correct food was chosen for the pet 
+	 * 
+	 * @param p Pet object
+	 * @return true if the food type matches the pet type, false otherwise
+	 */
 	public boolean checkType(Pet p) {
 		if(p.getType().equals(foodType)) {
 			return true;
@@ -31,7 +49,10 @@ public class Food {
 		
 	}
 
-	// Increases pet hunger field based on which food they chose
+	/** 
+	 * Increases pet hunger field based on which food they chose
+	 * @param p Pet object
+	 */
 	public void feedPet(Pet p) {
 		int currentHunger = p.getHunger();
 		

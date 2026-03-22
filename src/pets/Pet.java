@@ -3,7 +3,8 @@ package pets;
 import VirtualPet.main;
 import properties.*;
 
-/**
+/**Creates a pet object that holds the pet's name, type, stats, and user money
+ * 
  * @author Jasmine Pruzan, Ishaan Bhalerao, Ellie Lo
  * @version 3/18/26
  */
@@ -25,7 +26,7 @@ public class Pet {
 	private Health healthChanges;
 	
 	
-	/**
+	/**Constructor that initializes all of the fields. 
 	 * 
 	 * @param name name of pet
 	 * @param type animal type of pet
