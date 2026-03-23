@@ -12,8 +12,8 @@ import java.awt.CardLayout;
 
 
 public class Button{
-	private JButton food, rest, clean, vet, play, store;
-	private JLabel expensesLabel; 
+	//private JButton food, rest, clean, vet, play, store;
+	//private JLabel expensesLabel; 
 //	private CardLayout cardLayout;
 //	private JPanel cardPanel;
 	private String buttonPressed;
@@ -85,7 +85,7 @@ public class Button{
 		
 	public void actionPerformed() {	
 		
-		expensesLabel.setText("Expenses: $" + pet.getExpenses() + "0");
+	//	expensesLabel.setText("Expenses: $" + pet.getExpenses() + "0");
 
 		
 		Store stores = new Store();
@@ -94,7 +94,7 @@ public class Button{
 //			cardLayout.show(cardPanel, "FStore");
 //
 //		}
-		if(buttonPressed.equals("Rest")) {
+		if(buttonPressed.equals("Sleep")) {
 			String sleepAmount = "";
 			
 			while(!(sleepAmount.equals("1")) && !(sleepAmount.equals("2")) && !(sleepAmount.equals("5"))) {

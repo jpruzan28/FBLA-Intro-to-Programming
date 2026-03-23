@@ -9,7 +9,7 @@ import java.awt.event.*;
 import pets.Pet;
 
 public class DrawingSurface extends JPanel implements ActionListener {
-	private JButton food, sleep, clean, vet, play, store;
+	private JButton work, food, sleep, clean, vet, play, store;
 	private Bar health, hunger, hygiene, rest, emotion;
 	private Pet pet;
 	
@@ -43,6 +43,14 @@ public class DrawingSurface extends JPanel implements ActionListener {
 		addButtons();
 	}
 	
+	public void createCardLayout() {
+		// Organize all of the different panels
+	}
+	
+	public void addTimer() {
+		// Put the timer on screen
+	}
+	
 	// Adds a background to the bottom layer
 	public void addBackground() {
 		backgroundPanel = new BackgroundPanel("Image Address");
@@ -68,7 +76,14 @@ public class DrawingSurface extends JPanel implements ActionListener {
 		
 	}
 	
+	public void drawSprite() {
+		// Draw the pet
+	}
+	
 	public void addButtons() {
+		work = new JButton("Work");
+		// Add other button stuff for work
+
 
 		food = new JButton("Food");
 		sleep = new JButton("Sleep");
