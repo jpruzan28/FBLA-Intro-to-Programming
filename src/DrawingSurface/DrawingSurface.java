@@ -8,43 +8,69 @@ import javax.swing.*;
 import java.awt.event.*;
 import pets.Pet;
 
-public class DrawingSurface extends JPanel implements ActionListener {
+public class DrawingSurface implements ActionListener {
 	private JButton work, food, sleep, clean, vet, play, store;
 	private Bar health, hunger, hygiene, rest, emotion;
+	private Bar[] bars;
 	private Pet pet;
+	
+	private int width;
+	private int height; 
 	
 	private CardLayout cardLayout;
 	private JPanel cardPanel;
 	
-	// Creates layers so the background can be on the bottom with button on top
-	private JLayeredPane layeredPane;
-	private BackgroundPanel backgroundPanel;
+	private JPanel homeScreen; 
+	private JPanel storePanel;
+    private JPanel storePanelFood;
+    private JPanel gameOverScreen;
 	
-	public DrawingSurface(CardLayout cardLayout, JPanel cardPanel, Pet pet) {
+	// Creates layers so the background can be on the bottom with button on top
+	private BackgroundPanel backgroundPanel;
+	private JLayeredPane layeredPane;
+
+	
+	public DrawingSurface(CardLayout cardLayout, JPanel cardPanel, int width, int height, Pet pet) {
 		
 		this.cardLayout = cardLayout;
         this.cardPanel = cardPanel;
+        this.pet = pet; 
         
-        this.pet = pet;
+        this.width = width;
+        this.height = height;
+        
         if (this.pet == null) {
         	System.out.println("Pet is null");
         }
 		
-        setLayout(null);
+       // homeScreen.setLayout(null);
+        homeScreen = new JPanel();
+        storePanel = new StorePanel(cardLayout, cardPanel, pet);
+        storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
+        gameOverScreen = new GameOverPanel(cardLayout, cardPanel);
+
         
         
         // JLayeredPane replaces the default content pane
-        setLayout(new BorderLayout());
+        homeScreen.setLayout(new BorderLayout());
         layeredPane = new JLayeredPane();
         layeredPane.setLayout(null);
-        add(layeredPane, BorderLayout.CENTER);
+        homeScreen.add(layeredPane, BorderLayout.CENTER);
 
-		
+		createBars();
+		addBackground(); 
 		addButtons();
+		createCardLayout();
+		
 	}
 	
+	
 	public void createCardLayout() {
-		// Organize all of the different panels
+		cardPanel.add(homeScreen, "Home");
+		cardPanel.add(storePanel, "Store");
+	    cardPanel.add(storePanelFood, "FStore");
+	    cardPanel.add(gameOverScreen, "GameOver"); 
+
 	}
 	
 	public void addTimer() {
@@ -53,18 +79,18 @@ public class DrawingSurface extends JPanel implements ActionListener {
 	
 	// Adds a background to the bottom layer
 	public void addBackground() {
-		backgroundPanel = new BackgroundPanel("Image Address");
-		backgroundPanel.setBounds(0,0,getWidth(),getHeight());
+		backgroundPanel = new BackgroundPanel("cat.happy.jpg", bars);
+		backgroundPanel.setBounds(0,0,width,height);
 	    layeredPane.add(backgroundPanel, JLayeredPane.DEFAULT_LAYER);
 
 	}
 	
 	public void createBars() {
 		// Calculating spacing of the bars
-		double windWidth = getWidth();
+		double windWidth = width;
 		double piece = windWidth/16;
 		double x = piece;
-		int y = getHeight() / 20;
+		int y = height / 20;
 				
 		double rectWidth = 2*piece;
 				
@@ -74,6 +100,7 @@ public class DrawingSurface extends JPanel implements ActionListener {
 		rest = new Bar(pet, "Rest", (x + 9*piece), y, rectWidth, 30);
 		emotion = new Bar(pet, "Emotion", (x + 12*piece), y, rectWidth, 30);
 		
+		bars = new Bar[] {health, hunger, hygiene, rest, emotion};
 	}
 	
 	public void drawSprite() {
@@ -81,24 +108,41 @@ public class DrawingSurface extends JPanel implements ActionListener {
 	}
 	
 	public void addButtons() {
+		
+		// Create buttons
 		work = new JButton("Work");
-		// Add other button stuff for work
 
-
-		food = new JButton("Food");
+		food = new JButton("Food Store");
 		sleep = new JButton("Sleep");
 		clean = new JButton("Clean");
 		vet = new JButton("Vet");
 		play = new JButton("Play");
-		store = new JButton("Store");
+		store = new JButton("Toy Store");
 		
-		food.setBounds(50,  100, 120, 40);
-		sleep.setBounds(50,  160, 120, 40);
-		clean.setBounds(50,  220, 120, 40);
-		vet.setBounds(50,  280, 120, 40);
-		play.setBounds(50,  340, 120, 40);
-		store.setBounds(50,  400, 120, 40);
+		// Set button locations
+		work.setBounds(50,  100, 120, 40);
+
+		food.setBounds(100,  100, 120, 40);
+		sleep.setBounds(500,  160, 120, 40);
+		clean.setBounds(240,  220, 120, 40);
+		vet.setBounds(120,  280, 120, 40);
+		play.setBounds(90,  340, 120, 40);
+		store.setBounds(670,  400, 120, 40);
 		
+		// Instructions when hovering over buttons
+		work.setToolTipText("Answer questions to make money. /n Increases Total Savings. $10 per question right");
+		
+		food.setToolTipText("Food store to buy and feed food. /n Increases Hunger bar");
+		sleep.setToolTipText("Pet sleeps for certain amount of time. /n Increases Rest bar");
+		clean.setToolTipText("Cleans pet. /n Increases Hygiene bar");
+		vet.setToolTipText("Cures pet. /n Increases Health bar");
+		play.setToolTipText("Pick toy you own for pet to play with. /n Increases Emotion bar");
+		store.setToolTipText("Toy store to buy toys");
+
+		
+		// Make buttons clickable
+		work.addActionListener(this);
+
 		food.addActionListener(this);
 		sleep.addActionListener(this);
 		clean.addActionListener(this);
@@ -123,13 +167,17 @@ public class DrawingSurface extends JPanel implements ActionListener {
 		JButton button = (JButton)e.getSource();
 		String bPressed = button.getText();
 		
-		if(bPressed.equals("Food")) {
+		if (bPressed.equals("Work")) {
+			// AI Questions to make money
+		}
+		
+		else if(bPressed.equals("Food Store")) {
 
 			cardLayout.show(cardPanel, "FStore");
 
 		}
 		
-		else if(bPressed.equals("Store")) {
+		else if(bPressed.equals("Toy Store")) {
 			
 			cardLayout.show(cardPanel, "Store");
 
@@ -143,44 +191,4 @@ public class DrawingSurface extends JPanel implements ActionListener {
 		
 	}
 	
-	public void paintComponent(Graphics g) {
-		createBars();
-		
-		// Writing stats on top of bars
-		int fontSize = 24;
-		g.setColor(Color.BLACK); 
-		g.setFont(new Font("SansSerif", Font.BOLD, fontSize)); 
-
-		g.drawString("Health", (int)health.getX(), (int)health.getY() - fontSize);
-		g.drawString("Hunger", (int)hunger.getX(), (int)hunger.getY() - fontSize);
-		g.drawString("Hygiene", (int)hygiene.getX(), (int)hygiene.getY() - fontSize);
-		g.drawString("Rest", (int)rest.getX(), (int)rest.getY() - fontSize);
-		g.drawString("Emotion", (int)emotion.getX(), (int)emotion.getY() - fontSize);
-		
-		// Drawing outlines of bars 
-		g.drawRect((int)health.getX(), (int)health.getY(), (int)health.getWidth(), (int)health.getHeight());
-		g.drawRect((int)hunger.getX(), (int)hunger.getY(), (int)hunger.getWidth(), (int)hunger.getHeight());
-		g.drawRect((int)hygiene.getX(), (int)hygiene.getY(), (int)hygiene.getWidth(), (int)hygiene.getHeight());
-		g.drawRect((int)rest.getX(), (int)rest.getY(), (int)rest.getWidth(), (int)rest.getHeight());
-		g.drawRect((int)emotion.getX(), (int)emotion.getY(), (int)emotion.getWidth(), (int)emotion.getHeight());
-
-		// Filling in bars with the correct colors
-		g.setColor(health.getColor());
-		g.drawRect((int)health.getX(), (int)health.getY(), (int)health.getWidth(), (int)health.getHeight());
-		
-		g.setColor(hunger.getColor());
-		g.drawRect((int)hunger.getX(), (int)hunger.getY(), (int)hunger.getWidth(), (int)hunger.getHeight());
-
-		g.setColor(hygiene.getColor());
-		g.drawRect((int)hygiene.getX(), (int)hygiene.getY(), (int)hygiene.getWidth(), (int)hygiene.getHeight());
-
-		g.setColor(rest.getColor());
-		g.drawRect((int)rest.getX(), (int)rest.getY(), (int)rest.getWidth(), (int)rest.getHeight());
-
-		g.setColor(emotion.getColor());
-		g.drawRect((int)emotion.getX(), (int)emotion.getY(), (int)emotion.getWidth(), (int)emotion.getHeight());
-
-	}
-	
-
 }
