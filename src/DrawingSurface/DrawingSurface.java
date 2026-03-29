@@ -53,7 +53,7 @@ public class DrawingSurface implements ActionListener {
         homeScreen = new JPanel();
         storePanel = new StorePanel(cardLayout, cardPanel, pet);
         storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
-        gameOverScreen = new GameOverPanel(cardLayout, cardPanel);
+        gameOverScreen = new GameOverPanel(cardLayout, cardPanel, pet);
 
         
         
@@ -181,9 +181,13 @@ public class DrawingSurface implements ActionListener {
 	
 	// Called by ReductionTimer when a stat hits 0
 	public void gameOver() {
-		SwingUtilities.invokeLater(() -> {
-			cardLayout.show(cardPanel, "GameOver");
-		});
+		boolean isGameOver = false;
+		
+	    if (isGameOver) return;  // ← prevents double triggering
+	    isGameOver = true;
+	    SwingUtilities.invokeLater(() -> {
+	        cardLayout.show(cardPanel, "GameOver");
+	    });
 	}
 	
 	public void drawSprite() {
@@ -211,7 +215,7 @@ public class DrawingSurface implements ActionListener {
 		clean.setBounds(240,  220, 120, 40);
 		vet.setBounds(120,  280, 120, 40);
 		play.setBounds(90,  340, 120, 40);
-		store.setBounds(670,  400, 120, 40);
+		store.setBounds(67,  400, 120, 40);
 		
 		// Instructions when hovering over buttons
 		work.setToolTipText("Answer questions to make money. /n Increases Total Savings. $10 per question right");
