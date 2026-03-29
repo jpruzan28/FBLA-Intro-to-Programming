@@ -51,7 +51,7 @@ public class DrawingSurface implements ActionListener {
         homeScreen = new JPanel();
         storePanel = new StorePanel(cardLayout, cardPanel, pet);
         storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
-        gameOverScreen = new GameOverPanel(cardLayout, cardPanel);
+        gameOverScreen = new GameOverPanel(cardLayout, cardPanel, pet);
 
         
         
