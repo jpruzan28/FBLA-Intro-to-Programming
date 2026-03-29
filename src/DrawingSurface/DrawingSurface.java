@@ -109,7 +109,7 @@ public class DrawingSurface implements ActionListener {
 	public void addMoneyLabel() {
 		moneyLabel = new JLabel("Total Currency: $" + String.format("%.2f", pet.getMoney()));
 		moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
-		moneyLabel.setForeground(Color.ORANGE);
+		moneyLabel.setForeground(Color.black);
 		moneyLabel.setBounds(80, 150, 320, 40);
 		layeredPane.add(moneyLabel, JLayeredPane.PALETTE_LAYER);
 	}
