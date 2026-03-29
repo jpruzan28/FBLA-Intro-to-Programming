@@ -179,13 +179,20 @@ public class DrawingSurface implements ActionListener {
 	    }, 0, 1000);
 	}
 	
-	// Called by ReductionTimer when a stat hits 0
+	//  Called by ReductionTimer when a stat hits 0
 	public void gameOver() {
 		boolean isGameOver = false;
+		if(isGameOver) return;
 		
-	    if (isGameOver) return;  // ← prevents double triggering
-	    isGameOver = true;
-	    SwingUtilities.invokeLater(() -> {
+		SwingUtilities.invokeLater(() -> {
+	        // Remove the old game over panel
+	        cardPanel.remove(gameOverScreen);
+
+	        // Create a brand new one with CURRENT stats
+	        gameOverScreen = new GameOverPanel(cardLayout, cardPanel, pet);
+
+	        // Add it back and show it
+	        cardPanel.add(gameOverScreen, "GameOver");
 	        cardLayout.show(cardPanel, "GameOver");
 	    });
 	}
