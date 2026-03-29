@@ -1,0 +1,247 @@
+Virtual Pet Game
+README
+Authors: Jasmine Pruzan, Ishaan Bhalerao, Ellie Lo
+Version: March 2026
+Language: Java | GUI: Java Swing
+
+================================================================
+
+OVERVIEW
+
+Virtual Pet Game is a desktop Java application where players
+care for a digital pet of their choosing. You can adopt a dog,
+cat, or fish, then keep it alive and happy by managing five
+core stats: health, hunger, emotion, rest, and hygiene. Stats
+are interconnected, so neglecting one will drag others down.
+You earn money over time by performing care actions, which you
+can spend at the in-game store on food and toys.
+
+================================================================
+
+GETTING STARTED
+
+Prerequisites:
+- Java 8 or higher
+- Java Swing (included with the standard JDK)
+- An IDE such as Eclipse, IntelliJ IDEA, or VS Code with Java
+
+To run the application:
+1. Clone or download the project repository.
+2. Open it in your Java IDE.
+3. Navigate to the VirtualPet package and run the main class.
+4. Follow the on-screen prompts to name your pet and choose
+   its type: Dog, Cat, or Fish.
+
+================================================================
+
+PROJECT STRUCTURE
+
+pets
+  Contains the Pet class, the core data model holding all pet
+  state including stats, money, and toy inventory.
+
+properties
+  Contains all game logic classes: Food, Toys, Store, Health,
+  Emotion, and Activities.
+
+DrawingSurface
+  Contains GUI handler classes including Button, which wires
+  user interface actions to game logic.
+
+VirtualPet
+  Entry point package containing the main class that launches
+  the application.
+
+================================================================
+
+CLASS REFERENCE
+
+----------------------------------------------------------------
+Pet  (pets.Pet)
+----------------------------------------------------------------
+The central data model of the game. Every piece of pet state
+is stored and managed here.
+
+The pet is initialized with a name and type. All five stats
+(health, hunger, emotion, rest, hygiene) start at 10. The pet
+starts with $100.00 and an empty toy inventory with a max of
+5 slots.
+
+All stat setters cap values at a maximum of 10. Calling
+setHunger(), setRest(), or setHygiene() automatically triggers
+the Health class to recalculate health. If all 5 toy slots are
+full when setToys() is called, an error message is shown and
+no toy is added.
+
+----------------------------------------------------------------
+Health  (properties.Health)
+----------------------------------------------------------------
+Manages how changes in hunger, rest, and hygiene affect the
+pet's health stat. Called automatically when those stats change.
+
+Hunger impact on health:
+  - Hunger = 0         health -5
+  - Hunger = 1 to 2    health -3
+  - Hunger = 3 to 4    health -2
+  - Hunger = 5 to 10   health +2
+
+Rest impact on health:
+  - Rest = 0           health -5
+  - Rest = 1 to 4      health -1
+  - Rest = 5 to 7      health +2
+  - Rest = 8 to 10     health +3
+
+Hygiene impact on health:
+  - Hygiene = 0        health -5
+  - Hygiene = 1 to 4   health -1
+  - Hygiene = 5 to 10  health +2
+
+If health is at or below 2, stat changes no longer reduce it
+further. Only a vet visit can restore health at that point.
+remindVetVisit() shows an urgent dialog when health hits 2
+or below.
+
+----------------------------------------------------------------
+Emotion  (properties.Emotion)
+----------------------------------------------------------------
+Calculates the pet's happiness based on all other stats.
+
+If any stat among health, hunger, rest, or hygiene is 3 or
+below, emotion is forced down to 3.
+
+If all four of those stats are 7 or above, emotion gains +7.
+
+Otherwise emotion remains unchanged.
+
+----------------------------------------------------------------
+Food  (properties.Food)
+----------------------------------------------------------------
+Represents a purchasable food item with a name, target animal
+type, price, and version (quality tier 1 through 4).
+
+If food type matches the pet type, hunger increases by:
+  Version 1 -> +2
+  Version 2 -> +4
+  Version 3 -> +6
+  Version 4 -> +8
+
+If food type does NOT match, the pet gains half the hunger
+benefit and health is reduced by the same amount.
+
+Dog food:
+  Kibble Crunch ($10), Beef and Veggie Mix ($20),
+  Chicken Feast ($30), Salmon Delight ($50),
+  Lamb and Rice Bowl ($70), Golden Chicken Nuggets ($100)
+
+Fish food:
+  Flakes ($10), Algae Crisps ($20), Shrimp Pellets ($30),
+  Spirulina Flakes ($50), Caviar Pearls ($70),
+  Deep Abyss Infusion ($100)
+
+Cat food:
+  Five Fish Kibble ($10), Veggie Medley ($20),
+  Expensive Melk ($30), Turkey and Cranberry Treats ($50),
+  Bluefin Tuna Steak ($70), A Golden Rat ($100)
+
+----------------------------------------------------------------
+Toys  (properties.Toys)
+----------------------------------------------------------------
+Represents a purchasable toy with a name, target animal type,
+price, and version (quality tier 1 through 4). Toys are stored
+in the pet's inventory and chosen during play activities.
+
+Dog toys:
+  Used Ball ($4), Rubber Chew Bone ($8),
+  Enchanted Chew Wand ($25), Guardian Plus Bear ($50),
+  Dog God Worship Altar ($70), Goldenest Bone ($90)
+
+Fish toys:
+  Drift Ball ($4), Shell Hideout ($8),
+  Biolume Bubble Machine ($25), Robotic Friend ($50),
+  Ancient Calming Bell ($70), Platinum Speaker ($90)
+
+Cat toys:
+  Plain Kitty Sock ($4), Jingle Mouse ($8),
+  Corner Scratch Post ($25), Laser Pointer ($50),
+  Quarter Zip ($70), Legendary Airpods ($90)
+
+----------------------------------------------------------------
+Store  (properties.Store)
+----------------------------------------------------------------
+The in-game shop. Holds all food and toy inventories for each
+animal type and handles all purchase transactions.
+
+buyFood()    Deducts the food price from pet money, records
+             the expense, and feeds the pet immediately.
+
+buyToys()    Deducts the toy price, records the expense, and
+             adds the toy to the pet's inventory.
+
+vetVisit()   Costs $20 and resets pet health to 10. If the
+             pet has less than $20, an error is shown and
+             the visit is cancelled.
+
+----------------------------------------------------------------
+Button  (DrawingSurface.Button)
+----------------------------------------------------------------
+Handles user interaction from the GUI. Each instance is tied
+to a specific action string and the active Pet object. Calling
+actionPerformed() executes the corresponding game logic.
+
+"Sleep"   Prompts the player to choose 1, 2, or 5 hours,
+          calls the sleep activity, and awards the pet $10.
+
+"Clean"   Runs the clean activity and awards the pet $10.
+
+"Vet"     Calls the store's vet visit and awards $10 on
+          success.
+
+"Play"    Lists owned toys, prompts the player to pick one,
+          runs the play activity with that toy, and awards
+          the pet $10.
+
+================================================================
+
+STAT SYSTEM SUMMARY
+
+All stats range from 0 to 10.
+
+Health      Affected passively by hunger, rest, and hygiene.
+            Only a vet visit restores it once it hits 2 or
+            below.
+
+Hunger      Decays over time. Restored by buying and feeding
+            food from the store.
+
+Emotion     Reflects the overall state of all other stats.
+            Updates automatically when stats change.
+
+Rest        Decays over time. Restored by sleeping.
+
+Hygiene     Decays over time. Restored by the clean action.
+
+================================================================
+
+KNOWN ISSUES
+
+- Health.addHygieneToHealth() has a variable declared as
+  __newHealth__ instead of newHealth, causing a compile error.
+  Rename the variable to fix it.
+
+- Food.feedPet() uses currentHunger instead of currentHealth
+  when calling p.setHealth() in the wrong-food-type branch.
+  This is likely a logic bug and should be reviewed.
+
+- The Toys version field is stored but not yet used in any
+  play activity logic. Version-based play effects are not
+  implemented.
+
+- Store GUI navigation using CardLayout is partially commented
+  out in Button.java and is pending re-implementation.
+
+================================================================
+
+AUTHORS
+
+Jasmine Pruzan, Ishaan Bhalerao, Ellie Lo
+March 2026
