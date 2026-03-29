@@ -3,6 +3,7 @@ package VirtualPet;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.util.Timer;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -19,8 +20,7 @@ public class NewMain {
 		frame.setTitle("Virtual Pet");
 		frame.setBounds(0, 0, 1900, 1060);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBackground(Color.green);
-		    
+		frame.setBackground(Color.green);  
 		
 	 // Creating cardLayout and container panel
 	    CardLayout cardLayout = new CardLayout();
@@ -56,8 +56,23 @@ public class NewMain {
 		
 	    cardLayout.show(cardPanel, "Home");  // ← capital H to match the key above
 
-	    
+
 	    frame.setVisible(true);
+	    
+	    ReductionTimer reductionTimers = new ReductionTimer(pet, drawingSurface);
+		Timer timer = new Timer();
+		timer.schedule(reductionTimers.new reduceHunger(), 0, 25000);
+		timer.schedule(reductionTimers.new reduceHygiene(), 0, 25000);
+		timer.schedule(reductionTimers.new reduceRest(), 0, 25000);
+		timer.schedule(reductionTimers.new reduceEmotion(), 0, 25000);
+		timer.schedule(reductionTimers.new salary(), 0, 35000);
+		timer.schedule(reductionTimers.new bonus(), 0, 35000);
+		timer.schedule(reductionTimers.new updateHealth(), 0, 20000);
+
+		// Repaint loop
+		while (true) {
+			frame.repaint();
+		}
 
 	}
 
