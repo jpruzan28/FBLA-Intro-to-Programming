@@ -127,7 +127,7 @@ public class DrawingSurface implements ActionListener {
 		clean.setBounds(240,  220, 120, 40);
 		vet.setBounds(120,  280, 120, 40);
 		play.setBounds(90,  340, 120, 40);
-		store.setBounds(670,  400, 120, 40);
+		store.setBounds(67,  400, 120, 40);
 		
 		// Instructions when hovering over buttons
 		work.setToolTipText("Answer questions to make money. /n Increases Total Savings. $10 per question right");
