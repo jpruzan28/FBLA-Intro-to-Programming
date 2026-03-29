@@ -74,13 +74,13 @@ public class ReductionTimer {
 		}
 	}
 
-	public class salary extends TimerTask {
-		@Override
-		public void run() {
-			pet.setMoney(pet.getMoney() + 10);
-			drawingSurface.updateMoneyDisplay();
-		}
-	}
+//	public class salary extends TimerTask {
+//		@Override
+//		public void run() {
+//			pet.setMoney(pet.getMoney() + 10);
+//			drawingSurface.updateMoneyDisplay();
+//		}
+//	}
 
 	public class bonus extends TimerTask {
 		@Override

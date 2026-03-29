@@ -17,6 +17,7 @@ public class DrawingSurface implements ActionListener {
 	
 	private int width;
 	private int height; 
+
 	private int seconds = 0;
 	
 	private CardLayout cardLayout;
@@ -28,7 +29,8 @@ public class DrawingSurface implements ActionListener {
     private JPanel gameOverScreen;
     
     private JLabel moneyLabel;
-	
+	private JLabel clockLabel;
+		
 	// Creates layers so the background can be on the bottom with button on top
 	private BackgroundPanel backgroundPanel;
 	private JLayeredPane layeredPane;
@@ -66,6 +68,8 @@ public class DrawingSurface implements ActionListener {
 		addButtons();
 		addMoneyLabel();
 		createCardLayout();
+		addClockLabel();
+		startClock();
 		
 	}
 	
@@ -86,26 +90,55 @@ public class DrawingSurface implements ActionListener {
 		backgroundPanel = new BackgroundPanel("Images/Pet_Sprites/Untitled14.png", bars);
 		backgroundPanel.setBounds(0,0,width,height);
 	    layeredPane.add(backgroundPanel, JLayeredPane.DEFAULT_LAYER);
-	}
+	
+	//Makes sure the background panel fully fits the home screen size
+	homeScreen.addComponentListener(new java.awt.event.ComponentAdapter() {
+        @Override
+        public void componentResized(java.awt.event.ComponentEvent e) {
+            layeredPane.setSize(homeScreen.getSize());
+            backgroundPanel.setBounds(0, 0, homeScreen.getWidth(), homeScreen.getHeight());
+            layeredPane.revalidate();
+        }
+    });
+}
 	
 	public void createBars() {
 		// Calculating spacing of the bars
-		double windWidth = width;
-		double piece = windWidth/16;
-		double x = piece;
-		int y = height / 20;
+//		double windWidth = width;
+//		double piece = windWidth/16;
+//		double x = piece;
+//		double rectWidth = 2*piece;
+		
+		double rectWidth = width / 8.0;   // each bar's max width
+        double barHeight = 30;
+        double totalBarsWidth = 5 * rectWidth;
+        double gap = (width - totalBarsWidth) / (5 + 1); // even spacing
+        int y = height / 20;
 				
-		double rectWidth = 2*piece;
-				
-		health = new Bar(pet, "Health", x, y, rectWidth, 30);
-		hunger = new Bar(pet, "Hunger", (x + 3*piece), y, rectWidth, 30);
-		hygiene = new Bar(pet, "Hygiene", (x + 6*piece), y, rectWidth, 30);
-		rest = new Bar(pet, "Rest", (x + 9*piece), y, rectWidth, 30);
-		emotion = new Bar(pet, "Emotion", (x + 12*piece), y, rectWidth, 30);
+
+		
+		double x1 = gap;                        // 1 gap
+		double x2 = gap * 2 + rectWidth;         // 2 gaps + 1 bar
+		double x3 = gap * 3 + rectWidth * 2;     // 3 gaps + 2 bars
+		double x4 = gap * 4 + rectWidth * 3;     // 4 gaps + 3 bars
+		double x5 = gap * 5 + rectWidth * 4;     // 5 gaps + 4 bars
+//				
+//		health = new Bar(pet, "Health", x, y, rectWidth, 30);
+//		hunger = new Bar(pet, "Hunger", (x + 3*piece), y, rectWidth, 30);
+//		hygiene = new Bar(pet, "Hygiene", (x + 6*piece), y, rectWidth, 30);
+//		rest = new Bar(pet, "Rest", (x + 9*piece), y, rectWidth, 30);
+//		emotion = new Bar(pet, "Emotion", (x + 12*piece), y, rectWidth, 30);
+		
+		 health  = new Bar(pet, "Health",  x1, y, rectWidth, barHeight);
+		    hunger  = new Bar(pet, "Hunger",  x2, y, rectWidth, barHeight);
+		    hygiene = new Bar(pet, "Hygiene", x3, y, rectWidth, barHeight);
+		    rest    = new Bar(pet, "Rest",    x4, y, rectWidth, barHeight);
+		    emotion = new Bar(pet, "Emotion", x5, y, rectWidth, barHeight);
+
 		
 		bars = new Bar[] {health, hunger, hygiene, rest, emotion};
 	}
-	
+	// Money Label
 	public void addMoneyLabel() {
 		moneyLabel = new JLabel("Total Currency: $" + String.format("%.2f", pet.getMoney()));
 		moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
@@ -119,6 +152,31 @@ public class DrawingSurface implements ActionListener {
 		SwingUtilities.invokeLater(() -> {
 			moneyLabel.setText("Total Currency: $" + String.format("%.2f", pet.getMoney()));
 		});
+	}
+	
+	// Clock Label
+		public void addClockLabel() {
+	    clockLabel = new JLabel("00:00:00");
+	    clockLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
+	    clockLabel.setForeground(Color.BLACK);
+	    clockLabel.setBounds(width - 350, 50, 320, 40); // sits below money label
+	    layeredPane.add(clockLabel, JLayeredPane.PALETTE_LAYER);
+	}
+		
+	public void startClock() {
+	    java.util.Timer clockTimer = new java.util.Timer();
+	    clockTimer.scheduleAtFixedRate(new TimerTask() {
+	        @Override
+	        public void run() {
+	            SwingUtilities.invokeLater(() -> {
+	                seconds++;
+	                int hrs = seconds / 3600;
+	                int mins = (seconds % 3600) / 60;
+	                int secs = seconds % 60;
+	                clockLabel.setText(String.format("%02d:%02d:%02d", hrs, mins, secs)); //resets it every second
+	            });
+	        }
+	    }, 0, 1000);
 	}
 	
 	// Called by ReductionTimer when a stat hits 0

@@ -65,7 +65,7 @@ public class NewMain {
 		timer.schedule(reductionTimers.new reduceHygiene(), 0, 25000);
 		timer.schedule(reductionTimers.new reduceRest(), 0, 25000);
 		timer.schedule(reductionTimers.new reduceEmotion(), 0, 25000);
-		timer.schedule(reductionTimers.new salary(), 0, 35000);
+//		timer.schedule(reductionTimers.new salary(), 0, 35000);
 		timer.schedule(reductionTimers.new bonus(), 0, 35000);
 		timer.schedule(reductionTimers.new updateHealth(), 0, 20000);
 

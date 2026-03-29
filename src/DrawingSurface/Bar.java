@@ -79,8 +79,9 @@ public class Bar {
 	double y; 
 	double width;
 	double height; 
+	double maxWidth;
 	
-	public Bar(Pet pet, String name, double x, double y, double width, double height) {
+	public Bar(Pet pet, String name, double x, double y, double maxWidth, double height) {
 		this.pet = pet;
 		this.name = name; 
 		
@@ -88,6 +89,7 @@ public class Bar {
 		this.y = y;
 		this.width = width;
 		this.height = height; 
+		this.maxWidth = maxWidth;
 		
 		if (name.equals("Hunger")) {
 			amount = pet.getHunger();
@@ -142,7 +144,8 @@ public class Bar {
 	}
 	
 	public double getWidth() {
-		return width;
+	        return (getAmount() / 10.0) * maxWidth;
+	    
 	}
 	
 	public double getHeight() {
