@@ -43,9 +43,7 @@ public class ReductionTimer {
 			if (ogHygiene >= 0) {
 				pet.setHygiene(ogHygiene--);
 			}
-			if (pet.getHygiene() <= 0) {
-				drawingSurface.gameOver();
-			}
+
 		}
 	}
 
@@ -54,9 +52,6 @@ public class ReductionTimer {
 		public void run() {
 			if (ogEmotion >= 0) {
 				pet.setEmotion(ogEmotion--);
-			}
-			if (pet.getEmotion() <= 0) {
-				drawingSurface.gameOver();
 			}
 			emotionC.calculatingEmotion();
 		}
@@ -68,9 +63,7 @@ public class ReductionTimer {
 			if (ogRest >= 0) {
 				pet.setRest(ogRest--);
 			}
-			if (pet.getRest() <= 0) {
-				drawingSurface.gameOver();
-			}
+			
 		}
 	}
 
@@ -103,9 +96,6 @@ public class ReductionTimer {
 			petHealth.addRestToHealth(pet.getRest());
 			petHealth.addHygieneToHealth(pet.getHygiene());
 			petHealth.remindVetVisit();
-			if (pet.getHealth() <= 0) {
-				drawingSurface.gameOver();
-			}
 		}
 	}
 }

@@ -68,6 +68,17 @@ public class NewMain {
 		timer.schedule(reductionTimers.new salary(), 0, 35000);
 		timer.schedule(reductionTimers.new bonus(), 0, 35000);
 		timer.schedule(reductionTimers.new updateHealth(), 0, 20000);
+		
+		javax.swing.Timer gameOverChecker = new javax.swing.Timer(1000, e -> {
+		    if (pet.getHealth() <= 0 ||
+		        pet.getHygiene() <= 0 ||
+		        pet.getEmotion() <= 0 ||
+		        pet.getRest() <= 0 ||
+		        pet.getHunger() <= 0) {
+		            drawingSurface.gameOver();
+		    }
+		});
+		gameOverChecker.start();
 
 		// Repaint loop
 		while (true) {
