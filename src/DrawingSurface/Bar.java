@@ -118,7 +118,19 @@ public class Bar {
 	}
 	
 	public int getAmount() {
-		return amount;
+		 if (name.equals("Hunger")) {
+		        return pet.getHunger();
+		    } else if (name.equals("Health")) {
+		        return pet.getHealth();
+		    } else if (name.equals("Hygiene")) {
+		        return pet.getHygiene();
+		    } else if (name.equals("Rest")) {
+		        return pet.getRest();
+		    } else if (name.equals("Emotion")) {
+		        return pet.getEmotion();
+		    }
+		    return -1;
+		
 	}
 	
 	public double getX() {
@@ -139,10 +151,10 @@ public class Bar {
 	
 	
 	public Color getColor() {
-		if (amount <= 3) {
+		if (getAmount() <= 3) {
 			return Color.RED;
 		}
-		else if (amount >= 8) {
+		else if (getAmount() >= 8) {
 			return Color.GREEN;
 		}
 		else {

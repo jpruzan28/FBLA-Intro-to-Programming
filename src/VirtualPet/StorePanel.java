@@ -148,7 +148,7 @@ public class StorePanel extends JPanel implements ActionListener{
 
         JButton backButton = new JButton("Return to home");
         backButton.addActionListener(e -> {
-            cardLayout.show(cardPanel, "Game");
+            cardLayout.show(cardPanel, "Home");
         });
         add(backButton, BorderLayout.SOUTH); 
         

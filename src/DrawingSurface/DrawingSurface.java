@@ -7,6 +7,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import pets.Pet;
+import java.util.TimerTask;
 
 public class DrawingSurface implements ActionListener {
 	private JButton work, food, sleep, clean, vet, play, store;
@@ -16,6 +17,7 @@ public class DrawingSurface implements ActionListener {
 	
 	private int width;
 	private int height; 
+	private int seconds = 0;
 	
 	private CardLayout cardLayout;
 	private JPanel cardPanel;
@@ -24,6 +26,8 @@ public class DrawingSurface implements ActionListener {
 	private JPanel storePanel;
     private JPanel storePanelFood;
     private JPanel gameOverScreen;
+    
+    private JLabel moneyLabel;
 	
 	// Creates layers so the background can be on the bottom with button on top
 	private BackgroundPanel backgroundPanel;
@@ -47,7 +51,7 @@ public class DrawingSurface implements ActionListener {
         homeScreen = new JPanel();
         storePanel = new StorePanel(cardLayout, cardPanel, pet);
         storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
-        gameOverScreen = new GameOverPanel(cardLayout, cardPanel);
+        gameOverScreen = new GameOverPanel(cardLayout, cardPanel, pet);
 
         
         
@@ -60,6 +64,7 @@ public class DrawingSurface implements ActionListener {
 		createBars();
 		addBackground(); 
 		addButtons();
+		addMoneyLabel();
 		createCardLayout();
 		
 	}
@@ -73,16 +78,14 @@ public class DrawingSurface implements ActionListener {
 
 	}
 	
-	public void addTimer() {
-		// Put the timer on screen
-	}
+
+
 	
 	// Adds a background to the bottom layer
 	public void addBackground() {
-		backgroundPanel = new BackgroundPanel("cat.happy.jpg", bars);
+		backgroundPanel = new BackgroundPanel("Images/Pet_Sprites/Untitled14.png", bars);
 		backgroundPanel.setBounds(0,0,width,height);
 	    layeredPane.add(backgroundPanel, JLayeredPane.DEFAULT_LAYER);
-
 	}
 	
 	public void createBars() {
@@ -103,9 +106,32 @@ public class DrawingSurface implements ActionListener {
 		bars = new Bar[] {health, hunger, hygiene, rest, emotion};
 	}
 	
+	public void addMoneyLabel() {
+		moneyLabel = new JLabel("Total Currency: $" + String.format("%.2f", pet.getMoney()));
+		moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
+		moneyLabel.setForeground(Color.black);
+		moneyLabel.setBounds(80, 150, 320, 40);
+		layeredPane.add(moneyLabel, JLayeredPane.PALETTE_LAYER);
+	}
+
+	// Called by ReductionTimer to update money display
+	public void updateMoneyDisplay() {
+		SwingUtilities.invokeLater(() -> {
+			moneyLabel.setText("Total Currency: $" + String.format("%.2f", pet.getMoney()));
+		});
+	}
+	
+	// Called by ReductionTimer when a stat hits 0
+	public void gameOver() {
+		SwingUtilities.invokeLater(() -> {
+			cardLayout.show(cardPanel, "GameOver");
+		});
+	}
+	
 	public void drawSprite() {
 		// Draw the pet
 	}
+	
 	
 	public void addButtons() {
 		
