@@ -9,6 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import pets.Pet;
 import DrawingSurface.*;
 
@@ -69,16 +72,27 @@ public class NewMain {
 		timer.schedule(reductionTimers.new bonus(), 0, 35000);
 		timer.schedule(reductionTimers.new updateHealth(), 0, 20000);
 		
-		javax.swing.Timer gameOverChecker = new javax.swing.Timer(1000, e -> {
-		    if (pet.getHealth() <= 0 ||
-		        pet.getHygiene() <= 0 ||
-		        pet.getEmotion() <= 0 ||
-		        pet.getRest() <= 0 ||
-		        pet.getHunger() <= 0) {
-		            drawingSurface.gameOver();
-		    }
-		});
-		gameOverChecker.start();
+		 javax.swing.Timer gameOverChecker = new javax.swing.Timer(1000, null);
+
+	        // Create a regular ActionListener
+	        ActionListener checkGameOver = new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	                if (pet.getHealth() <= 0 ||
+	                    pet.getHygiene() <= 0 ||
+	                    pet.getEmotion() <= 0 ||
+	                    pet.getRest()    <= 0 ||
+	                    pet.getHunger()  <= 0) {
+	                        drawingSurface.gameOver();
+	                        gameOverChecker.stop();
+	                }
+	            }
+	        };
+
+	        // Add the listener to the timer
+	        gameOverChecker.addActionListener(checkGameOver);
+
+	        // Start the timer
+	        gameOverChecker.start();
 
 		// Repaint loop
 		while (true) {

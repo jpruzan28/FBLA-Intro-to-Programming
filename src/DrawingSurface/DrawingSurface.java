@@ -123,9 +123,13 @@ public class DrawingSurface implements ActionListener {
 	
 	// Called by ReductionTimer when a stat hits 0
 	public void gameOver() {
-		SwingUtilities.invokeLater(() -> {
-			cardLayout.show(cardPanel, "GameOver");
-		});
+		boolean isGameOver = false;
+		
+	    if (isGameOver) return;  // ← prevents double triggering
+	    isGameOver = true;
+	    SwingUtilities.invokeLater(() -> {
+	        cardLayout.show(cardPanel, "GameOver");
+	    });
 	}
 	
 	public void drawSprite() {
