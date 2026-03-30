@@ -31,23 +31,25 @@ public class GameOverPanel extends JPanel {
         // 1. Final health
         JLabel healthLabel = new JLabel("Final Health: " + pet.getHealth() + "/10", SwingConstants.CENTER);
 
-        // 2. Final hunger
-        JLabel hungerLabel = new JLabel("Final Hunger: " + pet.getHunger() + "/10", SwingConstants.CENTER);
+        // 2. Final hunger with message
+        String hungerMessage;
+        if      (pet.getHunger() <= 3) hungerMessage = "Your pet was pretty hungry :(";
+        else if (pet.getHunger() <= 6) hungerMessage = "Your pet's hunger was satisfied :)";
+        else                           hungerMessage = "Your pet was very full! :D";
+        JLabel hungerLabel = new JLabel(hungerMessage, SwingConstants.CENTER);
 
         // 3. Happiness based on emotion
         String happiness;
-        if(pet.getEmotion() >= 8) {happiness = "Very Happy :) Amazing job!";}
-        else if (pet.getEmotion() >= 5) {happiness = "Content :| Nice preventing your pet from feeling sad ";}
-        
-        else if (pet.getEmotion() >= 3) {happiness = "Sad :( It's okay though you tried your best";}
-        
-        else {happiness = "Very Unhappy >:[";}
-        JLabel happinessLabel = new JLabel("During your run, the pet felt " + happiness, SwingConstants.CENTER);
+        if      (pet.getEmotion() >= 8) happiness = "Very Happy :) Amazing job!";
+        else if (pet.getEmotion() >= 5) happiness = "Content :| Nice preventing your pet from feeling sad";
+        else if (pet.getEmotion() >= 3) happiness = "Sad :( It's okay though you tried your best";
+        else                            happiness = "Very Unhappy >:[";
+        JLabel happinessLabel = new JLabel("During your run, the pet felt..... " + happiness, SwingConstants.CENTER);
 
         // Set font for all labels
         Font statFont = new Font("Arial", Font.BOLD, 28);
-        healthLabel.setFont(statFont);
-        hungerLabel.setFont(statFont);
+        healthLabel   .setFont(statFont);
+        hungerLabel   .setFont(statFont);
         happinessLabel.setFont(statFont);
 
         // Add to stats panel
