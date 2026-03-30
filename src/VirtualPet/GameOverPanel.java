@@ -16,7 +16,7 @@ public class GameOverPanel extends JPanel {
 
     public GameOverPanel(CardLayout cardLayout, JPanel cardPanel, Pet pet) {
         setLayout(new BorderLayout());
-        setBackground(Color.orange);
+        setBackground(Color.white);
 
         // Title
         JLabel titleLabel = new JLabel("GAME OVER! :<", SwingConstants.CENTER);
@@ -26,7 +26,7 @@ public class GameOverPanel extends JPanel {
         // Stats panel
         JPanel statsPanel = new JPanel();
         statsPanel.setLayout(new GridLayout(3, 1, 10, 10));
-        statsPanel.setBackground(Color.cyan);
+        statsPanel.setBackground(Color.white);
 
         // 1. Final health
         JLabel healthLabel = new JLabel("Final Health: " + pet.getHealth() + "/10", SwingConstants.CENTER);
