@@ -70,6 +70,7 @@ public class ReductionTimer {
         }
     }
 
+    // This is the ONE place health gets updated
     public class updateHealth extends TimerTask {
         @Override
         public void run() {
