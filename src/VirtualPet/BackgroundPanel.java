@@ -32,6 +32,20 @@ public class BackgroundPanel extends JPanel {
 		}
 	}
 	
+	public BackgroundPanel(String imagePath) {
+		setLayout(null);
+		setOpaque(false);
+		
+		this.bars = null; 
+		
+		try {
+			image = ImageIO.read(new File(imagePath));
+		}
+		catch (IOException e) {
+			System.out.println("Background image not found");
+		}
+	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if (image != null) {

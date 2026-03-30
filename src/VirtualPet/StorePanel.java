@@ -16,6 +16,7 @@ public class StorePanel extends JPanel implements ActionListener{
 	JButton plainKittySock, jingleMouse, cornerScratchPost, laserPointer, quarterZip, legendaryAirpods;
 
 	Pet p;
+	private BackgroundPanel backgroundPanel;
 	
     public StorePanel(CardLayout cardLayout, JPanel cardPanel, Pet pet) {
         p = pet;
@@ -160,10 +161,25 @@ public class StorePanel extends JPanel implements ActionListener{
         allToysPanel.add(catToysPanel);
         
         add(allToysPanel, BorderLayout.CENTER);
+        addBackground();
         
         
     }
     
+    public void addBackground() {
+		backgroundPanel = new BackgroundPanel("Images/Pet_Sprites/Untitled15.png");
+	    add(backgroundPanel);
+	
+	//Makes sure the background panel fully fits the home screen size
+//	homeScreen.addComponentListener(new java.awt.event.ComponentAdapter() {
+//        @Override
+//        public void componentResized(java.awt.event.ComponentEvent e) {
+//            layeredPane.setSize(homeScreen.getSize());
+//            backgroundPanel.setBounds(0, 0, homeScreen.getWidth(), homeScreen.getHeight());
+//            layeredPane.revalidate();
+//        }
+//    });
+}
     public void actionPerformed(ActionEvent e) {
 		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
 		
