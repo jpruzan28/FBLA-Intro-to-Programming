@@ -211,7 +211,7 @@ public class DrawingSurface implements ActionListener {
         store = new JButton("Toy Store");
         
         work.setBounds(90,  100, 120, 40);
-        food.setBounds(90, 100, 120, 40);
+        food.setBounds(90, 850, 120, 40);
         sleep.setBounds(90, 160, 120, 40);
         clean.setBounds(90, 220, 120, 40);
         vet.setBounds(90, 280, 120, 40);
