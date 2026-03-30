@@ -237,6 +237,7 @@ public class DrawingSurface implements ActionListener {
         play .addActionListener(this);
         store.addActionListener(this);
       
+        layeredPane.add(work,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(food,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(sleep, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(clean, JLayeredPane.PALETTE_LAYER);
