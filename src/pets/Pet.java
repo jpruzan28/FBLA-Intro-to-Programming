@@ -70,6 +70,9 @@ public class Pet {
 		if(newHealth > 10) {
 			health = 10;
 		}
+		else if(newHealth < 0) {
+			health = 0;
+		}
 		else {
 			health = newHealth;
 		}
@@ -88,7 +91,6 @@ public class Pet {
 			hunger = newHunger;
 		}
 		
-		healthChanges.addHungerToHealth(hunger);
 	}
 	
 	/**
@@ -118,7 +120,6 @@ public class Pet {
 			rest = newRest;
 		}
 		
-		healthChanges.addRestToHealth(rest);
 	}
 	
 	/**
@@ -134,7 +135,6 @@ public class Pet {
 			hygiene = newHygiene;
 		}
 		
-		healthChanges.addHygieneToHealth(hygiene);
 	}
 	
 	/**
@@ -174,8 +174,8 @@ public class Pet {
 	 * @param expense amount added to current expenses
 	 */
 	public void addExpenses(double expense) {
-		expenses += expense;
-	}
+        expenses += expense;
+    }
 	
 	// Getters
 	
