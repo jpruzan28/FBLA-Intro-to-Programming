@@ -12,6 +12,7 @@ import java.util.TimerTask;
 public class DrawingSurface implements ActionListener {
     private JButton work, food, sleep, clean, vet, play, store;
     private Bar health, hunger, hygiene, rest, emotion;
+    private Sprite sprite;
     private Bar[] bars;
     private Pet pet;
     
@@ -70,6 +71,7 @@ public class DrawingSurface implements ActionListener {
         createCardLayout();
         addClockLabel();
         startClock();
+        drawSprite();
     }
     
     
@@ -185,7 +187,18 @@ public class DrawingSurface implements ActionListener {
     }
     
     public void drawSprite() {
-        // Draw the pet
+        sprite = new Sprite(pet);
+        
+        int spriteWidth = 500;
+        int spriteHeight = 500;
+        int spriteX = (width - spriteWidth) / 2;
+        int spriteY = (height - spriteHeight) / 2;
+        
+        sprite.setBounds(spriteX, spriteY, spriteWidth, spriteHeight);
+        sprite.setOpaque(false);
+        
+        // put on MODAL_LAYER which is above PALETTE_LAYER
+        layeredPane.add(sprite, JLayeredPane.MODAL_LAYER);
     }
     
     public void addButtons() {
