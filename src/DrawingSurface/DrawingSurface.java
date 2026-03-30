@@ -28,6 +28,7 @@ public class DrawingSurface implements ActionListener {
     private JPanel homeScreen; 
     private JPanel storePanel;
     private JPanel storePanelFood;
+   // private JPanel workScreen;
     private JPanel gameOverScreen;
     
     private JLabel moneyLabel;
@@ -55,6 +56,7 @@ public class DrawingSurface implements ActionListener {
         homeScreen = new JPanel();
         storePanel = new StorePanel(cardLayout, cardPanel, pet);
         storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
+       // workScreen = new WorkApp(cardLayout);
         gameOverScreen = new GameOverPanel(cardLayout, cardPanel, pet);
 
         // JLayeredPane replaces the default content pane
@@ -79,6 +81,7 @@ public class DrawingSurface implements ActionListener {
         cardPanel.add(homeScreen, "Home");
         cardPanel.add(storePanel, "Store");
         cardPanel.add(storePanelFood, "FStore");
+       // cardPanel.add(workScreen, "Work");
         cardPanel.add(gameOverScreen, "GameOver"); 
     }
     
@@ -210,7 +213,7 @@ public class DrawingSurface implements ActionListener {
         play  = new JButton("Play");
         store = new JButton("Toy Store");
         
-        work.setBounds(90,  100, 120, 40);
+        work.setBounds(100,  600, 120, 40);
         food.setBounds(90, 100, 120, 40);
         sleep.setBounds(90, 160, 120, 40);
         clean.setBounds(90, 220, 120, 40);
@@ -234,6 +237,7 @@ public class DrawingSurface implements ActionListener {
         play .addActionListener(this);
         store.addActionListener(this);
       
+        layeredPane.add(work,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(food,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(sleep, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(clean, JLayeredPane.PALETTE_LAYER);
@@ -247,7 +251,7 @@ public class DrawingSurface implements ActionListener {
         String bPressed = button.getText();
         
         if (bPressed.equals("Work")) {
-            // AI Questions to make money
+       // 	cardLayout.show(cardPanel, "Work");
 
         } else if (bPressed.equals("Food Store")) {
             cardLayout.show(cardPanel, "FStore");

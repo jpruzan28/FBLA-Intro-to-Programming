@@ -14,17 +14,15 @@ public class AIQuestionGenerator {
 	private static final String APIKEY = loadApiKey();
 
 	public static String loadApiKey() {
-		
-    try {
-        Properties props = new Properties();
-        props.load(new FileInputStream("config.properties"));
-        return props.getProperty("API_KEY");
-    	} 
-    catch (Exception e) {
-        e.printStackTrace();
-        return null;
-    	}
-    }
+	    try {
+	        Properties props = new Properties();
+	        props.load(AIQuestionGenerator.class.getClassLoader().getResourceAsStream("config.properties"));
+	        return props.getProperty("API_KEY");
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
 
 	private static final String APIURL = "https://api.anthropic.com/v1/messages";
 	
