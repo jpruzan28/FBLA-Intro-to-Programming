@@ -129,7 +129,7 @@ public class DrawingSurface implements ActionListener {
         moneyLabel = new JLabel("Total Currency: $" + String.format("%.2f", pet.getMoney()));
         moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
         moneyLabel.setForeground(Color.BLACK);
-        moneyLabel.setBounds(80, 150, 320, 40);
+        moneyLabel.setBounds(300, 100, 320, 40);
         layeredPane.add(moneyLabel, JLayeredPane.PALETTE_LAYER);
     }
 
@@ -139,7 +139,7 @@ public class DrawingSurface implements ActionListener {
         expensesLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
         expensesLabel.setForeground(Color.BLACK);
         // Centers it in the middle of the screen
-        expensesLabel.setBounds((width / 2) - 175, (height / 2), 350, 40);
+        expensesLabel.setBounds(850, 100, 350, 40);
         layeredPane.add(expensesLabel, JLayeredPane.PALETTE_LAYER);
     }
 
@@ -192,12 +192,12 @@ public class DrawingSurface implements ActionListener {
     public void drawSprite() {
         sprite = new Sprite(pet);
         
-        int spriteWidth = 500;
-        int spriteHeight = 500;
+        int spriteWidth = 650;
+        int spriteHeight = 650;
         int spriteX = (width - spriteWidth) / 2;
         int spriteY = (height - spriteHeight) / 2;
         
-        sprite.setBounds(spriteX, spriteY, spriteWidth, spriteHeight);
+        sprite.setBounds(spriteX-150, spriteY+185, spriteWidth, spriteHeight);
         sprite.setOpaque(false);
         
         // put on MODAL_LAYER which is above PALETTE_LAYER
@@ -213,7 +213,7 @@ public class DrawingSurface implements ActionListener {
         play  = new JButton("Play");
         store = new JButton("Toy Store");
         
-        work.setBounds(100,  600, 120, 40);
+        work.setBounds(90,  460, 120, 40);
         food.setBounds(90, 100, 120, 40);
         sleep.setBounds(90, 160, 120, 40);
         clean.setBounds(90, 220, 120, 40);

@@ -1,6 +1,6 @@
 package pets;
 
-import VirtualPet.main;
+//import VirtualPet.main;
 import properties.*;
 
 /**Creates a pet object that holds the pet's name, type, stats, and user money
@@ -165,7 +165,7 @@ public class Pet {
 		}
 		
 		if(numToys == 5) {
-			main.errorMessage("Toy overflow");
+			//main.errorMessage("Toy overflow");
 		}
 	}
 	
