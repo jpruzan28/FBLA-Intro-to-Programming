@@ -197,13 +197,13 @@ public class DrawingSurface implements ActionListener {
         play  = new JButton("Play");
         store = new JButton("Toy Store");
         
-        work .setBounds(50,  100, 120, 40);
-        food .setBounds(100, 100, 120, 40);
-        sleep.setBounds(500, 160, 120, 40);
-        clean.setBounds(240, 220, 120, 40);
-        vet  .setBounds(120, 280, 120, 40);
-        play .setBounds(90,  340, 120, 40);
-        store.setBounds(67,  400, 120, 40);
+        work.setBounds(90,  100, 120, 40);
+        food.setBounds(90, 100, 120, 40);
+        sleep.setBounds(90, 160, 120, 40);
+        clean.setBounds(90, 220, 120, 40);
+        vet.setBounds(90, 280, 120, 40);
+        play.setBounds(90,  340, 120, 40);
+        store.setBounds(90,  400, 120, 40);
         
         work .setToolTipText("Answer questions to make money. Increases Total Savings. $10 per question right");
         food .setToolTipText("Food store to buy and feed food. Increases Hunger bar");
