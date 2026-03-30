@@ -54,41 +54,36 @@ public class Food {
 	 * @param p Pet object
 	 */
 	public void feedPet(Pet p) {
-		int currentHunger = p.getHunger();
-		
-		if(checkType(p)) {
-			if(version == 4) {
-				p.setHunger(currentHunger+8);
-			}
-			else if(version == 3) {
-				p.setHunger(currentHunger+6);
-			}
-			else if(version == 2){
-				p.setHunger(currentHunger+4);
-			}
-			else {
-				p.setHunger(currentHunger+2);
-			}
-		}
-		// Increases half if wrong type
-		else if(!checkType(p)) {
-			if(version == 4) {
-				p.setHunger(currentHunger+4);
-				p.setHealth(currentHunger-4);
-			}
-			else if(version == 3) {
-				p.setHunger(currentHunger+3);
-				p.setHealth(currentHunger-3);
-			}
-			else if(version == 2){
-				p.setHunger(currentHunger+2);
-				p.setHealth(currentHunger-2);
-			}
-			else {
-				p.setHunger(currentHunger+1);
-				p.setHealth(currentHunger-1);
-			}
-		}
+	    int currentHunger = p.getHunger();
+	    int currentHealth = p.getHealth();  // ← add this
+
+	    if (checkType(p)) {
+	        if (version == 4) {
+	            p.setHunger(currentHunger + 8);
+	        } else if (version == 3) {
+	            p.setHunger(currentHunger + 6);
+	        } else if (version == 2) {
+	            p.setHunger(currentHunger + 4);
+	        } else {
+	            p.setHunger(currentHunger + 2);
+	        }
+	    }
+	    else {
+	        // Wrong food type - hunger goes up half, health goes down
+	        if (version == 4) {
+	            p.setHunger(currentHunger + 4);
+	            p.setHealth(currentHealth - 4);  
+	        } else if (version == 3) {
+	            p.setHunger(currentHunger + 3);
+	            p.setHealth(currentHealth - 3);
+	        } else if (version == 2) {
+	            p.setHunger(currentHunger + 2);
+	            p.setHealth(currentHealth - 2);  
+	        } else {
+	            p.setHunger(currentHunger + 1);
+	            p.setHealth(currentHealth - 1);  
+	        }
+	    }
 	}
 	
 	
