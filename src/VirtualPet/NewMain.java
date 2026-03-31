@@ -32,7 +32,7 @@ public class NewMain {
 	    frame.add(cardPanel);
 	    
 	  //User input
-	 /*   String playerName = JOptionPane.showInputDialog("Welcome player! What's your name?");
+	   String playerName = JOptionPane.showInputDialog("Welcome player! What's your name?");
 	    JOptionPane.showMessageDialog(null, "Nice to meet you " + playerName);
 	    
 	    // Ensures the user only enters a valid pet option
@@ -49,10 +49,10 @@ public class NewMain {
 	    JOptionPane.showMessageDialog(null, "Nice choice, choosing a " + petType);
 
 	    String petName = JOptionPane.showInputDialog("What would you like to name your " + petType + "?");
-	    //*/
+	    
 	    
 	    // Creating the pet
-	    Pet pet = new Pet("Josh", "cat");
+	   Pet pet = new Pet(petName, petType);
 
 	    // Creating cardPanels 
 	    DrawingSurface drawingSurface = new DrawingSurface(cardLayout, cardPanel, frame.getWidth(), frame.getHeight(), pet);

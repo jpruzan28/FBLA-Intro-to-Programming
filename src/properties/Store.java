@@ -2,7 +2,7 @@ package properties;
 
 
 import pets.Pet;
-import VirtualPet.main;
+//import VirtualPet.main;
 
 
 public class Store {
@@ -48,7 +48,7 @@ public class Store {
 		double m = p.getMoney();
 		
 		if(m < f.getPrice()) {
-			main.errorMessage("Too expensive");
+		//	main.errorMessage("Too expensive");
 		}
 		
 		else {
@@ -62,7 +62,7 @@ public class Store {
 		double m = p.getMoney();
 		
 		if(m < t.getPrice()) {
-			main.errorMessage("Too expensive");
+			//main.errorMessage("Too expensive");
 		}
 		
 		else {
@@ -76,7 +76,7 @@ public class Store {
 		double m = p.getMoney();
 		
 		if(m < 20) {
-			main.errorMessage("Too expensive");
+		//	main.errorMessage("Too expensive");
 			return false;
 		}
 		

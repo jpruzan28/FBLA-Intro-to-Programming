@@ -23,9 +23,11 @@ public class WorkApp extends JPanel {
 	JLabel feedback;
 	String correctAnswer;
 	
-	public WorkApp(JPanel homeScreen, CardLayout cardLayout) {
+	public WorkApp(CardLayout cardLayout) {
 		super();
 		this.setLayout(new BorderLayout());
+		
+		answers = new JButton[4];
 		
 		initUI(); 
 		loadQuestion();
