@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 public class BackgroundPanel extends JPanel {
@@ -51,6 +52,7 @@ public class BackgroundPanel extends JPanel {
 		if (image != null) {
 			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		}
+		  if (bars == null) return;
 		
 		Bar health = bars[0];
 		Bar hunger = bars[1];
