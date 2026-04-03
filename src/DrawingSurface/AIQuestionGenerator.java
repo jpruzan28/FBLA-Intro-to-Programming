@@ -16,8 +16,9 @@ public class AIQuestionGenerator {
 	public static String loadApiKey() {
 	    try {
 	        Properties props = new Properties();
-	        props.load(AIQuestionGenerator.class.getClassLoader().getResourceAsStream("config.properties"));
-	        return props.getProperty("API_KEY");
+	        props.load(new FileInputStream("C:/Users/jasmi/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties"));	        
+	        
+	        return props.getProperty("APIKEY");
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	        return null;
@@ -28,23 +29,27 @@ public class AIQuestionGenerator {
 	
 	public static String generateQuestion(String topic, String difficulty) {
 		String prompt = String.format(
-			    "Generate a single %s difficulty question about %s. " +
-			    "Respond in JSON format with fields: question (string), options (array of 4 strings), answer (string with the correct option).",
+			    "Generate a single %s difficulty multiple choice question about %s. " +
+			    "Reply with only a JSON object containing these exact fields: question, options, answer. " +
+			    "options must be an array of exactly 4 strings. answer must be the correct option text.",
 			    difficulty, topic
 			);
 		
+		String escapedPrompt = prompt.replace("\"", "\\\"");
+
 		String requestBody = "{"
-			    + "\"model\": \"claude-opus-4-6\","
-			    + "\"max_tokens\": 1024,"
-			    + "\"messages\": ["
-			    + "  {"
-			    + "    \"role\": \"user\","
-			    + "    \"content\": \"" + prompt + "\""
-			    + "  }"
-			    + "]"
-			    + "}";
+		    + "\"model\": \"claude-opus-4-6\","
+		    + "\"max_tokens\": 1024,"
+		    + "\"messages\": ["
+		    + "  {"
+		    + "    \"role\": \"user\","
+		    + "    \"content\": \"" + escapedPrompt + "\""
+		    + "  }"
+		    + "]"
+		    + "}";
 		
 		HttpClient client = HttpClient.newHttpClient();
+		
 
 		HttpRequest request = HttpRequest.newBuilder()
 		    .uri(URI.create(APIURL))
@@ -58,11 +63,14 @@ public class AIQuestionGenerator {
 		    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
 		    String responseBody = response.body();
+
 		    JSONObject json = new JSONObject(responseBody);
 		    
 		    System.out.println(responseBody);
 
+		    
 		    String text = json.getJSONArray("content").getJSONObject(0).getString("text");
+		    text = text.replace("```json", "").replace("```", "").trim();
 		    return text;
 		    
 		} catch (Exception e) {
@@ -71,9 +79,9 @@ public class AIQuestionGenerator {
 		}		
 	}
 	
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 	    String result = generateQuestion("financial responsibility", "easy");
 	    System.out.println(result);
-	}
+	}*/
 
 }

@@ -28,8 +28,10 @@ public class DrawingSurface implements ActionListener {
     private JPanel homeScreen; 
     private JPanel storePanel;
     private JPanel storePanelFood;
-   // private JPanel workScreen;
     private JPanel gameOverScreen;
+    
+    private JDialog workPopUp;
+
     
     private JLabel moneyLabel;
     private JLabel clockLabel;
@@ -56,9 +58,13 @@ public class DrawingSurface implements ActionListener {
         homeScreen = new JPanel();
         storePanel = new StorePanel(cardLayout, cardPanel, pet);
         storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
-       // workScreen = new WorkApp(cardLayout);
         gameOverScreen = new GameOverPanel(cardLayout, cardPanel, pet);
 
+        // Creates work popup
+   /*     JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(null);
+        WorkApp workPopUp = new WorkApp(frame);
+        workPopUp.setVisible(true);*/
+        
         // JLayeredPane replaces the default content pane
         homeScreen.setLayout(new BorderLayout());
         layeredPane = new JLayeredPane();
@@ -81,7 +87,6 @@ public class DrawingSurface implements ActionListener {
         cardPanel.add(homeScreen, "Home");
         cardPanel.add(storePanel, "Store");
         cardPanel.add(storePanelFood, "FStore");
-       // cardPanel.add(workScreen, "Work");
         cardPanel.add(gameOverScreen, "GameOver"); 
     }
     
@@ -251,8 +256,10 @@ public class DrawingSurface implements ActionListener {
         String bPressed = button.getText();
         
         if (bPressed.equals("Work")) {
-       // 	cardLayout.show(cardPanel, "Work");
-
+        	// Creates work popup
+            WorkApp workPopUp = new WorkApp(null);
+            workPopUp.setVisible(true);
+            
         } else if (bPressed.equals("Food Store")) {
             cardLayout.show(cardPanel, "FStore");
 

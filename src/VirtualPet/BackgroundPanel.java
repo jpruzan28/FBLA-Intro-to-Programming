@@ -70,12 +70,13 @@ public class BackgroundPanel extends JPanel {
 		g.drawString("Rest", (int)rest.getX(), (int)rest.getY() - fontSize);
 		g.drawString("Emotion", (int)emotion.getX(), (int)emotion.getY() - fontSize);
 		
+		double outlineWidth = health.getWidth();	
 		// Drawing outlines of bars 
-		g.drawRect((int)health.getX(), (int)health.getY(), (int)health.getWidth(), (int)health.getHeight());
-		g.drawRect((int)hunger.getX(), (int)hunger.getY(), (int)hunger.getWidth(), (int)hunger.getHeight());
-		g.drawRect((int)hygiene.getX(), (int)hygiene.getY(), (int)hygiene.getWidth(), (int)hygiene.getHeight());
-		g.drawRect((int)rest.getX(), (int)rest.getY(), (int)rest.getWidth(), (int)rest.getHeight());
-		g.drawRect((int)emotion.getX(), (int)emotion.getY(), (int)emotion.getWidth(), (int)emotion.getHeight());
+		g.drawRect((int)health.getX(), (int)health.getY(), (int)outlineWidth, (int)health.getHeight());
+		g.drawRect((int)hunger.getX(), (int)hunger.getY(), (int)outlineWidth, (int)hunger.getHeight());
+		g.drawRect((int)hygiene.getX(), (int)hygiene.getY(), (int)outlineWidth, (int)hygiene.getHeight());
+		g.drawRect((int)rest.getX(), (int)rest.getY(), (int)outlineWidth, (int)rest.getHeight());
+		g.drawRect((int)emotion.getX(), (int)emotion.getY(), (int)outlineWidth, (int)emotion.getHeight());
 
 		// Filling in bars with the correct colors
 		g.setColor(health.getColor());
