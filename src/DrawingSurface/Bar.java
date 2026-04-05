@@ -148,6 +148,10 @@ public class Bar {
 	    
 	}
 	
+	public double getMaxWidth() {
+	    return maxWidth;
+	}
+	
 	public double getHeight() {
 		return height;
 	}

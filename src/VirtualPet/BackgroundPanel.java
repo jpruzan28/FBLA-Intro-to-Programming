@@ -72,7 +72,7 @@ public class BackgroundPanel extends JPanel {
 		g.drawString("Rest", (int)rest.getX(), (int)rest.getY() - fontSize);
 		g.drawString("Emotion", (int)emotion.getX(), (int)emotion.getY() - fontSize);
 		
-		double outlineWidth = health.getWidth();	
+		double outlineWidth = health.getMaxWidth();	
 		// Drawing outlines of bars 
 		g.drawRect((int)health.getX(), (int)health.getY(), (int)outlineWidth, (int)health.getHeight());
 		g.drawRect((int)hunger.getX(), (int)hunger.getY(), (int)outlineWidth, (int)hunger.getHeight());
@@ -98,4 +98,6 @@ public class BackgroundPanel extends JPanel {
 
 
 	}
+	
+
 }

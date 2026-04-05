@@ -69,6 +69,7 @@ public class DrawingSurface implements ActionListener {
         homeScreen.setLayout(new BorderLayout());
         layeredPane = new JLayeredPane();
         layeredPane.setLayout(null);
+        layeredPane.setPreferredSize(new Dimension(width, height));
         homeScreen.add(layeredPane, BorderLayout.CENTER);
 
         createBars();
@@ -202,8 +203,13 @@ public class DrawingSurface implements ActionListener {
         int spriteX = (width - spriteWidth) / 2;
         int spriteY = (height - spriteHeight) / 2;
         
-        sprite.setBounds(spriteX-150, spriteY+185, spriteWidth, spriteHeight);
+        if (pet.getType() == "fish") {
+        sprite.setBounds(spriteX-100, spriteY+300, spriteWidth, spriteHeight);
         sprite.setOpaque(false);
+        } else {
+            sprite.setBounds(spriteX-100, spriteY+250, spriteWidth, spriteHeight);
+            sprite.setOpaque(false);
+        }
         
         // put on MODAL_LAYER which is above PALETTE_LAYER
         layeredPane.add(sprite, JLayeredPane.MODAL_LAYER);
@@ -270,5 +276,6 @@ public class DrawingSurface implements ActionListener {
             Button newButton = new Button(pet, bPressed);
             newButton.actionPerformed();
         }
+         updateMoneyDisplay();
     }
 }

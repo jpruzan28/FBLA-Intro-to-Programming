@@ -2,7 +2,6 @@ package VirtualPet;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.util.Timer;
 
 import javax.swing.JFrame;
@@ -54,23 +53,22 @@ public class NewMain {
 	    // Creating the pet
 	   Pet pet = new Pet(petName, petType);
 
-	    // Creating cardPanels 
-	    DrawingSurface drawingSurface = new DrawingSurface(cardLayout, cardPanel, frame.getWidth(), frame.getHeight(), pet);
-		
+
+	    
+	    	    // Creating cardPanels 
+	    DrawingSurface drawingSurface = new DrawingSurface(cardLayout, cardPanel, 1900, 1060, pet);
 	    cardLayout.show(cardPanel, "Home");  // ← capital H to match the key above
-
-
+	    
 	    frame.setVisible(true);
 	    
 	    ReductionTimer reductionTimers = new ReductionTimer(pet, drawingSurface);
 		Timer timer = new Timer();
-		timer.schedule(reductionTimers.new reduceHunger(), 0, 25000);
-		timer.schedule(reductionTimers.new reduceHygiene(), 0, 25000);
-		timer.schedule(reductionTimers.new reduceRest(), 0, 25000);
-		timer.schedule(reductionTimers.new reduceEmotion(), 0, 25000);
-//		timer.schedule(reductionTimers.new salary(), 0, 35000);
+		timer.schedule(reductionTimers.new reduceHunger(),  0, 15000);
+		timer.schedule(reductionTimers.new reduceHygiene(), 0, 15000);
+		timer.schedule(reductionTimers.new reduceRest(),    0, 15000);
+		timer.schedule(reductionTimers.new reduceEmotion(), 0, 15000);
+		timer.schedule(reductionTimers.new updateHealth(),  0, 8000);
 		timer.schedule(reductionTimers.new bonus(), 0, 35000);
-		timer.schedule(reductionTimers.new updateHealth(), 0, 20000);
 		
 		 javax.swing.Timer gameOverChecker = new javax.swing.Timer(1000, null);
 

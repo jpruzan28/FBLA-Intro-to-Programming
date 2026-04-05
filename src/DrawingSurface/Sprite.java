@@ -31,23 +31,14 @@ public class Sprite extends JPanel {
 
         try {
             cat1 = ImageIO.read(new File("Images/Pet_Sprites/cat.neutral.png"));
-            cat1 = makeTransparent(cat1, Color.WHITE);
             cat2 = ImageIO.read(new File("Images/Pet_Sprites/cat.happy.png"));
-            cat2 = makeTransparent(cat2, Color.WHITE);
             cat3 = ImageIO.read(new File("Images/Pet_Sprites/cat.unhappy.png"));
-            cat3 = makeTransparent(cat3, Color.WHITE);
             dog1 = ImageIO.read(new File("Images/Pet_Sprites/dog.neutral.png"));
-            dog1 = makeTransparent(dog1, Color.WHITE);
             dog2 = ImageIO.read(new File("Images/Pet_Sprites/dog.happy.png"));
-            dog2 = makeTransparent(dog2, Color.WHITE);
             dog3 = ImageIO.read(new File("Images/Pet_Sprites/dog.unhappy.png"));
-            dog3 = makeTransparent(dog3, Color.WHITE);
             fish1 = ImageIO.read(new File("Images/Pet_Sprites/fish.neutral.png"));
-            fish1 = makeTransparent(fish1, Color.WHITE);
             fish2 = ImageIO.read(new File("Images/Pet_Sprites/fish.happy.png"));
-            fish2 = makeTransparent(fish2, Color.WHITE);
             fish3 = ImageIO.read(new File("Images/Pet_Sprites/fish.unhappy.png"));
-            fish3 = makeTransparent(fish3, Color.WHITE);
 
             // Scale all images to 500x500
             neutralCat  = cat1.getScaledInstance(500, 500, Image.SCALE_SMOOTH);
@@ -62,31 +53,9 @@ public class Sprite extends JPanel {
 
         } catch (IOException e) {
             System.out.println("Sprite image not found: " + e.getMessage());
-        }
+        } //in case the image is not in the files
 }
     
-    public BufferedImage makeTransparent(BufferedImage image, Color bgColor) {
-        BufferedImage result = new BufferedImage(
-            image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB
-        );
-
-        for (int x = 0; x < image.getWidth(); x++) {
-            for (int y = 0; y < image.getHeight(); y++) {
-                int pixel = image.getRGB(x, y);
-                Color c = new Color(pixel);
-
-                // If pixel matches background color, make it transparent
-                if (c.getRed() == bgColor.getRed() &&
-                    c.getGreen() == bgColor.getGreen() &&
-                    c.getBlue() == bgColor.getBlue()) {
-                    result.setRGB(x, y, 0x00000000); // fully transparent
-                } else {
-                    result.setRGB(x, y, pixel);
-                }
-            }
-        }
-        return result;
-    }
 
     @Override
     public void paintComponent(Graphics g) {

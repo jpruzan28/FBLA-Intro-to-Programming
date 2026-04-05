@@ -106,21 +106,21 @@ public class Button{
 				}
 			}
 		    activity.sleep(sleepAmount);
-			pet.setMoney(pet.getMoney()+10);
+//			pet.setMoney(pet.getMoney()+10);
 		    JOptionPane.showMessageDialog(null, pet.getName() + " is sleeping deeply. ZZZ");
 
 
 		}
 		else if(buttonPressed.equals("Clean")) {
 			activity.clean();
-			pet.setMoney(pet.getMoney()+10);
+//			pet.setMoney(pet.getMoney()+10);
 		    JOptionPane.showMessageDialog(null, pet.getName() + " is squeaky clean!");
 
 		}
 		else if(buttonPressed.equals("Vet")) {
 		
 			if(stores.vetVisit(pet)) {
-				pet.setMoney(pet.getMoney()+10);
+//				pet.setMoney(pet.getMoney()+10);
 	
 			    JOptionPane.showMessageDialog(null, pet.getName() + " feels much healthier!");
 
@@ -147,7 +147,7 @@ public class Button{
 				
 				JOptionPane.showMessageDialog(null, pet.getName() + " is happy playing with " + chosenToy.getName() + "!");
 			}
-			pet.setMoney(pet.getMoney()+10);
+//			pet.setMoney(pet.getMoney()+10);
 			
 		}
 //		else if(button == store) {

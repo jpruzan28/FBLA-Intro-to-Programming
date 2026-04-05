@@ -25,69 +25,62 @@ public class Health {
 			newHealth = totalHealth;
         } 
 		else {
-			if(totalHunger == 0) {
-				newHealth = totalHealth - 5;
-			}
-			else if (totalHunger <= 2) {
-				newHealth = totalHealth - 3;
-			}
-			else if (totalHunger <= 4) {
-				newHealth = totalHealth - 2;
-			} 
-			else {
-				newHealth = totalHealth + 2;
-			}
-			
-		}
-		
-		pet.setHealth(newHealth);
-	}
-
-	public void addRestToHealth(int totalRest) {
-		int totalHealth = pet.getHealth();
-		int newHealth;
-
-		if (totalHealth <= 2) {
-			newHealth = totalHealth;
-		} else {
-			if(totalRest == 0) {
-				newHealth = totalHealth - 5;
-			}
-			else if (totalRest <= 4) {
-				newHealth = totalHealth - 1;
-			} 
-			else if(totalRest <= 7) {
-				newHealth = totalHealth + 2;
-			}
-			else {
-				newHealth = totalHealth + 3;
-			}
-		}
-		
-		pet.setHealth(newHealth);
-
-	}
-
-
-	public void addHygieneToHealth(int totalHygiene) { 
-		int totalHealth = pet.getHealth();
-		int newHealth;
-
-		if (totalHealth <= 2) { //if that's true, the user can only improve health by going to vet
-			newHealth = totalHealth;
-		} else {
-			if(totalHygiene == 0) {
-				newHealth = totalHealth - 5;
-			}
-			else if (totalHygiene <= 4) {
-				newHealth = totalHealth - 1;
-			} else {
-				newHealth = totalHealth + 2;
-			}
-		}
+		 if (totalHunger == 0) {
+	            newHealth = totalHealth - 4;
+	        } else if (totalHunger <= 3) {
+	            newHealth = totalHealth - 3;
+	        } else if (totalHunger <= 8) { //is only high if greater or equal to 6
+	            newHealth = totalHealth - 1;
+	        } else {
+	            newHealth = totalHealth + 1;
+	        }
+	    }
+	    pet.setHealth(newHealth);
 	}
 	
 
+
+
+	public void addRestToHealth(int totalRest) {
+	    int totalHealth = pet.getHealth();
+	    int newHealth;
+
+	    if (totalHealth <= 2) {
+	        newHealth = totalHealth;
+	    } else {
+	        if (totalRest == 0) {
+	            newHealth = totalHealth - 4;
+	        } else if (totalRest <= 3) {
+	            newHealth = totalHealth - 2;
+	        } else if (totalRest <= 7) {
+	            newHealth = totalHealth - 1;
+	        } else {
+	            newHealth = totalHealth + 1; 
+	        }
+	    }
+	    pet.setHealth(newHealth);
+	}
+
+
+	public void addHygieneToHealth(int totalHygiene) {
+	    int totalHealth = pet.getHealth();
+	    int newHealth;
+
+	    if (totalHealth <= 2) {
+	        newHealth = totalHealth;
+	    } else {
+	        if (totalHygiene == 0) {
+	            newHealth = totalHealth - 4;
+	        } else if (totalHygiene <= 3) {
+	            newHealth = totalHealth - 2;
+	        } else if (totalHygiene <= 6) {
+	            newHealth = totalHealth - 1; 
+	        } else {
+	            newHealth = totalHealth + 1;
+	        }
+	    }
+	    pet.setHealth(newHealth); 
+	}
 	
 	public void remindVetVisit() { //maybe put this in future time class, checks every time health is changed
 		int totalHealth = pet.getHealth();

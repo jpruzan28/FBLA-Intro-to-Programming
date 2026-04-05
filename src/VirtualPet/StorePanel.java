@@ -25,10 +25,11 @@ public class StorePanel extends JPanel {
     	
     	setLayout(new BorderLayout());
         
-
+    	allToysPanel = new JPanel(new BorderLayout());
         
         //A panel where all the toys are on here so they don't get stacked
     	layeredPane = new JLayeredPane();
+    	
     	layeredPane.setLayout(null);
     	layeredPane.setPreferredSize(new Dimension(1900, 1060)); // give it an initial size
     	allToysPanel.add(layeredPane, BorderLayout.CENTER);
