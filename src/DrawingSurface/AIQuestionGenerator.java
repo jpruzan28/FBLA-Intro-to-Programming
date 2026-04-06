@@ -16,8 +16,9 @@ public class AIQuestionGenerator {
 	public static String loadApiKey() {
 	    try {
 	        Properties props = new Properties();
-	        props.load(new FileInputStream("C:/Users/jasmi/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties"));	        
-	        
+	        String path = System.getProperty("user.home") + "/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties";
+	        props.load(new FileInputStream(path));	       
+
 	        return props.getProperty("APIKEY");
 	    } catch (Exception e) {
 	        e.printStackTrace();
