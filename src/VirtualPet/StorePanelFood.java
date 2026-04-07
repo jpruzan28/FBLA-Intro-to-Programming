@@ -15,9 +15,9 @@ import pets.Pet;
 
 public class StorePanelFood extends JPanel implements ActionListener {
 	
-	JButton kibbleCrunch, beefAndVeggieMix, chickenFeast, salmonDelight, lambAndRiceBowl, goldenChickenNuggets;
-	JButton flakes, algaeCrisps, shrimpPellets, spirulinaFlakes, caviarPearls, deepAbyssInfusion;
-	JButton fiveFishKibble, veggieMedley, expensiveMelk, turkeyAndCranberryTreats, bluefinTunaSteak, aGoldenRat;
+	JButton kibbleCrunch, salmonDelight, goldenChickenNuggets;
+	JButton flakes, algaeCrisps, deepAbyssInfusion;
+	JButton fiveFishKibble, turkeyAndCranberryTreats, aGoldenRat;
 	
 	Pet p;
 	
@@ -43,34 +43,22 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     
 	     // Create buttons
 	     kibbleCrunch = new JButton("Kibble Crunch: $10.00");
-	     beefAndVeggieMix = new JButton("Beef & Veggie Mix: $20.00");
-	     chickenFeast = new JButton("Chicken Feast: $30.00");
 	     salmonDelight = new JButton("Salmon Delight: $50.00");
-	     lambAndRiceBowl = new JButton("Lamb and Rice Bowl: $70.00");
 	     goldenChickenNuggets = new JButton("Golden Chicken Nuggets: $100.00");
 	     
 	     // Setting the names of the buttons
 	     kibbleCrunch.setName("Kibble Crunch");
-	     beefAndVeggieMix.setName("Beef and Veggie Mix");
-	     chickenFeast.setName("Chicken Feast");
 	     salmonDelight.setName("Salmon Delight");
-	     lambAndRiceBowl.setName("Lamb and Rice Bowl");
 	     goldenChickenNuggets.setName("Golden Chicken Nuggets");
 	     
 	     // Add buttons to screen
 	     dogFoodPanel.add(kibbleCrunch);
-	     dogFoodPanel.add(beefAndVeggieMix);
-	     dogFoodPanel.add(chickenFeast);
 	     dogFoodPanel.add(salmonDelight);
-	     dogFoodPanel.add(lambAndRiceBowl);
 	     dogFoodPanel.add(goldenChickenNuggets);
 	     
 	     // Track when the buttons are clicked
 	     kibbleCrunch.addActionListener(this);
-	     beefAndVeggieMix.addActionListener(this);
-	     chickenFeast.addActionListener(this);
 	     salmonDelight.addActionListener(this);
-	     lambAndRiceBowl.addActionListener(this);
 	     goldenChickenNuggets.addActionListener(this);
 	     
 	     // CAT
@@ -81,18 +69,12 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     
 	     // Creating buttons
 	     fiveFishKibble = new JButton("Five Fish Kibble: $10.00");
-	     veggieMedley = new JButton("Veggie Medley: $20.00");
-	     expensiveMelk = new JButton("Expensive Melk: $30.00");
 	     turkeyAndCranberryTreats = new JButton("Turkey And Cranberry Treats: $50.00");
-	     bluefinTunaSteak = new JButton("Bluefin Tuna Steak: $70.00");
 	     aGoldenRat = new JButton("A Golden Rat: $100.00");
 	     
 	     // Naming buttons
 	     fiveFishKibble.setName("Five Fish Kibble");
-	     veggieMedley.setName("Veggie Medley");
-	     expensiveMelk.setName("Expensive Melk");
 	     turkeyAndCranberryTreats.setName("Turkey And Cranberry Treats");
-	     bluefinTunaSteak.setName("Bluefin Tuna Steak");
 	     aGoldenRat.setName("A Golden Rat");
 	     
 	     // Adding buttons to window
