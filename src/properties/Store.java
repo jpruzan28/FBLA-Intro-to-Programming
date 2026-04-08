@@ -3,8 +3,6 @@ package properties;
 
 import DrawingSurface.DrawingSurface;
 import pets.Pet;
-//import VirtualPet.main;
-
 
 public class Store {
 
