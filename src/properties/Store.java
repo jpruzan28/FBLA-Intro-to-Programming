@@ -1,7 +1,7 @@
 package properties;
 
 
-import VirtualPet.NewMain;
+import DrawingSurface.DrawingSurface;
 import pets.Pet;
 //import VirtualPet.main;
 
@@ -49,7 +49,7 @@ public class Store {
 		double m = p.getMoney();
 		
 		if(m < f.getPrice()) {
-		//	main.errorMessage("Too expensive");
+			DrawingSurface.errorMessage("Too expensive");
 		}
 		
 		else {
@@ -63,7 +63,7 @@ public class Store {
 		double m = p.getMoney();
 		
 		if(m < t.getPrice()) {
-			//main.errorMessage("Too expensive");
+			DrawingSurface.errorMessage("Too expensive");
 		}
 		
 		else {
@@ -77,7 +77,7 @@ public class Store {
 		double m = p.getMoney();
 		
 		if(m < 20) {
-//			NewMain.errorMessage("Too expensive");
+			DrawingSurface.errorMessage("Too expensive");
 			return false;
 		}
 		
