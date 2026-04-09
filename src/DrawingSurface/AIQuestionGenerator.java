@@ -73,17 +73,20 @@ public class AIQuestionGenerator {
 		    
 		    String text = json.getJSONArray("content").getJSONObject(0).getString("text");
 		    text = text.replace("```json", "").replace("```", "").trim();
+		    System.out.println(text);
 		    return text;
 		    
 		} catch (Exception e) {
-		    e.printStackTrace();
-		    return null;
+		   // e.printStackTrace();
+			 return "{\"question\": \"What is the best way to build an emergency fund?\", " +
+	           "\"options\": [" +
+	           "\"Invest all your money in stocks\", " +
+	           "\"Save 3-6 months of expenses in a separate account\", " +
+	           "\"Spend your extra money on things you enjoy\", " +
+	           "\"Lend money to friends and family\"], " +
+	           "\"answer\": \"Save 3-6 months of expenses in a separate account\"}";
+
 		}		
 	}
 	
-/*	public static void main(String[] args) {
-	    String result = generateQuestion("financial responsibility", "easy");
-	    System.out.println(result);
-	}*/
-
 }

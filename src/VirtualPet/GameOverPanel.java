@@ -23,9 +23,9 @@ public class GameOverPanel extends JPanel {
         titleLabel.setFont(new Font("Rubik Mono One", Font.BOLD, 50));
         add(titleLabel, BorderLayout.NORTH);
 
-        // Stats panel
+        // Stats panel - I changed to 4 rows
         JPanel statsPanel = new JPanel();
-        statsPanel.setLayout(new GridLayout(3, 1, 10, 10));
+        statsPanel.setLayout(new GridLayout(4, 1, 10, 10)); 
         statsPanel.setBackground(Color.white);
 
         // 1. Final health
@@ -46,16 +46,21 @@ public class GameOverPanel extends JPanel {
         else                            happiness = "Very Unhappy >:[";
         JLabel happinessLabel = new JLabel("During your run, the pet felt..... " + happiness, SwingConstants.CENTER);
 
+        // 4. Total money spent  ← new
+        JLabel expensesLabel = new JLabel("Total Money Spent: $" + String.format("%.2f", pet.getExpenses()), SwingConstants.CENTER);
+
         // Set font for all labels
         Font statFont = new Font("Arial", Font.BOLD, 28);
         healthLabel   .setFont(statFont);
         hungerLabel   .setFont(statFont);
         happinessLabel.setFont(statFont);
+        expensesLabel .setFont(statFont);  
 
         // Add to stats panel
         statsPanel.add(healthLabel);
         statsPanel.add(hungerLabel);
         statsPanel.add(happinessLabel);
+        statsPanel.add(expensesLabel);  
 
         add(statsPanel, BorderLayout.CENTER);
     }
