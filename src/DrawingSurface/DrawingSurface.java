@@ -111,23 +111,23 @@ public class DrawingSurface implements ActionListener {
     public void createBars() {
         double rectWidth = width / 8.0;
         double barHeight = 30;
-        double totalBarsWidth = 5 * rectWidth;
-        double gap = (width - totalBarsWidth) / (5 + 1);
+        double totalBarsWidth = 4 * rectWidth;
+        double gap = (width - totalBarsWidth) / (4 + 1);
         int y = height / 20;
 
         double x1 = gap;
         double x2 = gap * 2 + rectWidth;
         double x3 = gap * 3 + rectWidth * 2;
         double x4 = gap * 4 + rectWidth * 3;
-        double x5 = gap * 5 + rectWidth * 4;
+       // double x5 = gap * 5 + rectWidth * 4;
         
         health  = new Bar(pet, "Health",  x1, y, rectWidth, barHeight);
         hunger  = new Bar(pet, "Hunger",  x2, y, rectWidth, barHeight);
         hygiene = new Bar(pet, "Hygiene", x3, y, rectWidth, barHeight);
         rest    = new Bar(pet, "Rest",    x4, y, rectWidth, barHeight);
-        emotion = new Bar(pet, "Emotion", x5, y, rectWidth, barHeight);
+      //  emotion = new Bar(pet, "Emotion", x5, y, rectWidth, barHeight);
 
-        bars = new Bar[] {health, hunger, hygiene, rest, emotion};
+        bars = new Bar[] {health, hunger, hygiene, rest};
     }
 
     // Money label - top left

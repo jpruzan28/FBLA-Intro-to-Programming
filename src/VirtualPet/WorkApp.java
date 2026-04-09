@@ -106,12 +106,27 @@ public class WorkApp extends JDialog {
                     question.setText("<html><center>" + json.getString("question") + "</center></html>");
                     JSONArray options = json.getJSONArray("options");
                     for (int i = 0; i < 4; i++) {
-                        answers[i].setText(options.getString(i));
-                    }
+                    	answers[i].setText("<html><center>" + options.getString(i) + "</center></html>");                    }
                     correctAnswer = json.getString("answer");
                 } catch (Exception e) {
-                    question.setText("Error loading question, try again.");
                     e.printStackTrace();
+                    try {
+                        String fallback = "{\"question\": \"What is the best way to build an emergency fund?\", " +
+                               "\"options\": [" +
+                               "\"Invest all your money in stocks\", " +
+                               "\"Save 3-6 months of expenses in a separate account\", " +
+                               "\"Spend your extra money on things you enjoy\", " +
+                               "\"Lend money to friends and family\"], " +
+                               "\"answer\": \"Save 3-6 months of expenses in a separate account\"}";
+                        JSONObject json = new JSONObject(fallback);
+                        question.setText("<html><center>" + json.getString("question") + "</center></html>");
+                        JSONArray options = json.getJSONArray("options");
+                        for (int i = 0; i < 4; i++) {
+                        	answers[i].setText("<html><center>" + options.getString(i) + "</center></html>");                        }
+                        correctAnswer = json.getString("answer");
+                    } catch (Exception ex) {
+                        question.setText("Error loading question, try again.");
+                    }
                 }
             }
         };

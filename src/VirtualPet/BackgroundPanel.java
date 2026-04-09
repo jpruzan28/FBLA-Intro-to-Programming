@@ -58,7 +58,7 @@ public class BackgroundPanel extends JPanel {
 		Bar hunger = bars[1];
 		Bar hygiene = bars[2];
 		Bar rest = bars[3];
-		Bar emotion = bars[4];
+		//Bar emotion = bars[4];
 
 		
 		// Writing stats on top of bars
@@ -70,15 +70,15 @@ public class BackgroundPanel extends JPanel {
 		g.drawString("Hunger", (int)hunger.getX(), (int)hunger.getY() - fontSize);
 		g.drawString("Hygiene", (int)hygiene.getX(), (int)hygiene.getY() - fontSize);
 		g.drawString("Rest", (int)rest.getX(), (int)rest.getY() - fontSize);
-		g.drawString("Emotion", (int)emotion.getX(), (int)emotion.getY() - fontSize);
+		//g.drawString("Emotion", (int)emotion.getX(), (int)emotion.getY() - fontSize);
 		
-		double outlineWidth = health.getMaxWidth();	
+		double outlineWidth = hunger.getMaxWidth();	
 		// Drawing outlines of bars 
 		g.drawRect((int)health.getX(), (int)health.getY(), (int)outlineWidth, (int)health.getHeight());
 		g.drawRect((int)hunger.getX(), (int)hunger.getY(), (int)outlineWidth, (int)hunger.getHeight());
 		g.drawRect((int)hygiene.getX(), (int)hygiene.getY(), (int)outlineWidth, (int)hygiene.getHeight());
 		g.drawRect((int)rest.getX(), (int)rest.getY(), (int)outlineWidth, (int)rest.getHeight());
-		g.drawRect((int)emotion.getX(), (int)emotion.getY(), (int)outlineWidth, (int)emotion.getHeight());
+		//g.drawRect((int)emotion.getX(), (int)emotion.getY(), (int)outlineWidth, (int)emotion.getHeight());
 
 		// Filling in bars with the correct colors
 		g.setColor(health.getColor());
@@ -93,8 +93,8 @@ public class BackgroundPanel extends JPanel {
 		g.setColor(rest.getColor());
 		g.fillRect((int)rest.getX(), (int)rest.getY(), (int)rest.getWidth(), (int)rest.getHeight());
 
-		g.setColor(emotion.getColor());
-		g.fillRect((int)emotion.getX(), (int)emotion.getY(), (int)emotion.getWidth(), (int)emotion.getHeight());
+		//g.setColor(emotion.getColor());
+		//g.fillRect((int)emotion.getX(), (int)emotion.getY(), (int)emotion.getWidth(), (int)emotion.getHeight());
 
 
 	}
