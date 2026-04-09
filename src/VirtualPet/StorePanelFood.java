@@ -1,5 +1,6 @@
 package VirtualPet;
 
+import DrawingSurface.*;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -44,71 +45,57 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	    	addBackground();
 	     
 //	     // Create buttons
-//	     kibbleCrunch = new JButton("Kibble Crunch: $10.00");
-//	     salmonDelight = new JButton("Salmon Delight: $50.00");
-//	     goldenChickenNuggets = new JButton("Golden Chicken Nuggets: $100.00");
-	     fiveFishKibble = new JButton("Five Fish Kibble: $10.00");
-	     turkeyAndCranberryTreats = new JButton("Turkey And Cranberry Treats: $50.00");
-	     aGoldenRat = new JButton("A Golden Rat: $100.00");
-	     flakes = new JButton("Flakes: $10.00"); 
-	     algaeCrisps = new JButton("Algae Crisps: $20.00"); 
-	     deepAbyssInfusion = new JButton("Deep Abyss Infusion: $100.00"); 
-//	     
-//	     
-//	     // Setting the names of the buttons
-//	     kibbleCrunch.setName("Kibble Crunch");
-//	     salmonDelight.setName("Salmon Delight");
-//	     goldenChickenNuggets.setName("Golden Chicken Nuggets");
-	     flakes.setName("Flakes"); 
-	     algaeCrisps.setName("Algae Crisps"); 
-	     deepAbyssInfusion.setName("Deep Abyss Infusion"); 
-//	     fiveFishKibble.setName("Five Fish Kibble");
-//	     turkeyAndCranberryTreats.setName("Turkey And Cranberry Treats");
-//	     aGoldenRat.setName("A Golden Rat");
-//	     
-//	     // Add buttons to screen
-//	     allFoodPanel.add(kibbleCrunch);
-//	     allFoodPanel.add(salmonDelight);
-//	     allFoodPanel.add(goldenChickenNuggets);
-//	     
-//	     
-//	     // Track when the buttons are clicked
-//	     kibbleCrunch.addActionListener(this);
-//	     salmonDelight.addActionListener(this);
-//	     goldenChickenNuggets.addActionListener(this);
-//	     
-//	     // CAT
-//	     // Creating new panel
-//	     JPanel catFoodPanel = new JPanel();
-//	     catFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
-//	    
-//	     
-//
-//	     
-//	     fiveFishKibble.addActionListener(this);
-//	     turkeyAndCranberryTreats.addActionListener(this);
-//	     aGoldenRat.addActionListener(this);
-//	     
-//	     // FISH
-//	     // Creates new panel
-	     JPanel fishFoodPanel = new JPanel();
-	     fishFoodPanel.setLayout(new GridLayout(3, 2, 8, 8));
-	     fishFoodPanel.setBackground(Color.RED);
-//	       
-//
-//	     
-//
-//	     // Adds buttons to window
-	     fishFoodPanel.add(flakes);
-	     fishFoodPanel.add(algaeCrisps);
-	     fishFoodPanel.add(deepAbyssInfusion);
-	     
-	     flakes.addActionListener(this); 
-	     algaeCrisps.addActionListener(this); 
-	     deepAbyssInfusion.addActionListener(this); 
-//
-//	     
-	     allFoodPanel.add(fishFoodPanel);
+	    	  // Dog food buttons
+	        kibbleCrunch        = new ItemButton("Kibble Crunch",         "Cost: $10.00", "Level: 1", "Images/Toy_Icons/dog1.png");
+	        salmonDelight       = new ItemButton("Salmon Delight",        "Cost: $50.00", "Level: 2", "Images/Toy_Icons/dog2.png");
+	        goldenChickenNuggets = new ItemButton("Golden Chicken Nuggets","Cost: $100.00","Level: 3", "Images/Toy_Icons/dog3.png");
+
+	        // Fish food buttons
+	        flakes              = new ItemButton("Flakes",                "Cost: $10.00", "Level: 1", "Images/Toy_Icons/fish1.png");
+	        algaeCrisps     = new ItemButton("algaeCrisps",      "Cost: $50.00", "Level: 2", "Images/Toy_Icons/fish2.png");
+	        deepAbyssInfusion   = new ItemButton("Deep Abyss Infusion",   "Cost: $100.00","Level: 3", "Images/Toy_Icons/fish3.png");
+
+	        // Cat food buttons
+	        fiveFishKibble          = new ItemButton("Five Fish Kibble",          "Cost: $10.00", "Level: 1", "Images/Toy_Icons/cat1.png");
+	        turkeyAndCranberryTreats = new ItemButton("Turkey And Cranberry Treats","Cost: $50.00","Level: 2", "Images/Toy_Icons/cat2.png");
+	        aGoldenRat              = new ItemButton("A Golden Rat",              "Cost: $100.00","Level: 3", "Images/Toy_Icons/cat3.png");
+
+
+	        // Set positions - dog column on left, cat column in middle, fish column on right
+	        kibbleCrunch.setBounds(65,   135, 480, 190);
+	        salmonDelight.setBounds(65,   380, 480, 190);
+	        goldenChickenNuggets.setBounds(65,   580, 480, 190);
+
+	        fiveFishKibble.setBounds(600,  135, 480, 190);
+	        turkeyAndCranberryTreats.setBounds(600,  380, 480, 190);
+	        aGoldenRat.setBounds(600,  580, 480, 190);
+
+	        flakes.setBounds(1150, 135, 480, 190);
+	        algaeCrisps.setBounds(1150, 380, 480, 190);
+	        deepAbyssInfusion.setBounds(1150, 580, 480, 190);
+
+	        // Add action listeners
+	        kibbleCrunch.addActionListener(this);
+	        salmonDelight.addActionListener(this);
+	        goldenChickenNuggets.addActionListener(this);
+	        flakes.addActionListener(this);
+	        algaeCrisps.addActionListener(this);
+	        deepAbyssInfusion.addActionListener(this);
+	        fiveFishKibble.addActionListener(this);
+	        turkeyAndCranberryTreats.addActionListener(this);
+	        aGoldenRat.addActionListener(this);
+
+	        // Add to layered pane
+	        layeredPane.add(kibbleCrunch,             JLayeredPane.PALETTE_LAYER);
+	        layeredPane.add(salmonDelight,            JLayeredPane.PALETTE_LAYER);
+	        layeredPane.add(goldenChickenNuggets,     JLayeredPane.PALETTE_LAYER);
+	        layeredPane.add(flakes,                   JLayeredPane.PALETTE_LAYER);
+	        layeredPane.add(algaeCrisps,          JLayeredPane.PALETTE_LAYER);
+	        layeredPane.add(deepAbyssInfusion,        JLayeredPane.PALETTE_LAYER);
+	        layeredPane.add(fiveFishKibble,           JLayeredPane.PALETTE_LAYER);
+	        layeredPane.add(turkeyAndCranberryTreats, JLayeredPane.PALETTE_LAYER);
+	        layeredPane.add(aGoldenRat,               JLayeredPane.PALETTE_LAYER);
+	     	     
 	     JButton bButton = new JButton("Return to home");
 	     bButton.addActionListener(e -> {
 	        cardLayout.show(cardPanel, "Home");

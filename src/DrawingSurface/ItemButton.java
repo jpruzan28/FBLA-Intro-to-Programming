@@ -31,9 +31,13 @@ public class ItemButton extends JButton {
         JLabel nameLabel  = new JLabel(name);
         JLabel costLabel  = new JLabel(cost);
         JLabel levelLabel = new JLabel(level);
-
-        nameLabel .setFont(new Font("Arial", Font.BOLD,  40));
-        costLabel .setFont(new Font("Arial", Font.PLAIN, 30));
+        
+        if (name.length()>9) {
+        	nameLabel.setFont(new Font("Arial", Font.BOLD,  15));
+        } else {
+        nameLabel.setFont(new Font("Arial", Font.BOLD,  40));
+        }
+        costLabel.setFont(new Font("Arial", Font.PLAIN, 30));
         levelLabel.setFont(new Font("Arial", Font.PLAIN, 30));
 
         textPanel.add(nameLabel);
