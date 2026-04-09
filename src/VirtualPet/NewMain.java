@@ -68,7 +68,6 @@ public class NewMain {
 		timer.schedule(reductionTimers.new reduceRest(),    0, 15000);
 		timer.schedule(reductionTimers.new reduceEmotion(), 0, 15000);
 		timer.schedule(reductionTimers.new updateHealth(),  0, 8000);
-		timer.schedule(reductionTimers.new bonus(), 0, 35000);
 		
 		 javax.swing.Timer gameOverChecker = new javax.swing.Timer(1000, null);
 

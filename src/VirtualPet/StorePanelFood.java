@@ -79,17 +79,11 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     
 	     // Adding buttons to window
 	     catFoodPanel.add(fiveFishKibble);
-	     catFoodPanel.add(veggieMedley);
-	     catFoodPanel.add(expensiveMelk);
 	     catFoodPanel.add(turkeyAndCranberryTreats);
-	     catFoodPanel.add(bluefinTunaSteak);
 	     catFoodPanel.add(aGoldenRat);
 	     
 	     fiveFishKibble.addActionListener(this);
-	     veggieMedley.addActionListener(this);
-	     expensiveMelk.addActionListener(this);
 	     turkeyAndCranberryTreats.addActionListener(this);
-	     bluefinTunaSteak.addActionListener(this);
 	     aGoldenRat.addActionListener(this);
 	     
 	     // FISH
@@ -101,32 +95,20 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     // Creates Jbuttons
 	     flakes = new JButton("Flakes: $10.00"); 
 	     algaeCrisps = new JButton("Algae Crisps: $20.00"); 
-	     shrimpPellets = new JButton("Shrimp Pellets: $30.00"); 
-	     spirulinaFlakes = new JButton("Spirulina Flakes: $50.00"); 
-	     caviarPearls = new JButton("Caviar Pearls: $70.00"); 
 	     deepAbyssInfusion = new JButton("Deep Abyss Infusion: $100.00"); 
 	     
 	     // Names Jbuttons
 	     flakes.setName("Flakes"); 
 	     algaeCrisps.setName("Algae Crisps"); 
-	     shrimpPellets.setName("Shrimp Pellets"); 
-	     spirulinaFlakes.setName("Spirulina Flakes"); 
-	     caviarPearls.setName("Caviar Pearls"); 
 	     deepAbyssInfusion.setName("Deep Abyss Infusion"); 
 
 	     // Adds buttons to window
 	     fishFoodPanel.add(flakes);
 	     fishFoodPanel.add(algaeCrisps);
-	     fishFoodPanel.add(shrimpPellets);
-	     fishFoodPanel.add(spirulinaFlakes);
-	     fishFoodPanel.add(caviarPearls);
 	     fishFoodPanel.add(deepAbyssInfusion);
 	     
 	     flakes.addActionListener(this); 
 	     algaeCrisps.addActionListener(this); 
-	     shrimpPellets.addActionListener(this); 
-	     spirulinaFlakes.addActionListener(this); 
-	     caviarPearls.addActionListener(this); 
 	     deepAbyssInfusion.addActionListener(this); 
 
 	     
@@ -155,7 +137,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 			JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
 			
 			Store store = new Store();
-	        JButton[] dogFood = new JButton[] {kibbleCrunch, beefAndVeggieMix, chickenFeast, salmonDelight, lambAndRiceBowl, goldenChickenNuggets};
+	        JButton[] dogFood = new JButton[] {kibbleCrunch, salmonDelight, goldenChickenNuggets};
 
 	        // Goes through JButton array
 	        for(JButton f: dogFood) {
@@ -172,7 +154,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	        }
 	        
 	        
-	        JButton[] fishFood = new JButton[] {flakes, algaeCrisps, shrimpPellets, spirulinaFlakes, caviarPearls, deepAbyssInfusion};
+	        JButton[] fishFood = new JButton[] {flakes, algaeCrisps, deepAbyssInfusion};
 
 	        // Goes through JButton array
 	        for(JButton f: fishFood) {
@@ -189,7 +171,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	        }
 	        
 	        
-	        JButton[] catFood = new JButton[] {fiveFishKibble, veggieMedley, expensiveMelk, turkeyAndCranberryTreats, bluefinTunaSteak, aGoldenRat};
+	        JButton[] catFood = new JButton[] {fiveFishKibble, turkeyAndCranberryTreats, aGoldenRat};
 
 	        
 	        // Goes through JButton array
