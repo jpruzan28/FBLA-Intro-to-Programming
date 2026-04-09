@@ -109,7 +109,7 @@ public class WorkApp extends JDialog {
                     	answers[i].setText("<html><center>" + options.getString(i) + "</center></html>");                    }
                     correctAnswer = json.getString("answer");
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                     try {
                         String fallback = "{\"question\": \"What is the best way to build an emergency fund?\", " +
                                "\"options\": [" +
