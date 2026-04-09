@@ -257,13 +257,22 @@ public class DrawingSurface implements ActionListener {
         layeredPane.add(store, JLayeredPane.PALETTE_LAYER);
     }
     
+    public static void errorMessage(String problem) {
+		if(problem.equals("Too expensive")) {
+		    JOptionPane.showMessageDialog(null, "Sorry, this item is too expensive.");
+		}
+		else if(problem.equals("Toy overflow")) {
+		    JOptionPane.showMessageDialog(null, "Sorry, you have reached the maximum number of toys. You cannot buy anymore.");
+		}
+	}
+    
     public void actionPerformed(ActionEvent e) {
         JButton button = (JButton)e.getSource();
         String bPressed = button.getText();
         
         if (bPressed.equals("Work")) {
         	// Creates work popup
-            WorkApp workPopUp = new WorkApp(null);
+            WorkApp workPopUp = new WorkApp(null, pet);
             workPopUp.setVisible(true);
             
         } else if (bPressed.equals("Food Store")) {

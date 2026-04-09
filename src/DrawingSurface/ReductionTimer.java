@@ -57,18 +57,6 @@ public class ReductionTimer {
         }
     }
 
-    public class bonus extends TimerTask {
-        @Override
-        public void run() {
-            if (pet.getHealth() == 10) {
-                pet.setMoney(pet.getMoney() + 5);
-            }
-            if (pet.getEmotion() == 10) {
-                pet.setMoney(pet.getMoney() + 5);
-            }
-            drawingSurface.updateMoneyDisplay();
-        }
-    }
 
     // This is the ONE place health gets updated
     public class updateHealth extends TimerTask {

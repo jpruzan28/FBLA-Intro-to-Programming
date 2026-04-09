@@ -7,6 +7,7 @@ import javax.swing.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import DrawingSurface.AIQuestionGenerator;
+import pets.Pet;
 
 public class WorkApp extends JDialog {
 
@@ -14,13 +15,17 @@ public class WorkApp extends JDialog {
     JButton[] answers;
     JLabel feedback;
     String correctAnswer;
+    
+    Pet pet;
 
-    public WorkApp(JFrame parent) {
+    public WorkApp(JFrame parent, Pet pet) {
         super(parent, "Financial Responsibility Quiz", true);
         setSize(600, 400);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout(10, 10));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
+        this.pet = pet;
 
         answers = new JButton[4];
 
@@ -58,6 +63,7 @@ public class WorkApp extends JDialog {
         if (selected.equals(correctAnswer)) {
             feedback.setText("✓ Correct!");
             feedback.setForeground(Color.GREEN.darker());
+            pet.setMoney(pet.getMoney() + 20);
         } else {
             feedback.setText("✗ Wrong! The answer was: " + correctAnswer);
             feedback.setForeground(Color.RED);
