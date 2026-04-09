@@ -8,6 +8,7 @@ import pets.Pet;
 
 import java.awt.*;
 import java.awt.event.*;
+import DrawingSurface.*;
 
 public class StorePanel extends JPanel implements ActionListener{
 	
@@ -39,57 +40,57 @@ public class StorePanel extends JPanel implements ActionListener{
 
     	
         // Naming buttons
-    	usedBall = new JButton("Used Ball: $4.00");  
-        enchantedChewWand = new JButton("Enchanted Chew Wand: $25.00"); 
-        goldenestBone = new JButton("Goldenest Bone: $90.00"); 
-        plainKittySock = new JButton("Plain Kitty Sock: $4.00");
-        laserPointer = new JButton("Laser Pointer: $50.00");
-        legendaryAirpods = new JButton("Legendary Airpods: $90.00");
-        driftBall = new JButton("Drift Ball: $4.00"); 
-        biolumeBubbleMachine = new JButton("Biolume Bubble Machine: $25.00"); 
+    	usedBall = new ItemButton("Used Ball", "Cost: $4.00", "Level: 1", "Images/Toy_Icons/used_ball.png");
+        enchantedChewWand = new ItemButton("Enchanted Chew Wand", "Cost: $25.00", "Level: 2", "Images/Toy_Icons/used_ball.png"); 
+        goldenestBone = new ItemButton("Goldenest Bone", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/used_ball.png"); 
+        plainKittySock = new ItemButton("Plain Kitty Sock", "Cost: $4.00", "Level: 1", "Images/Toy_Icons/used_ball.png");
+        laserPointer = new ItemButton("Laser Pointer", "Cost: $50.00", "Level: 2", "Images/Toy_Icons/used_ball.png");
+        legendaryAirpods = new ItemButton("Legendary Airpods", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/used_ball.png");
+        driftBall = new ItemButton("Drift Ball", "Cost: $4.00", "Level: 1", "Images/Toy_Icons/used_ball.png"); 
+        biolumeBubbleMachine = new ItemButton("Biolume Bubble Machine", "Cost: $25.00", "Level: 2", "Images/Toy_Icons/used_ball.png"); 
         platinumSpeaker = new JButton("Platinum Speaker: $90.00"); 
         
         //Setting button location
-        usedBall.setBounds(90,  460, 120, 40);
-        enchantedChewWand.setBounds(90, 100, 120, 40);
-        goldenestBone.setBounds(90, 160, 120, 40);
-        laserPointer.setBounds(90, 220, 120, 40);
-        plainKittySock.setBounds(90, 280, 120, 40);
-        legendaryAirpods.setBounds(90,  340, 120, 40);
-        driftBall.setBounds(90,  400, 120, 40);
+        usedBall.setBounds(65,  135, 480, 190);
+//        enchantedChewWand.setBounds(90, 100, 120, 40);
+//        goldenestBone.setBounds(90, 160, 120, 40);
+//        laserPointer.setBounds(90, 220, 120, 40);
+//        plainKittySock.setBounds(90, 280, 120, 40);
+//        legendaryAirpods.setBounds(90,  340, 120, 40);
+//        driftBall.setBounds(90,  400, 120, 40);
         
-        plainKittySock.setName("Plain Kitty Sock");
-        laserPointer.setName("Laser Pointer");
-        legendaryAirpods.setName("Legendary Airpods");
-        driftBall.setName("Drift Ball"); 
-        biolumeBubbleMachine.setName("Biolume Bubble Machine"); 
-        platinumSpeaker.setName("Platinum Speaker"); 
-        usedBall.setName("Used Ball"); 
-        enchantedChewWand.setName("Enchanted Chew Wand");  
-        goldenestBone.setName("Goldenest Bone");
+//        plainKittySock.setName("Plain Kitty Sock");
+//        laserPointer.setName("Laser Pointer");
+//        legendaryAirpods.setName("Legendary Airpods");
+//        driftBall.setName("Drift Ball"); 
+//        biolumeBubbleMachine.setName("Biolume Bubble Machine"); 
+//        platinumSpeaker.setName("Platinum Speaker"); 
+//        usedBall.setName("Used Ball"); 
+//        enchantedChewWand.setName("Enchanted Chew Wand");  
+//        goldenestBone.setName("Goldenest Bone");
         
                 // Track when buttons are clicked
         usedBall.addActionListener(this);
-        enchantedChewWand.addActionListener(this);
-        goldenestBone.addActionListener(this); 
-        driftBall.addActionListener(this);
-        biolumeBubbleMachine.addActionListener(this);
-        platinumSpeaker.addActionListener(this);
-        plainKittySock.addActionListener(this);
-        laserPointer.addActionListener(this);
-        legendaryAirpods.addActionListener(this);
+//        enchantedChewWand.addActionListener(this);
+//        goldenestBone.addActionListener(this); 
+//        driftBall.addActionListener(this);
+//        biolumeBubbleMachine.addActionListener(this);
+//        platinumSpeaker.addActionListener(this);
+//        plainKittySock.addActionListener(this);
+//        laserPointer.addActionListener(this);
+//        legendaryAirpods.addActionListener(this);
         
         
         // Add buttons to screen 
         layeredPane.add(usedBall,  JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(enchantedChewWand,  JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(goldenestBone,  JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(plainKittySock, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(laserPointer, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(legendaryAirpods, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(driftBall, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(biolumeBubbleMachine, JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(platinumSpeaker, JLayeredPane.PALETTE_LAYER);
+//        layeredPane.add(enchantedChewWand,  JLayeredPane.PALETTE_LAYER);
+//        layeredPane.add(goldenestBone,  JLayeredPane.PALETTE_LAYER);
+//        layeredPane.add(plainKittySock, JLayeredPane.PALETTE_LAYER);
+//        layeredPane.add(laserPointer, JLayeredPane.PALETTE_LAYER);
+//        layeredPane.add(legendaryAirpods, JLayeredPane.PALETTE_LAYER);
+//        layeredPane.add(driftBall, JLayeredPane.PALETTE_LAYER);
+//        layeredPane.add(biolumeBubbleMachine, JLayeredPane.PALETTE_LAYER);
+//        layeredPane.add(platinumSpeaker, JLayeredPane.PALETTE_LAYER);
         
 
 
