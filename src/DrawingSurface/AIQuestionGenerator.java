@@ -18,9 +18,13 @@ public class AIQuestionGenerator {
 	        Properties props = new Properties();
 //	        String path = System.getProperty("user.home") + "/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties";
 	        
-	        props.load(new FileInputStream("C:/Users/nekoa/OneDrive/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties"));	       
+	        String epath = "C:/Users/nekoa/OneDrive/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties";
+	        String jpath = "C:/Users/jasmi/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties";
+	        
+	        props.load(new FileInputStream(epath));	       
 
 	        return props.getProperty("APIKEY");
+	        
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	        return null;
