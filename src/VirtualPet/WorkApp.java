@@ -46,7 +46,7 @@ public class WorkApp extends JDialog {
         for (int i = 0; i < 4; i++) {
             answers[i] = new JButton();
             int index = i;
-            answers[i].addActionListener(e -> checkAnswer(answers[index].getText()));
+            answers[i].addActionListener(e -> checkAnswer(answers[index].getText(), answers[index]));
             buttonPanel.add(answers[i]);
         }
         add(buttonPanel, BorderLayout.CENTER);
@@ -59,21 +59,23 @@ public class WorkApp extends JDialog {
         add(bottomPanel, BorderLayout.SOUTH);
     }
 
-    public void checkAnswer(String selected) {
-        if (selected.equals(correctAnswer)) {
+    public void checkAnswer(String selected, JButton clicked) {
+        String cleaned = selected.replaceAll("<[^>]*>", "").trim();
+        if (cleaned.equals(correctAnswer)) {
             feedback.setText("✓ Correct!");
             feedback.setForeground(Color.GREEN.darker());
+            clicked.setBackground(Color.GREEN);
             pet.setMoney(pet.getMoney() + 20);
         } else {
             feedback.setText("✗ Wrong! The answer was: " + correctAnswer);
             feedback.setForeground(Color.RED);
+            clicked.setBackground(Color.RED);
         }
 
         for (JButton btn : answers) {
             btn.setEnabled(false);
         }
 
-        // Wait 2 seconds then close the dialog
         Timer timer = new Timer(2000, e -> dispose());
         timer.setRepeats(false);
         timer.start();
