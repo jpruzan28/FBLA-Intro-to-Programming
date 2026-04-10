@@ -26,10 +26,10 @@ public class Health {
         } 
 		else {
 		 if (totalHunger == 0) {
-	            newHealth = totalHealth - 4;
-	        } else if (totalHunger <= 3) {
 	            newHealth = totalHealth - 3;
-	        } else if (totalHunger <= 8) { //is only high if greater or equal to 6
+	        } else if (totalHunger <= 3) {
+	            newHealth = totalHealth - 2;
+	        } else if (totalHunger <= 7) { //is only high if greater or equal to 6
 	            newHealth = totalHealth - 1;
 	        } else {
 	            newHealth = totalHealth + 1;
@@ -49,10 +49,10 @@ public class Health {
 	        newHealth = totalHealth;
 	    } else {
 	        if (totalRest == 0) {
-	            newHealth = totalHealth - 4;
+	            newHealth = totalHealth - 3;
 	        } else if (totalRest <= 3) {
 	            newHealth = totalHealth - 2;
-	        } else if (totalRest <= 7) {
+	        } else if (totalRest <= 6) {
 	            newHealth = totalHealth - 1;
 	        } else {
 	            newHealth = totalHealth + 1; 
@@ -70,7 +70,7 @@ public class Health {
 	        newHealth = totalHealth;
 	    } else {
 	        if (totalHygiene == 0) {
-	            newHealth = totalHealth - 4;
+	            newHealth = totalHealth - 3;
 	        } else if (totalHygiene <= 3) {
 	            newHealth = totalHealth - 2;
 	        } else if (totalHygiene <= 6) {

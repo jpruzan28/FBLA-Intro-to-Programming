@@ -61,18 +61,16 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	        aGoldenRat              = new ItemButton("A Golden Rat",              "Cost: $100.00","Level: 3", "Images/Toy_Icons/cat3.png");
 
 
-	        // Set positions - dog column on left, cat column in middle, fish column on right
-	        kibbleCrunch.setBounds(65,   135, 480, 190);
-	        salmonDelight.setBounds(65,   380, 480, 190);
-	        goldenChickenNuggets.setBounds(65,   580, 480, 190);
-
-	        fiveFishKibble.setBounds(600,  135, 480, 190);
-	        turkeyAndCranberryTreats.setBounds(600,  380, 480, 190);
-	        aGoldenRat.setBounds(600,  580, 480, 190);
-
-	        flakes.setBounds(1150, 135, 480, 190);
-	        algaeCrisps.setBounds(1150, 380, 480, 190);
-	        deepAbyssInfusion.setBounds(1150, 580, 480, 190);
+	        // Set positions of each button
+	        kibbleCrunch.setBounds(180,  150, 270, 150);
+	        salmonDelight.setBounds(180,  385, 270, 150);
+	        goldenChickenNuggets.setBounds(65+240,  600, 270, 150);
+	        fiveFishKibble.setBounds(600+125,  150, 270, 150);
+	        turkeyAndCranberryTreats.setBounds(600+125, 385, 270, 150);
+	        aGoldenRat.setBounds(600+125,  600, 270, 150);
+	        flakes.setBounds(1270,  150, 270, 150);
+	        algaeCrisps.setBounds(1270,  385, 270, 150);
+	        deepAbyssInfusion.setBounds(1270,  600, 270, 150);
 
 	        // Add action listeners
 	        kibbleCrunch.addActionListener(this);
@@ -100,15 +98,8 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	     bButton.addActionListener(e -> {
 	        cardLayout.show(cardPanel, "Home");
 	     });
-	     add(bButton, BorderLayout.SOUTH); 
-
-	     
-
-	     
-	     
-	     
-	     
-	     
+	     bButton.setBounds(0, 0, 80, 80);
+	     layeredPane.add(bButton, JLayeredPane.PALETTE_LAYER); 
 	     
 	}    
 	

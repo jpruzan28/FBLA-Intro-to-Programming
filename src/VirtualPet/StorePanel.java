@@ -41,25 +41,25 @@ public class StorePanel extends JPanel implements ActionListener{
     	
         // Naming buttons
     	usedBall = new ItemButton("Used Ball", "Cost: $4.00", "Level: 1", "Images/Toy_Icons/used_ball.png");
-        enchantedChewWand = new ItemButton("Enchanted Chew Wand", "Cost: $25.00", "Level: 2", "Images/Toy_Icons/enchanted_wand.png"); 
-        goldenestBone = new ItemButton("Goldenest Bone", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/golden_bone.png"); 
-        plainKittySock = new ItemButton("Plain Kitty Sock", "Cost: $4.00", "Level: 1", "Images/Toy_Icons/plain_sock.png");
+        enchantedChewWand = new ItemButton("Chew Wand", "Cost: $25.00", "Level: 2", "Images/Toy_Icons/enchanted_wand.png"); 
+        goldenestBone = new ItemButton("Gold Bone", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/golden_bone.png"); 
+        plainKittySock = new ItemButton("Plain Sock", "Cost: $4.00", "Level: 1", "Images/Toy_Icons/plain_sock.png");
         laserPointer = new ItemButton("Laser Pointer", "Cost: $50.00", "Level: 2", "Images/Toy_Icons/laser_pointer.png");
-        legendaryAirpods = new ItemButton("Legendary Airpods", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/earbud.png");
+        legendaryAirpods = new ItemButton("Rad Airpods", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/earbud.png");
         driftBall = new ItemButton("Drift Ball", "Cost: $4.00", "Level: 1", "Images/Toy_Icons/drift_ball.png"); 
-        biolumeBubbleMachine = new ItemButton("Biolume Bubble Machine", "Cost: $25.00", "Level: 2", "Images/Toy_Icons/bubble_machine.png"); 
-        platinumSpeaker = new ItemButton("Platinum Speaker", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/plat_speaker.png"); 
+        biolumeBubbleMachine = new ItemButton("Bubble Maker", "Cost: $25.00", "Level: 2", "Images/Toy_Icons/bubble_machine.png"); 
+        platinumSpeaker = new ItemButton("Super Speaker", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/plat_speaker.png"); 
         
         //Setting button location
-        usedBall.setBounds(65,  135, 480, 190);
-        enchantedChewWand.setBounds(65,  380, 480, 190);
-        goldenestBone.setBounds(65,  580, 480, 190);
-        laserPointer.setBounds(600,  135, 480, 190);
-        plainKittySock.setBounds(600,  380, 480, 190);
-        legendaryAirpods.setBounds(600,  580, 480, 190);
-        driftBall.setBounds(1150,  135, 480, 190);
-        biolumeBubbleMachine.setBounds(1150,  380, 480, 190);
-        platinumSpeaker.setBounds(1150,  580, 580, 190);
+        usedBall.setBounds(180,  150, 270, 150);
+        enchantedChewWand.setBounds(180,  385, 270, 150);
+        goldenestBone.setBounds(65+240,  600, 270, 150);
+        plainKittySock.setBounds(600+125,  150, 270, 150);
+        laserPointer.setBounds(600+125, 385, 270, 150);
+        legendaryAirpods.setBounds(600+125,  600, 270, 150);
+        driftBall.setBounds(1270,  150, 270, 150);
+        biolumeBubbleMachine.setBounds(1270,  385, 270, 150);
+        platinumSpeaker.setBounds(1270,  600, 270, 150);
         
           // Track when buttons are clicked
         usedBall.addActionListener(this);

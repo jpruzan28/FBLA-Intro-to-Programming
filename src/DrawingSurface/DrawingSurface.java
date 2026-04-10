@@ -153,16 +153,16 @@ public class DrawingSurface implements ActionListener {
     public void updateMoneyDisplay() {
         SwingUtilities.invokeLater(() -> {
             moneyLabel.setText("Total Currency: $" + String.format("%.2f", pet.getMoney()));
-            expensesLabel.setText("Total Spent: $" + String.format("%.2f", pet.getExpenses()));  
+            expensesLabel.setText("Expenses: $" + String.format("%.2f", pet.getExpenses()));  
         });
     }
     
     // Clock label - top right
     public void addClockLabel() {
-        clockLabel = new JLabel("00:00:00");
+        clockLabel = new JLabel("Time: " + "00:00:00");
         clockLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
         clockLabel.setForeground(Color.BLACK);
-        clockLabel.setBounds(width - 350, 50, 320, 40);
+        clockLabel.setBounds(630, 100, 350, 40);
         layeredPane.add(clockLabel, JLayeredPane.PALETTE_LAYER);
     }
         
@@ -176,7 +176,7 @@ public class DrawingSurface implements ActionListener {
                     int hrs = seconds / 3600;
                     int mins = (seconds % 3600) / 60;
                     int secs = seconds % 60;
-                    clockLabel.setText(String.format("%02d:%02d:%02d", hrs, mins, secs));
+                    clockLabel.setText(String.format("Time: " + "%02d:%02d:%02d", hrs, mins, secs));
                 });
             }
         }, 0, 1000);
@@ -224,13 +224,13 @@ public class DrawingSurface implements ActionListener {
         play  = new JButton("Play");
         store = new JButton("Toy Store");
         
-        work.setBounds(90,  460, 120, 40);
-        food.setBounds(90, 100, 120, 40);
-        sleep.setBounds(90, 160, 120, 40);
-        clean.setBounds(90, 220, 120, 40);
-        vet.setBounds(90, 280, 120, 40);
-        play.setBounds(90,  340, 120, 40);
-        store.setBounds(90,  400, 120, 40);
+        work.setBounds(1250,  260, 120, 40);
+        food.setBounds(230, 820, 120, 40);
+        sleep.setBounds(700, 500, 120, 40);
+        clean.setBounds(1190, 920, 120, 40);
+        vet.setBounds(1250, 350, 120, 40);
+        play.setBounds(450, 460, 120, 40);
+        store.setBounds(135,  310, 120, 40);
         
         work .setToolTipText("Answer questions to make money. Increases Total Savings. $10 per question right");
         food .setToolTipText("Food store to buy and feed food. Increases Hunger bar");

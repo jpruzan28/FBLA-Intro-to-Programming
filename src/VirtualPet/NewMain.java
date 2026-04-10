@@ -63,11 +63,11 @@ public class NewMain {
 	    
 	    ReductionTimer reductionTimers = new ReductionTimer(pet, drawingSurface);
 		Timer timer = new Timer();
-		timer.schedule(reductionTimers.new reduceHunger(),  15000, 15000);
-		timer.schedule(reductionTimers.new reduceHygiene(), 15000, 15000);
-		timer.schedule(reductionTimers.new reduceRest(),    15000, 15000);
-		timer.schedule(reductionTimers.new reduceEmotion(), 15000, 15000);
-		timer.schedule(reductionTimers.new updateHealth(),  15000, 8000);
+		timer.schedule(reductionTimers.new reduceHunger(),  25000, 25000);
+		timer.schedule(reductionTimers.new reduceHygiene(), 25000, 25000);
+		timer.schedule(reductionTimers.new reduceRest(),    25000, 25000);
+		timer.schedule(reductionTimers.new reduceEmotion(), 25000, 25000);
+		timer.schedule(reductionTimers.new updateHealth(),  25000, 10000);
 		
 		 javax.swing.Timer gameOverChecker = new javax.swing.Timer(1000, null);
 
