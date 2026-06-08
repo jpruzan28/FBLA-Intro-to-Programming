@@ -129,7 +129,7 @@ public class StorePanel extends JPanel implements ActionListener{
         	// Checks if the button clicked is the same as the JButton
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
-        		for(Toys y: store.getDogToys()) {
+        		for(Toy y: store.getDogToys()) {
         			// Checks if the name of the toy matches the JButton name of the button
         			if(t.getName().equals(y.getName())) {
         				store.buyToys(y, p);
@@ -146,7 +146,7 @@ public class StorePanel extends JPanel implements ActionListener{
         	// Checks if the button clicked is the same as the JButton
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
-        		for(Toys y: store.getFishToys()) {
+        		for(Toy y: store.getFishToys()) {
         			// Checks if the name of the toy matches the JButton name
         			if(t.getName().equals(y.getName())) {
         				store.buyToys(y, p);
@@ -164,7 +164,7 @@ public class StorePanel extends JPanel implements ActionListener{
         	// Checks if the button clicked is the same as the JButton
         	if (button.equals(t)) {
         		// Goes through Toys array from Money class
-        		for(Toys y: store.getCatToys()) {
+        		for(Toy y: store.getCatToys()) {
         			// Checks if the name of the toy matches the JButton name
         			if(t.getName().equals(y.getName())) {
         				store.buyToys(y, p);

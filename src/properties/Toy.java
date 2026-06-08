@@ -1,17 +1,19 @@
 package properties;
 
-public class Toys {
+public class Toy {
 	
 	private String name;
 	private String type;
 	private double price;
 	private int version;
+	private String icon; 
 	
-	public Toys(String name, String type, double price, int version) {
+	public Toy(String name, String type, double price, int version, String icon) {
 		this.name = name;
 		this.type = type;
 		this.price = price;
 		this.version = version;
+		this.icon = icon; 
 	}
 	
 	public String getName() {
@@ -28,6 +30,10 @@ public class Toys {
 	
 	public int getVersion() {
 		return version;
+	}
+	
+	public String getIcon() {
+		return icon; 
 	}
 
 }

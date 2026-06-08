@@ -57,7 +57,7 @@ public class Button{
 		}
 		else if(buttonPressed.equals("Play")) {
 			String ownedToys = pet.getToysStr();
-			Toys chosenToy = null;
+			Toy chosenToy = null;
 			
 			if(ownedToys.equals("")) {
 				JOptionPane.showMessageDialog(null, "Sorry, you don't own any toys. Go to the store to buy some!");

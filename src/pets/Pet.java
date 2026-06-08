@@ -1,5 +1,8 @@
 package pets;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import DrawingSurface.DrawingSurface;
 import properties.*;
 
@@ -12,6 +15,7 @@ public class Pet {
 	//Fields from UML
 	private String name;
 	private String type;
+	private String owner; 
 	
 	private int health;
 	private int hunger;
@@ -19,32 +23,34 @@ public class Pet {
 	private int rest;
 	private int hygiene;
 	
-	private Toys[] toys;
+	private Toy[] toys;
 	private double money;
 	private double expenses;
 	
-	private Health healthChanges;
-	
+	private ArrayList<Integer> receipt; 
+	private ArrayList<Object> inventory; 
 	
 	/**Constructor that initializes all of the fields. 
 	 * 
 	 * @param name name of pet
 	 * @param type animal type of pet
 	 */
-	public Pet(String name, String type) {
+	public Pet(String name, String type, String owner) {
 		this.name = name;
 		this.type = type;
+		this.owner = owner; 
 		health = 10;
 		hunger = 10;
 		emotion = 10;
 		rest = 10;
 		hygiene = 10;
 		
-		toys = new Toys[5];
+		toys = new Toy[5];
 		money = 100.00;
 		expenses = 0; 
-		
-		healthChanges = new Health(this);
+
+		receipt = new ArrayList<Integer>();
+		inventory = new ArrayList<Object>(); 
 	}
 	
 	
@@ -150,7 +156,7 @@ public class Pet {
 	 * Maximum of 5 toys in the list at once
 	 * @param newToy toy being added
 	 */
-	public void setToys(Toys newToy) {
+	public void setToys(Toy newToy) {
 		int numToys = 0;
 		
 		// Puts toy into next available spot in toys array
@@ -177,6 +183,14 @@ public class Pet {
         expenses += expense;
     }
 	
+	public void addToReceipt(int price) {
+		receipt.add(price);
+	}
+	
+	public void addToInventory(Object item) {
+		inventory.add(item); 
+	}
+	
 	// Getters
 	
 	/**
@@ -193,6 +207,14 @@ public class Pet {
 	 */
 	public String getType() {
 		return type;
+	}
+	
+	/**
+	 * Returns user name
+	 * @return user name
+	 */
+	public String getOwner() {
+		return owner;
 	}
 	
 	/**
@@ -274,10 +296,18 @@ public class Pet {
 	 * Returns pet toys as an array
 	 * @return array of Toys bought
 	 */
-	public Toys[] getToysArr() {
+	public Toy[] getToysArr() {
 		if(toys==null) {
 		}
 		return toys;
+	}
+	
+	public ArrayList<Integer> getReceipt() {
+		return receipt;
+	}
+	
+	public ArrayList<Object> getInventory() {
+		return inventory;
 	}
 	
 }

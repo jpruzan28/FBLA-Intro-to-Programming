@@ -24,7 +24,7 @@ public class Activities {
 		}
 	}
 	
-	public void play(Toys toy) {
+	public void play(Toy toy) {
 		
 		int version = toy.getVersion();
 		int currentEmotion = pet.getEmotion();

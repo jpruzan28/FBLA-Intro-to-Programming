@@ -11,9 +11,9 @@ public class Store {
 	private Food[] catFood;
 	
 	
-	private Toys[] dogToys;
-	private Toys[] fishToys;
-	private Toys[] catToys;
+	private Toy[] dogToys;
+	private Toy[] fishToys;
+	private Toy[] catToys;
 	
 	
 
@@ -31,14 +31,14 @@ public class Store {
 		
 		
 		// Toy Arrays
-		dogToys = new Toys[] {new Toys("Used Ball", "Dog", 4.00, 1), new Toys("Enchanted Chew Wand", "Dog", 25.00, 2),
-				new Toys("Goldenest Bone", "Dog", 90.00, 3)};
+		dogToys = new Toy[] {new Toy("Used Ball", "Dog", 4.00, 1, "Images/Toy_Icons/used_ball.png"), new Toy("Enchanted Chew Wand", "Dog", 25.00, 2, "Images/Toy_Icons/enchanted_wand.png"),
+				new Toy("Goldenest Bone", "Dog", 90.00, 3, "Images/Toy_Icons/golden_bone.png")};
 		
-		fishToys = new Toys[] {new Toys("Drift Ball", "Fish", 4.00, 1), new Toys("Biolume Bubble Machine", "Fish", 25.00, 2),
-				new Toys("Platinum Speaker", "Fish", 90.00, 3)};
+		fishToys = new Toy[] {new Toy("Drift Ball", "Fish", 4.00, 1, "Images/Toy_Icons/drift_ball.png"), new Toy("Biolume Bubble Machine", "Fish", 25.00, 2, "Images/Toy_Icons/bubble_machine.png"),
+				new Toy("Platinum Speaker", "Fish", 90.00, 3, "Images/Toy_Icons/plat_speaker.png")};
 		
-		catToys = new Toys[] {new Toys("Plain Kitty Sock", "Cat", 4.00, 1), new Toys("Laser Pointer", "Cat", 50.00, 2), 
-				new Toys("Legendary Airpods", "Cat", 90.00, 3)};
+		catToys = new Toy[] {new Toy("Plain Kitty Sock", "Cat", 4.00, 1, "Images/Toy_Icons/plain_sock.png"), new Toy("Laser Pointer", "Cat", 50.00, 2, "Images/Toy_Icons/laser_pointer.png"), 
+				new Toy("Legendary Airpods", "Cat", 90.00, 3, "Images/Toy_Icons/earbud.png")};
 
 	}
 	
@@ -57,7 +57,7 @@ public class Store {
 		}
 	}
 	
-	public void buyToys(Toys t, Pet p) {
+	public void buyToys(Toy t, Pet p) {
 		double m = p.getMoney();
 		
 		if(m < t.getPrice()) {
@@ -90,15 +90,15 @@ public class Store {
 	
 	
 	// Getters
-	public Toys[] getDogToys() {
+	public Toy[] getDogToys() {
 		return dogToys;
 	}
 	
-	public Toys[] getFishToys() {
+	public Toy[] getFishToys() {
 		return fishToys; 
 	}
 	
-	public Toys[] getCatToys() {
+	public Toy[] getCatToys() {
 		return catToys;
 	}
 	

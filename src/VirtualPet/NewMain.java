@@ -51,7 +51,7 @@ public class NewMain {
 	    
 	    
 	    // Creating the pet
-	   Pet pet = new Pet(petName, petType);
+	   Pet pet = new Pet(petName, petType, playerName);
 
 
 	    
