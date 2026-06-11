@@ -5,7 +5,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import pets.Pet;
-import properties.Toy;
+import properties.*;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -55,27 +55,39 @@ public class SummaryPanel extends JPanel {
         // --- ROW 3: TABLE 2 (Medium) ---
         gbc.gridy = 3; gbc.weighty = 0.3;
         String[] cols2 = {"Item", "Price", "Type"};
-        Object[][] data2 = new Object[pet.getReceipt().size()][3];
         
-        for(int i = 0; i < data2.length; i++) {
-        	if(pet.getInventory().get(i) instanceof Integer) {
-        		data2[i][0] = "Vet Visit";
-        		data2[i][1] = pet.getReceipt().get(i); 
-        		data2[i][2] = "Vet"; 
-        	}
-        	// Make this work for Food and Toy objects 
-        	/*else {
-        		data2[i][0] = pet.getInventory().get(i).getName();
-        		data2[i][1] = pet.getReceipt().get(i); 
-        		data2[i][2] = "Vet"; 
-        	}*/
+        int numToys = pet.getToysArr().length;
+        int numFoods = pet.getFood().size();
+        int vetVisits = pet.getVetVisits(); 
+        int receiptLength = numToys+numFoods+vetVisits;
+        Object[][] data2 = new Object[receiptLength][3];
+        
+        // Adding toys to the receipt table
+        for(int t = 0; t < numToys; t++) {
+        	Toy toy = pet.getToysArr()[t];
+        	data2[t][0] = toy.getName();
+        	data2[t][1] = "$" +toy.getPrice();
+        	data2[t][2] = toy.getType() + " Toy"; 
+        }
+        
+        // Adding food to the receipt table
+        for(int f = numToys; f < numToys+numFoods; f++) {
+        	Food food = pet.getFood().get(f); 
+        	data2[f][0] = food.getName();
+        	data2[f][1] = "$" +food.getPrice();
+        	data2[f][2] = food.getType() + " Food";
+
+        }
+        
+        // Adding vet visits to the receipt table
+        for(int v = numToys+numFoods; v < receiptLength; v++) {
+        	data2[v][0] = "Vet Visit";
+            data2[v][1] = "$20";
+            data2[v][2] = "Vet Visit";
+
         }
         	
-        	/*{
-                {"Laser Rifle", "450", "78%", "32"},
-                {"Plasma Cannon", "120", "45%", "12"}
-        };*/
-        mainPanel.add(createTableComponent("Combat Metrics", cols2, data2), gbc);
+        mainPanel.add(createTableComponent("Pet Statuses", cols2, data2), gbc);
 
         // --- ROW 4: TABLE 3 (Large) ---
         gbc.gridy = 4; gbc.weighty = 0.4;

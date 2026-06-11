@@ -27,8 +27,8 @@ public class Pet {
 	private double money;
 	private double expenses;
 	
-	private ArrayList<Integer> receipt; 
-	private ArrayList<Object> inventory; 
+	private ArrayList<Food> food; 
+	private int vetVisits; 
 	
 	/**Constructor that initializes all of the fields. 
 	 * 
@@ -49,8 +49,8 @@ public class Pet {
 		money = 100.00;
 		expenses = 0; 
 
-		receipt = new ArrayList<Integer>();
-		inventory = new ArrayList<Object>(); 
+		food = new ArrayList<Food>(); 
+		vetVisits = 0; 
 	}
 	
 	
@@ -183,12 +183,12 @@ public class Pet {
         expenses += expense;
     }
 	
-	public void addToReceipt(int price) {
-		receipt.add(price);
+	public void addFood(Food bought) {
+		food.add(bought);
 	}
 	
-	public void addToInventory(Object item) {
-		inventory.add(item); 
+	public void addVetVisit() {
+		vetVisits += 1; 
 	}
 	
 	// Getters
@@ -302,12 +302,12 @@ public class Pet {
 		return toys;
 	}
 	
-	public ArrayList<Integer> getReceipt() {
-		return receipt;
+	public ArrayList<Food> getFood() {
+		return food;
 	}
 	
-	public ArrayList<Object> getInventory() {
-		return inventory;
+	public int getVetVisits() {
+		return vetVisits;
 	}
 	
 }
