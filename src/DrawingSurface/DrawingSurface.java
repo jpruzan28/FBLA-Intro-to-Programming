@@ -1,16 +1,17 @@
 package DrawingSurface;
 
-import VirtualPet.*; 
-
 import java.awt.*;
 
 import javax.swing.*;
+
+import panels.*;
+
 import java.awt.event.*;
 import pets.Pet;
 import java.util.TimerTask;
 
 public class DrawingSurface implements ActionListener {
-    private JButton work, food, sleep, clean, vet, play, store;
+    private JButton work, food, sleep, clean, vet, play, store, exit;
     private Bar health, hunger, hygiene, rest, emotion;
     private Sprite sprite;
     private Bar[] bars;
@@ -28,7 +29,7 @@ public class DrawingSurface implements ActionListener {
     private JPanel homeScreen; 
     private JPanel storePanel;
     private JPanel storePanelFood;
-    private JPanel gameOverScreen;
+    private JPanel summaryPanel;
     
     private JDialog workPopUp;
 
@@ -58,7 +59,7 @@ public class DrawingSurface implements ActionListener {
         homeScreen = new JPanel();
         storePanel = new StorePanel(cardLayout, cardPanel, pet);
         storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
-        gameOverScreen = new GameOverPanel(cardLayout, cardPanel, pet);
+        summaryPanel = new SummaryPanel(cardLayout, cardPanel, pet);
 
         // Creates work popup
    /*     JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(null);
@@ -88,7 +89,7 @@ public class DrawingSurface implements ActionListener {
         cardPanel.add(homeScreen, "Home");
         cardPanel.add(storePanel, "Store");
         cardPanel.add(storePanelFood, "FStore");
-        cardPanel.add(gameOverScreen, "GameOver"); 
+        cardPanel.add(summaryPanel, "GameOver"); 
     }
     
     // Adds a background to the bottom layer
@@ -188,9 +189,9 @@ public class DrawingSurface implements ActionListener {
         isGameOver = true;
 
         SwingUtilities.invokeLater(() -> {
-            cardPanel.remove(gameOverScreen);
-            gameOverScreen = new GameOverPanel(cardLayout, cardPanel, pet);
-            cardPanel.add(gameOverScreen, "GameOver");
+            cardPanel.remove(summaryPanel);
+            summaryPanel = new SummaryPanel(cardLayout, cardPanel, pet);
+            cardPanel.add(summaryPanel, "GameOver");
             cardLayout.show(cardPanel, "GameOver");
         });
     }
@@ -223,6 +224,7 @@ public class DrawingSurface implements ActionListener {
         vet   = new JButton("Vet");
         play  = new JButton("Play");
         store = new JButton("Toy Store");
+        exit = new JButton("Exit"); 
         
         work.setBounds(1250,  260, 120, 40);
         food.setBounds(230, 820, 120, 40);
@@ -231,6 +233,7 @@ public class DrawingSurface implements ActionListener {
         vet.setBounds(1250, 350, 120, 40);
         play.setBounds(450, 460, 120, 40);
         store.setBounds(135,  310, 120, 40);
+        exit.setBounds(0, 0, 120, 40);
         
         work .setToolTipText("Answer questions to make money. Increases Total Savings. $10 per question right");
         food .setToolTipText("Food store to buy and feed food. Increases Hunger bar");
@@ -239,6 +242,7 @@ public class DrawingSurface implements ActionListener {
         vet  .setToolTipText("Cures pet. Increases Health bar");
         play .setToolTipText("Pick toy you own for pet to play with. Increases Emotion bar");
         store.setToolTipText("Toy store to buy toys");
+        exit.setToolTipText("End game");
 
         work .addActionListener(this);
         food .addActionListener(this);
@@ -247,7 +251,8 @@ public class DrawingSurface implements ActionListener {
         vet  .addActionListener(this);
         play .addActionListener(this);
         store.addActionListener(this);
-      
+        exit.addActionListener(this);
+
         layeredPane.add(work,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(food,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(sleep, JLayeredPane.PALETTE_LAYER);
@@ -255,6 +260,7 @@ public class DrawingSurface implements ActionListener {
         layeredPane.add(vet,   JLayeredPane.PALETTE_LAYER);
         layeredPane.add(play,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(store, JLayeredPane.PALETTE_LAYER);
+        layeredPane.add(exit, JLayeredPane.PALETTE_LAYER);
     }
     
     public static void errorMessage(String problem) {
@@ -270,7 +276,15 @@ public class DrawingSurface implements ActionListener {
         JButton button = (JButton)e.getSource();
         String bPressed = button.getText();
         
-        if (bPressed.equals("Work")) {
+        
+        if (bPressed.equals("Exit")) {
+        	SummaryPanel castedSummary = (SummaryPanel)summaryPanel; 
+        	castedSummary.setScreen(); 
+        	System.out.println("Changing to gameover/summary panel"); 
+        	cardLayout.show(cardPanel, "GameOver");
+        	
+        	
+        } else if (bPressed.equals("Work")) {
         	// Creates work popup
             WorkApp workPopUp = new WorkApp(null, pet);
             workPopUp.setVisible(true);

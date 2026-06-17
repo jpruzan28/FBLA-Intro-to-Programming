@@ -53,6 +53,7 @@ public class Store {
 		else {
 			p.setMoney(m - f.getPrice());
 			p.addExpenses(f.getPrice());
+			p.addFood(f);
 			f.feedPet(p);
 		}
 	}
@@ -83,6 +84,7 @@ public class Store {
 			p.setHealth(10);
 			p.setMoney(m -= 20);
 			p.addExpenses(20);
+			p.addVetVisit();
 
 			return true;
 		}

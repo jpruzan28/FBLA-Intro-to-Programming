@@ -25,10 +25,10 @@ public class Pet {
 	
 	private Toy[] toys;
 	private double money;
-	private double expenses;
+	private double expenses; 
 	
-	private ArrayList<Food> food; 
-	private int vetVisits; 
+	private ArrayList<Food> food; // include somewhere 
+	private int vetVisits; // include somewhere 
 	
 	/**Constructor that initializes all of the fields. 
 	 * 

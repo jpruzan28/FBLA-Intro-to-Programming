@@ -1,4 +1,4 @@
-package VirtualPet;
+package panels;
 
 import java.awt.CardLayout;
 import java.awt.Color;

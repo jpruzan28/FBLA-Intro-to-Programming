@@ -1,4 +1,4 @@
-package VirtualPet;
+package panels;
 
 import DrawingSurface.Bar;
 

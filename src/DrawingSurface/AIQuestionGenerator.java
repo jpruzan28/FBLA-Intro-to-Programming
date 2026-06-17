@@ -21,7 +21,7 @@ public class AIQuestionGenerator {
 	        String epath = "C:/Users/nekoa/OneDrive/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties";
 	        String jpath = "C:/Users/jasmi/Documents/GitHub/FBLA-Intro-to-Programming/src/DrawingSurface/config.properties";
 	        
-	        props.load(new FileInputStream(epath));	       
+	        props.load(new FileInputStream(jpath));	       
 
 	        return props.getProperty("APIKEY");
 	        
