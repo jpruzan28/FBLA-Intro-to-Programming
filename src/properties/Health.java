@@ -85,7 +85,7 @@ public class Health {
 	public void remindVetVisit() { //maybe put this in future time class, checks every time health is changed
 		int totalHealth = pet.getHealth();
 
-		if (totalHealth <= 2) {
+		if (totalHealth <= 2 && totalHealth != 0) {
 		    JOptionPane.showMessageDialog(null, "URGENT! You need to take your pet to the vet immediatley");
 		}
 	}
