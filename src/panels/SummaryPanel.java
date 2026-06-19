@@ -31,6 +31,8 @@ public class SummaryPanel extends JPanel {
         //GridBagConstraints 
         gbc = new GridBagConstraints();
         
+        //setScreen2();
+    }
 //        gbc.insets = new Insets(10, 10, 10, 10);
 //        gbc.fill = GridBagConstraints.BOTH;
 //
@@ -47,9 +49,9 @@ public class SummaryPanel extends JPanel {
 //
 //        // --- ROW 1: TEXT BLOCK 2 (Full Width) ---
 //        gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 2; gbc.weightx = 1.0; gbc.weighty = 0.1;
-//        /*mainPanel.add(createTextBlock("Campaign Notes", 
+//       mainPanel.add(createTextBlock("Campaign Notes", 
 //                "During this session, you successfully defended the northern outpost.\n" +
-//                "Unlocked Tier 3 modifications and earned the 'Unstoppable' badge."), gbc);*/
+//                "Unlocked Tier 3 modifications and earned the 'Unstoppable' badge."), gbc);
 //
 //        // Pet statuses (table) 
 //        gbc.gridy = 2; gbc.weighty = 0.2;
@@ -109,7 +111,7 @@ public class SummaryPanel extends JPanel {
 //        
 //        // 4. Add the scroll pane directly to THIS panel instance
 //        add(rootScrollPane, BorderLayout.CENTER);
-    }
+//    }
     
     public void setScreen() {
         mainPanel.removeAll();
@@ -192,7 +194,7 @@ public class SummaryPanel extends JPanel {
         System.out.println("Receipt table");
 
         // --- ROW 4: TABLE 3 (Large) ---
-        /*gbc.gridy = 4; gbc.weighty = 0.4;
+        gbc.gridy = 4; gbc.weighty = 0.4;
         String[] cols3 = {"Icon", "Toy", "Type", "Match"};
         Object[][] data3 = {{"Iron Ore", "Common", "45"}, {"Enchanted Ruby", "Rare", "2"}};
         mainPanel.add(createToyTableWithImages("Toys Summary", cols3, pet.getToysArr(), pet.getToysArr().length), gbc);
@@ -204,10 +206,10 @@ public class SummaryPanel extends JPanel {
         // 4. Add the scroll pane directly to THIS panel instance
         add(rootScrollPane, BorderLayout.CENTER);
 
-        System.out.println("Toy table");*/
+        System.out.println("Toy table");
         
-        mainPanel.revalidate(); // Tells layout manager to re-calculate
-        mainPanel.repaint();    // Tells Swing to draw the new state 
+        //mainPanel.revalidate(); // Tells layout manager to re-calculate
+       // mainPanel.repaint();    // Tells Swing to draw the new state 
 
     }
 
