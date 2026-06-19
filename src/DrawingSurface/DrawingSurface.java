@@ -189,9 +189,12 @@ public class DrawingSurface implements ActionListener {
         isGameOver = true;
 
         SwingUtilities.invokeLater(() -> {
-            cardPanel.remove(summaryPanel);
+          /*  cardPanel.remove(summaryPanel);
             summaryPanel = new SummaryPanel(cardLayout, cardPanel, pet);
-            cardPanel.add(summaryPanel, "GameOver");
+            
+            cardPanel.add(summaryPanel, "GameOver");*/
+            SummaryPanel castedSummary = (SummaryPanel)summaryPanel; 
+        	castedSummary.setScreen2(); 
             cardLayout.show(cardPanel, "GameOver");
         });
     }
@@ -279,7 +282,7 @@ public class DrawingSurface implements ActionListener {
         
         if (bPressed.equals("Exit")) {
         	SummaryPanel castedSummary = (SummaryPanel)summaryPanel; 
-        	castedSummary.setScreen(); 
+        	castedSummary.setScreen2(); 
         	System.out.println("Changing to gameover/summary panel"); 
         	cardLayout.show(cardPanel, "GameOver");
         	

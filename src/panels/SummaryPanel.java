@@ -112,6 +112,14 @@ public class SummaryPanel extends JPanel {
     }
     
     public void setScreen() {
+        mainPanel.removeAll();
+        mainPanel.add(new JButton("TEST BUTTON"));
+        mainPanel.revalidate();
+        mainPanel.repaint();
+    }
+    public void setScreen2() {
+    //	mainPanel.removeAll(); // Clear existing
+    	
     	gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.BOTH;
 
@@ -184,7 +192,7 @@ public class SummaryPanel extends JPanel {
         System.out.println("Receipt table");
 
         // --- ROW 4: TABLE 3 (Large) ---
-        gbc.gridy = 4; gbc.weighty = 0.4;
+        /*gbc.gridy = 4; gbc.weighty = 0.4;
         String[] cols3 = {"Icon", "Toy", "Type", "Match"};
         Object[][] data3 = {{"Iron Ore", "Common", "45"}, {"Enchanted Ruby", "Rare", "2"}};
         mainPanel.add(createToyTableWithImages("Toys Summary", cols3, pet.getToysArr(), pet.getToysArr().length), gbc);
@@ -196,7 +204,10 @@ public class SummaryPanel extends JPanel {
         // 4. Add the scroll pane directly to THIS panel instance
         add(rootScrollPane, BorderLayout.CENTER);
 
-        System.out.println("Toy table");
+        System.out.println("Toy table");*/
+        
+        mainPanel.revalidate(); // Tells layout manager to re-calculate
+        mainPanel.repaint();    // Tells Swing to draw the new state 
 
     }
 

@@ -72,12 +72,9 @@ public class AIQuestionGenerator {
 
 		    JSONObject json = new JSONObject(responseBody);
 		    
-		    System.out.println(responseBody);
-
 		    
 		    String text = json.getJSONArray("content").getJSONObject(0).getString("text");
 		    text = text.replace("```json", "").replace("```", "").trim();
-		    System.out.println(text);
 		    return text;
 		    
 		} catch (Exception e) {
