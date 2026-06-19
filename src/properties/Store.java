@@ -21,24 +21,24 @@ public class Store {
 		
 		// Food Arrays
 		dogFood = new Food[] {new Food("Kibble Crunch", "Dog", 10.00, 1), new Food("Salmon Delight", "Dog", 50.00, 2),
-				new Food("Golden Chicken Nuggets", "Dog", 100.00, 3)};
+				new Food("Gold Nuggets", "Dog", 100.00, 3)};
 		
 		fishFood = new Food[] {new Food("Flakes", "Fish", 10.00, 1), new Food("Algae Crisps", "Fish", 20.00, 2),
-				 new Food("Deep Abyss Infusion", "Fish", 100.00, 3)};
+				 new Food("Abyss Infusion", "Fish", 100.00, 3)};
 		
-		catFood = new Food[] {new Food("Five Fish Kibble", "Cat", 10.00, 1),
-				new Food("Turkey and Cranberry Treats", "Cat", 50.00, 2), new Food("A Golden Rat", "Cat", 100.00, 3)};
+		catFood = new Food[] {new Food("Fish Kibble", "Cat", 10.00, 1),
+				new Food("Turkey Treats", "Cat", 50.00, 2), new Food("A Golden Rat", "Cat", 100.00, 3)};
 		
 		
 		// Toy Arrays
-		dogToys = new Toy[] {new Toy("Used Ball", "Dog", 4.00, 1, "Images/Toy_Icons/used_ball.png"), new Toy("Enchanted Chew Wand", "Dog", 25.00, 2, "Images/Toy_Icons/enchanted_wand.png"),
-				new Toy("Goldenest Bone", "Dog", 90.00, 3, "Images/Toy_Icons/golden_bone.png")};
+		dogToys = new Toy[] {new Toy("Used Ball", "Dog", 4.00, 1, "Images/Toy_Icons/used_ball.png"), new Toy("Chew Wand", "Dog", 25.00, 2, "Images/Toy_Icons/enchanted_wand.png"),
+				new Toy("Gold Bone", "Dog", 90.00, 3, "Images/Toy_Icons/golden_bone.png")};
 		
-		fishToys = new Toy[] {new Toy("Drift Ball", "Fish", 4.00, 1, "Images/Toy_Icons/drift_ball.png"), new Toy("Biolume Bubble Machine", "Fish", 25.00, 2, "Images/Toy_Icons/bubble_machine.png"),
-				new Toy("Platinum Speaker", "Fish", 90.00, 3, "Images/Toy_Icons/plat_speaker.png")};
+		fishToys = new Toy[] {new Toy("Drift Ball", "Fish", 4.00, 1, "Images/Toy_Icons/drift_ball.png"), new Toy("Bubble Maker", "Fish", 25.00, 2, "Images/Toy_Icons/bubble_machine.png"),
+				new Toy("Super Speaker", "Fish", 90.00, 3, "Images/Toy_Icons/plat_speaker.png")};
 		
-		catToys = new Toy[] {new Toy("Plain Kitty Sock", "Cat", 4.00, 1, "Images/Toy_Icons/plain_sock.png"), new Toy("Laser Pointer", "Cat", 50.00, 2, "Images/Toy_Icons/laser_pointer.png"), 
-				new Toy("Legendary Airpods", "Cat", 90.00, 3, "Images/Toy_Icons/earbud.png")};
+		catToys = new Toy[] {new Toy("Plain Sock", "Cat", 4.00, 1, "Images/Toy_Icons/plain_sock.png"), new Toy("Laser Pointer", "Cat", 50.00, 2, "Images/Toy_Icons/laser_pointer.png"), 
+				new Toy("Rad Airpods", "Cat", 90.00, 3, "Images/Toy_Icons/earbud.png")};
 
 	}
 	

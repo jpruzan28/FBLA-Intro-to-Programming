@@ -48,16 +48,16 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	    	  // Dog food buttons
 	        kibbleCrunch        = new ItemButton("Kibble Crunch",         "Cost: $10.00", "Level: 1", "Images/Toy_Icons/dog1.png");
 	        salmonDelight       = new ItemButton("Salmon Delight",        "Cost: $50.00", "Level: 2", "Images/Toy_Icons/dog2.png");
-	        goldenChickenNuggets = new ItemButton("Golden Chicken Nuggets","Cost: $100.00","Level: 3", "Images/Toy_Icons/dog3.png");
+	        goldenChickenNuggets = new ItemButton("Gold Nuggets","Cost: $100.00","Level: 3", "Images/Toy_Icons/dog3.png");
 
 	        // Fish food buttons
 	        flakes              = new ItemButton("Flakes",                "Cost: $10.00", "Level: 1", "Images/Toy_Icons/fish1.png");
-	        algaeCrisps     = new ItemButton("algaeCrisps",      "Cost: $50.00", "Level: 2", "Images/Toy_Icons/fish2.png");
-	        deepAbyssInfusion   = new ItemButton("Deep Abyss Infusion",   "Cost: $100.00","Level: 3", "Images/Toy_Icons/fish3.png");
+	        algaeCrisps     = new ItemButton("Algea Crisps",      "Cost: $50.00", "Level: 2", "Images/Toy_Icons/fish2.png");
+	        deepAbyssInfusion   = new ItemButton("Abyss Infusion",   "Cost: $100.00","Level: 3", "Images/Toy_Icons/fish3.png");
 
 	        // Cat food buttons
-	        fiveFishKibble          = new ItemButton("Five Fish Kibble",          "Cost: $10.00", "Level: 1", "Images/Toy_Icons/cat1.png");
-	        turkeyAndCranberryTreats = new ItemButton("Turkey And Cranberry Treats","Cost: $50.00","Level: 2", "Images/Toy_Icons/cat2.png");
+	        fiveFishKibble          = new ItemButton("Fish Kibble",          "Cost: $10.00", "Level: 1", "Images/Toy_Icons/cat1.png");
+	        turkeyAndCranberryTreats = new ItemButton("Turkey Treats","Cost: $50.00","Level: 2", "Images/Toy_Icons/cat2.png");
 	        aGoldenRat              = new ItemButton("A Golden Rat",              "Cost: $100.00","Level: 3", "Images/Toy_Icons/cat3.png");
 
 
