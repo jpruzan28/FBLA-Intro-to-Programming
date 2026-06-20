@@ -1,5 +1,6 @@
 package pets;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,6 +17,7 @@ public class Pet {
 	private String name;
 	private String type;
 	private String owner; 
+	private Image icon; 
 	
 	private int health;
 	private int hunger;
@@ -39,6 +41,8 @@ public class Pet {
 		this.name = name;
 		this.type = type;
 		this.owner = owner; 
+		
+		icon = null; 
 		health = 10;
 		hunger = 10;
 		emotion = 10;
@@ -175,6 +179,10 @@ public class Pet {
 		}
 	}
 	
+	public void setIcon(Image newIcon) {
+		icon = newIcon; 
+	}
+	
 	/**
 	 * Increments expenses to keep track of them
 	 * @param expense amount added to current expenses
@@ -217,6 +225,9 @@ public class Pet {
 		return owner;
 	}
 	
+	public Image getIcon() {
+		return icon; 
+	}
 	/**
 	 * Returns pet health
 	 * @return health amount

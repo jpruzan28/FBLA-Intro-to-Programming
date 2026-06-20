@@ -302,6 +302,6 @@ public class DrawingSurface implements ActionListener {
             Button newButton = new Button(pet, bPressed);
             newButton.actionPerformed();
         }
-         //updateMoneyDisplay();
+        updateMoneyDisplay();
     }
 }

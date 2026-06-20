@@ -66,30 +66,51 @@ public class Sprite extends JPanel {
 
         if (petType.equalsIgnoreCase("cat")) {
             if (emotion >= 8) {
-                g.drawImage(happyCat, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(happyCat);
+              //  g.drawImage(pet.getIcon(), 0, 0, getWidth(), getHeight(), this);
             } else if (emotion <= 3) {
-                g.drawImage(unhappyCat, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(unhappyCat);
+
+                //g.drawImage(unhappyCat, 0, 0, getWidth(), getHeight(), this);
             } else {
-                g.drawImage(neutralCat, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(neutralCat);
+
+                //g.drawImage(neutralCat, 0, 0, getWidth(), getHeight(), this);
             }
 
         } else if (petType.equalsIgnoreCase("dog")) {
             if (emotion >= 8) {
-                g.drawImage(happyDog, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(happyDog);
+
+            //    g.drawImage(happyDog, 0, 0, getWidth(), getHeight(), this);
             } else if (emotion <= 3) {
-                g.drawImage(unhappyDog, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(unhappyDog);
+
+            //    g.drawImage(unhappyDog, 0, 0, getWidth(), getHeight(), this);
             } else {
-                g.drawImage(neutralDog, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(neutralDog);
+
+             //   g.drawImage(neutralDog, 0, 0, getWidth(), getHeight(), this);
             }
 
         } else if (petType.equalsIgnoreCase("fish")) {
             if (emotion >= 8) {
-                g.drawImage(happyFish, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(happyFish);
+
+             //   g.drawImage(happyFish, 0, 0, getWidth(), getHeight(), this);
             } else if (emotion <= 3) {
-                g.drawImage(unhappyFish, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(unhappyFish);
+
+            //    g.drawImage(unhappyFish, 0, 0, getWidth(), getHeight(), this);
             } else {
-                g.drawImage(neutralFish, 0, 0, getWidth(), getHeight(), this);
+            	pet.setIcon(neutralFish);
+
+                //g.drawImage(neutralFish, 0, 0, getWidth(), getHeight(), this);
             }
+            
+
         }
+        g.drawImage(pet.getIcon(), 0, 0, getWidth(), getHeight(), this);
+
     }
 }
