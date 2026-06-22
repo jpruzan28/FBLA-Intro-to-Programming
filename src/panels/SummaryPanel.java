@@ -151,35 +151,33 @@ public class SummaryPanel extends JPanel {
     private JPanel buildPetCard() {
         JPanel p = card();
         p.setLayout(new BorderLayout());
-
+ 
         p.add(sectionHeader("Your Pet"), BorderLayout.NORTH);
-
-        JPanel body = new JPanel();
-        body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
-        body.setOpaque(false);
-
-        // Portrait — tries to load the pet's own image; falls back to a circle avatar
+ 
+        // Portrait fills all remaining space — it scales up or down with the window
         JComponent portrait = buildPortrait();
-
+        portrait.setOpaque(false);
+        p.add(portrait, BorderLayout.CENTER);
+ 
+        // Name + info always visible at the bottom, fixed height
+        JPanel bottom = new JPanel();
+        bottom.setLayout(new BoxLayout(bottom, BoxLayout.Y_AXIS));
+        bottom.setOpaque(false);
+        bottom.setBorder(BorderFactory.createEmptyBorder(8, 0, 0, 0));
+ 
         JLabel nameLbl = lbl(pet.getName(), new Font("Segoe UI", Font.BOLD, 32), TXT_DARK);
         nameLbl.setAlignmentX(CENTER_ALIGNMENT);
-
-        body.add(Box.createVerticalGlue());
-        body.add(portrait);
-        body.add(Box.createVerticalStrut(8));
-        body.add(nameLbl);
-        // Glue here pushes the info grid down evenly, filling the card height
-        body.add(Box.createVerticalGlue());
-
-        // Info grid
+        bottom.add(nameLbl);
+        bottom.add(Box.createVerticalStrut(10));
+ 
         JPanel grid = new JPanel(new GridBagLayout());
         grid.setOpaque(false);
         grid.setAlignmentX(CENTER_ALIGNMENT);
-
+ 
         GridBagConstraints g = new GridBagConstraints();
         g.anchor = GridBagConstraints.WEST;
         g.insets = new Insets(8, 4, 8, 18);
-
+ 
         String[][] rows = {
             { "Owner",    pet.getOwner()                    },
             { "Pet Type", pet.getType()                     },
@@ -191,11 +189,9 @@ public class SummaryPanel extends JPanel {
             g.gridx = 1;
             grid.add(lbl(rows[i][1],        new Font("Segoe UI", Font.PLAIN, 20), TXT_DARK),  g);
         }
-
-        body.add(grid);
-        body.add(Box.createVerticalGlue());
-
-        p.add(body, BorderLayout.CENTER);
+        bottom.add(grid);
+ 
+        p.add(bottom, BorderLayout.SOUTH);
         return p;
     }
 
@@ -576,15 +572,38 @@ public class SummaryPanel extends JPanel {
      * Swap pet.getIcon() for whichever method your Pet class uses to expose its image path.
      */
     private JComponent buildPortrait() {
+        // Try to load the pet's image
         try {
-            ImageIcon raw = new ImageIcon(pet.getIcon());
-            Image scaled = raw.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
-            JLabel img = new JLabel(new ImageIcon(scaled));
-            img.setAlignmentX(CENTER_ALIGNMENT);
-            return img;
+            Image img = new ImageIcon(pet.getIcon()).getImage();
+            // Verify the image actually loaded (width > 0)
+            if (img != null && img.getWidth(null) > 0) {
+                JPanel imagePanel = new JPanel() {
+                    @Override
+                    protected void paintComponent(Graphics g) {
+                        super.paintComponent(g);
+                        Graphics2D g2 = (Graphics2D) g.create();
+                        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+                                            RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+                        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                                            RenderingHints.VALUE_ANTIALIAS_ON);
+                        int iw = img.getWidth(null), ih = img.getHeight(null);
+                        // Scale to fit inside component bounds, preserving aspect ratio
+                        double scale = Math.min(getWidth() / (double) iw,
+                                                getHeight() / (double) ih);
+                        int sw = (int) (iw * scale), sh = (int) (ih * scale);
+                        g2.drawImage(img,
+                                (getWidth()  - sw) / 2,
+                                (getHeight() - sh) / 2,
+                                sw, sh, null);
+                        g2.dispose();
+                    }
+                };
+                imagePanel.setOpaque(false);
+                return imagePanel;
+            }
         } catch (Exception ignored) {}
-
-        // Fallback: circle with the pet's initial
+ 
+        // Fallback: circle with the pet's initial, scales automatically
         JPanel circle = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -599,7 +618,7 @@ public class SummaryPanel extends JPanel {
                 g2.fillOval(x, y, d, d);
                 String initial = pet.getName().isEmpty() ? "?"
                         : String.valueOf(pet.getName().charAt(0)).toUpperCase();
-                g2.setFont(new Font("Segoe UI", Font.BOLD, d / 2));
+                g2.setFont(new Font("Segoe UI", Font.BOLD, Math.max(d / 2, 1)));
                 FontMetrics fm = g2.getFontMetrics();
                 g2.setColor(TXT_MID);
                 g2.drawString(initial,
@@ -609,9 +628,6 @@ public class SummaryPanel extends JPanel {
             }
         };
         circle.setOpaque(false);
-        circle.setPreferredSize(new Dimension(100, 100));
-        circle.setMaximumSize(new Dimension(100, 100));
-        circle.setAlignmentX(CENTER_ALIGNMENT);
         return circle;
     }
 

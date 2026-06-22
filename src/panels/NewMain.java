@@ -2,11 +2,13 @@ package panels;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.Timer;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +19,11 @@ import DrawingSurface.*;
 public class NewMain {
 
 	public static void main(String[] args) {
+		// Sets fonts for popups and makes them bigger
+		UIManager.put("OptionPane.messageFont", new Font("SansSerif", Font.BOLD, 25));
+		UIManager.put("OptionPane.buttonFont", new Font("SansSerif", Font.PLAIN, 20));
+		UIManager.put("TextField.font", new Font("SansSerif", Font.PLAIN, 23));
+		
 		JFrame frame = new JFrame(); 
 		
 		frame.setTitle("Virtual Pet");
