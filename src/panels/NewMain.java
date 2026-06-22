@@ -2,11 +2,13 @@ package panels;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.Timer;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +19,11 @@ import DrawingSurface.*;
 public class NewMain {
 
 	public static void main(String[] args) {
+		// Sets fonts for popups and makes them bigger
+		UIManager.put("OptionPane.messageFont", new Font("SansSerif", Font.BOLD, 25));
+		UIManager.put("OptionPane.buttonFont", new Font("SansSerif", Font.PLAIN, 20));
+		UIManager.put("TextField.font", new Font("SansSerif", Font.PLAIN, 23));
+		
 		JFrame frame = new JFrame(); 
 		
 		frame.setTitle("Virtual Pet");
@@ -36,11 +43,31 @@ public class NewMain {
 	    
 	    // Ensures the user only enters a valid pet option
 	    String petType = "";
-	    while(!(petType.equals("cat")) && !(petType.equals("dog")) && !(petType.equals("fish"))) {
-		     petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
+	    while(!(petType.equals("Dog")) && !(petType.equals("Cat")) && !(petType.equals("Fish"))) {
+		     //petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
 		
-		    if(!(petType.equals("cat")) && !(petType.equals("dog")) && !(petType.equals("fish"))) {
-			    JOptionPane.showMessageDialog(null, "Sorry that pet is not an option, please enter an available option");
+	    	String[] options = {"Dog", "Cat", "Fish"};
+
+	    	int choice = JOptionPane.showOptionDialog(
+	    	    null,                            // parent (null = center on screen)
+	    	    "Which pet would you like?",     // the message
+	    	    "Choose Your Pet",               // the title bar text
+	    	    JOptionPane.DEFAULT_OPTION,      // option type
+	    	    JOptionPane.QUESTION_MESSAGE,    // icon shown (the little ?)
+	    	    null,                            // custom icon (null = use default)
+	    	    options,                         // your button labels
+	    	    null                             // no button highlighted by default
+	    	);
+
+	    	if (choice == JOptionPane.CLOSED_OPTION) {
+	    	    petType = null;                   // user closed with the X
+	    	} else {
+	    	    petType = options[choice];        // "Dog", "Cat", or "Fish"
+	    	}
+	    	
+	    	
+		    if(petType == null) {
+			    JOptionPane.showMessageDialog(null, "Sorry that is not an option, please click an available option");
 
 		    }
 	    }
