@@ -8,240 +8,150 @@ Language: Java | GUI: Java Swing
 
 OVERVIEW
 
-Virtual Pet Game is a desktop Java application where players
-care for a digital pet of their choosing. You can adopt a dog,
-cat, or fish, then keep it alive and happy by managing five
-core stats: health, hunger, emotion, rest, and hygiene. Stats
-are interconnected, so neglecting one will drag others down.
-You earn money over time by performing care actions, which you
-can spend at the in-game store on food and toys.
+Virtual Pet Game is a desktop Java application where players adopt and care for a digital pet of their choice: a Dog, a Cat, or a Fish. The goal of the game is to keep your companion happy and healthy by managing five interconnected vital statistics: health, hunger, emotion, rest, and hygiene.
+
+The game features a realistic financial system where players must balance a budget. Actions like feeding or playing cost money, and total expenditures are tracked live. To support your pet's lifestyle, you can earn money by completing tasks or financial literacy quizzes, adding an educational layer to your pet care routine. The game ends if your pet's vitals are neglected, leading to a final session summary where you can review your financial choices and export your records.
 
 ================================================================
 
 GETTING STARTED
 
 Prerequisites:
-- Java 8 or higher
-- Java Swing (included with the standard JDK)
-- An IDE such as Eclipse, IntelliJ IDEA, or VS Code with Java
+
+Java 11 or higher
+
+The external org.json library dependency added to your project's build path (required for processing question and item data structures)
+
+A Java-supported IDE (such as Eclipse, IntelliJ IDEA, or VS Code)
 
 To run the application:
-1. Clone or download the project repository.
-2. Open it in your Java IDE.
-3. Navigate to the VirtualPet package and run the main class.
-4. Follow the on-screen prompts to name your pet and choose
-   its type: Dog, Cat, or Fish.
+
+Download or clone the project source files.
+
+Open the project folder inside your Java IDE.
+
+Ensure the external library (org.json JAR) is added to your project's build path.
+
+Make sure your asset files are placed in their respective asset resource folders (e.g., Images/Pet_Sprites/ and Images/Toy_Icons/).
+
+Run the main class file to launch the application.
+
+Follow the on-screen setup prompts to create your player profile, name your new pet, and pick its species.
 
 ================================================================
 
 PROJECT STRUCTURE
 
 pets
-  Contains the Pet class, the core data model holding all pet
-  state including stats, money, and toy inventory.
+Contains the Pet class, which serves as the core data model holding all live data variables including stats, wallet balances, and inventory slots.
+
+panels
+Contains the user interface screen panels and custom dialog setups for the marketplace modules (StorePanel and StorePanelFood), the earning screens, and the post-game data ledger.
 
 properties
-  Contains all game logic classes: Food, Toys, Store, Health,
-  Emotion, and Activities.
+Contains the primary game simulation logic, calculation engines, and blueprint definitions: Food, Toy, Store, Activities, Health, and Emotion.
 
 DrawingSurface
-  Contains GUI handler classes including Button, which wires
-  user interface actions to game logic.
-
-VirtualPet
-  Entry point package containing the main class that launches
-  the application.
+Contains the top-level GUI container, graphics rendering hooks, custom background panels, layout manager files, and visual button styles.
 
 ================================================================
 
 CLASS REFERENCE
 
-----------------------------------------------------------------
-Pet  (pets.Pet)
-----------------------------------------------------------------
-The central data model of the game. Every piece of pet state
-is stored and managed here.
+Pet (pets.Pet)
+The primary data hub of the application. It acts as the single source of truth for your pet's current state. It initializes your pet with its name and animal type, tracks the active balance in your wallet, logs total accrued expenses, and holds arrays of purchased items. All five vital stats range from 0 to 10. The core setter methods automatically cap values at a maximum of 10 and trigger real-time updates across dependent stat systems.
 
-The pet is initialized with a name and type. All five stats
-(health, hunger, emotion, rest, hygiene) start at 10. The pet
-starts with $100.00 and an empty toy inventory with a max of
-5 slots.
+Health (properties.Health)
+Monages how changes in hunger, rest, and hygiene passively impact your pet's overall health bar. If core needs like hunger drop to zero, health decreases rapidly. When needs are well-maintained, health slowly recovers over time. If your pet's health drops to 2 or below, normal items can no longer restore it; the system locks standard recovery and displays an urgent notification window warning you that an immediate veterinary visit is required.
 
-All stat setters cap values at a maximum of 10. Calling
-setHunger(), setRest(), or setHygiene() automatically triggers
-the Health class to recalculate health. If all 5 toy slots are
-full when setToys() is called, an error message is shown and
-no toy is added.
+Emotion (properties.Emotion)
+Calculates your companion's general happiness and mood behavior. It dynamically reads your pet's current vitals to update their emotional status. If any vital statistic falls to 3 or below, emotion is automatically forced to a low level, causing the pet's sprite graphic to change to a sad face. If all physical needs are successfully maintained at 7 or above, your pet receives a massive happiness boost and updates to a happy animation frame.
 
-----------------------------------------------------------------
-Health  (properties.Health)
-----------------------------------------------------------------
-Manages how changes in hunger, rest, and hygiene affect the
-pet's health stat. Called automatically when those stats change.
+Food (properties.Food)
+Defines purchasable food items, tracking their name, price, target animal type, and quality tier. When you feed your pet an item that matches its species, its hunger meter is replenished according to the item's quality level. However, if you feed a pet the wrong item type (such as giving fish flakes to a dog), the pet only receives half of the nutritional value, and its health decreases due to an incompatible diet.
 
-Hunger impact on health:
-  - Hunger = 0         health -5
-  - Hunger = 1 to 2    health -3
-  - Hunger = 3 to 4    health -2
-  - Hunger = 5 to 10   health +2
+Available Dog Food:
 
-Rest impact on health:
-  - Rest = 0           health -5
-  - Rest = 1 to 4      health -1
-  - Rest = 5 to 7      health +2
-  - Rest = 8 to 10     health +3
+Kibble Crunch ($10.00)
 
-Hygiene impact on health:
-  - Hygiene = 0        health -5
-  - Hygiene = 1 to 4   health -1
-  - Hygiene = 5 to 10  health +2
+Salmon Delight ($50.00)
 
-If health is at or below 2, stat changes no longer reduce it
-further. Only a vet visit can restore health at that point.
-remindVetVisit() shows an urgent dialog when health hits 2
-or below.
+Gold Nuggets ($100.00)
 
-----------------------------------------------------------------
-Emotion  (properties.Emotion)
-----------------------------------------------------------------
-Calculates the pet's happiness based on all other stats.
+Available Fish Food:
 
-If any stat among health, hunger, rest, or hygiene is 3 or
-below, emotion is forced down to 3.
+Flakes ($10.00)
 
-If all four of those stats are 7 or above, emotion gains +7.
+Algae Crisps ($50.00)
 
-Otherwise emotion remains unchanged.
+Abyss Infusion ($100.00)
 
-----------------------------------------------------------------
-Food  (properties.Food)
-----------------------------------------------------------------
-Represents a purchasable food item with a name, target animal
-type, price, and version (quality tier 1 through 4).
+Available Cat Food:
 
-If food type matches the pet type, hunger increases by:
-  Version 1 -> +2
-  Version 2 -> +4
-  Version 3 -> +6
-  Version 4 -> +8
+Fish Kibble ($10.00)
 
-If food type does NOT match, the pet gains half the hunger
-benefit and health is reduced by the same amount.
+Turkey Treats ($50.00)
 
-Dog food:
-  Kibble Crunch ($10), Beef and Veggie Mix ($20),
-  Chicken Feast ($30), Salmon Delight ($50),
-  Lamb and Rice Bowl ($70), Golden Chicken Nuggets ($100)
+A Golden Rat ($100.00)
 
-Fish food:
-  Flakes ($10), Algae Crisps ($20), Shrimp Pellets ($30),
-  Spirulina Flakes ($50), Caviar Pearls ($70),
-  Deep Abyss Infusion ($100)
+Toy (properties.Toy)
+Defines interactive items that can be bought, collected, and stored within your pet's inventory. Playing with toys is the primary method for raising your pet's emotion level. Like food items, toys are categorized by species type and tier level to ensure appropriate playtime interactions.
 
-Cat food:
-  Five Fish Kibble ($10), Veggie Medley ($20),
-  Expensive Melk ($30), Turkey and Cranberry Treats ($50),
-  Bluefin Tuna Steak ($70), A Golden Rat ($100)
+Available Dog Toys:
 
-----------------------------------------------------------------
-Toys  (properties.Toys)
-----------------------------------------------------------------
-Represents a purchasable toy with a name, target animal type,
-price, and version (quality tier 1 through 4). Toys are stored
-in the pet's inventory and chosen during play activities.
+Used Ball ($4.00)
 
-Dog toys:
-  Used Ball ($4), Rubber Chew Bone ($8),
-  Enchanted Chew Wand ($25), Guardian Plus Bear ($50),
-  Dog God Worship Altar ($70), Goldenest Bone ($90)
+Chew Wand ($25.00)
 
-Fish toys:
-  Drift Ball ($4), Shell Hideout ($8),
-  Biolume Bubble Machine ($25), Robotic Friend ($50),
-  Ancient Calming Bell ($70), Platinum Speaker ($90)
+Gold Bone ($90.00)
 
-Cat toys:
-  Plain Kitty Sock ($4), Jingle Mouse ($8),
-  Corner Scratch Post ($25), Laser Pointer ($50),
-  Quarter Zip ($70), Legendary Airpods ($90)
+Available Fish Toys:
 
-----------------------------------------------------------------
-Store  (properties.Store)
-----------------------------------------------------------------
-The in-game shop. Holds all food and toy inventories for each
-animal type and handles all purchase transactions.
+Drift Ball ($4.00)
 
-buyFood()    Deducts the food price from pet money, records
-             the expense, and feeds the pet immediately.
+Bubble Maker ($25.00)
 
-buyToys()    Deducts the toy price, records the expense, and
-             adds the toy to the pet's inventory.
+Super Speaker ($90.00)
 
-vetVisit()   Costs $20 and resets pet health to 10. If the
-             pet has less than $20, an error is shown and
-             the visit is cancelled.
+Available Cat Toys:
 
-----------------------------------------------------------------
-Button  (DrawingSurface.Button)
-----------------------------------------------------------------
-Handles user interaction from the GUI. Each instance is tied
-to a specific action string and the active Pet object. Calling
-actionPerformed() executes the corresponding game logic.
+Plain Sock ($4.00)
 
-"Sleep"   Prompts the player to choose 1, 2, or 5 hours,
-          calls the sleep activity, and awards the pet $10.
+Laser Pointer ($50.00)
 
-"Clean"   Runs the clean activity and awards the pet $10.
+Rad Airpods ($90.00)
 
-"Vet"     Calls the store's vet visit and awards $10 on
-          success.
+Store (properties.Store)
+The overarching management system for all in-game commerce. It retains complete item registries and processes every shopping transaction securely.
 
-"Play"    Lists owned toys, prompts the player to pick one,
-          runs the play activity with that toy, and awards
-          the pet $10.
+buyFood(): Checks if you have enough money, deducts the price from your wallet, updates your cumulative expenses, and triggers an immediate feeding action.
+
+buyToys(): Verifies inventory capacity limits, deducts funds, updates expense tracking, and places the newly acquired item into an open inventory slot.
+
+vetVisit(): Processes an emergency medical care transaction for a flat rate of $20.00, automatically restoring your pet's health to 10. If your bank balance is under $20.00, the visit is rejected.
+
+StorePanel & StorePanelFood (panels)
+The marketplace graphic interfaces handled via absolute custom layouts. They present item choices as custom compound buttons showing item prices, levels, and icons. Both shop screens feature a transparent live status overlay at the top right of the screen. This layout draws real-time data updates directly from the active Pet object, instantly refreshing your available balance and total amount spent every time a purchase is made.
+
+DrawingSurface (DrawingSurface.DrawingSurface)
+The central visual coordinator for the game's interface. Built on top of a CardLayout setup, it handles seamless panel swapping between the home screen, work applications, and marketplace layouts. It listens for user menu interactions and coordinates smooth communication between your visual buttons and the underlying game properties data.
 
 ================================================================
 
 STAT SYSTEM SUMMARY
 
-All stats range from 0 to 10.
+All internal game stats operate strictly on a scale from 0 to 10.
 
-Health      Affected passively by hunger, rest, and hygiene.
-            Only a vet visit restores it once it hits 2 or
-            below.
-
-Hunger      Decays over time. Restored by buying and feeding
-            food from the store.
-
-Emotion     Reflects the overall state of all other stats.
-            Updates automatically when stats change.
-
-Rest        Decays over time. Restored by sleeping.
-
-Hygiene     Decays over time. Restored by the clean action.
+Health   - Governed by basic lifestyle metrics (hunger, sleep, cleanliness). Requires an explicit vet visit to fix if it degrades past safe thresholds.
+Hunger   - Automatically drains over time. Restored by purchasing and matching correct species-specific food items from the shop.
+Emotion  - Reflects the general state of your pet's physical conditions and increases during play actions.
+Rest     - Slowly drops while your pet is awake. Restored by putting your pet to sleep for chosen hour durations.
+Hygiene  - Gradually decays as time ticks forward. Restored by executing clean and grooming actions.
 
 ================================================================
 
-KNOWN ISSUES
+SESSION SUMMARY AND DATA EXPORT
 
-- Health.addHygieneToHealth() has a variable declared as
-  __newHealth__ instead of newHealth, causing a compile error.
-  Rename the variable to fix it.
+When you choose to exit the application or when your pet's vitals drop to zero, the game transitions to a comprehensive post-game analytical review panel. This screen functions as a financial ledger that outlines your session performance, detailing your final wallet standings, savings efficiency, and a complete itemized shopping receipt. The receipt checker evaluates your purchases and highlights whether items were a "Good Match" or a "No Match" for your pet's species.
 
-- Food.feedPet() uses currentHunger instead of currentHealth
-  when calling p.setHealth() in the wrong-food-type branch.
-  This is likely a logic bug and should be reviewed.
-
-- The Toys version field is stored but not yet used in any
-  play activity logic. Version-based play effects are not
-  implemented.
-
-- Store GUI navigation using CardLayout is partially commented
-  out in Button.java and is pending re-implementation.
-
-================================================================
-
-AUTHORS
-
-Jasmine Pruzan, Ishaan Bhalerao, Ellie Lo
-March 2026
+To help you track your budgeting habits over time, this ledger includes built-in file export drivers. With a single click, you can save your entire session history to your desktop as a clean CSV spreadsheet or a styled HTML webpage report.
