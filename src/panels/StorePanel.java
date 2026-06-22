@@ -1,20 +1,20 @@
 package panels;
 
-
 import javax.swing.*;
-
 import properties.*;
 import pets.Pet;
-
 import java.awt.*;
 import java.awt.event.*;
 import DrawingSurface.*;
 
-public class StorePanel extends JPanel implements ActionListener{
+public class StorePanel extends JPanel implements ActionListener {
 	
 	JButton usedBall, enchantedChewWand, goldenestBone;
     JButton driftBall, biolumeBubbleMachine, platinumSpeaker;
 	JButton plainKittySock, laserPointer, legendaryAirpods;
+	
+    private JLabel moneyLabel;
+    private JLabel expensesLabel;
 
 	Pet p;
 	private BackgroundPanel backgroundPanel;
@@ -28,17 +28,33 @@ public class StorePanel extends JPanel implements ActionListener{
         
     	allToysPanel = new JPanel(new BorderLayout());
         
-        //A panel where all the toys are on here so they don't get stacked
     	layeredPane = new JLayeredPane();
-    	
     	layeredPane.setLayout(null);
-    	layeredPane.setPreferredSize(new Dimension(1900, 1060)); // give it an initial size
+    	layeredPane.setPreferredSize(new Dimension(1900, 1060)); 
     	allToysPanel.add(layeredPane, BorderLayout.CENTER);
 
     	add(allToysPanel, BorderLayout.CENTER);
     	addBackground();
-
     	
+    	//Top of Screen Financial Stats
+        JPanel statusPanel = new JPanel(new GridLayout(1, 2, 20, 0));
+        statusPanel.setOpaque(false);
+        statusPanel.setBounds(1250, 30, 500, 50); 
+
+        Font statusFont = new Font("Arial", Font.BOLD, 24);
+
+        moneyLabel = new JLabel("Balance: $" + String.format("%.2f", p.getMoney()), SwingConstants.RIGHT);
+        moneyLabel.setFont(statusFont);
+        moneyLabel.setForeground(new Color(50, 32, 32)); 
+
+        expensesLabel = new JLabel("Spent: $" + String.format("%.2f", p.getExpenses()), SwingConstants.RIGHT);
+        expensesLabel.setFont(statusFont);
+        expensesLabel.setForeground(new Color(140, 60, 60)); 
+
+        statusPanel.add(moneyLabel);
+        statusPanel.add(expensesLabel);
+        layeredPane.add(statusPanel, JLayeredPane.PALETTE_LAYER);
+
         // Naming buttons
     	usedBall = new ItemButton("Used Ball", "Cost: $4.00", "Level: 1", "Images/Toy_Icons/used_ball.png");
         enchantedChewWand = new ItemButton("Chew Wand", "Cost: $25.00", "Level: 2", "Images/Toy_Icons/enchanted_wand.png"); 
@@ -50,6 +66,17 @@ public class StorePanel extends JPanel implements ActionListener{
         biolumeBubbleMachine = new ItemButton("Bubble Maker", "Cost: $25.00", "Level: 2", "Images/Toy_Icons/bubble_machine.png"); 
         platinumSpeaker = new ItemButton("Super Speaker", "Cost: $90.00", "Level: 3", "Images/Toy_Icons/plat_speaker.png"); 
         
+        // FIX STEP 2: Explicitly map internal lookups validation checks
+        usedBall.setName("Used Ball");
+        enchantedChewWand.setName("Chew Wand");
+        goldenestBone.setName("Gold Bone");
+        plainKittySock.setName("Plain Sock");
+        laserPointer.setName("Laser Pointer");
+        legendaryAirpods.setName("Rad Airpods");
+        driftBall.setName("Drift Ball");
+        biolumeBubbleMachine.setName("Bubble Maker");
+        platinumSpeaker.setName("Super Speaker");
+
         //Setting button location
         usedBall.setBounds(180,  150, 270, 150);
         enchantedChewWand.setBounds(180,  385, 270, 150);
@@ -61,7 +88,7 @@ public class StorePanel extends JPanel implements ActionListener{
         biolumeBubbleMachine.setBounds(1270,  385, 270, 150);
         platinumSpeaker.setBounds(1270,  600, 270, 150);
         
-          // Track when buttons are clicked
+        // Track when buttons are clicked
         usedBall.addActionListener(this);
         enchantedChewWand.addActionListener(this);
         goldenestBone.addActionListener(this); 
@@ -71,7 +98,6 @@ public class StorePanel extends JPanel implements ActionListener{
         plainKittySock.addActionListener(this);
         laserPointer.addActionListener(this);
         legendaryAirpods.addActionListener(this);
-        
         
         // Add buttons to screen 
         layeredPane.add(usedBall,  JLayeredPane.PALETTE_LAYER);
@@ -83,10 +109,6 @@ public class StorePanel extends JPanel implements ActionListener{
         layeredPane.add(driftBall, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(biolumeBubbleMachine, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(platinumSpeaker, JLayeredPane.PALETTE_LAYER);
-        
-
-
-
 
         JButton backButton = new JButton("Return to home");
         backButton.addActionListener(e -> {
@@ -94,10 +116,8 @@ public class StorePanel extends JPanel implements ActionListener{
         });
         add(backButton, BorderLayout.SOUTH); 
         
-       
-        
-        
-        
+        // Initialize display values right at startup
+        updateBalanceDisplay();
     }
     
     public void addBackground() {
@@ -105,7 +125,6 @@ public class StorePanel extends JPanel implements ActionListener{
         backgroundPanel.setBounds(0, 0, 1900, 1060);
         layeredPane.add(backgroundPanel, JLayeredPane.DEFAULT_LAYER);
         
-        // Set layeredPane size immediately so it's not 0,0
         layeredPane.setSize(1900, 1060);
 
         allToysPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -118,63 +137,51 @@ public class StorePanel extends JPanel implements ActionListener{
         });
     }
     
+    private void updateBalanceDisplay() {
+        moneyLabel.setText("Balance: $" + String.format("%.2f", p.getMoney()));
+        expensesLabel.setText("Spent: $" + String.format("%.2f", p.getExpenses()));
+    }
+    
     public void actionPerformed(ActionEvent e) {
-		JButton button = (JButton)e.getSource(); //returns the object that fired the event, but casted as a JButton, and instantiates it
+		JButton button = (JButton)e.getSource(); 
 		
 		Store store = new Store();
         JButton[] dogToys = new JButton[] {usedBall, enchantedChewWand, goldenestBone};
 
-        // Goes through JButton array
         for(JButton t: dogToys) {
-        	// Checks if the button clicked is the same as the JButton
         	if (button.equals(t)) {
-        		// Goes through Toys array from Money class
         		for(Toy y: store.getDogToys()) {
-        			// Checks if the name of the toy matches the JButton name of the button
-        			if(t.getName().equals(y.getName())) {
+        			if(t.getName() != null && t.getName().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}
         	}
         }
-        
         
         JButton[] fishToys = new JButton[] {driftBall, biolumeBubbleMachine, platinumSpeaker};
 
-        // Goes through JButton array
         for(JButton t: fishToys) {
-        	// Checks if the button clicked is the same as the JButton
         	if (button.equals(t)) {
-        		// Goes through Toys array from Money class
         		for(Toy y: store.getFishToys()) {
-        			// Checks if the name of the toy matches the JButton name
-        			if(t.getName().equals(y.getName())) {
+        			if(t.getName() != null && t.getName().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}
         	}
         }
-        
         
         JButton[] catToys = new JButton[] {plainKittySock, laserPointer, legendaryAirpods};
 
-        
-        // Goes through JButton array
         for(JButton t: catToys) {
-        	// Checks if the button clicked is the same as the JButton
         	if (button.equals(t)) {
-        		// Goes through Toys array from Money class
         		for(Toy y: store.getCatToys()) {
-        			// Checks if the name of the toy matches the JButton name
-        			if(t.getName().equals(y.getName())) {
+        			if(t.getName() != null && t.getName().equals(y.getName())) {
         				store.buyToys(y, p);
         			}
         		}
         	}
         }
-
-    
+        
+        updateBalanceDisplay();
     }
-    
-    
-}    
+}
