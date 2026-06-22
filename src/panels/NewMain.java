@@ -43,11 +43,31 @@ public class NewMain {
 	    
 	    // Ensures the user only enters a valid pet option
 	    String petType = "";
-	    while(!(petType.equals("cat")) && !(petType.equals("dog")) && !(petType.equals("fish"))) {
-		     petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
+	    while(!(petType.equals("Dog")) && !(petType.equals("Cat")) && !(petType.equals("Fish"))) {
+		     //petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
 		
-		    if(!(petType.equals("cat")) && !(petType.equals("dog")) && !(petType.equals("fish"))) {
-			    JOptionPane.showMessageDialog(null, "Sorry that pet is not an option, please enter an available option");
+	    	String[] options = {"Dog", "Cat", "Fish"};
+
+	    	int choice = JOptionPane.showOptionDialog(
+	    	    null,                            // parent (null = center on screen)
+	    	    "Which pet would you like?",     // the message
+	    	    "Choose Your Pet",               // the title bar text
+	    	    JOptionPane.DEFAULT_OPTION,      // option type
+	    	    JOptionPane.QUESTION_MESSAGE,    // icon shown (the little ?)
+	    	    null,                            // custom icon (null = use default)
+	    	    options,                         // your button labels
+	    	    null                             // no button highlighted by default
+	    	);
+
+	    	if (choice == JOptionPane.CLOSED_OPTION) {
+	    	    petType = null;                   // user closed with the X
+	    	} else {
+	    	    petType = options[choice];        // "Dog", "Cat", or "Fish"
+	    	}
+	    	
+	    	
+		    if(petType == null) {
+			    JOptionPane.showMessageDialog(null, "Sorry that is not an option, please click an available option");
 
 		    }
 	    }
