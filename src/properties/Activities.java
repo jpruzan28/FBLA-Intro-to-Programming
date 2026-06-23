@@ -11,14 +11,14 @@ public class Activities {
 	
 	public void sleep(String amount) {
 		int currentRest = pet.getRest();
-		if(amount.equals("1")) {
+		if(amount.equals("  1  ")) {
 			pet.setRest(currentRest + 3);
 		}
-		else if(amount.equals("2")) {
+		else if(amount.equals("  2  ")) {
 			pet.setRest(currentRest + 5);
 
 		}
-		else if(amount.equals("5")) {
+		else if(amount.equals("  5  ")) {
 			pet.setRest(currentRest + 8);
 
 		}

@@ -28,18 +28,36 @@ public class Button{
 
 		if(buttonPressed.equals("Sleep")) {
 			String sleepAmount = "";
+			int hours = 0; 
 			
 			while(!(sleepAmount.equals("1")) && !(sleepAmount.equals("2")) && !(sleepAmount.equals("5"))) {
-				sleepAmount = JOptionPane.showInputDialog("How many hours would you like your pet to sleep? 1, 2, or 5? ");
+				
+				//sleepAmount = JOptionPane.showInputDialog("How many hours would you like your pet to sleep? 1, 2, or 5? ");
+				String[] options = {"  1  ", "  2  ", "  5  "};
 
-				if(!(sleepAmount.equals("1")) && !(sleepAmount.equals("2")) && !(sleepAmount.equals("5"))) {
-				    JOptionPane.showMessageDialog(null, "Sorry that is not a valid option. Make sure to enter a number, not word.");
+		    	int choice = JOptionPane.showOptionDialog(
+		    	    null,                            // parent (null = center on screen)
+		    	    "How many hours would you like your pet to sleep?",     // the message
+		    	    "Choose Sleep Length",               // the title bar text
+		    	    JOptionPane.DEFAULT_OPTION,      // option type
+		    	    JOptionPane.QUESTION_MESSAGE,    // icon shown (the little ?)
+		    	    null,                            // custom icon (null = use default)
+		    	    options,                         // your button labels
+		    	    null                             // no button highlighted by default
+		    	);
 
-				}
+		    	if (choice == JOptionPane.CLOSED_OPTION) {
+		    	    sleepAmount = null;                   // user closed with the X
+		    	} else {
+		    	    sleepAmount = options[choice];        // "Dog", "Cat", or "Fish"
+		    	}
+				
+		    	if(sleepAmount != null) {
+		    		activity.sleep(sleepAmount);
+				    JOptionPane.showMessageDialog(null, pet.getName() + " is sleeping deeply. ZZZ");
+		    	}
 			}
-		    activity.sleep(sleepAmount);
-		    JOptionPane.showMessageDialog(null, pet.getName() + " is sleeping deeply. ZZZ");
-
+		    
 
 		}
 		else if(buttonPressed.equals("Clean")) {
