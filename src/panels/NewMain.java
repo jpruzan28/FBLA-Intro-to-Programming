@@ -1,3 +1,4 @@
+
 package panels;
 
 import java.awt.CardLayout;
@@ -75,6 +76,22 @@ public class NewMain {
 	    JOptionPane.showMessageDialog(null, "Nice choice, choosing a " + petType);
 
 	    String petName = JOptionPane.showInputDialog("What would you like to name your " + petType + "?");
+	    
+	    String howToPlayMessage = "<html><center>"
+	    		+ "<font color='#FF6B8B'>To make sure your new pet, " + petName + ", lives a happy and healthy life,<br>"
+	            + "you need to make sure their needs are met.</font><br><br>"
+	            + "Take care of your pet by navigating through the buttons around the screen,<br>"
+	            + "and make sure to keep your pet at an overall good health level by playing,<br>"
+	            + "feeding, cleaning, taking them to the vet, and putting them to bed!<br><br>"
+	            + "<b>Don't forget to keep track of your currency and don't work spend!</b>"
+	            + "</center></html>";
+	    
+	    JOptionPane.showMessageDialog(
+	            null, 
+	            howToPlayMessage, 
+	            "How to Play", 
+	            JOptionPane.INFORMATION_MESSAGE
+	    );
 	    
 	    
 	    // Creating the pet
