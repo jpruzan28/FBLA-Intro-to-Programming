@@ -10,6 +10,10 @@ public class Emotion {
 		this.pet = pet;
 	}
 	
+	
+	/**
+	 * calculates the emotion of the pet to switch from different sprites
+	 */
 	public void calculatingEmotion() {
 		int currentEmotion = pet.getEmotion();
 		int health = pet.getHealth();
