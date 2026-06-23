@@ -38,7 +38,7 @@ public class Food {
 
     /**
      * Increases pet hunger based on which food they chose
-     * If wrong food type, hunger goes up half and health goes down
+     * If wrong food type, pet gets less hungry but health decreases
      */
     public void feedPet(Pet p) {
         int currentHunger = p.getHunger();
