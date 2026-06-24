@@ -233,7 +233,7 @@ public class DrawingSurface implements ActionListener {
         food.setBounds(230, 820, 120, 40);
         sleep.setBounds(700, 500, 120, 40);
         //clean.setBounds(1190, 920, 120, 40);
-        clean.setBounds(1190, 920, 120, 40);
+        clean.setBounds(1090, 620, 120, 40);
 
         vet.setBounds(1250, 350, 120, 40);
         play.setBounds(450, 460, 120, 40);
@@ -287,6 +287,8 @@ public class DrawingSurface implements ActionListener {
         	castedSummary.setScreen2(); 
         	System.out.println("Changing to gameover/summary panel"); 
         	cardLayout.show(cardPanel, "GameOver");
+        	
+        	pet.setHealth(0);
         	
         	
         } else if (bPressed.equals("Work")) {

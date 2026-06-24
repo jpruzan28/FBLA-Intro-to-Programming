@@ -1,6 +1,9 @@
 package DrawingSurface;
 import properties.*;
 import pets.Pet;
+
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 
@@ -30,7 +33,7 @@ public class Button{
 			String sleepAmount = "";
 			int hours = 0; 
 			
-			while(!(sleepAmount.equals("1")) && !(sleepAmount.equals("2")) && !(sleepAmount.equals("5"))) {
+			while(!(sleepAmount.equals("  1  ")) && !(sleepAmount.equals("  2  ")) && !(sleepAmount.equals("  5  "))) {
 				
 				//sleepAmount = JOptionPane.showInputDialog("How many hours would you like your pet to sleep? 1, 2, or 5? ");
 				String[] options = {"  1  ", "  2  ", "  5  "};
@@ -52,7 +55,9 @@ public class Button{
 		    	    sleepAmount = options[choice];        // "Dog", "Cat", or "Fish"
 		    	}
 				
-		    	if(sleepAmount != null) {
+		    	if(sleepAmount == null) {
+		    	}
+		    	else {
 		    		activity.sleep(sleepAmount);
 				    JOptionPane.showMessageDialog(null, pet.getName() + " is sleeping deeply. ZZZ");
 		    	}
@@ -75,13 +80,13 @@ public class Button{
 		}
 		else if(buttonPressed.equals("Play")) {
 			String ownedToys = pet.getToysStr();
-			Toy chosenToy = null;
+			
 			
 			if(ownedToys.equals("")) {
 				JOptionPane.showMessageDialog(null, "Sorry, you don't own any toys. Go to the store to buy some!");
 			}
 			else {
-				String chosenToyName = JOptionPane.showInputDialog("Which toy would you like to play with: " + ownedToys + "?");
+				/*String chosenToyName = JOptionPane.showInputDialog("Which toy would you like to play with: " + ownedToys + "?");
 				for(int i = 0; i < pet.getToysArr().length; i++) {
 					if(pet.getToysArr()[i] == null) {
 					}
@@ -92,11 +97,51 @@ public class Button{
 				
 				activity.play(chosenToy);
 				
-				JOptionPane.showMessageDialog(null, pet.getName() + " is happy playing with " + chosenToy.getName() + "!");
+				JOptionPane.showMessageDialog(null, pet.getName() + " is happy playing with " + chosenToy.getName() + "!");*/
+				
+				ArrayList<Toy> options = new ArrayList<Toy>();
+				for(int i = 0; i < pet.getToysArr().length; i++) {
+				    if(pet.getToysArr()[i] == null) {
+				    } else {
+				        options.add(pet.getToysArr()[i]);
+				    }
+				}
+
+				// Build a String[] of the toy names for the buttons
+				String[] toyNames = new String[options.size()];
+				for(int i = 0; i < options.size(); i++) {
+				    toyNames[i] = options.get(i).getName();   // use whatever your Toy "name" getter is called
+				}
+
+				int choice = JOptionPane.showOptionDialog(
+				    null,
+				    "Which toy would you like to play with?",
+				    "Toy Selection",
+				    JOptionPane.DEFAULT_OPTION,
+				    JOptionPane.QUESTION_MESSAGE,
+				    null,
+				    toyNames,                  // pass the String[] of names, not the ArrayList
+				    null
+				);
+
+				Toy chosenToy;
+				if (choice == JOptionPane.CLOSED_OPTION) {
+				    chosenToy = null;                  // user closed with the X
+				} else {
+				    chosenToy = options.get(choice);   // the actual Toy object they picked
+				}
+
+				if(chosenToy == null) {
+				} else {
+				    activity.play(chosenToy);
+				}
+		    	
+					JOptionPane.showMessageDialog(null, pet.getName() + " is happy playing with " + chosenToy.getName() + "!");
+		    	}
 			}
 			
 		}
 
 		
-	}
+	
 }
