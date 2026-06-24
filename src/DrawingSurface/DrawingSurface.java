@@ -232,7 +232,9 @@ public class DrawingSurface implements ActionListener {
         work.setBounds(1250,  260, 120, 40);
         food.setBounds(230, 820, 120, 40);
         sleep.setBounds(700, 500, 120, 40);
+        //clean.setBounds(1190, 920, 120, 40);
         clean.setBounds(1190, 920, 120, 40);
+
         vet.setBounds(1250, 350, 120, 40);
         play.setBounds(450, 460, 120, 40);
         store.setBounds(135,  310, 120, 40);
