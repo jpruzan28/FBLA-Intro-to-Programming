@@ -290,7 +290,7 @@ public class DrawingSurface implements ActionListener {
         	System.out.println("Changing to gameover/summary panel"); 
         	cardLayout.show(cardPanel, "GameOver");
         	
-        	pet.endGame(); 
+        	pet.endGame();
         	
         	
         	
