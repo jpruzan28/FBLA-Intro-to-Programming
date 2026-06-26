@@ -46,12 +46,12 @@ public class StorePanel extends JPanel implements ActionListener {
 		moneyLabel.setFont(statusFont);
 		moneyLabel.setForeground(new Color(50, 32, 32));
 
-		expensesLabel = new JLabel("Spent: $" + String.format("%.2f", p.getExpenses()), SwingConstants.CENTER);
+		/*expensesLabel = new JLabel("Spent: $" + String.format("%.2f", p.getExpenses()), SwingConstants.CENTER);
 		expensesLabel.setFont(statusFont);
-		expensesLabel.setForeground(new Color(140, 60, 60)); 
+		expensesLabel.setForeground(new Color(140, 60, 60)); */
 
 		statusPanel.add(moneyLabel);
-		statusPanel.add(expensesLabel);
+		//statusPanel.add(expensesLabel);
 		layeredPane.add(statusPanel, JLayeredPane.PALETTE_LAYER);
 
 		// ITEM BUTTONS
@@ -135,7 +135,7 @@ public class StorePanel extends JPanel implements ActionListener {
 	
 	private void updateBalanceDisplay() {
 		moneyLabel.setText("Balance: $" + String.format("%.2f", p.getMoney()));
-		expensesLabel.setText("Spent: $" + String.format("%.2f", p.getExpenses()));
+		//expensesLabel.setText("Spent: $" + String.format("%.2f", p.getExpenses()));
 	}
 	
 	public void actionPerformed(ActionEvent e) {

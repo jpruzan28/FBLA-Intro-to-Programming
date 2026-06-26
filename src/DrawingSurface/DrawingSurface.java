@@ -133,7 +133,7 @@ public class DrawingSurface implements ActionListener {
 
     // Money label - top left
     public void addMoneyLabel() {
-        moneyLabel = new JLabel("Total Currency: $" + String.format("%.2f", pet.getMoney()));
+        moneyLabel = new JLabel("Balance: $" + String.format("%.2f", pet.getMoney()));
         moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
         moneyLabel.setForeground(Color.BLACK);
         moneyLabel.setBounds(300, 100, 320, 40);
@@ -142,7 +142,7 @@ public class DrawingSurface implements ActionListener {
 
     // Expenses label - center of screen
     public void addExpensesLabel() {
-        expensesLabel = new JLabel("Total Spent: $" + String.format("%.2f", pet.getExpenses()));
+        expensesLabel = new JLabel("Expenses: $" + String.format("%.2f", pet.getExpenses()));
         expensesLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
         expensesLabel.setForeground(Color.BLACK);
         // Centers it in the middle of the screen
@@ -153,7 +153,7 @@ public class DrawingSurface implements ActionListener {
     // Called by ReductionTimer to update money display
     public void updateMoneyDisplay() {
         SwingUtilities.invokeLater(() -> {
-            moneyLabel.setText("Total Currency: $" + String.format("%.2f", pet.getMoney()));
+            moneyLabel.setText("Balance: $" + String.format("%.2f", pet.getMoney()));
             expensesLabel.setText("Expenses: $" + String.format("%.2f", pet.getExpenses()));  
         });
     }
@@ -196,6 +196,8 @@ public class DrawingSurface implements ActionListener {
             SummaryPanel castedSummary = (SummaryPanel)summaryPanel; 
         	castedSummary.setScreen2(); 
             cardLayout.show(cardPanel, "GameOver");
+            
+            pet.endGame(); 
         });
     }
     
@@ -232,8 +234,8 @@ public class DrawingSurface implements ActionListener {
         work.setBounds(1250,  260, 120, 40);
         food.setBounds(230, 820, 120, 40);
         sleep.setBounds(700, 500, 120, 40);
-        //clean.setBounds(1190, 920, 120, 40);
-        clean.setBounds(1090, 620, 120, 40);
+        clean.setBounds(1190, 920, 120, 40);
+        //clean.setBounds(1090, 620, 120, 40);
 
         vet.setBounds(1250, 350, 120, 40);
         play.setBounds(450, 460, 120, 40);
@@ -288,7 +290,8 @@ public class DrawingSurface implements ActionListener {
         	System.out.println("Changing to gameover/summary panel"); 
         	cardLayout.show(cardPanel, "GameOver");
         	
-        	pet.setHealth(0);
+        	pet.endGame(); 
+        	
         	
         	
         } else if (bPressed.equals("Work")) {

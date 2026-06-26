@@ -32,6 +32,8 @@ public class Pet {
 	private ArrayList<Food> food; // include somewhere 
 	private int vetVisits; // include somewhere 
 	
+	
+	private boolean active; 
 	/**Constructor that initializes all of the fields. 
 	 * 
 	 * @param name name of pet
@@ -183,6 +185,10 @@ public class Pet {
 		icon = newIcon; 
 	}
 	
+	public void endGame() {
+		active = false; 
+	}
+	
 	/**
 	 * Increments expenses to keep track of them
 	 * @param expense amount added to current expenses
@@ -321,4 +327,7 @@ public class Pet {
 		return vetVisits;
 	}
 	
+	public boolean getActive() {
+		return active; 
+	}
 }

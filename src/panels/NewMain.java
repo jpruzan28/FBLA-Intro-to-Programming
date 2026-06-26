@@ -100,7 +100,7 @@ public class NewMain {
 
 	    
 	    	    // Creating cardPanels 
-	    DrawingSurface drawingSurface = new DrawingSurface(cardLayout, cardPanel, 1900, 1060, pet);
+	    DrawingSurface drawingSurface = new DrawingSurface(cardLayout, cardPanel, 1700, 1060, pet);
 	    cardLayout.show(cardPanel, "Home");  // ← capital H to match the key above
 	    
 	    frame.setVisible(true);
