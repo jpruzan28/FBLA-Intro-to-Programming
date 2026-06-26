@@ -288,7 +288,7 @@ public class DrawingSurface implements ActionListener {
         	System.out.println("Changing to gameover/summary panel"); 
         	cardLayout.show(cardPanel, "GameOver");
         	
-        	pet.setHealth(0);
+//        	pet.setHealth(0);
         	
         	
         } else if (bPressed.equals("Work")) {
