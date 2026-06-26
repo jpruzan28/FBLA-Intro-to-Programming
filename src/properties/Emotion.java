@@ -2,6 +2,8 @@ package properties;
 
 import pets.Pet;
 
+
+
 public class Emotion {
 	
 	Pet pet;
