@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import pets.Pet;
 import DrawingSurface.*;
 
-public class NewMain {
+public class Main {
 
 	public static void main(String[] args) {
 		// Sets fonts for popups and makes them bigger
@@ -44,10 +44,12 @@ public class NewMain {
 	    
 	    // Ensures the user only enters a valid pet option
 	    String petType = "";
-	    while(!(petType.equals("Dog")) && !(petType.equals("Cat")) && !(petType.equals("Fish"))) {
-		     //petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'dog', 'cat', or 'fish' ");
+	    while(!(petType.equalsIgnoreCase("Dog")) && !(petType.equalsIgnoreCase("Cat")) && !(petType.equalsIgnoreCase("Fish"))) {
+		     petType = JOptionPane.showInputDialog("A little birdie told me your looking to take care of a pet, what pet do you want, we have a fish, a dog, and a cat? \n please type in 'Dog', 'Cat', or 'Fish' ");
 		
-	    	String[] options = {"Dog", "Cat", "Fish"};
+	    	
+	    	// MAKES THE PET CHOICES BUTTONS 
+	    	/*String[] options = {"Dog", "Cat", "Fish"};
 
 	    	int choice = JOptionPane.showOptionDialog(
 	    	    null,                            // parent (null = center on screen)
@@ -64,10 +66,10 @@ public class NewMain {
 	    	    petType = null;                   // user closed with the X
 	    	} else {
 	    	    petType = options[choice];        // "Dog", "Cat", or "Fish"
-	    	}
+	    	}*/
 	    	
 	    	
-		    if(petType == null) {
+		    if(!(petType.equalsIgnoreCase("Dog")) && !(petType.equalsIgnoreCase("Cat")) && !(petType.equalsIgnoreCase("Fish"))) {
 			    JOptionPane.showMessageDialog(null, "Sorry that is not an option, please click an available option");
 
 		    }
