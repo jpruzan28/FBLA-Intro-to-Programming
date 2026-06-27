@@ -328,34 +328,44 @@ public class DrawingSurface implements ActionListener {
     
     public void actionPerformed(ActionEvent e) {
         JButton button = (JButton)e.getSource();
-        String bPressed = button.getText();
         
         
-        if (bPressed.equals("Exit")) {
+        if (button == exit) {
         	SummaryPanel castedSummary = (SummaryPanel)summaryPanel; 
         	castedSummary.setScreen2(); 
-        	System.out.println("Changing to gameover/summary panel"); 
-        	cardLayout.show(cardPanel, "GameOver");
-        	
-        	pet.endGame();
-        	
-        	
-        	
-        } else if (bPressed.equals("Work")) {
-        	// Creates work popup
-            WorkApp workPopUp = new WorkApp(null, pet);
-            workPopUp.setVisible(true);
-            
-        } else if (bPressed.equals("Food Store")) {
-            cardLayout.show(cardPanel, "FStore");
+			System.out.println("Changing to gameover/summary panel");
+			cardLayout.show(cardPanel, "GameOver");
 
-        } else if (bPressed.equals("Toy Store")) {
-            cardLayout.show(cardPanel, "Store");
+			pet.endGame();
 
-        } else {
-            Button newButton = new Button(pet, bPressed);
-            newButton.actionPerformed();
-        }
-        updateMoneyDisplay();
-    }
+		} else if (button == work) {
+			// Creates work popup
+			WorkApp workPopUp = new WorkApp(null, pet);
+			workPopUp.setVisible(true);
+
+		} else if (button == food) {
+			cardLayout.show(cardPanel, "FStore");
+
+		} else if (button == store) {
+			cardLayout.show(cardPanel, "Store");
+
+		} else {
+			//since the buttons don't have names, use if statements to make them represent one
+			String actionName = "";
+			if (button == sleep)
+				actionName = "Sleep";
+			else if (button == clean)
+				actionName = "Clean";
+			else if (button == vet)
+				actionName = "Vet";
+			else if (button == play)
+				actionName = "Play";
+
+			if (!actionName.isEmpty()) {
+				Button newButton = new Button(pet, actionName);
+				newButton.actionPerformed();
+			}
+			updateMoneyDisplay();
+		}
+	}
 }
