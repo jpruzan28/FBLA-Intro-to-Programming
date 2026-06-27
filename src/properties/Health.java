@@ -4,6 +4,12 @@ import javax.swing.JOptionPane;
 
 import pets.Pet;
 
+
+/** Blueprint for monitoring and handling all health related functions 
+ * 
+ * @author Ellie Lo, Jasmine Pruzan, Ishaan Bhalerao
+ * @version 6/26/26
+ */
 public class Health {
 	// Fields
 	private Pet pet;
