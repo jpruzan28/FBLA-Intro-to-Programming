@@ -259,7 +259,16 @@ public class DrawingSurface implements ActionListener {
     	ImageIcon storeIcon = createScaledIcon("Images/Homescreen_Buttons/StoreButton.png", 655);
     	ImageIcon workIcon = createScaledIcon("Images/Homescreen_Buttons/WorkButton.png", 170);
     	ImageIcon vetIcon = createScaledIcon("Images/Homescreen_Buttons/VetButton.png", 170);
-    	ImageIcon exitIcon = createScaledIcon("Images/Homescreen_Buttons/ExitButton.png", 180);
+    	ImageIcon exitIcon = createScaledIcon("Images/Homescreen_Buttons/ExitButton.png", 150);
+    
+    	ImageIcon cleanGlowIcon = createScaledIcon("Images/Homescreen_Buttons/CleaningGlow.png", 500);
+    	ImageIcon sleepGlowIcon = createScaledIcon("Images/Homescreen_Buttons/RestGlow.png", 290);
+    	ImageIcon feedGlowIcon = createScaledIcon("Images/Homescreen_Buttons/FeedGlow.png", 227);
+    	ImageIcon playGlowIcon = createScaledIcon("Images/Homescreen_Buttons/PlayGlow.png", 200);	
+    	ImageIcon storeGlowIcon = createScaledIcon("Images/Homescreen_Buttons/StoreGlow.png", 655);
+    	ImageIcon workGlowIcon = createScaledIcon("Images/Homescreen_Buttons/WorkGlow.png", 170);
+    	ImageIcon vetGlowIcon = createScaledIcon("Images/Homescreen_Buttons/VetGlow.png", 170);
+    	ImageIcon exitGlowIcon = createScaledIcon("Images/Homescreen_Buttons/ExitGlow.png", 150);
     	
         work  = new JButton(workIcon);
         food  = new JButton(feedIcon);
@@ -271,14 +280,14 @@ public class DrawingSurface implements ActionListener {
         exit = new JButton(exitIcon); 
         
         
-        work.setBounds(1250,  130, workIcon.getIconWidth(), 170);
+        work.setBounds(1380,  130, workIcon.getIconWidth(), 170);
         food.setBounds(70, 760, feedIcon.getIconWidth(), 227);
         sleep.setBounds(670, 430, sleepIcon.getIconWidth(), 290);
         clean.setBounds(1250, 483, cleanIcon.getIconWidth(), 500);
-        vet.setBounds(1250, 320, vetIcon.getIconWidth(), 170);
+        vet.setBounds(1380, 320, vetIcon.getIconWidth(), 170);
         play.setBounds(450, 460, playIcon.getIconWidth(), 200);
         store.setBounds(157, 134, storeIcon.getIconWidth(), 655);
-        exit.setBounds(0, 0, storeIcon.getIconWidth(), 170);
+//        exit.setBounds(0, 0, storeIcon.getIconWidth(), 150);
         
         clearBackground(food);
         clearBackground(sleep);
@@ -289,10 +298,19 @@ public class DrawingSurface implements ActionListener {
         clearBackground(vet);
         clearBackground(exit);
         
+        clean.setRolloverIcon(cleanGlowIcon);
+        sleep.setRolloverIcon(sleepGlowIcon);
+        food.setRolloverIcon(feedGlowIcon);
+        vet.setRolloverIcon(vetGlowIcon);
+        play.setRolloverIcon(playGlowIcon);
+        store.setRolloverIcon(storeGlowIcon);
+        work.setRolloverIcon(workGlowIcon);
+        exit.setRolloverIcon(exitGlowIcon);
+        
         work .setToolTipText("Answer questions to make money. Increases Total Savings. $10 per question right");
         food .setToolTipText("Food store to buy and feed food. Increases Hunger bar");
         sleep.setToolTipText("Pet sleeps for certain amount of time. Increases Rest bar");
-        clean.setToolTipText("Cleans pet. Increases Hygiene bar");
+        clean.setToolTipText("Cleans pet. (+Hygiene)");
         vet  .setToolTipText("Cures pet. Increases Health bar");
         play .setToolTipText("Pick toy you own for pet to play with. Increases Emotion bar");
         store.setToolTipText("Toy store to buy toys");
@@ -307,6 +325,14 @@ public class DrawingSurface implements ActionListener {
         store.addActionListener(this);
         exit.addActionListener(this);
 
+        
+        exit.setMargin(new Insets(0, 0, 0, 0));
+     // Clears any border space around the icon 
+     exit.setBorder(BorderFactory.createEmptyBorder());
+     // Move it to slightly negative X and Y coordinates (e.g., -5 or -10)
+     // This overrides the container layout padding and snaps the graphic right to the corner!
+     exit.setBounds(-5, -5, exitIcon.getIconWidth(), 150);
+     
         layeredPane.add(work,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(sleep, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(food, JLayeredPane.PALETTE_LAYER);

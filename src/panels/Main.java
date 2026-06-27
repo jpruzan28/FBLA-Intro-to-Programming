@@ -23,6 +23,8 @@ public class Main {
 		UIManager.put("OptionPane.messageFont", new Font("SansSerif", Font.BOLD, 25));
 		UIManager.put("OptionPane.buttonFont", new Font("SansSerif", Font.PLAIN, 20));
 		UIManager.put("TextField.font", new Font("SansSerif", Font.PLAIN, 23));
+		// Sets the font size for ToolTipText
+		UIManager.put("ToolTip.font", new Font("SansSerif", Font.PLAIN, 20));
 		
 		JFrame frame = new JFrame(); 
 		
@@ -37,7 +39,7 @@ public class Main {
 	    
 	    frame.add(cardPanel);
 	    
-	  //User input
+	  // User input
 	   String playerName = JOptionPane.showInputDialog("Welcome player! What's your name?");
 	    JOptionPane.showMessageDialog(null, "Nice to meet you " + playerName);
 	    
