@@ -31,8 +31,8 @@ public class Bar {
 		this.height = height; 
 		this.maxWidth = maxWidth;
 		
-		if (name.equals("Hunger")) {
-			amount = pet.getHunger();
+		if (name.equals("Nutrition")) {
+			amount = pet.getNutrition();
 		}
 		else if (name.equals("Health")) {
 			amount = pet.getHealth();
@@ -61,8 +61,8 @@ public class Bar {
 	}
 	
 	public int getAmount() {
-		 if (name.equals("Hunger")) {
-		        return pet.getHunger();
+		 if (name.equals("Nutrition")) {
+		        return pet.getNutrition();
 		    } else if (name.equals("Health")) {
 		        return pet.getHealth();
 		    } else if (name.equals("Hygiene")) {

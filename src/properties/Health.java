@@ -23,7 +23,7 @@ public class Health {
 	
 
 	// Affect emotion when health goes down
-	public void addHungerToHealth(int totalHunger) {
+	public void addNutritionToHealth(int totalHunger) {
 		int totalHealth = pet.getHealth();
 
 		int newHealth;

@@ -37,37 +37,37 @@ public class Food {
     }
 
     /**
-     * Increases pet hunger based on which food they chose
+     * Increases pet nutrition based on which food they chose
      * If wrong food type, pet gets less hungry but health decreases
      */
     public void feedPet(Pet p) {
-        int currentHunger = p.getHunger();
+        int currentNutrition = p.getNutrition();
         int currentHealth = p.getHealth();
 
         if (checkType(p)) {
             // Correct food type - full hunger boost
             if (version == 4) {
-                p.setHunger(currentHunger + 8);
+                p.setNutrition(currentNutrition + 8);
             } else if (version == 3) {
-                p.setHunger(currentHunger + 6);
+                p.setNutrition(currentNutrition + 6);
             } else if (version == 2) {
-                p.setHunger(currentHunger + 4);
+                p.setNutrition(currentNutrition + 4);
             } else {
-                p.setHunger(currentHunger + 2);
+                p.setNutrition(currentNutrition + 2);
             }
         } else {
             // Wrong food type - half hunger boost and health penalty
             if (version == 4) {
-                p.setHunger(currentHunger + 4);
+                p.setNutrition(currentNutrition + 4);
                 p.setHealth(currentHealth - 4);
             } else if (version == 3) {
-                p.setHunger(currentHunger + 3);
+                p.setNutrition(currentNutrition + 3);
                 p.setHealth(currentHealth - 3);
             } else if (version == 2) {
-                p.setHunger(currentHunger + 2);
+                p.setNutrition(currentNutrition + 2);
                 p.setHealth(currentHealth - 2);
             } else {
-                p.setHunger(currentHunger + 1);
+                p.setNutrition(currentNutrition + 1);
                 p.setHealth(currentHealth - 1);
             }
         }

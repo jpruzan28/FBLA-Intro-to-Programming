@@ -12,7 +12,7 @@ import java.util.TimerTask;
 
 public class DrawingSurface implements ActionListener {
     private JButton work, food, sleep, clean, vet, play, store, exit;
-    private Bar health, hunger, hygiene, rest, emotion;
+    private Bar health, nutrition, hygiene, rest, emotion;
     private Sprite sprite;
     private Bar[] bars;
     private Pet pet;
@@ -123,12 +123,12 @@ public class DrawingSurface implements ActionListener {
        // double x5 = gap * 5 + rectWidth * 4;
         
         health  = new Bar(pet, "Health",  x1, y, rectWidth, barHeight);
-        hunger  = new Bar(pet, "Hunger",  x2, y, rectWidth, barHeight);
+        nutrition  = new Bar(pet, "Nutrition",  x2, y, rectWidth, barHeight);
         hygiene = new Bar(pet, "Hygiene", x3, y, rectWidth, barHeight);
         rest    = new Bar(pet, "Rest",    x4, y, rectWidth, barHeight);
       //  emotion = new Bar(pet, "Emotion", x5, y, rectWidth, barHeight);
 
-        bars = new Bar[] {health, hunger, hygiene, rest};
+        bars = new Bar[] {health, nutrition, hygiene, rest};
     }
 
     // Money label - top left
@@ -290,12 +290,12 @@ public class DrawingSurface implements ActionListener {
         clearBackground(exit);
         
         work .setToolTipText("Answer questions to make money. Increases Total Savings. $10 per question right");
-        food .setToolTipText("Food store to buy and feed food. Increases Hunger bar");
-        sleep.setToolTipText("Pet sleeps for certain amount of time. Increases Rest bar");
-        clean.setToolTipText("Cleans pet. Increases Hygiene bar");
+        food .setToolTipText("FOOD STORE. Food store to buy and feed food. Increases Nutrition bar");
+        sleep.setToolTipText("SLEEP. Pet sleeps for certain amount of time. Increases Rest bar");
+        clean.setToolTipText("CLEAN. Cleans pet. Increases Hygiene bar");
         vet  .setToolTipText("Cures pet. Increases Health bar");
-        play .setToolTipText("Pick toy you own for pet to play with. Increases Emotion bar");
-        store.setToolTipText("Toy store to buy toys");
+        play .setToolTipText("PLAY. Pick toy you own for pet to play with. Increases Emotion bar");
+        store.setToolTipText("TOY STORE. Toy store to buy toys");
         exit.setToolTipText("End game");
 
         work .addActionListener(this);

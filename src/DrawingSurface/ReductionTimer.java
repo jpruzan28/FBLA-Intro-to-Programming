@@ -16,12 +16,12 @@ public class ReductionTimer {
         emotionC = new Emotion(pet);
     }
 
-    public class reduceHunger extends TimerTask {
+    public class reduceNutrition extends TimerTask {
         @Override
         public void run() {
-            int current = pet.getHunger();
+            int current = pet.getNutrition();
             if (current > 0) {
-                pet.setHunger(current - 1);
+                pet.setNutrition(current - 1);
             }
         }
     }
@@ -63,7 +63,7 @@ public class ReductionTimer {
         @Override
         public void run() {
             Health petHealth = new Health(pet);
-            petHealth.addHungerToHealth(pet.getHunger());
+            petHealth.addNutritionToHealth(pet.getNutrition());
             petHealth.addRestToHealth(pet.getRest());
             petHealth.addHygieneToHealth(pet.getHygiene());
             petHealth.remindVetVisit();

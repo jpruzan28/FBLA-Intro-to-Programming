@@ -20,7 +20,7 @@ public class Pet {
 	private Image icon; 
 	
 	private int health;
-	private int hunger;
+	private int nutrition;
 	private int emotion;
 	private int rest;
 	private int hygiene;
@@ -46,7 +46,7 @@ public class Pet {
 		
 		icon = null; 
 		health = 10;
-		hunger = 10;
+		nutrition = 10;
 		emotion = 10;
 		rest = 10;
 		hygiene = 10;
@@ -91,16 +91,16 @@ public class Pet {
 	}
 	
 	/**
-	 * Updates hunger
-	 * @param newHunger updated hunger amount
-	 * @post hunger will always be <= 10
+	 * Updates nutrition
+	 * @param newNutrition updated nutrition amount
+	 * @post nutrition will always be <= 10
 	 */
-	public void setHunger(int newHunger) {
-		if(newHunger > 10) {
-			hunger = 10;
+	public void setNutrition(int newNutrition) {
+		if(newNutrition > 10) {
+			nutrition = 10;
 		}
 		else {
-			hunger = newHunger;
+			nutrition = newNutrition;
 		}
 		
 	}
@@ -243,11 +243,11 @@ public class Pet {
 	}
 	
 	/**
-	 * Returns pet hunger
-	 * @return hunger amount
+	 * Returns pet nutrition
+	 * @return nutrition amount
 	 */
-	public int getHunger() {
-		return hunger;
+	public int getNutrition() {
+		return nutrition;
 	}
 	
 	/**

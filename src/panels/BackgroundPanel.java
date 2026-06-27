@@ -55,7 +55,7 @@ public class BackgroundPanel extends JPanel {
 		  if (bars == null) return;
 		
 		Bar health = bars[0];
-		Bar hunger = bars[1];
+		Bar nutrition = bars[1];
 		Bar hygiene = bars[2];
 		Bar rest = bars[3];
 		//Bar emotion = bars[4];
@@ -67,15 +67,15 @@ public class BackgroundPanel extends JPanel {
 		g.setFont(new Font("SansSerif", Font.BOLD, fontSize)); 
 
 		g.drawString("Health", (int)health.getX(), (int)health.getY() - fontSize);
-		g.drawString("Hunger", (int)hunger.getX(), (int)hunger.getY() - fontSize);
+		g.drawString("Nutrition", (int)nutrition.getX(), (int)nutrition.getY() - fontSize);
 		g.drawString("Hygiene", (int)hygiene.getX(), (int)hygiene.getY() - fontSize);
 		g.drawString("Rest", (int)rest.getX(), (int)rest.getY() - fontSize);
 		//g.drawString("Emotion", (int)emotion.getX(), (int)emotion.getY() - fontSize);
 		
-		double outlineWidth = hunger.getMaxWidth();	
+		double outlineWidth = nutrition.getMaxWidth();	
 		// Drawing outlines of bars 
 		g.drawRect((int)health.getX(), (int)health.getY(), (int)outlineWidth, (int)health.getHeight());
-		g.drawRect((int)hunger.getX(), (int)hunger.getY(), (int)outlineWidth, (int)hunger.getHeight());
+		g.drawRect((int)nutrition.getX(), (int)nutrition.getY(), (int)outlineWidth, (int)nutrition.getHeight());
 		g.drawRect((int)hygiene.getX(), (int)hygiene.getY(), (int)outlineWidth, (int)hygiene.getHeight());
 		g.drawRect((int)rest.getX(), (int)rest.getY(), (int)outlineWidth, (int)rest.getHeight());
 		//g.drawRect((int)emotion.getX(), (int)emotion.getY(), (int)outlineWidth, (int)emotion.getHeight());
@@ -84,8 +84,8 @@ public class BackgroundPanel extends JPanel {
 		g.setColor(health.getColor());
 		g.fillRect((int)health.getX(), (int)health.getY(), (int)health.getWidth(), (int)health.getHeight());
 		
-		g.setColor(hunger.getColor());
-		g.fillRect((int)hunger.getX(), (int)hunger.getY(), (int)hunger.getWidth(), (int)hunger.getHeight());
+		g.setColor(nutrition.getColor());
+		g.fillRect((int)nutrition.getX(), (int)nutrition.getY(), (int)nutrition.getWidth(), (int)nutrition.getHeight());
 
 		g.setColor(hygiene.getColor());
 		g.fillRect((int)hygiene.getX(), (int)hygiene.getY(), (int)hygiene.getWidth(), (int)hygiene.getHeight());
