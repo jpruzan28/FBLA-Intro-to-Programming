@@ -220,27 +220,66 @@ public class DrawingSurface implements ActionListener {
         // put on MODAL_LAYER which is above PALETTE_LAYER
         layeredPane.add(sprite, JLayeredPane.MODAL_LAYER);
     }
+
+    private ImageIcon createScaledIcon(String imagePath, int targetHeight) {
+        try {
+            ImageIcon originalIcon = new ImageIcon(imagePath);
+            Image originalImage = originalIcon.getImage();
+            
+            // Passing -1 as the width tells Java to automatically calculate 
+            // the correct width so the image doesn't look squished!
+            Image scaledImage = originalImage.getScaledInstance(-1, targetHeight, Image.SCALE_SMOOTH);
+            
+            return new ImageIcon(scaledImage);
+        } catch (Exception e) {
+            System.out.println("Could not load or scale image: " + imagePath);
+            return null;
+        }
+    }
     
+	private void clearBackground(JButton button) {
+		button.setBorderPainted(false);
+		button.setContentAreaFilled(false);
+		button.setOpaque(false);
+	}
+
     public void addButtons() {
+    	
+//    	ImageIcon icon = new ImageIcon("Images/Homescreen_Buttons/CleaningButton.png");
+//    	Image scaled = icon.getImage().getScaledInstance(545, 500, Image.SCALE_SMOOTH);
+//    	ImageIcon scaledIcon = new ImageIcon(scaled);
+
+    	
+    	// 2. Create the scaled icons directly from your screenshot files
+    	ImageIcon cleanIcon = createScaledIcon("Images/Homescreen_Buttons/CleaningButton.png", 500);
+    	ImageIcon sleepIcon = createScaledIcon("Images/Homescreen_Buttons/RestButton.png", 290);
+    	ImageIcon feedIcon = createScaledIcon("Images/Homescreen_Buttons/FeedButton.png", 227);
+    	ImageIcon playIcon = createScaledIcon("Images/Homescreen_Buttons/PlayButton.png", 200);
+    	ImageIcon storeIcon = createScaledIcon("Images/Homescreen_Buttons/StoreButton.png", 655);
+    	
         work  = new JButton("Work");
-        food  = new JButton("Food Store");
-        sleep = new JButton("Sleep");
-        clean = new JButton("Clean");
+        food  = new JButton(feedIcon);
+        sleep = new JButton(sleepIcon);
+        clean = new JButton(cleanIcon);
         vet   = new JButton("Vet");
-        play  = new JButton("Play");
-        store = new JButton("Toy Store");
+        play  = new JButton(playIcon);
+        store = new JButton(storeIcon);
         exit = new JButton("Exit"); 
         
         work.setBounds(1250,  260, 120, 40);
-        food.setBounds(230, 820, 120, 40);
-        sleep.setBounds(700, 500, 120, 40);
-        clean.setBounds(1190, 920, 120, 40);
-        //clean.setBounds(1090, 620, 120, 40);
-
+        food.setBounds(70, 760, feedIcon.getIconWidth(), 227);
+        sleep.setBounds(670, 430, sleepIcon.getIconWidth(), 290);
+        clean.setBounds(1250, 483, cleanIcon.getIconWidth(), 500);
         vet.setBounds(1250, 350, 120, 40);
-        play.setBounds(450, 460, 120, 40);
-        store.setBounds(135,  310, 120, 40);
+        play.setBounds(450, 460, playIcon.getIconWidth(), 200);
+        store.setBounds(157, 134, storeIcon.getIconWidth(), 655);
         exit.setBounds(0, 0, 120, 40);
+        
+        clearBackground(food);
+        clearBackground(sleep);
+        clearBackground(clean);
+        clearBackground(play);
+        clearBackground(store);
         
         work .setToolTipText("Answer questions to make money. Increases Total Savings. $10 per question right");
         food .setToolTipText("Food store to buy and feed food. Increases Hunger bar");
@@ -261,8 +300,8 @@ public class DrawingSurface implements ActionListener {
         exit.addActionListener(this);
 
         layeredPane.add(work,  JLayeredPane.PALETTE_LAYER);
-        layeredPane.add(food,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(sleep, JLayeredPane.PALETTE_LAYER);
+        layeredPane.add(food, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(clean, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(vet,   JLayeredPane.PALETTE_LAYER);
         layeredPane.add(play,  JLayeredPane.PALETTE_LAYER);
