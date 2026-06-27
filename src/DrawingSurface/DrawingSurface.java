@@ -94,7 +94,7 @@ public class DrawingSurface implements ActionListener {
     
     // Adds a background to the bottom layer
     public void addBackground() {
-        backgroundPanel = new BackgroundPanel("Images/Pet_Sprites/Untitled14.png", bars);
+        backgroundPanel = new BackgroundPanel("Images/Pet_Sprites/BackgroundImage.png", bars);
         backgroundPanel.setBounds(0, 0, width, height);
         layeredPane.add(backgroundPanel, JLayeredPane.DEFAULT_LAYER);
 
@@ -221,13 +221,13 @@ public class DrawingSurface implements ActionListener {
         layeredPane.add(sprite, JLayeredPane.MODAL_LAYER);
     }
 
+    // takes in the height you want and scales it proportionally
     private ImageIcon createScaledIcon(String imagePath, int targetHeight) {
         try {
             ImageIcon originalIcon = new ImageIcon(imagePath);
             Image originalImage = originalIcon.getImage();
             
-            // Passing -1 as the width tells Java to automatically calculate 
-            // the correct width so the image doesn't look squished!
+            // Passing -1 as the width makes it automatically calculate 
             Image scaledImage = originalImage.getScaledInstance(-1, targetHeight, Image.SCALE_SMOOTH);
             
             return new ImageIcon(scaledImage);
@@ -237,7 +237,8 @@ public class DrawingSurface implements ActionListener {
         }
     }
     
-	private void clearBackground(JButton button) {
+    // makes the button transparent
+	private void clearBackground(JButton button) { 
 		button.setBorderPainted(false);
 		button.setContentAreaFilled(false);
 		button.setOpaque(false);
@@ -250,36 +251,43 @@ public class DrawingSurface implements ActionListener {
 //    	ImageIcon scaledIcon = new ImageIcon(scaled);
 
     	
-    	// 2. Create the scaled icons directly from your screenshot files
+
     	ImageIcon cleanIcon = createScaledIcon("Images/Homescreen_Buttons/CleaningButton.png", 500);
     	ImageIcon sleepIcon = createScaledIcon("Images/Homescreen_Buttons/RestButton.png", 290);
     	ImageIcon feedIcon = createScaledIcon("Images/Homescreen_Buttons/FeedButton.png", 227);
     	ImageIcon playIcon = createScaledIcon("Images/Homescreen_Buttons/PlayButton.png", 200);
     	ImageIcon storeIcon = createScaledIcon("Images/Homescreen_Buttons/StoreButton.png", 655);
+    	ImageIcon workIcon = createScaledIcon("Images/Homescreen_Buttons/WorkButton.png", 170);
+    	ImageIcon vetIcon = createScaledIcon("Images/Homescreen_Buttons/VetButton.png", 170);
+    	ImageIcon exitIcon = createScaledIcon("Images/Homescreen_Buttons/ExitButton.png", 180);
     	
-        work  = new JButton("Work");
+        work  = new JButton(workIcon);
         food  = new JButton(feedIcon);
         sleep = new JButton(sleepIcon);
         clean = new JButton(cleanIcon);
-        vet   = new JButton("Vet");
+        vet   = new JButton(vetIcon);
         play  = new JButton(playIcon);
         store = new JButton(storeIcon);
-        exit = new JButton("Exit"); 
+        exit = new JButton(exitIcon); 
         
-        work.setBounds(1250,  260, 120, 40);
+        
+        work.setBounds(1250,  260, workIcon.getIconWidth(), 170);
         food.setBounds(70, 760, feedIcon.getIconWidth(), 227);
         sleep.setBounds(670, 430, sleepIcon.getIconWidth(), 290);
         clean.setBounds(1250, 483, cleanIcon.getIconWidth(), 500);
-        vet.setBounds(1250, 350, 120, 40);
+        vet.setBounds(1250, 350, vetIcon.getIconWidth(), 170);
         play.setBounds(450, 460, playIcon.getIconWidth(), 200);
         store.setBounds(157, 134, storeIcon.getIconWidth(), 655);
-        exit.setBounds(0, 0, 120, 40);
+        exit.setBounds(0, 0, storeIcon.getIconWidth(), 170);
         
         clearBackground(food);
         clearBackground(sleep);
         clearBackground(clean);
         clearBackground(play);
         clearBackground(store);
+        clearBackground(work);
+        clearBackground(vet);
+        clearBackground(exit);
         
         work .setToolTipText("Answer questions to make money. Increases Total Savings. $10 per question right");
         food .setToolTipText("Food store to buy and feed food. Increases Hunger bar");
