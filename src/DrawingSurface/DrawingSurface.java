@@ -271,11 +271,11 @@ public class DrawingSurface implements ActionListener {
         exit = new JButton(exitIcon); 
         
         
-        work.setBounds(1250,  260, workIcon.getIconWidth(), 170);
+        work.setBounds(1250,  130, workIcon.getIconWidth(), 170);
         food.setBounds(70, 760, feedIcon.getIconWidth(), 227);
         sleep.setBounds(670, 430, sleepIcon.getIconWidth(), 290);
         clean.setBounds(1250, 483, cleanIcon.getIconWidth(), 500);
-        vet.setBounds(1250, 350, vetIcon.getIconWidth(), 170);
+        vet.setBounds(1250, 320, vetIcon.getIconWidth(), 170);
         play.setBounds(450, 460, playIcon.getIconWidth(), 200);
         store.setBounds(157, 134, storeIcon.getIconWidth(), 655);
         exit.setBounds(0, 0, storeIcon.getIconWidth(), 170);
