@@ -19,8 +19,8 @@ public class WorkApp extends JDialog {
     Pet pet;
 
     public WorkApp(JFrame parent, Pet pet) {
-        super(parent, "Financial Responsibility Quiz", true);
-        setSize(600, 400);
+        super(parent, "Work", true);
+        setSize(1200, 800);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout(10, 10));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -36,7 +36,7 @@ public class WorkApp extends JDialog {
     public void initUI() {
         // Question at the top
         question = new JLabel("Loading question...", SwingConstants.CENTER);
-        question.setFont(new Font("Arial", Font.BOLD, 16));
+        question.setFont(new Font("Arial", Font.BOLD, 32));
         question.setBorder(BorderFactory.createEmptyBorder(20, 20, 10, 20));
         add(question, BorderLayout.NORTH);
 
@@ -45,6 +45,7 @@ public class WorkApp extends JDialog {
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         for (int i = 0; i < 4; i++) {
             answers[i] = new JButton();
+            answers[i].setFont(new Font("SansSerif", Font.BOLD, 26));
             int index = i;
             answers[i].addActionListener(e -> checkAnswer(answers[index].getText(), answers[index]));
             buttonPanel.add(answers[i]);
@@ -54,7 +55,7 @@ public class WorkApp extends JDialog {
         // Feedback at the bottom
         JPanel bottomPanel = new JPanel();
         feedback = new JLabel(" ");
-        feedback.setFont(new Font("Arial", Font.BOLD, 14));
+        feedback.setFont(new Font("Arial", Font.BOLD, 20));
         bottomPanel.add(feedback);
         add(bottomPanel, BorderLayout.SOUTH);
     }
@@ -62,12 +63,12 @@ public class WorkApp extends JDialog {
     public void checkAnswer(String selected, JButton clicked) {
         String cleaned = selected.replaceAll("<[^>]*>", "").trim();
         if (cleaned.equals(correctAnswer)) {
-            feedback.setText("✓ Correct!");
+            feedback.setText("Correct! You earned $20");
             feedback.setForeground(Color.GREEN.darker());
             clicked.setBackground(Color.GREEN);
             pet.setMoney(pet.getMoney() + 20);
         } else {
-            feedback.setText("✗ Wrong! The answer was: " + correctAnswer);
+            feedback.setText("Wrong! The answer was: " + correctAnswer + " You earned $0");
             feedback.setForeground(Color.RED);
             clicked.setBackground(Color.RED);
         }
