@@ -22,7 +22,12 @@ public class Health {
 	// Methods
 	
 
-	// Affect emotion when health goes down
+	/**
+	 * 
+	 * method demonstrating how other status bars affect the health
+	 * 
+	 * @param totalHunger is the pet's current hunger level
+	 */
 	public void addNutritionToHealth(int totalHunger) {
 		int totalHealth = pet.getHealth();
 
@@ -35,7 +40,7 @@ public class Health {
 	            newHealth = totalHealth - 3;
 	        } else if (totalHunger <= 3) {
 	            newHealth = totalHealth - 2;
-	        } else if (totalHunger <= 7) { //is only high if greater or equal to 6
+	        } else if (totalHunger <= 7) { 
 	            newHealth = totalHealth - 1;
 	        } else {
 	            newHealth = totalHealth + 1;
@@ -46,7 +51,11 @@ public class Health {
 	
 
 
-
+	/**
+	 * 
+	 * method to change health status based on rest
+	 * @param totalRest
+	 */
 	public void addRestToHealth(int totalRest) {
 	    int totalHealth = pet.getHealth();
 	    int newHealth;
@@ -68,6 +77,13 @@ public class Health {
 	}
 
 
+	
+	
+	/**
+	 * 
+	 * method to change health status based on hygiene
+	 * @param totalHygiene
+	 */
 	public void addHygieneToHealth(int totalHygiene) {
 	    int totalHealth = pet.getHealth();
 	    int newHealth;
@@ -88,7 +104,13 @@ public class Health {
 	    pet.setHealth(newHealth); 
 	}
 	
-	public void remindVetVisit() { //maybe put this in future time class, checks every time health is changed
+	
+	/**
+	 * 
+	 * remind's the user to visit vet if pet is too low
+	 * 
+	 */
+	public void remindVetVisit() { 
 		int totalHealth = pet.getHealth();
 
 		if (pet.getActive() && totalHealth <= 2 && totalHealth != 0) {
