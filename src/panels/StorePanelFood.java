@@ -38,14 +38,13 @@ public class StorePanelFood extends JPanel implements ActionListener {
 		// FINANCIAL STATUS MONITOR (Centered at the Bottom)
 		JPanel statusPanel = new JPanel(new GridLayout(1, 2, 20, 0));
 		statusPanel.setOpaque(false);
-		statusPanel.setBounds(700, 950, 500, 50); 
+		statusPanel.setBounds(630, 2, 500, 50); 
 
 		Font statusFont = new Font("Arial", Font.BOLD, 24);
 
 		moneyLabel = new JLabel("Balance: $" + String.format("%.2f", p.getMoney()), SwingConstants.CENTER);
 		moneyLabel.setFont(statusFont);
 		moneyLabel.setForeground(new Color(50, 32, 32));
-
 		expensesLabel = new JLabel("Spent: $" + String.format("%.2f", p.getExpenses()), SwingConstants.CENTER);
 		expensesLabel.setFont(statusFont);
 		expensesLabel.setForeground(new Color(140, 60, 60)); 
@@ -76,15 +75,15 @@ public class StorePanelFood extends JPanel implements ActionListener {
 		abyssInfusion.setName("Abyss Infusion");
 
 		// PLACEMENT GRID
-		kibbleCrunch.setBounds(180, 150, 270, 150);
-		salmonDelight.setBounds(180, 385, 270, 150);
-		goldNuggets.setBounds(65+240, 600, 270, 150);
-		fishKibble.setBounds(600+125, 150, 270, 150);
-		turkeyTreats.setBounds(600+125, 385, 270, 150);
-		goldenRat.setBounds(600+125, 600, 270, 150);
-		flakes.setBounds(1270, 150, 270, 150);
-		algaeCrisps.setBounds(1270, 385, 270, 150);
-		abyssInfusion.setBounds(1270, 600, 270, 150);
+		kibbleCrunch.setBounds(180, 150+20, 270, 150);
+		salmonDelight.setBounds(180, 385+20, 270, 150);
+		goldNuggets.setBounds(180, 600+20, 270, 150);
+		fishKibble.setBounds(600+125, 150+20, 270, 150);
+		turkeyTreats.setBounds(600+125, 385+20, 270, 150);
+		goldenRat.setBounds(600+125, 600+20, 270, 150);
+		flakes.setBounds(1270, 150, 150+20, 150);
+		algaeCrisps.setBounds(1270, 385+20, 270, 150);
+		abyssInfusion.setBounds(1270, 600+20, 270, 150);
 		
 		kibbleCrunch.addActionListener(this);
 		salmonDelight.addActionListener(this);
@@ -106,19 +105,26 @@ public class StorePanelFood extends JPanel implements ActionListener {
 		layeredPane.add(algaeCrisps, JLayeredPane.PALETTE_LAYER);
 		layeredPane.add(abyssInfusion, JLayeredPane.PALETTE_LAYER);
 
-		// EXIT BUTTON (Top-Left Placement)
-		JButton backButton = new JButton("Return to home");
+		// Exit Button
+		ImageIcon returnIcon = DrawingSurface.createScaledIcon("Images/Homescreen_Buttons/ReturnButton.png", 160);
+		ImageIcon returnGlow = DrawingSurface.createScaledIcon("Images/Homescreen_Buttons/ReturnGlow.png", 160);
+
+		JButton backButton = new JButton(returnIcon);
 		backButton.addActionListener(e -> {
 			cardLayout.show(cardPanel, "Home");
 		});
-		backButton.setBounds(0, 0, 80, 80);
-		layeredPane.add(backButton, JLayeredPane.PALETTE_LAYER); 
+
+		backButton.setBounds(1500, 835, returnIcon.getIconWidth(), 160);
+		DrawingSurface.clearBackground(backButton);
+		backButton.setRolloverIcon(returnGlow);
 		
+		layeredPane.add(backButton, JLayeredPane.PALETTE_LAYER);
+
 		updateBalanceDisplay();
 	}
 	
 	public void addBackground() {
-		backgroundPanel = new BackgroundPanel("Images/Pet_Sprites/Untitled16.png"); 
+		backgroundPanel = new BackgroundPanel("Images/Food_Icons/FoodStore.png"); 
 		backgroundPanel.setBounds(0, 0, 1900, 1060);
 		layeredPane.add(backgroundPanel, JLayeredPane.DEFAULT_LAYER);
 		layeredPane.setSize(1900, 1060);

@@ -136,7 +136,7 @@ public class DrawingSurface implements ActionListener {
         moneyLabel = new JLabel("Balance: $" + String.format("%.2f", pet.getMoney()));
         moneyLabel.setFont(new Font("Inconsolata", Font.BOLD, 24));
         moneyLabel.setForeground(Color.BLACK);
-        moneyLabel.setBounds(300, 100, 320, 40);
+        moneyLabel.setBounds(400, 100, 320, 40);
         layeredPane.add(moneyLabel, JLayeredPane.PALETTE_LAYER);
     }
 
@@ -222,7 +222,7 @@ public class DrawingSurface implements ActionListener {
     }
 
     // takes in the height you want and scales it proportionally
-    private ImageIcon createScaledIcon(String imagePath, int targetHeight) {
+    public static ImageIcon createScaledIcon(String imagePath, int targetHeight) {
         try {
             ImageIcon originalIcon = new ImageIcon(imagePath);
             Image originalImage = originalIcon.getImage();
@@ -238,7 +238,7 @@ public class DrawingSurface implements ActionListener {
     }
     
     // makes the button transparent
-	private void clearBackground(JButton button) { 
+	public static void clearBackground(JButton button) { 
 		button.setBorderPainted(false);
 		button.setContentAreaFilled(false);
 		button.setOpaque(false);
@@ -275,19 +275,23 @@ public class DrawingSurface implements ActionListener {
         sleep = new JButton(sleepIcon);
         clean = new JButton(cleanIcon);
         vet   = new JButton(vetIcon);
-        play  = new JButton(playIcon);
-        store = new JButton(storeIcon);
-        exit = new JButton(exitIcon); 
-        
-        
-        work.setBounds(1380,  130, workIcon.getIconWidth(), 170);
-        food.setBounds(70, 760, feedIcon.getIconWidth(), 227);
-        sleep.setBounds(670, 430, sleepIcon.getIconWidth(), 290);
-        clean.setBounds(1250, 483, cleanIcon.getIconWidth(), 500);
-        vet.setBounds(1380, 320, vetIcon.getIconWidth(), 170);
-        play.setBounds(450, 460, playIcon.getIconWidth(), 200);
-        store.setBounds(157, 134, storeIcon.getIconWidth(), 655);
-//        exit.setBounds(0, 0, storeIcon.getIconWidth(), 150);
+		play = new JButton(playIcon);
+		store = new JButton(storeIcon);
+		exit = new JButton(exitIcon);
+
+		work.setBounds(1380, 130, workIcon.getIconWidth(), 170);
+		food.setBounds(70, 760, feedIcon.getIconWidth(), 227);
+		sleep.setBounds(670, 430, sleepIcon.getIconWidth(), 290);
+		clean.setBounds(1250, 483, cleanIcon.getIconWidth(), 500);
+		vet.setBounds(1380, 320, vetIcon.getIconWidth(), 170);
+		play.setBounds(450, 460, playIcon.getIconWidth(), 200);
+		store.setBounds(157, 134, storeIcon.getIconWidth(), 655);
+
+		// Makes exit button outside of the restricted border
+		exit.setMargin(new Insets(0, 0, 0, 0));
+		// Clears any border space around the icon
+		exit.setBorder(BorderFactory.createEmptyBorder());
+		exit.setBounds(-5, -5, exitIcon.getIconWidth(), 150);
         
         clearBackground(food);
         clearBackground(sleep);
@@ -325,13 +329,6 @@ public class DrawingSurface implements ActionListener {
         store.addActionListener(this);
         exit.addActionListener(this);
 
-        
-        exit.setMargin(new Insets(0, 0, 0, 0));
-     // Clears any border space around the icon 
-     exit.setBorder(BorderFactory.createEmptyBorder());
-     // Move it to slightly negative X and Y coordinates (e.g., -5 or -10)
-     // This overrides the container layout padding and snaps the graphic right to the corner!
-     exit.setBounds(-5, -5, exitIcon.getIconWidth(), 150);
      
         layeredPane.add(work,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(sleep, JLayeredPane.PALETTE_LAYER);
