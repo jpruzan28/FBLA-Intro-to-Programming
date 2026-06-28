@@ -110,7 +110,7 @@ public class Main {
 	    
 	    ReductionTimer reductionTimers = new ReductionTimer(pet, drawingSurface);
 		Timer timer = new Timer();
-		timer.schedule(reductionTimers.new reduceHunger(),  25000, 25000);
+		timer.schedule(reductionTimers.new reduceNutrition(),  25000, 25000);
 		timer.schedule(reductionTimers.new reduceHygiene(), 25000, 25000);
 		timer.schedule(reductionTimers.new reduceRest(),    25000, 25000);
 		timer.schedule(reductionTimers.new reduceEmotion(), 25000, 25000);
@@ -125,7 +125,7 @@ public class Main {
 	                    pet.getHygiene() <= 0 ||
 	                    pet.getEmotion() <= 0 ||
 	                    pet.getRest()    <= 0 ||
-	                    pet.getHunger()  <= 0) {
+	                    pet.getNutrition()  <= 0) {
 	                        drawingSurface.gameOver();
 	                        gameOverChecker.stop();
 	                }

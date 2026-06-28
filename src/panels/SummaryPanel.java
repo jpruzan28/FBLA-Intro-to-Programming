@@ -35,7 +35,7 @@ public class SummaryPanel extends JPanel {
     private static final Color BG_FOOTER  = new Color(182, 138, 140); // dark rose   — footer bar
 
     private static final Color HEALTH_C   = new Color(175,  82,  82); // muted red
-    private static final Color HUNGER_C   = new Color(188, 132,  62); // muted amber
+    private static final Color NUTRITION_C   = new Color(188, 132,  62); // muted amber
     private static final Color HYGIENE_C  = new Color( 78, 138, 182); // muted blue
     private static final Color REST_C     = new Color(135, 105, 182); // muted purple
     private static final Color BAR_TRACK  = new Color(175, 138, 140); // muted rose track
@@ -196,7 +196,7 @@ public class SummaryPanel extends JPanel {
     }
 
     /**
-     * Middle column — four stat progress bars: health, hunger, hygiene, rest.
+     * Middle column — four stat progress bars: health, nutrition, hygiene, rest.
      * Bar style (slightly rounded rectangles) echoes the main game's stat bars.
      */
     private JPanel buildStatsCard() {
@@ -214,7 +214,7 @@ public class SummaryPanel extends JPanel {
         bars.add(Box.createVerticalGlue());
         bars.add(statBar("Health",  pet.getHealth(),  10, HEALTH_C));
         bars.add(Box.createVerticalGlue());
-        bars.add(statBar("Hunger",  pet.getHunger(),  10, HUNGER_C));
+        bars.add(statBar("Nutrition",  pet.getNutrition(),  10, NUTRITION_C));
         bars.add(Box.createVerticalGlue());
         bars.add(statBar("Hygiene", pet.getHygiene(), 10, HYGIENE_C));
         bars.add(Box.createVerticalGlue());
@@ -688,7 +688,7 @@ public class SummaryPanel extends JPanel {
         bw.write("VITAL STATS");                                           bw.newLine();
         bw.write("Stat,Score,Out Of");                                     bw.newLine();
         bw.write("Health,"  + pet.getHealth()  + ",10");                   bw.newLine();
-        bw.write("Hunger,"  + pet.getHunger()  + ",10");                   bw.newLine();
+        bw.write("Nutrition,"  + pet.getNutrition()  + ",10");             bw.newLine();
         bw.write("Hygiene," + pet.getHygiene() + ",10");                   bw.newLine();
         bw.write("Rest,"    + pet.getRest()    + ",10");                   bw.newLine();
         bw.newLine();
@@ -846,7 +846,7 @@ public class SummaryPanel extends JPanel {
 
         sb.append("<div class='card'><div class='ch'>Vital Stats</div>");
         appendStatBar(sb, "Health",  pet.getHealth(),  "#AF5252");
-        appendStatBar(sb, "Hunger",  pet.getHunger(),  "#BC843E");
+        appendStatBar(sb, "Nutrition",  pet.getNutrition(),  "#BC843E");
         appendStatBar(sb, "Hygiene", pet.getHygiene(), "#4E8AB6");
         appendStatBar(sb, "Rest",    pet.getRest(),    "#8769B6");
         sb.append("</div>\n");

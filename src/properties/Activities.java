@@ -28,12 +28,12 @@ public class Activities {
 		
 		int version = toy.getVersion();
 		int currentEmotion = pet.getEmotion();
-		int currentHunger = pet.getHunger();
+		int currentNutrition = pet.getNutrition();
 		int currentRest = pet.getRest();
 		int currentHygiene = pet.getHygiene();
 		
-		// Hunger and rest --
-		int hungerFactor;
+		// Nutrition and rest --
+		int nutritionFactor;
 		int emotionFactor;
 		// Emotion and hygiene ++
 		int hygieneFactor;
@@ -42,25 +42,25 @@ public class Activities {
 		if(pet.getType().equals(toy.getType())) {
 			
 			if(version == 1) {
-				hungerFactor = 3;
+				nutritionFactor = 3;
 				restFactor = 3;
 				emotionFactor = 4;
 				hygieneFactor = 2;
 			}
 			else if(version == 2) {
-				hungerFactor = 5;
+				nutritionFactor = 5;
 				restFactor = 5;
 				emotionFactor = 6;
 				hygieneFactor = 4;
 			}
 			else if(version == 3){
-				hungerFactor = 7;
+				nutritionFactor = 7;
 				restFactor = 7;
 				emotionFactor = 8;
 				hygieneFactor = 6;
 			}
 			else {
-				hungerFactor = 8;
+				nutritionFactor = 8;
 				restFactor = 9;
 				emotionFactor = 8;
 				hygieneFactor = 8;
@@ -69,26 +69,26 @@ public class Activities {
 		
 		else {
 			if(version == 1) {
-				hungerFactor = 2;
+				nutritionFactor = 2;
 				restFactor = 2;
 				emotionFactor = 3;
 				hygieneFactor = 1;
 			}
 			else if(version == 2) {
-				hungerFactor = 3;
+				nutritionFactor = 3;
 				restFactor = 3;
 				emotionFactor = 4;
 				hygieneFactor = 2;
 
 			}
 			else if(version == 3){
-				hungerFactor = 4;
+				nutritionFactor = 4;
 				restFactor = 4;
 				emotionFactor = 5;
 				hygieneFactor = 3;
 			}
 			else {
-				hungerFactor = 4;
+				nutritionFactor = 4;
 				restFactor = 4;
 				emotionFactor = 5;
 				hygieneFactor = 4;
@@ -96,7 +96,7 @@ public class Activities {
 		}
 		
 		pet.setEmotion(currentEmotion + emotionFactor);
-		pet.setHunger(currentHunger - hungerFactor);
+		pet.setNutrition(currentNutrition - nutritionFactor);
 		pet.setRest(currentRest - restFactor);
 		pet.setHygiene(currentHygiene - hygieneFactor);
 		
