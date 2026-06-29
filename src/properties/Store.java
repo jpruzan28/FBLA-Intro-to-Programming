@@ -1,5 +1,5 @@
 package properties;
-
+import javax.swing.JOptionPane;
 
 import DrawingSurface.DrawingSurface;
 import pets.Pet;
@@ -55,6 +55,13 @@ public class Store {
 			p.addExpenses(f.getPrice());
 			p.addFood(f);
 			f.feedPet(p);
+			
+			JOptionPane.showMessageDialog(
+		            null, 
+		           "You Bought "  + f.getName(), 
+		            "Congrats", 
+		            JOptionPane.INFORMATION_MESSAGE
+		        );
 		}
 	}
 	
@@ -69,6 +76,13 @@ public class Store {
 			p.setMoney(m - t.getPrice());	
 			p.addExpenses(t.getPrice()); 
 			p.setToys(t);
+			
+			JOptionPane.showMessageDialog(
+		            null, 
+		           "You Bought "  + t.getName(), 
+		            "Congrats", 
+		            JOptionPane.INFORMATION_MESSAGE
+		        );
 		}
 	}
 
