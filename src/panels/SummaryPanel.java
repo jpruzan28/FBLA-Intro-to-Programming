@@ -52,10 +52,10 @@ public class SummaryPanel extends JPanel {
     // FONTS
     // =========================================================================
     private static final Font F_HERO  = new Font("Segoe UI", Font.BOLD,  24);
-    private static final Font F_SUB   = new Font("Segoe UI", Font.PLAIN, 13);
-    private static final Font F_SECT  = new Font("Segoe UI", Font.BOLD,  12);
+    private static final Font F_SUB   = new Font("Segoe UI", Font.PLAIN, 19);
+    private static final Font F_SECT  = new Font("Segoe UI", Font.BOLD,  25);
     private static final Font F_BODY  = new Font("Segoe UI", Font.PLAIN, 13);
-    private static final Font F_LBL   = new Font("Segoe UI", Font.BOLD,  12);
+    private static final Font F_LBL   = new Font("Segoe UI", Font.BOLD,  20);
     private static final Font F_SMALL = new Font("Segoe UI", Font.PLAIN, 11);
     private static final Font F_NAME  = new Font("Segoe UI", Font.BOLD,  16);
     private static final Font F_EMOJI = new Font("Segoe UI", Font.PLAIN, 50);
@@ -499,9 +499,10 @@ public class SummaryPanel extends JPanel {
         JPanel header = new JPanel(new BorderLayout());
         header.setOpaque(false);
         header.setAlignmentX(LEFT_ALIGNMENT);
+        
 
-        JLabel nameLbl = lbl(labelText, new Font("Segoe UI", Font.BOLD, 15), TXT_MID);
-        JLabel valLbl  = lbl(value + " / 10", new Font("Segoe UI", Font.BOLD, 15), barColor);
+        JLabel nameLbl = lbl(labelText, new Font("Segoe UI", Font.BOLD, 25), TXT_MID);
+        JLabel valLbl  = lbl(value + " / 10", new Font("Segoe UI", Font.BOLD, 25), Color.BLACK);
         valLbl.setHorizontalAlignment(SwingConstants.RIGHT);
         header.add(nameLbl, BorderLayout.WEST);
         header.add(valLbl,  BorderLayout.EAST);
