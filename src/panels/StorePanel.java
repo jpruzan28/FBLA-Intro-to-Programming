@@ -38,7 +38,7 @@ public class StorePanel extends JPanel implements ActionListener {
 		// FINANCIAL STATUS MONITOR (Centered at the Bottom)
 		JPanel statusPanel = new JPanel(new GridLayout(1, 2, 20, 0));
 		statusPanel.setOpaque(false);
-		statusPanel.setBounds(700, 950, 500, 50); 
+		statusPanel.setBounds(630, 2, 500, 50); 
 
 		Font statusFont = new Font("Arial", Font.BOLD, 24);
 
@@ -76,15 +76,15 @@ public class StorePanel extends JPanel implements ActionListener {
 		platinumSpeaker.setName("Super Speaker");
 
 		// PLACEMENT GRID
-		usedBall.setBounds(180,  150, 270, 150);
-		enchantedChewWand.setBounds(180,  385, 270, 150);
-		goldenestBone.setBounds(65+240,  600, 270, 150);
-		plainKittySock.setBounds(600+125,  150, 270, 150);
-		laserPointer.setBounds(600+125, 385, 270, 150);
-		legendaryAirpods.setBounds(600+125,  600, 270, 150);
-		driftBall.setBounds(1270,  150, 270, 150);
-		biolumeBubbleMachine.setBounds(1270,  385, 270, 150);
-		platinumSpeaker.setBounds(1270,  600, 270, 150);
+		usedBall.setBounds(180, 150+20, 270, 150);
+		enchantedChewWand.setBounds(180, 385+20, 270, 150);
+		goldenestBone.setBounds(180, 600+20, 270, 150);
+		driftBall.setBounds(600+125, 150+20, 270, 150);
+		biolumeBubbleMachine.setBounds(600+125, 385+20, 270, 150);
+		platinumSpeaker.setBounds(600+125, 600+20, 270, 150);
+		plainKittySock.setBounds(1270, 150+20, 270, 150);
+		laserPointer.setBounds(1270, 385+20, 270, 150);
+		legendaryAirpods.setBounds(1270, 600+20, 270, 150);
 		
 		usedBall.addActionListener(this);
 		enchantedChewWand.addActionListener(this);
@@ -106,19 +106,26 @@ public class StorePanel extends JPanel implements ActionListener {
 		layeredPane.add(biolumeBubbleMachine, JLayeredPane.PALETTE_LAYER);
 		layeredPane.add(platinumSpeaker, JLayeredPane.PALETTE_LAYER);
 
-		// EXIT BUTTON (Top-Left Placement)
-		JButton backButton = new JButton("Return to home");
-		backButton.addActionListener(e -> {
-			cardLayout.show(cardPanel, "Home");
-		});
-		backButton.setBounds(0, 0, 80, 80);
-		layeredPane.add(backButton, JLayeredPane.PALETTE_LAYER); 
-		
-		updateBalanceDisplay();
+		// Exit Button
+				ImageIcon returnIcon = DrawingSurface.createScaledIcon("Images/Homescreen_Buttons/ReturnButton.png", 160);
+				ImageIcon returnGlow = DrawingSurface.createScaledIcon("Images/Homescreen_Buttons/ReturnGlow.png", 160);
+
+				JButton backButton = new JButton(returnIcon);
+				backButton.addActionListener(e -> {
+					cardLayout.show(cardPanel, "Home");
+				});
+
+				backButton.setBounds(1500, 835, returnIcon.getIconWidth(), 160);
+				DrawingSurface.clearBackground(backButton);
+				backButton.setRolloverIcon(returnGlow);
+				
+				layeredPane.add(backButton, JLayeredPane.PALETTE_LAYER);
+
+				updateBalanceDisplay();
 	}
 	
 	public void addBackground() {
-		backgroundPanel = new BackgroundPanel("Images/Pet_Sprites/Untitled15.png");
+		backgroundPanel = new BackgroundPanel("Images/Toy_Icons/ToyStore.png");
 		backgroundPanel.setBounds(0, 0, 1900, 1060);
 		layeredPane.add(backgroundPanel, JLayeredPane.DEFAULT_LAYER);
 		layeredPane.setSize(1900, 1060);

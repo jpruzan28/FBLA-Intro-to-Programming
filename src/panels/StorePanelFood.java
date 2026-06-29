@@ -81,7 +81,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 		fishKibble.setBounds(600+125, 150+20, 270, 150);
 		turkeyTreats.setBounds(600+125, 385+20, 270, 150);
 		goldenRat.setBounds(600+125, 600+20, 270, 150);
-		flakes.setBounds(1270, 150, 150+20, 150);
+		flakes.setBounds(1270, 150+20, 270, 150);
 		algaeCrisps.setBounds(1270, 385+20, 270, 150);
 		abyssInfusion.setBounds(1270, 600+20, 270, 150);
 		
