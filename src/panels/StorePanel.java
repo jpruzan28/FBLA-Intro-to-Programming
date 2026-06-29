@@ -17,12 +17,14 @@ public class StorePanel extends JPanel implements ActionListener {
 	private JLabel expensesLabel;
 
 	Pet p;
+	DrawingSurface drawingSurface;
 	private BackgroundPanel backgroundPanel;
 	private JLayeredPane layeredPane;
 	private JPanel allToysPanel;
 	
-	public StorePanel(CardLayout cardLayout, JPanel cardPanel, Pet pet) {
+	public StorePanel(CardLayout cardLayout, JPanel cardPanel, Pet pet, DrawingSurface drawingSurface) {
 		p = pet;
+		this.drawingSurface = drawingSurface;
 		
 		setLayout(new BorderLayout());
 		allToysPanel = new JPanel(new BorderLayout());
@@ -112,6 +114,7 @@ public class StorePanel extends JPanel implements ActionListener {
 
 				JButton backButton = new JButton(returnIcon);
 				backButton.addActionListener(e -> {
+					drawingSurface.updateMoneyDisplay();
 					cardLayout.show(cardPanel, "Home");
 				});
 

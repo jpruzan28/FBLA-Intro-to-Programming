@@ -11,7 +11,7 @@ import pets.Pet;
 import java.util.TimerTask;
 
 public class DrawingSurface implements ActionListener {
-    private JButton work, food, sleep, clean, vet, play, store, exit;
+    private JButton work, food, sleep, clean, vet, play, store, exit, info;
     private Bar health, nutrition, hygiene, rest, emotion;
     private Sprite sprite;
     private Bar[] bars;
@@ -57,8 +57,8 @@ public class DrawingSurface implements ActionListener {
         }
     
         homeScreen = new JPanel();
-        storePanel = new StorePanel(cardLayout, cardPanel, pet);
-        storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
+        storePanel = new StorePanel(cardLayout, cardPanel, pet, this);
+        storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet, this);
         summaryPanel = new SummaryPanel(cardLayout, cardPanel, pet);
 
         // Creates work popup
@@ -260,6 +260,8 @@ public class DrawingSurface implements ActionListener {
     	ImageIcon workIcon = createScaledIcon("Images/Homescreen_Buttons/WorkButton.png", 170);
     	ImageIcon vetIcon = createScaledIcon("Images/Homescreen_Buttons/VetButton.png", 170);
     	ImageIcon exitIcon = createScaledIcon("Images/Homescreen_Buttons/ExitButton.png", 150);
+    	ImageIcon infoIcon = createScaledIcon("Images/Homescreen_Buttons/InfoButton.png", 150);
+
     
     	ImageIcon cleanGlowIcon = createScaledIcon("Images/Homescreen_Buttons/CleaningGlow.png", 500);
     	ImageIcon sleepGlowIcon = createScaledIcon("Images/Homescreen_Buttons/RestGlow.png", 290);
@@ -278,6 +280,7 @@ public class DrawingSurface implements ActionListener {
 		play = new JButton(playIcon);
 		store = new JButton(storeIcon);
 		exit = new JButton(exitIcon);
+		info = new JButton(infoIcon); 
 
 		work.setBounds(1380, 130, workIcon.getIconWidth(), 170);
 		food.setBounds(70, 760, feedIcon.getIconWidth(), 227);
@@ -301,6 +304,7 @@ public class DrawingSurface implements ActionListener {
         clearBackground(work);
         clearBackground(vet);
         clearBackground(exit);
+        clearBackground(info);
         
         clean.setRolloverIcon(cleanGlowIcon);
         sleep.setRolloverIcon(sleepGlowIcon);
@@ -363,7 +367,7 @@ public class DrawingSurface implements ActionListener {
 
 		} else if (button == work) {
 			// Creates work popup
-			WorkApp workPopUp = new WorkApp(null, pet);
+			WorkApp workPopUp = new WorkApp(null, pet, this);
 			workPopUp.setVisible(true);
 
 		} else if (button == food) {
