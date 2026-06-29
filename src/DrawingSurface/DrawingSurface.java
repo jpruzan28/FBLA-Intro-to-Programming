@@ -367,7 +367,7 @@ public class DrawingSurface implements ActionListener {
 
 		} else if (button == work) {
 			// Creates work popup
-			WorkApp workPopUp = new WorkApp(null, pet);
+			WorkApp workPopUp = new WorkApp(null, pet, this);
 			workPopUp.setVisible(true);
 
 		} else if (button == food) {
