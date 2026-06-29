@@ -57,8 +57,8 @@ public class DrawingSurface implements ActionListener {
         }
     
         homeScreen = new JPanel();
-        storePanel = new StorePanel(cardLayout, cardPanel, pet);
-        storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet);
+        storePanel = new StorePanel(cardLayout, cardPanel, pet, this);
+        storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet, this);
         summaryPanel = new SummaryPanel(cardLayout, cardPanel, pet);
 
         // Creates work popup
