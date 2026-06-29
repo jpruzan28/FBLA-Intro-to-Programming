@@ -271,6 +271,7 @@ public class DrawingSurface implements ActionListener {
     	ImageIcon workGlowIcon = createScaledIcon("Images/Homescreen_Buttons/WorkGlow.png", 170);
     	ImageIcon vetGlowIcon = createScaledIcon("Images/Homescreen_Buttons/VetGlow.png", 170);
     	ImageIcon exitGlowIcon = createScaledIcon("Images/Homescreen_Buttons/ExitGlow.png", 150);
+    	ImageIcon infoGlowIcon = createScaledIcon("Images/Homescreen_Buttons/InfoGlow.png", 150);
     	
         work  = new JButton(workIcon);
         food  = new JButton(feedIcon);
@@ -289,6 +290,7 @@ public class DrawingSurface implements ActionListener {
 		vet.setBounds(1380, 320, vetIcon.getIconWidth(), 170);
 		play.setBounds(450, 460, playIcon.getIconWidth(), 200);
 		store.setBounds(157, 134, storeIcon.getIconWidth(), 655);
+		info.setBounds(100, 100, infoIcon.getIconWidth(), 100);
 
 		// Makes exit button outside of the restricted border
 		exit.setMargin(new Insets(0, 0, 0, 0));
@@ -314,15 +316,17 @@ public class DrawingSurface implements ActionListener {
         store.setRolloverIcon(storeGlowIcon);
         work.setRolloverIcon(workGlowIcon);
         exit.setRolloverIcon(exitGlowIcon);
+        info.setRolloverIcon(infoGlowIcon);
         
-        work .setToolTipText("Answer questions to make money. Increases Total Savings. $10 per question right");
-        food .setToolTipText("Food store to buy and feed food. Increases Hunger bar");
+        work .setToolTipText("Answer questions to make money. Increases Total Savings. $20 per question right");
+        food .setToolTipText("Food store to buy and feed food. (+Nutrition)");
         sleep.setToolTipText("Pet sleeps for certain amount of time. Increases Rest bar");
         clean.setToolTipText("Cleans pet. (+Hygiene)");
         vet  .setToolTipText("Cures pet. Increases Health bar");
-        play .setToolTipText("PLAY. Pick toy you own for pet to play with. Increases Emotion bar");
-        store.setToolTipText("TOY STORE. Toy store to buy toys");
+        play .setToolTipText("Pick toy you own for pet to play with. Increases Emotion bar");
+        store.setToolTipText("Toy store to buy toys");
         exit.setToolTipText("End game");
+        info.setToolTipText("Instruction guide for buttons"); 
 
         work .addActionListener(this);
         food .addActionListener(this);
@@ -332,6 +336,7 @@ public class DrawingSurface implements ActionListener {
         play .addActionListener(this);
         store.addActionListener(this);
         exit.addActionListener(this);
+        info.addActionListener(this); 
 
      
         layeredPane.add(work,  JLayeredPane.PALETTE_LAYER);
@@ -342,6 +347,7 @@ public class DrawingSurface implements ActionListener {
         layeredPane.add(play,  JLayeredPane.PALETTE_LAYER);
         layeredPane.add(store, JLayeredPane.PALETTE_LAYER);
         layeredPane.add(exit, JLayeredPane.PALETTE_LAYER);
+        layeredPane.add(info, JLayeredPane.PALETTE_LAYER); 
     }
     
     public static void errorMessage(String problem) {
@@ -370,6 +376,11 @@ public class DrawingSurface implements ActionListener {
 			WorkApp workPopUp = new WorkApp(null, pet, this);
 			workPopUp.setVisible(true);
 
+		} else if (button == info) {
+			ImageIcon icon = createScaledIcon("Images/Homescreen_Buttons/InfoScreen.png", 750);
+			JOptionPane.showMessageDialog(null, "", "Instructions", JOptionPane.PLAIN_MESSAGE, icon);
+
+			
 		} else if (button == food) {
 			cardLayout.show(cardPanel, "FStore");
 
