@@ -21,6 +21,10 @@ public class Bar {
 	double height; 
 	double maxWidth;
 	
+	Color red;
+	Color yellow;
+	Color green; 
+	
 	public Bar(Pet pet, String name, double x, double y, double maxWidth, double height) {
 		this.pet = pet;
 		this.name = name; 
@@ -30,6 +34,10 @@ public class Bar {
 		this.width = width;
 		this.height = height; 
 		this.maxWidth = maxWidth;
+		
+		red = new Color(204,  0,  0); // muted red
+		yellow = new Color(246, 231,  26); // muted yellow 
+		green = new Color(102, 204, 0); // muted green
 		
 		if (name.equals("Nutrition")) {
 			amount = pet.getNutrition();
@@ -100,13 +108,13 @@ public class Bar {
 	
 	public Color getColor() {
 		if (getAmount() <= 3) {
-			return Color.RED;
+			return red;
 		}
 		else if (getAmount() >= 8) {
-			return Color.GREEN;
+			return green;
 		}
 		else {
-			return Color.YELLOW;
+			return yellow;
 		}
 	}
 }

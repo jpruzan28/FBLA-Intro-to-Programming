@@ -152,10 +152,10 @@ public class DrawingSurface implements ActionListener {
 
     // Called by ReductionTimer to update money display
     public void updateMoneyDisplay() {
-        SwingUtilities.invokeLater(() -> {
+//        SwingUtilities.invokeLater(() -> {
             moneyLabel.setText("Balance: $" + String.format("%.2f", pet.getMoney()));
             expensesLabel.setText("Expenses: $" + String.format("%.2f", pet.getExpenses()));  
-        });
+        //});
     }
     
     // Clock label - top right
