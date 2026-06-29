@@ -252,12 +252,7 @@ public class DrawingSurface implements ActionListener {
 	}
 
     public void addButtons() {
-    	
-//    	ImageIcon icon = new ImageIcon("Images/Homescreen_Buttons/CleaningButton.png");
-//    	Image scaled = icon.getImage().getScaledInstance(545, 500, Image.SCALE_SMOOTH);
-//    	ImageIcon scaledIcon = new ImageIcon(scaled);
 
-    	
 
     	ImageIcon cleanIcon = createScaledIcon("Images/Homescreen_Buttons/CleaningButton.png", 500);
     	ImageIcon sleepIcon = createScaledIcon("Images/Homescreen_Buttons/RestButton.png", 290);
@@ -297,13 +292,15 @@ public class DrawingSurface implements ActionListener {
 		vet.setBounds(1380, 320, vetIcon.getIconWidth(), 170);
 		play.setBounds(450, 460, playIcon.getIconWidth(), 200);
 		store.setBounds(157, 134, storeIcon.getIconWidth(), 655);
-		info.setBounds(100, 100, infoIcon.getIconWidth(), 100);
 
 		// Makes exit button outside of the restricted border
 		exit.setMargin(new Insets(0, 0, 0, 0));
+		info.setMargin(new Insets(0, 0, 0, 0));
 		// Clears any border space around the icon
 		exit.setBorder(BorderFactory.createEmptyBorder());
+		info.setBorder(BorderFactory.createEmptyBorder());
 		exit.setBounds(-5, -5, exitIcon.getIconWidth(), 150);
+		info.setBounds(-5, 145, exitIcon.getIconWidth(), 150);
         
         clearBackground(food);
         clearBackground(sleep);
