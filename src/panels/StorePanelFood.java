@@ -1,4 +1,4 @@
-package panels;
+ package panels;
 
 import javax.swing.*;
 import properties.*;
