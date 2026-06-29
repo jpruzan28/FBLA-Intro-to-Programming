@@ -34,10 +34,9 @@ public class SummaryPanel extends JPanel {
     private static final Color BG_CARD2   = new Color(220, 190, 192); // mid rose    — alt rows / toys strip
     private static final Color BG_FOOTER  = new Color(182, 138, 140); // dark rose   — footer bar
 
-    private static final Color HEALTH_C   = new Color(175,  82,  82); // muted red
-    private static final Color NUTRITION_C   = new Color(188, 132,  62); // muted amber
-    private static final Color HYGIENE_C  = new Color( 78, 138, 182); // muted blue
-    private static final Color REST_C     = new Color(135, 105, 182); // muted purple
+    private static final Color RED   = new Color(204,  0,  0); // muted red
+    private static final Color YELLOW   = new Color(246, 231,  26); // muted amber
+    private static final Color GREEN  = new Color(102, 204, 0); // muted blue
     private static final Color BAR_TRACK  = new Color(175, 138, 140); // muted rose track
 
     private static final Color GOLD       = new Color(162, 125,  42); // warm muted gold
@@ -210,15 +209,61 @@ public class SummaryPanel extends JPanel {
         bars.setOpaque(false);
         bars.setBorder(BorderFactory.createEmptyBorder(6, 2, 6, 2));
 
+        Color color; 
         // Vertical glue between every bar spreads them evenly across the full card height.
         bars.add(Box.createVerticalGlue());
-        bars.add(statBar("Health",  pet.getHealth(),  10, HEALTH_C));
+        int health = pet.getHealth();
+        if (health <= 3) {
+			color = RED;
+		}
+		else if (health >= 8) {
+			color = GREEN; 
+		}
+		else {
+			color = YELLOW; 
+		}
+        bars.add(statBar("Health",  health,  10, color));
+        
+        
         bars.add(Box.createVerticalGlue());
-        bars.add(statBar("Nutrition",  pet.getNutrition(),  10, NUTRITION_C));
+        int nutrition = pet.getNutrition(); 
+        if (nutrition <= 3) {
+        	color = RED; 
+        }
+		else if (nutrition >= 8) {
+			color = GREEN; 
+		}
+		else {
+			color = YELLOW; 
+		}
+        bars.add(statBar("Nutrition",  nutrition,  10, color));
+        
         bars.add(Box.createVerticalGlue());
-        bars.add(statBar("Hygiene", pet.getHygiene(), 10, HYGIENE_C));
+        int hygiene = pet.getHygiene(); 
+        if (hygiene <= 3) {
+        	color = RED; 
+        }
+		else if (hygiene >= 8) {
+			color = GREEN;
+		}
+		else {
+			color = YELLOW; 
+		}
+        bars.add(statBar("Hygiene", hygiene, 10, color));
+        
         bars.add(Box.createVerticalGlue());
-        bars.add(statBar("Rest",    pet.getRest(),    10, REST_C));
+        int rest = pet.getRest(); 
+        if (rest <= 3) {
+        	color = RED; 
+        }
+		else if (rest >= 8) {
+			color = GREEN; 
+		}
+		else {
+			color = YELLOW; 
+		}
+        
+        bars.add(statBar("Rest", rest, 10, color));
         bars.add(Box.createVerticalGlue());
 
         p.add(bars, BorderLayout.CENTER);
