@@ -47,7 +47,8 @@ public class StorePanelFood extends JPanel implements ActionListener {
 		moneyLabel = new JLabel("Balance: $" + String.format("%.2f", p.getMoney()), SwingConstants.CENTER);
 		moneyLabel.setFont(statusFont);
 		moneyLabel.setForeground(new Color(50, 32, 32));
-		expensesLabel = new JLabel("Spent: $" + String.format("%.2f", p.getExpenses()), SwingConstants.CENTER);
+		
+		expensesLabel = new JLabel("Expenses: $" + String.format("%.2f", p.getExpenses()), SwingConstants.CENTER);
 		expensesLabel.setFont(statusFont);
 		expensesLabel.setForeground(new Color(140, 60, 60)); 
 
@@ -124,6 +125,14 @@ public class StorePanelFood extends JPanel implements ActionListener {
 		layeredPane.add(backButton, JLayeredPane.PALETTE_LAYER);
 
 		updateBalanceDisplay();
+		
+		this.addComponentListener(new java.awt.event.ComponentAdapter() {
+            @Override
+            public void componentShown(java.awt.event.ComponentEvent e) {
+                updateBalanceDisplay(); // Refreshes labels the instant the Toy Store becomes visible
+            }
+        });
+		
 	}
 	
 	public void addBackground() {
@@ -144,7 +153,7 @@ public class StorePanelFood extends JPanel implements ActionListener {
 	
 	private void updateBalanceDisplay() {
 		moneyLabel.setText("Balance: $" + String.format("%.2f", p.getMoney()));
-		expensesLabel.setText("Spent: $" + String.format("%.2f", p.getExpenses()));
+		expensesLabel.setText("Expenses: $" + String.format("%.2f", p.getExpenses()));
 	}
 	
 	public void actionPerformed(ActionEvent e) {
