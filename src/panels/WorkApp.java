@@ -18,6 +18,7 @@ public class WorkApp extends JDialog {
     String correctAnswer;
     
     Pet pet;
+    DrawingSurface drawingSurface;
 
     public WorkApp(JFrame parent, Pet pet, DrawingSurface drawingSurface) {
         super(parent, "Work", true);
@@ -27,6 +28,7 @@ public class WorkApp extends JDialog {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         this.pet = pet;
+        this.drawingSurface = drawingSurface;
 
         answers = new JButton[4];
 
@@ -68,6 +70,11 @@ public class WorkApp extends JDialog {
             feedback.setForeground(Color.GREEN.darker());
             clicked.setBackground(Color.GREEN);
             pet.setMoney(pet.getMoney() + 20);
+            
+            if (drawingSurface != null) {
+                drawingSurface.updateMoneyDisplay();
+            }
+            
         } else {
             feedback.setText("Wrong! The answer was: " + correctAnswer + " You earned $0");
             feedback.setForeground(Color.RED);

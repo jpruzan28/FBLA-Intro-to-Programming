@@ -57,6 +57,13 @@ public class DrawingSurface implements ActionListener {
         }
     
         homeScreen = new JPanel();
+        
+        homeScreen.addComponentListener(new java.awt.event.ComponentAdapter() {
+            @Override
+            public void componentShown(java.awt.event.ComponentEvent e) {
+                updateMoneyDisplay(); 
+            }
+        });
         storePanel = new StorePanel(cardLayout, cardPanel, pet, this);
         storePanelFood = new StorePanelFood(cardLayout, cardPanel, pet, this);
         summaryPanel = new SummaryPanel(cardLayout, cardPanel, pet);
