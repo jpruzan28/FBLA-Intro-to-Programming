@@ -7,6 +7,7 @@ import javax.swing.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import DrawingSurface.AIQuestionGenerator;
+import DrawingSurface.DrawingSurface;
 import pets.Pet;
 
 public class WorkApp extends JDialog {
@@ -18,7 +19,7 @@ public class WorkApp extends JDialog {
     
     Pet pet;
 
-    public WorkApp(JFrame parent, Pet pet) {
+    public WorkApp(JFrame parent, Pet pet, DrawingSurface drawingSurface) {
         super(parent, "Work", true);
         setSize(1200, 800);
         setLocationRelativeTo(parent);
