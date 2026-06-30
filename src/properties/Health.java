@@ -32,20 +32,19 @@ public class Health {
 		int totalHealth = pet.getHealth();
 
 		int newHealth;
-		if (totalHealth <= 2) {
-			newHealth = totalHealth;
-        } 
-		else {
+
 		 if (totalHunger == 0) {
 	            newHealth = totalHealth - 3;
 	        } else if (totalHunger <= 3) {
-	            newHealth = totalHealth - 2;
+	            newHealth = totalHealth - 1;
 	        } else if (totalHunger <= 7) { 
 	            newHealth = totalHealth - 1;
 	        } else {
-	            newHealth = totalHealth + 1;
+	            newHealth = totalHealth + 2;
 	        }
-	    }
+	    
+		 // Sets a range for the value
+		 newHealth = Math.max(0, Math.min(10, newHealth));
 	    pet.setHealth(newHealth);
 	}
 	
@@ -60,19 +59,18 @@ public class Health {
 	    int totalHealth = pet.getHealth();
 	    int newHealth;
 
-	    if (totalHealth <= 2) {
-	        newHealth = totalHealth;
-	    } else {
 	        if (totalRest == 0) {
-	            newHealth = totalHealth - 3;
-	        } else if (totalRest <= 3) {
 	            newHealth = totalHealth - 2;
+	        } else if (totalRest <= 3) {
+	            newHealth = totalHealth - 1;
 	        } else if (totalRest <= 6) {
 	            newHealth = totalHealth - 1;
 	        } else {
 	            newHealth = totalHealth + 1; 
 	        }
-	    }
+	    
+	   	 // Sets a range for the value
+			 newHealth = Math.max(0, Math.min(10, newHealth));
 	    pet.setHealth(newHealth);
 	}
 
@@ -88,24 +86,23 @@ public class Health {
 	    int totalHealth = pet.getHealth();
 	    int newHealth;
 
-	    if (totalHealth <= 2) {
-	        newHealth = totalHealth;
-	    } else {
 	        if (totalHygiene == 0) {
-	            newHealth = totalHealth - 3;
-	        } else if (totalHygiene <= 3) {
 	            newHealth = totalHealth - 2;
+	        } else if (totalHygiene <= 3) {
+	            newHealth = totalHealth - 1;
 	        } else if (totalHygiene <= 6) {
 	            newHealth = totalHealth - 1; 
 	        } else {
-	            newHealth = totalHealth + 1;
+	            newHealth = totalHealth + 2;
 	        }
-	    }
+	    
+	   	 // Sets a range for the value
+			 newHealth = Math.max(0, Math.min(10, newHealth));
 	    pet.setHealth(newHealth); 
 	}
 	
 	
-	/**
+	/*
 	 * 
 	 * remind's the user to visit vet if pet is too low
 	 * 

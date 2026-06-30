@@ -114,7 +114,7 @@ public class Main {
 		timer.schedule(reductionTimers.new reduceHygiene(), 25000, 25000);
 		timer.schedule(reductionTimers.new reduceRest(),    25000, 25000);
 		timer.schedule(reductionTimers.new reduceEmotion(), 25000, 25000);
-		timer.schedule(reductionTimers.new updateHealth(),  25000, 10000);
+		timer.schedule(reductionTimers.new updateHealth(),  25000, 9800);
 		
 		 javax.swing.Timer gameOverChecker = new javax.swing.Timer(1000, null);
 

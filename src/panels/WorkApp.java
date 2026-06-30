@@ -122,13 +122,13 @@ public class WorkApp extends JDialog {
                 } catch (Exception e) {
                     //e.printStackTrace();
                     try {
-                        String fallback = "{\"question\": \"What is the best way to build an emergency fund?\", " +
-                               "\"options\": [" +
-                               "\"Invest all your money in stocks\", " +
-                               "\"Save 3-6 months of expenses in a separate account\", " +
-                               "\"Spend your extra money on things you enjoy\", " +
-                               "\"Lend money to friends and family\"], " +
-                               "\"answer\": \"Save 3-6 months of expenses in a separate account\"}";
+                        String fallback = "{\"question\": \"You want to buy a toy that costs $10, but you only have $4. What is a good thing to do?\", " +
+                 		       "\"options\": [" +
+                		       "\"Take the toy without paying\", " +
+                		       "\"Save a little money each week until you have enough\", " +
+                		       "\"Forget about it and feel sad\", " +
+                		       "\"Ask a stranger to buy it for you\"], " +
+                		       "\"answer\": \"Save a little money each week until you have enough\"}";
                         JSONObject json = new JSONObject(fallback);
                         question.setText("<html><center>" + json.getString("question") + "</center></html>");
                         JSONArray options = json.getJSONArray("options");
