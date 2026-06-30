@@ -34,17 +34,26 @@ public class AIQuestionGenerator {
 	private static final String APIURL = "https://api.anthropic.com/v1/messages";
 	
 	public static String generateQuestion(String topic, String difficulty) {
-		String prompt = String.format(
-			    "Generate a single %s difficulty multiple choice question about %s. " +
-			    "Reply with only a JSON object containing these exact fields: question, options, answer. " +
-			    "options must be an array of exactly 4 strings. answer must be the correct option text.",
-			    difficulty, topic
-			);
-		
-		String escapedPrompt = prompt.replace("\"", "\\\"");
+	    String prompt = String.format(
+	        "Generate a single multiple choice question about %s for children ages 5 to 11. " +
+	        "Make it %s difficulty within that age range. " +
+	        "Use simple, friendly words and short sentences a young child can read. " +
+	        "Use everyday examples kids relate to (allowance, toys, snacks, sharing, " +
+	        "saving up for something they want). " +
+	        "Avoid jargon, big numbers, complex math, and any scary or upsetting topics. " +
+	        "Keep a warm, encouraging tone. " +
+	        "Reply with ONLY a JSON object containing these exact fields: question, options, answer. " +
+	        "options must be an array of exactly 4 short strings. " +
+	        "answer must exactly match one of the option strings.",
+	        topic, difficulty
+	    );
+
+	    String escapedPrompt = prompt.replace("\"", "\\\"");
+	    // ... rest stays the same
+	
 
 		String requestBody = "{"
-		    + "\"model\": \"claude-opus-4-6\","
+		    + "\"model\": \"claude-sonnet-4-6\","
 		    + "\"max_tokens\": 1024,"
 		    + "\"messages\": ["
 		    + "  {"
@@ -78,15 +87,14 @@ public class AIQuestionGenerator {
 		    return text;
 		    
 		} catch (Exception e) {
-		   // e.printStackTrace();
-			 return "{\"question\": \"What is the best way to build an emergency fund?\", " +
-	           "\"options\": [" +
-	           "\"Invest all your money in stocks\", " +
-	           "\"Save 3-6 months of expenses in a separate account\", " +
-	           "\"Spend your extra money on things you enjoy\", " +
-	           "\"Lend money to friends and family\"], " +
-	           "\"answer\": \"Save 3-6 months of expenses in a separate account\"}";
-
+		    //e.printStackTrace();
+			return "{\"question\": \"You want to buy a toy that costs $10, but you only have $4. What is a good thing to do?\", " +
+		       "\"options\": [" +
+		       "\"Take the toy without paying\", " +
+		       "\"Save a little money each week until you have enough\", " +
+		       "\"Forget about it and feel sad\", " +
+		       "\"Ask a stranger to buy it for you\"], " +
+		       "\"answer\": \"Save a little money each week until you have enough\"}";
 		}		
 	}
 	

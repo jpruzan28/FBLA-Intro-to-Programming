@@ -106,7 +106,7 @@ public class WorkApp extends JDialog {
                 };
                 Random rand = new Random();
                 String topic = topics[rand.nextInt(topics.length)];
-                return AIQuestionGenerator.generateQuestion(topic, "medium");
+                return AIQuestionGenerator.generateQuestion(topic, "easy");
             }
 
             @Override
