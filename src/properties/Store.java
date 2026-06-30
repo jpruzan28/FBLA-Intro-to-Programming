@@ -79,7 +79,7 @@ public class Store {
 			
 			JOptionPane.showMessageDialog(
 		            null, 
-		           "You Bought "  + t.getName(), 
+		           "You Bought A"  + t.getName(), 
 		            "Congrats", 
 		            JOptionPane.INFORMATION_MESSAGE
 		        );
