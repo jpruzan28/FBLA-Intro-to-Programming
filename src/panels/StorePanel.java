@@ -81,12 +81,12 @@ public class StorePanel extends JPanel implements ActionListener {
 		usedBall.setBounds(180, 150+20, 270, 150);
 		enchantedChewWand.setBounds(180, 385+20, 270, 150);
 		goldenestBone.setBounds(180, 600+20, 270, 150);
-		driftBall.setBounds(600+125, 150+20, 270, 150);
-		biolumeBubbleMachine.setBounds(600+125, 385+20, 270, 150);
-		platinumSpeaker.setBounds(600+125, 600+20, 270, 150);
-		plainKittySock.setBounds(1270, 150+20, 270, 150);
-		laserPointer.setBounds(1270, 385+20, 270, 150);
-		legendaryAirpods.setBounds(1270, 600+20, 270, 150);
+		plainKittySock.setBounds(600+125, 150+20, 270, 150);
+		laserPointer.setBounds(600+125, 385+20, 270, 150);
+		legendaryAirpods.setBounds(600+125, 600+20, 270, 150);
+		driftBall.setBounds(1270, 150+20, 270, 150);
+		biolumeBubbleMachine.setBounds(1270, 385+20, 270, 150);
+		platinumSpeaker.setBounds(1270, 600+20, 270, 150);
 		
 		usedBall.addActionListener(this);
 		enchantedChewWand.addActionListener(this);
